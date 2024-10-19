@@ -30,7 +30,7 @@ Public RepImagesAnodisation As String                      'répertoire des image
 Public RepGraphesProductionLocal As String             'répertoire contenant les graphes de production de l'anodisation sur le PC en local
 Public RepGraphesProductionServeur As String         'répertoire contenant les graphes de production de l'anodisation sur le serveur
 Public RepFicClipper As String                                     'répertoire des fichiers de Clipper
-
+Public ShowLog As Boolean
 
 '--- divers pour construction du programme ---
 Public Bidon As Variant

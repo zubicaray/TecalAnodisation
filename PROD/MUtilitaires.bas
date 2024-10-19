@@ -12,20 +12,7 @@ Option Explicit
 Option Base 1
 DefVar A-Z
 
-Public Sub Log_OLD(ByVal ProcName As String, ByVal msg As String)
 
-  Dim nUnit As Integer
-  'nUnit = FreeFile
-  ' This assumes write access to the directory containing the program '
-  ' You will need to choose another directory if this is not possible '
-  
-  'Open App.Path & "\" & App.EXEName & ".log" For Append As nUnit
-  'Print #nUnit, "Function:" & ProcName
-  'Print #nUnit, "  " & msg
-  'Print #nUnit, Format$(Now)
-  'Print #nUnit, " --------------------------------------- " '& Format$(Now)
-  'Close nUnit
-End Sub
 
 Public Sub LogCharges(ByVal msg As String)
 
@@ -47,10 +34,10 @@ Public Sub LogCharges(ByVal msg As String)
      
 
 End Sub
-Public Sub Log(ByVal msg As String)
+Public Sub Log(ByVal msg As String, Optional toPrint As Boolean = True)
 
     
-    ' If DEBUG_MODE = True Then
+    If toPrint = True And ShowLog Then
      
         Dim nUnit As Integer
         nUnit = FreeFile
@@ -64,7 +51,26 @@ Public Sub Log(ByVal msg As String)
         Print #nUnit, "  " & msg
         Print #nUnit, " --------------------------------------- " '& Format$(Now)
         Close nUnit
-     'End If
+    End If
+     
+
+End Sub
+
+Public Sub LogPourCPO(ByVal msg As String)
+
+     
+        Dim nUnit As Integer
+        nUnit = FreeFile
+        ' This assumes write access to the directory containing the program '
+        ' You will need to choose another directory if this is not possible '
+        Dim str As String
+        str = Format(Now, "yyyymmdd")
+        Open App.Path & "\" & "CPO_LOG_" & str & ".txt" For Append As nUnit
+        ' For Append As nUnit
+        Print #nUnit, Format$(Now)
+        Print #nUnit, "  " & msg
+        Print #nUnit, " --------------------------------------- " '& Format$(Now)
+        Close nUnit
      
 
 End Sub

@@ -846,10 +846,7 @@ Public Function ChargeCheminBDCLIPPER() As String
         '--- chemin des bains pour CLIPPER ---
         Input #NumFic, Bidon
         Input #NumFic, RepFicClipper
-        '--- affichier les logs
-        Input #NumFic, Bidon
-        Input #NumFic, ShowLog
-        
+      
 
         '--- fermeture du fichier ---
         Close #NumFic

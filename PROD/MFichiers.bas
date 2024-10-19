@@ -1004,7 +1004,15 @@ Public Function ChargeConfiguration() As String
         Input #NumFic, RepFicClipper
     
       
-        
+          '--- affichier les logs
+        Input #NumFic, Bidon
+        Input #NumFic, varConfig
+      
+        If varConfig = 1 Then
+            ShowLog = True
+        Else
+            ShowLog = False
+        End If
                 
         Close #NumFic
     

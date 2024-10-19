@@ -1033,6 +1033,326 @@ Public Sub AnalyseFinDeCycleEtuve()
     
 End Sub
 
+Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
+
+    '--- aiguillage en cas d'erreurs ---
+    On Error GoTo GestionErreurs
+
+    '--- constantes privées ---
+    
+    '--- déclaration ---
+    Dim a As Integer                                                'pour les boucles FOR...NEXT
+    Dim b As Integer                                                'pour les boucles FOR...NEXT
+    Dim NumRedresseur As Integer                        'numéro d'un redresseur
+    
+    Dim MsgTracabilite As String
+    
+    Dim NumFicheProduction As String                   'numéro de fiche de production
+    
+    Dim ConnexionBDAnodisationSQL As ADODB.Connection
+    Dim Enregistrement As ADODB.Recordset
+    
+   Dim FicheVideEtatsCharges As etatsCharges
+    
+    '--- affectation ---
+    'EnregistrementProduction = ""
+    
+    'Call Log("ProchainNumFicheProduction  DEBUT")
+    '--- recherche du prochain numéro de fiche de production ---
+    NumFicheProduction = ProchainNumFicheProduction()
+    'Call Log("ProchainNumFicheProduction  FIN")
+                    
+    If NumFicheProduction <> "" Then
+    
+        '--- ouverture de la connexion ---
+        Set ConnexionBDAnodisationSQL = New ADODB.Connection
+        With ConnexionBDAnodisationSQL
+            .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+            .CursorLocation = adUseServer
+            .Mode = adModeReadWrite
+            .ConnectionTimeout = 2     'X secondes d'attente de connexion avant de lancer un message d'erreur
+            .Open
+        End With
+        
+        'Call Log("DETAILS DES CHARGES DE PRODUCTION  DEBUT")
+        '--- extraction et enregistrement ---
+        With TEtatsCharges(NumCharge)
+    
+            '****************************************************************************************************************
+            '*                                                DETAILS DES CHARGES DE PRODUCTION
+            '****************************************************************************************************************
+            
+            '--- ouverture de la table ---
+            Set Enregistrement = New ADODB.Recordset
+            With Enregistrement
+                .CursorLocation = adUseServer
+                .CursorType = adOpenStatic 'adOpenKeyset
+                .LockType = adLockBatchOptimistic    'adLockOptimistic
+                .Open TABLE_DETAILS_CHARGES_PRODUCTION, ConnexionBDAnodisationSQL, , adCmdTable
+            End With
+    
+            '--- enregistrement des détails des charges ---
+            For a = LBound(.TDetailsCharges()) To UBound(.TDetailsCharges())
+                With .TDetailsCharges(a)
+                    
+                    If .NumCommandeInterne > 0 Then
+                    
+                        '--- enregistrement de la fiche ---
+                        Enregistrement.AddNew
+                        Enregistrement("NumCommandeInterne") = .NumCommandeInterne
+                        Enregistrement("NbrReparations") = .NbrReparations
+                        Enregistrement("DateEntreeEnLigne") = TEtatsCharges(NumCharge).DateEntreeEnLigne
+                        Enregistrement("DateArriveeAuDechargement") = TEtatsCharges(NumCharge).DateArriveeAuDechargement
+                        Enregistrement("NumBarre") = TEtatsCharges(NumCharge).NumBarre
+                        Enregistrement("NumLigne") = a
+                        Enregistrement("CodeClient") = .CodeClient
+                        Enregistrement("NbrPieces") = .NbrPieces
+                        Enregistrement("Designation") = .Designation
+                        Enregistrement("NumLignesReferencesClient") = .NumLignesReferencesClient
+                        Enregistrement("Matiere") = .Matiere
+                        Enregistrement("NumGammeAnodisation") = TEtatsCharges(NumCharge).TGammesAnodisation.NumGamme
+                        Enregistrement("RefGammeAnodisation") = TEtatsCharges(NumCharge).TGammesAnodisation.RefGamme
+                        Enregistrement("TempsAnodisationTexte") = CTemps(TEtatsCharges(NumCharge).TempsTotalGammeRedresseur)
+                        Enregistrement("NumFicheProduction") = NumFicheProduction
+                        If TEtatsCharges(NumCharge).ChargePrioritaire = True Then
+                            Enregistrement("ChargePrioritaire") = 1
+                        Else
+                            Enregistrement("ChargePrioritaire") = 0
+                        End If
+                        Enregistrement("AlarmesLigne") = TEtatsCharges(NumCharge).AlarmesLigne
+                        'Enregistrement.Update
+                    
+                    Else
+                        
+                        '--- sortie directe si plus de n° de fiche détails de charge ---
+                        Exit For
+            
+                    End If
+                
+                End With
+            Next a
+            
+            Enregistrement.UpdateBatch
+            
+            Enregistrement.Close
+            'Call Log("DETAILS DES CHARGES DE PRODUCTION  FIN")
+            'Call Log("DETAILS DE LA GAMME D'ANODISATION DE PRODUCTION DEBUT")
+        
+            '****************************************************************************************************************
+            '*                                      DETAILS DE LA GAMME D'ANODISATION DE PRODUCTION
+            '****************************************************************************************************************
+            
+            '--- ouverture de la table ---
+            Set Enregistrement = New ADODB.Recordset
+            With Enregistrement
+                .CursorLocation = adUseServer
+                .CursorType = adOpenStatic 'adOpenKeyset
+                .LockType = adLockBatchOptimistic    'adLockOptimistic
+                .Open TABLE_DETAILS_GAMMES_ANODISATION_PRODUCTION, ConnexionBDAnodisationSQL, , adCmdTable
+            End With
+            
+            '--- enregistrement des détails de la gamme d'anodisation ---
+            For a = LBound(.TGammesAnodisation.TDetailsGammesAnodisation()) To UBound(.TGammesAnodisation.TDetailsGammesAnodisation())
+                
+                With .TGammesAnodisation.TDetailsGammesAnodisation(a)
+                    
+                    If .NumZone <> 0 Then
+                     
+                        '--- enregistrement de la fiche ---
+                        Enregistrement.AddNew
+                        Enregistrement("NumFicheProduction") = NumFicheProduction
+                        Enregistrement("NumLigne") = a
+                        Enregistrement("NumZone") = .NumZone
+                        Enregistrement("TempsAuPosteTexte") = .TempsAuPosteTexte
+                        Enregistrement("TempsEgouttageTexte") = .TempsEgouttageTexte
+                        Enregistrement("TempsAuPosteSecondes") = .TempsAuPosteSecondes
+                        Enregistrement("TempsEgouttageSecondes") = .TempsEgouttageSecondes
+                        Enregistrement("DecompteDuTempsAuPosteReelSecondes") = .DecompteDuTempsAuPosteReelSecondes
+                        Enregistrement("NumPosteReel") = .NumPosteReel
+                        
+                        '--- affectation du numéro de redresseur ---
+                        Select Case .NumPosteReel
+                            Case POSTES.P_C13: NumRedresseur = REDRESSEURS.R_C13
+                            Case POSTES.P_C14: NumRedresseur = REDRESSEURS.R_C14
+                            Case POSTES.P_C15: NumRedresseur = REDRESSEURS.R_C15
+                            Case POSTES.P_C16: NumRedresseur = REDRESSEURS.R_C16
+                            Case Else
+                        End Select
+                        
+                        '--- enregistrement ---
+                        'Enregistrement.Update
+                    
+                    Else
+                        
+                        '--- sortie directe si plus de n° de fiche détails de charge ---
+                        Exit For
+            
+                    End If
+                
+                End With
+            Next a
+            Enregistrement.UpdateBatch
+            Enregistrement.Close
+            'Call Log("DETAILS DE LA GAMME D'ANODISATION DE PRODUCTION FIN")
+            
+            'Call Log("TRACABILITE DES REDRESSEURS DEBUT")
+            '****************************************************************************************************************
+            '*                                                  TRACABILITE DES REDRESSEURS
+            '****************************************************************************************************************
+            If NumRedresseur > 0 Then                 'enregistrement de la production uniquement si passage dans un
+                                                                          'des redresseurs
+                Bidon = SauveTraçabiliteRedresseurs(NumCharge:=NumCharge, _
+                                                                               NumFicheProduction:=NumFicheProduction, _
+                                                                               DateEntreeEnLigne:=TEtatsCharges(NumCharge).DateEntreeEnLigne, _
+                                                                               NumRedresseur:=NumRedresseur)
+            
+            End If
+
+            'Call Log("TRACABILITE DES REDRESSEURS FIN")
+            'Call Log("DETAILS DES PHASES DE PRODUCTION DEBUT")
+            '****************************************************************************************************************
+            '*                                       DETAILS DES PHASES DE PRODUCTION
+            '****************************************************************************************************************
+            
+            '--- ouverture de la table ---
+            Set Enregistrement = New ADODB.Recordset
+            With Enregistrement
+                .CursorLocation = adUseServer
+                .CursorType = adOpenStatic 'adOpenKeyset
+                .LockType = adLockBatchOptimistic    'adLockOptimistic
+                .Open TABLE_DETAILS_PHASES_PRODUCTION, ConnexionBDAnodisationSQL, , adCmdTable
+            End With
+            
+            '--- enregistrement des détails de la gamme d'anodisation ---
+            For a = LBound(.TDetailsPhasesProduction()) To UBound(.TDetailsPhasesProduction())
+                
+                With .TDetailsPhasesProduction(a)
+                    
+                    '--- enregistrement de la fiche ---
+                    Enregistrement.AddNew
+                    Enregistrement("NumFicheProduction") = NumFicheProduction
+                    Enregistrement("NumRedresseur") = NumRedresseur
+                    Enregistrement("ModeUouI") = TEtatsCharges(NumCharge).ModeUouI
+                    Enregistrement("NumPhase") = a
+                    Enregistrement("TempsPhase") = .TempsPhase
+                    Enregistrement("UPhase") = .UPhase
+                    Enregistrement("IPhase") = .IPhase
+                    'Enregistrement.Update
+                    
+                End With
+            
+            Next a
+            Enregistrement.UpdateBatch
+            Enregistrement.Close
+            
+            
+            '****************************************************************************************************************
+            '*                                                 DETAILS DES FICHES DE PRODUCTION
+            '****************************************************************************************************************
+        
+            'Call Log("DETAILS DES PHASES DE PRODUCTION FIN")
+            'Call Log("DETAILS DES FICHES DE PRODUCTION DEBUT")
+            '--- ouverture de la table ---
+            Set Enregistrement = New ADODB.Recordset
+            With Enregistrement
+                .CursorLocation = adUseServer
+                .CursorType = adOpenStatic 'adOpenKeyset
+                .LockType = adLockBatchOptimistic    'adLockOptimistic
+                .Open TABLE_DETAILS_FICHES_PRODUCTION, ConnexionBDAnodisationSQL, , adCmdTable
+            End With
+        
+            '--- enregistrement des détails des fiches de production ---
+            For a = LBound(.TDetailsFichesProduction()) To UBound(.TDetailsFichesProduction())
+                
+                With .TDetailsFichesProduction(a)
+                    
+                    If .NumPoste <> 0 Then
+                   
+                        '--- enregistrement de la fiche ---
+                        Enregistrement.AddNew
+                        Enregistrement("NumFicheProduction") = NumFicheProduction
+                        Enregistrement("NumLigne") = a
+                        Enregistrement("NumPoste") = .NumPoste
+                        Enregistrement("DateEntreePoste") = .DateEntreePoste
+                        Enregistrement("DateSortiePoste") = .DateSortiePoste
+                        Enregistrement("DateDebutEgouttage") = .DateDebutEgouttage
+                        Enregistrement("DateFinEgouttage") = .DateFinEgouttage
+                        Enregistrement("TemperatureEnEntree") = .TemperatureEnEntree
+                        Enregistrement("TemperatureEnSortie") = .TemperatureEnSortie
+                        Enregistrement("GrapheTemperature") = .GrapheTemperature
+                        Enregistrement("URedresseur") = .URedresseur
+                        Enregistrement("IRedresseur") = .IRedresseur
+                        Enregistrement("GrapheRedresseur") = .GrapheRedresseur
+                        Enregistrement("AnalyseurEnEntree") = .AnalyseurEnEntree
+                        Enregistrement("AnalyseurEnSortie") = .AnalyseurEnSortie
+                        Enregistrement("GrapheAnalyseur") = .GrapheAnalyseur
+                        Enregistrement("AlarmesPoste") = .AlarmesPoste
+                        'Enregistrement.Update
+                    
+                    Else
+                   
+                        '--- sortie directe si plus de n° de fiche détails de charge ---
+                        Exit For
+           
+                    End If
+           
+                End With
+            Next a
+            Enregistrement.UpdateBatch
+            Enregistrement.Close
+        
+            'Call Log("DETAILS DES FICHES DE PRODUCTION FIN")
+        End With
+
+    End If
+    
+    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+    '****************************************************************************************************************
+    '*                                        VIDAGE DE LA CHARGE DANS LE TABLEAU
+    '****************************************************************************************************************
+    TEtatsCharges(NumCharge) = FicheVideEtatsCharges
+    
+    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+    '--- fermeture des enregistrements / connexions ---
+    Select Case Enregistrement.State
+        Case adStateClosed
+        Case Else: Enregistrement.Close
+    End Select
+    ConnexionBDAnodisationSQL.Close
+    
+    '--- effacement des objets ---
+    Set Enregistrement = Nothing
+    Set ConnexionBDAnodisationSQL = Nothing
+    
+    Exit Sub
+
+GestionErreurs:
+    
+    '--- valeur de retour ---
+    'EnregistrementProduction = CStr(Err.Number)
+    
+    AfficheRenseignements ROUGE_0, "Erreur d'enregitrement en base: " & CStr(Err.Number) & vbCrLf
+    
+    '--- fermeture de l'enregistrement / connexion ---
+    On Error Resume Next
+    Enregistrement.Close
+    Set Enregistrement = Nothing
+    ConnexionBDAnodisationSQL.Close
+    Set ConnexionBDAnodisationSQL = Nothing
+
+End Sub
+
+
+
+Private Function MakeTrue( _
+                 ByRef bValue As Boolean) As Boolean
+    MakeTrue = True
+    bValue = True
+End Function
+
+
 '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ' Rôle      : Analyse des charges en lignes pour les POSTES
 ' Entrées :
@@ -1085,12 +1405,10 @@ Public Sub AnalyseChargesEnLignePostes()
                     '--- remplissage de la fiche avec la date d'arrivée au déchargement ---
                     If a >= POSTES.P_D1 And a <= POSTES.P_D2 Then
                         .DateArriveeAuDechargement = Now
-                        ' SZB 2021 ---------------------------------------------------------------
-                        'If (insertionClipperPointage(TEtatsPostes(a).NumCharge) = False) Then
-                        '    MsgBox ("erreur insertion pointage" & CStr(Err.Description))
-                        'End If
+                        ' SZP 20241004 ---------------------------------------------------------------
+                        EnregistrementProductionLocal (TEtatsPostes(a).NumCharge)
                         insertionClipperPointage (TEtatsPostes(a).NumCharge)
-                        EnregistrementProduction TEtatsPostes(a).NumCharge
+                        
                         
                     End If
                     
@@ -1241,7 +1559,7 @@ Public Sub AnalyseChargesEnLignePostes()
  
  
                         
-                        'SZB 2021
+                        'SZP 2021
                         '--- enregistrement de la production ---
                         Select Case a
                             Case POSTES.P_D1
@@ -1253,7 +1571,7 @@ Public Sub AnalyseChargesEnLignePostes()
                                     End If
                                 
                                     '--- enregistrement dans la base de données SQL ---
-                                    'SZB 2021
+                                    'SZP 2021
                                     'EnregistrementProduction TCopieEtatsPostes(a).NumCharge
                                     
                                     'Call Log("Etat du chariot: " & TEtatsPostes(POSTES.P_D1).EtatsChariots)
@@ -1268,7 +1586,7 @@ Public Sub AnalyseChargesEnLignePostes()
                                     End If
                                 
                                     '--- enregistrement dans la base de données SQL ---
-                                    'SZB 2021
+                                    'SZP 2021
                                     'EnregistrementProduction TCopieEtatsPostes(a).NumCharge
                                     'Call Log("Etat du chariot: " & TEtatsPostes(POSTES.P_D2).EtatsChariots)
                                 End If
@@ -1469,7 +1787,7 @@ End Sub
 ' Retours : Les divers valeurs de retours sont mémorisées dans la variable publique du moteur d'inférence
 '                 appelée TMoteurInference
 '                 Cette variable permet l'affichage des divers valeurs dans la fenetre FMoteurInference
-' Détails  : Le moteur d'inférence gère la totalité de la ligne (gammes, charges, ordonnencement, etc...)
+' Détails  : Le moteur d'inférence gère la totalité de la ligne (gammes, charges, ordonnancement, etc...)
 '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Public Sub MoteurInference()
     
@@ -1522,6 +1840,8 @@ Public Sub MoteurInference()
     Dim ReponseControleBainsPrioritaires As String                            'réponse donnée lors du contrôle des bains prioritaires
     Dim ReponseTransfertCharge As String                                           'réponse donnée lors de l'envoi de la commande transfert
     
+    Dim logMoteurInference As Boolean
+    
     Static MemReponseTransfertCharge As String                                 'mémoire de la réponse donnée lors de l'envoi de la commande transfert
 
     Static TDatesDerniersTransfertsCharges(PONTS.P_1 To PONTS.P_2) As Date   'indique la date du dernier transfert de charge de chaque pont
@@ -1530,6 +1850,7 @@ Public Sub MoteurInference()
     '--- analyse en fonction du PC ---
     If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
     
+    logMoteurInference = True
     
     '**********************************************************************************************************
     '**********************************************************************************************************
@@ -1761,7 +2082,7 @@ Public Sub MoteurInference()
                                     '************************************************************************
                                     If ReponseTransfertCharge = OK Then
                                     
-                                        'SZB 2021
+                                        'SZP 2021
                                         'on initialise le temps de traitement de la charge
                                         TEtatsCharges(NumCharge).DateEntreeEnLigne = Now
                                         
@@ -1794,9 +2115,9 @@ Public Sub MoteurInference()
                                                                                                 NumPont:=NumPontOppose, _
                                                                                                 NumPosteDepart:=TEtatsPonts(NumPontOppose).PosteActuel, _
                                                                                                 NumPosteArrivee:=NumPosteAssurantSecurite)
-                                    ReponseDeplacementPont = AutomatiqueDeplacementPont(NumPontOppose, _
-                                                                                                                                     NumPosteAssurantSecurite, _
-                                                                                                                                     CouleurReponse)
+                                    ReponseDeplacementPont = AutomatiqueDeplacementPont(NumPontOppose, NumPosteAssurantSecurite, CouleurReponse)
+                                    
+                                    Call LogPourCPO("Cas extrême du déplacement du PONT " & NumPontOppose & " car risque de collision" & Chr(13) & "ReponseDeplacementPont=" & ReponseDeplacementPont)
                                     AfficheRenseignements CouleurReponse, ReponseDeplacementPont & vbCrLf
                              
                                 End If
@@ -1818,10 +2139,7 @@ Public Sub MoteurInference()
                     'les gammes se déroulent normalement, il faut gérer les ponts afin de repartir chaque transfert
                     'et éviter les collisions
                     
-                    'Call Log("PtrZoneGammeAnodisation:" + .PtrZoneGammeAnodisation)
-                    'Call Log("zone depart: " + NumZoneDepart + " , zone arrivee: " + NumZoneArrivee)
-                    
-                    
+                                       
                     If NumZoneDepart > 0 And NumZoneArrivee > 0 Then
                 
                         '--- détermination du numéro du poste de départ et d'arrivée ---
@@ -1837,11 +2155,7 @@ Public Sub MoteurInference()
                             '--- détermination du numéro du poste de départ et d'arrivée ---
                             NumPosteDepart = ProchainNumeroPosteValide(NumCharge, NumZoneDepart, False)
                             NumPosteArrivee = ProchainNumeroPosteValide(NumCharge, NumZoneArrivee, True)
-                            
-                            
-                            
-                            'Call Log("MI2 NumZoneDepart <> NumZoneArrivee", "NumZoneDepart=" & NumZoneDepart & Chr(13) & " ; NumZoneArrivee=" & NumZoneArrivee)
-                        
+                                                  
                         End If
                         
                         '--- analyse uniquement si les deux numéros de postes sont déterminés ---
@@ -1929,6 +2243,8 @@ Public Sub MoteurInference()
                                     ReponseDeplacementPont = AutomatiqueDeplacementPont(NumPontOppose, _
                                                                                                                                     NumPosteAssurantSecurite, _
                                                                                                                                     CouleurReponse)
+                                    
+                                    Call LogPourCPO("Déplacement du PONT " & NumPontOppose & " car risque de collision" & Chr(13) & "ReponseDeplacementPont=" & ReponseDeplacementPont)
                                     AfficheRenseignements CouleurReponse, ReponseDeplacementPont & vbCrLf
                                 
                                     '************************************************************************
@@ -1950,12 +2266,67 @@ Public Sub MoteurInference()
                 
                 End If
                 
-                '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                '----------------------------------------------------------------------------------------------------------
                 
                 '**********************************************************************************************************
                 '*                       Déplacement des ponts avant le terme du temps au poste de prise
                 '**********************************************************************************************************
+                
+                'Call Log("ReponseTransfertCharge =" & ReponseTransfertCharge & Chr(13) & "ReponseDeplacementPont=" & ReponseDeplacementPont & Chr(13) & _
+                '    "ReponseAntiCollision=" & ReponseAntiCollision, logMoteurInference)
+                'Call Log(".PtrZoneGammeAnodisation=" & .PtrZoneGammeAnodisation & "NumZoneDepart =" & NumZoneDepart & ", NumZoneArrivee=" & NumZoneArrivee)
+                'With TMoteurInference.TOrdreSortiePonts(PONTS.P_1, 1)
+                '    Call Log("décompte sortie P1:" & .DecompteDuTempsAuPosteReelSecondes & ", numposte à sortir:" & .NumPoste & ", poste actuel:" & TEtatsPonts(PONTS.P_1).PosteActuel & Chr(13) & _
+                '    ", depuis DatesDerniersTransfertsCharges P1 =" & DateDiff("s", TDatesDerniersTransfertsCharges(PONTS.P_1), Now) & Chr(13) & _
+                '    ", depuis  DatesDerniersDeplacementsAVide P1=" & DateDiff("s", TDatesDerniersDeplacementsAVide(PONTS.P_1), Now), logMoteurInference)
+                'End With
+                'With TMoteurInference.TOrdreSortiePonts(PONTS.P_2, 1)
+                '    Call Log("décompte sortie P2:" & .DecompteDuTempsAuPosteReelSecondes & ", numposte à sortir:" & .NumPoste & ", poste actuel:" & TEtatsPonts(PONTS.P_2).PosteActuel & Chr(13) & _
+                '    ", depuis DatesDerniersTransfertsCharges P2=" & DateDiff("s", TDatesDerniersTransfertsCharges(PONTS.P_2), Now) & Chr(13) & _
+                '    ", depuis  DatesDerniersDeplacementsAVide P2=" & DateDiff("s", TDatesDerniersDeplacementsAVide(PONTS.P_2), Now), logMoteurInference)
+                'End With
+                
+                Call Log("TEtatsPonts(PONTS.P_1).PosteActuel=" & TEtatsPonts(PONTS.P_1).PosteActuel & " NumZoneArrivee=" & NumZoneArrivee & _
+                     " dateDiff(s, TDatesDerniersTransfertsCharges(.NumPont), Now)=" & DateDiff("s", TDatesDerniersTransfertsCharges(1), Now))
+                
+                
                 If .PtrZoneGammeAnodisation > 1 Then
+                    'SZP 20241014
+                    With TMoteurInference.TOrdreSortiePonts(PONTS.P_1, 1)
+                    If NumZoneDepart = NUMZONE_ANO Then
+                    'If .NumPont = PONTS.P_1 Then
+                    'If IsNumeric(.DecompteDuTempsAuPosteReelSecondes) = True Then
+                    If TEtatsPonts(PONTS.P_1).PosteActuel > POSTES.P_C12 Then
+                    If DateDiff("s", TDatesDerniersTransfertsCharges(1), Now) >= 15 Then
+                    
+                       
+                        Bidon = ConstruitProchainCyclePont(ViderProchainCycle:=False, _
+                                                                                                TypeCycle:=TC_DEPLACEMENT_PONT, _
+                                                                                                NumPont:=PONTS.P_1, _
+                                                                                                NumPosteDepart:=TEtatsPonts(PONTS.P_1).PosteActuel, _
+                                                                                                NumPosteArrivee:=POSTES.P_C08)
+                       
+                        ReponseDeplacementPont = AutomatiqueDeplacementPont(PONTS.P_1, POSTES.P_C08, CouleurReponse)
+                        
+                        Call Log("Déplacement du PONT 1 en C08 avant terme du temps en ANODISATION" & Chr(13) & "ReponseDeplacementPont=" & ReponseDeplacementPont, logMoteurInference)
+                        AfficheRenseignements CouleurReponse, ReponseDeplacementPont & vbCrLf
+                        
+                        'TEtatsPonts(PONTS.P_1).PosteActuel = P_C08
+                        
+                        '************************************************************************
+                        'affectation de la date du dernier déplacement du PONT 1
+                        '************************************************************************
+                        TDatesDerniersDeplacementsAVide(PONTS.P_1) = Now
+                    
+                    End If
+                    'End If
+                    'End If
+                    End If
+                    End If
+                    End With
+                    
+                   
+                    
                     
                     If ReponseTransfertCharge <> OK And ReponseDeplacementPont <> OK And ReponseAntiCollision <> OK Then
                         
@@ -1971,39 +2342,37 @@ Public Sub MoteurInference()
                                 With TMoteurInference.TOrdreSortiePonts(PONTS.P_1, 1)
                                     
                                     If .NumPont = PONTS.P_1 Then
-                                        If IsNumeric(.DecompteDuTempsAuPosteReelSecondes) = True Then
-                                            If CLng(.DecompteDuTempsAuPosteReelSecondes) <= 80 Then
-                                                If TEtatsPonts(PONTS.P_1).PosteActuel <> .NumPoste Then
-                                                    If DateDiff("s", TDatesDerniersTransfertsCharges(.NumPont), Now) >= 80 Then
-                                                        If DateDiff("s", TDatesDerniersDeplacementsAVide(.NumPont), Now) >= 20 Then
+                                    If IsNumeric(.DecompteDuTempsAuPosteReelSecondes) = True Then
+                                    If (TEtatsPonts(PONTS.P_1).PosteActuel <> .NumPoste) Then
+                                    If DateDiff("s", TDatesDerniersTransfertsCharges(.NumPont), Now) >= 40 Then
+                                    If DateDiff("s", TDatesDerniersDeplacementsAVide(.NumPont), Now) >= 20 Then
+                                                    
                                                         
-                                                            '--- gestion de l'anti-collision ---
-                                                            ReponseAntiCollision = ControleAntiCollision(PONTS.P_1, _
-                                                                                                                                      TEtatsPonts(PONTS.P_1).PosteActuel, _
-                                                                                                                                      .NumPoste, _
-                                                                                                                                      TypeCollision, _
-                                                                                                                                      NumPontOppose, _
-                                                                                                                                      NumPosteAssurantSecurite, _
-                                                                                                                                      CouleurReponse)
+                                        '--- gestion de l'anti-collision ---
+                                        ReponseAntiCollision = ControleAntiCollision(PONTS.P_1, TEtatsPonts(PONTS.P_1).PosteActuel, _
+                                                                                                .NumPoste, TypeCollision, NumPontOppose, _
+                                                                                                NumPosteAssurantSecurite, CouleurReponse)
+                        
+                                        '--- aucun risque alors déplacement du pont ---
+                                        If TypeCollision = TYPES_COLLISION.AUCUN_RISQUE Then
                                             
-                                                            '--- aucun risque alors déplacement du pont ---
-                                                            If TypeCollision = TYPES_COLLISION.AUCUN_RISQUE Then
-                                                                ReponseDeplacementPont = AutomatiqueDeplacementPontOptimisation(PONTS.P_1, _
-                                                                .NumPoste, CouleurReponse)
-                                                                AfficheRenseignements CouleurReponse, ReponseDeplacementPont & vbCrLf
-                                                            
-                                                                '************************************************************************
-                                                                'affectation de la date du dernier déplacement du PONT 1
-                                                                '************************************************************************
-                                                                TDatesDerniersDeplacementsAVide(PONTS.P_1) = Now
-                                                            
-                                                            End If
+                                            ReponseDeplacementPont = AutomatiqueDeplacementPontOptimisation(PONTS.P_1, .NumPoste, CouleurReponse)
+                                            Call Log("Déplacement du PONT 1 avant terme du temps -  ReponseDeplacementPont=" & ReponseDeplacementPont, logMoteurInference)
+                                            AfficheRenseignements CouleurReponse, ReponseDeplacementPont & vbCrLf
                                         
-                                                        End If
-                                                    End If
-                                                End If
-                                            End If
+                                            '************************************************************************
+                                            'affectation de la date du dernier déplacement du PONT 1
+                                            '************************************************************************
+                                            TDatesDerniersDeplacementsAVide(PONTS.P_1) = Now
+                                        Else
+                                            Call LogPourCPO("avant terme du temps:Risque collision avec P2 " & Chr(13) & "ReponseAntiCollision=" & ReponseAntiCollision)
+                                        
                                         End If
+                                             
+                                    End If
+                                    End If
+                                    End If
+                                    End If
                                     End If
                                 
                                 End With
@@ -2016,55 +2385,51 @@ Public Sub MoteurInference()
                             If TEtatsPonts(PONTS.P_2).SensX = S_AU_POSTE Then
                             
                                 With TMoteurInference.TOrdreSortiePonts(PONTS.P_2, 1)
-                                    'Call Log("DecompteDuTempsAuPosteReelSecondes  = " & .DecompteDuTempsAuPosteReelSecondes)
-                                    'Call Log("tps TDatesDerniersTransfertsCharges = " & DateDiff("s", TDatesDerniersTransfertsCharges(.NumPont), Now))
-                                    'Call Log("TDatesDerniersDeplacementsAVide     = " & DateDiff("s", TDatesDerniersDeplacementsAVide(.NumPont), Now))
+                                
+                                    If IsNull(TDatesDerniersTransfertsCharges(.NumPont)) Then
+                                        TDatesDerniersTransfertsCharges(.NumPont) = DateAdd("m", -3, Date)
+                                    End If
+                                    If IsNull(TDatesDerniersTransfertsCharges(.NumPont)) Then
+                                        TDatesDerniersDeplacementsAVide(.NumPont) = DateAdd("m", -3, Date)
+                                    End If
+                                
+                                   
                                     If .NumPont = PONTS.P_2 Then
-                                        If IsNumeric(.DecompteDuTempsAuPosteReelSecondes) = True Then
-                                            'SZP2023
-                                            If CLng(.DecompteDuTempsAuPosteReelSecondes) <= 80 Then
-                                            'If CLng(.DecompteDuTempsAuPosteReelSecondes) <= 80 Then
-                                                'Call Log("ICI 1")
-                                                If TEtatsPonts(PONTS.P_2).PosteActuel <> .NumPoste Then
-                                                    'SZP2024
-                                                    'If DateDiff("s", TDatesDerniersTransfertsCharges(.NumPont), Now) >= 80 Then
-                                                    If DateDiff("s", TDatesDerniersTransfertsCharges(.NumPont), Now) >= 40 Then
-                                                        'Call Log("ICI 3")
-                                                        'If DateDiff("s", TDatesDerniersDeplacementsAVide(.NumPont), Now) >= 20 Then
-                                                        If DateDiff("s", TDatesDerniersDeplacementsAVide(.NumPont), Now) >= 20 Then
-                                                            'Call Log("ICI 4")
-                                                            Call Log("Déplacement du PONT 2 avant terme du temps - deb check collision")
-                                                            '--- gestion de l'anti-collision ---
-                                                            ReponseAntiCollision = ControleAntiCollision(PONTS.P_2, _
-                                                                                                        TEtatsPonts(PONTS.P_2).PosteActuel, _
-                                                                                                        .NumPoste, _
-                                                                                                        TypeCollision, _
-                                                                                                        NumPontOppose, _
-                                                                                                        NumPosteAssurantSecurite, _
-                                                                                                        CouleurReponse)
-                                            
-                                                            
-                                                            'TypeCollision = TYPES_COLLISION.AUCUN_RISQUE
-                                                            '--- aucun risque alors déplacement du pont ---
-                                                            If TypeCollision = TYPES_COLLISION.AUCUN_RISQUE Then
-                                                            
-                                                                Call Log("Déplacement du PONT 2 avant terme du temps - OK")
-                                                                ReponseDeplacementPont = AutomatiqueDeplacementPontOptimisation(PONTS.P_2, .NumPoste, CouleurReponse)
-                                                                AfficheRenseignements CouleurReponse, ReponseDeplacementPont & vbCrLf
-                                                                
-                                                                '************************************************************************
-                                                                'affectation de la date du dernier déplacement du PONT 2
-                                                                '************************************************************************
-                                                                TDatesDerniersDeplacementsAVide(PONTS.P_2) = Now
-                                                            Else
-                                                                Call Log("No anticipation ! TypeCollision -" & TypeCollision & " !!!!!!!!!!")
-                                                            End If
+                                    If IsNumeric(.DecompteDuTempsAuPosteReelSecondes) = True Then
+                                    If CLng(.DecompteDuTempsAuPosteReelSecondes) <= 40 Then
+                                    If TEtatsPonts(PONTS.P_2).PosteActuel <> .NumPoste Then
+                                    If DateDiff("s", TDatesDerniersTransfertsCharges(.NumPont), Now) >= 40 Then
+                                    If DateDiff("s", TDatesDerniersDeplacementsAVide(.NumPont), Now) >= 20 Then
                                         
-                                                        End If
-                                                    End If
-                                                End If
-                                            End If
+                                        
+                                        Call Log("Déplacement du PONT 2 avant terme du temps - deb check collision", logMoteurInference)
+                                        '--- gestion de l'anti-collision ---
+                                        ReponseAntiCollision = ControleAntiCollision(PONTS.P_2, TEtatsPonts(PONTS.P_2).PosteActuel, .NumPoste, TypeCollision, _
+                                                                                    NumPontOppose, NumPosteAssurantSecurite, CouleurReponse)
+                        
+                                        
+                                        'TypeCollision = TYPES_COLLISION.AUCUN_RISQUE
+                                        '--- aucun risque alors déplacement du pont ---
+                                        If TypeCollision = TYPES_COLLISION.AUCUN_RISQUE Then
+                                        
+                                            
+                                            ReponseDeplacementPont = AutomatiqueDeplacementPontOptimisation(PONTS.P_2, .NumPoste, CouleurReponse)
+                                            AfficheRenseignements CouleurReponse, ReponseDeplacementPont & vbCrLf
+                                            Call Log("Déplacement du PONT 2 avant terme du temps - OK -ReponseDeplacementPont:" & ReponseDeplacementPont, logMoteurInference)
+                                            
+                                            '************************************************************************
+                                            'affectation de la date du dernier déplacement du PONT 2
+                                            '************************************************************************
+                                            TDatesDerniersDeplacementsAVide(PONTS.P_2) = Now
+                                        Else
+                                            Call LogPourCPO("avant terme du temps: risque collision avec P1 " & Chr(13) & "ReponseAntiCollision=" & ReponseAntiCollision)
                                         End If
+                                        
+                                    End If
+                                    End If
+                                    End If
+                                    End If
+                                    End If
                                     End If
                                 
                                 End With
@@ -2424,5 +2789,7 @@ Public Sub EffectueTraçabiliteRedresseurs()
     Next a
     
 End Sub
+
+
 
 
