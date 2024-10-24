@@ -6,17 +6,17 @@ DATABASE="ANODISATION"
 USER="sa"  # Remplacez par votre utilisateur SQL
 PASSWORD="Jeff_nenette"  # Remplacez par votre mot de passe SQL
 
-
 # Ajout de l'option TrustServerCertificate=yes pour éviter l'erreur SSL
-OPTIONS="-S $SERVER -d $DATABASE -U $USER -P $PASSWORD -C "
+OPTIONS="-S $SERVER -d $DATABASE -U $USER -P $PASSWORD -C -l 6000"
 
 # Récupérer le répertoire du script
 SCRIPT_DIR="$(dirname "$0")"
 
 # Boucle pour chaque fichier SQL dans le répertoire du script
-for sql_file in "$SCRIPT_DIR"/*.sql; do
+for sql_file in "$SCRIPT_DIR"/export*.sql; do
     if [ -f "$sql_file" ]; then
-        echo "Exécution du script SQL : $sql_file"
+        echo "Traitement du fichier SQL : $sql_file"
+
         sqlcmd $OPTIONS -i "$sql_file"
     else
         echo "Aucun fichier SQL trouvé dans le dossier $SCRIPT_DIR."
