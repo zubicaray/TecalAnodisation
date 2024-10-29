@@ -2325,6 +2325,31 @@ Public Sub MoteurInference()
                     End If
                     End With
                     
+                    With TMoteurInference.TOrdreSortiePonts(PONTS.P_2, 1)
+                    If TEtatsPonts(PONTS.P_2).PosteActuel = .NumPoste Then
+                    If IsNumeric(.DecompteDuTempsAuPosteReelSecondes) = True Then
+                    If CLng(.DecompteDuTempsAuPosteReelSecondes) <= 2 Then
+                        Const NOM_GROUPE As String = "REDRESSEURS"
+                        Const CODE_ARRET_REDRESSEUR As String = "9"
+                        
+                        '--- déclaration ---
+                        Dim ValeurRetourneeAPI As Long          'valeur retournée par une fonction concernant le dialogue avec l'automate
+                        Dim NomVariable As String
+                                   
+                        '--- affectation du nom de la variable ---
+                        NomVariable = "DemandesDuPCR1"  ' "DemandesDuPCR2", "DemandesDuPCR3", "DemandesDuPCR4")
+                                
+                        '--- écriture dans l'automate ---
+                        ValeurRetourneeAPI = APIEcritureVariableNommee(NOM_GROUPE, NomVariable, CODE_ARRET_REDRESSEUR)
+                        If ValeurRetourneeAPI <> 0 Then
+                            Bidon = MessageErreur("erreur couper redreseur", MESSAGE_500)             'lancer un message d'erreur
+                        End If
+                    End If
+                    End If
+                    End If
+                    End With
+                  
+                    
                    
                     
                     
