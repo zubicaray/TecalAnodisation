@@ -2228,7 +2228,7 @@ Public Sub MoteurInference()
                                '--- affichage du message ---
                                AfficheRenseignements CouleurReponse, ReponseAntiCollision & vbCrLf
         
-                               Call Log("Risque collision, déplacement  pont  opposé: " & NumPontOppose & " , poste sécurité: " & NumPosteAssurantSecurite)
+                               'Call Log("Risque collision, déplacement  pont  opposé: " & NumPontOppose & " , poste sécurité: " & NumPosteAssurantSecurite)
                                
                                '************************************************************************
                                '            Risque de collision / déplacement du pont opposé
@@ -2357,7 +2357,7 @@ Public Sub MoteurInference()
                                         If TypeCollision = TYPES_COLLISION.AUCUN_RISQUE Then
                                             
                                             ReponseDeplacementPont = AutomatiqueDeplacementPontOptimisation(PONTS.P_1, .NumPoste, CouleurReponse)
-                                            Call Log("Déplacement du PONT 1 avant terme du temps -  ReponseDeplacementPont=" & ReponseDeplacementPont, logMoteurInference)
+                                            'Call Log("Déplacement du PONT 1 avant terme du temps -  ReponseDeplacementPont=" & ReponseDeplacementPont, logMoteurInference)
                                             AfficheRenseignements CouleurReponse, ReponseDeplacementPont & vbCrLf
                                         
                                             '************************************************************************
@@ -2402,7 +2402,7 @@ Public Sub MoteurInference()
                                     If DateDiff("s", TDatesDerniersDeplacementsAVide(.NumPont), Now) >= 20 Then
                                         
                                         
-                                        Call Log("Déplacement du PONT 2 avant terme du temps - deb check collision", logMoteurInference)
+                                        'Call Log("Déplacement du PONT 2 avant terme du temps - deb check collision", logMoteurInference)
                                         '--- gestion de l'anti-collision ---
                                         ReponseAntiCollision = ControleAntiCollision(PONTS.P_2, TEtatsPonts(PONTS.P_2).PosteActuel, .NumPoste, TypeCollision, _
                                                                                     NumPontOppose, NumPosteAssurantSecurite, CouleurReponse)
@@ -2415,7 +2415,7 @@ Public Sub MoteurInference()
                                             
                                             ReponseDeplacementPont = AutomatiqueDeplacementPontOptimisation(PONTS.P_2, .NumPoste, CouleurReponse)
                                             AfficheRenseignements CouleurReponse, ReponseDeplacementPont & vbCrLf
-                                            Call Log("Déplacement du PONT 2 avant terme du temps - OK -ReponseDeplacementPont:" & ReponseDeplacementPont, logMoteurInference)
+                                            'Call Log("Déplacement du PONT 2 avant terme du temps - OK -ReponseDeplacementPont:" & ReponseDeplacementPont, logMoteurInference)
                                             
                                             '************************************************************************
                                             'affectation de la date du dernier déplacement du PONT 2

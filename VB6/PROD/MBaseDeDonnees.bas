@@ -1894,9 +1894,9 @@ Sub insertionClipperPointage(ByVal NumCharge As Integer)
         'Call Log("Création de mcInsertClipper avec pid: " & mlID)
     End If
 
-    'Call Log("DEBUT insertionClipperPointage -> AsynchDispMethodCall")
+    
     AsynchDispMethodCall mlID, "insertionClipper", VbMethod, OccFSynoptique, "CopyComplete", NumCharge
-    'Call Log("AsynchDispMethodCall has been called  in other thread")
+    
     
  
    

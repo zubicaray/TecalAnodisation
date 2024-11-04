@@ -1405,7 +1405,7 @@ Public Sub AnalyseChargesEnLignePostes()
                     '--- remplissage de la fiche avec la date d'arrivée au déchargement ---
                     If a >= POSTES.P_D1 And a <= POSTES.P_D2 Then
                         .DateArriveeAuDechargement = Now
-                        ' SZP 20241004 ---------------------------------------------------------------
+                        
                         EnregistrementProductionLocal (TEtatsPostes(a).NumCharge)
                         insertionClipperPointage (TEtatsPostes(a).NumCharge)
                         
@@ -2291,7 +2291,7 @@ Public Sub MoteurInference()
                 
                 
                 If .PtrZoneGammeAnodisation > 1 Then
-                    'SZP 20241014
+                    'DEBUT SZP 20241014 -----------------------------------------------------------------------------------------
                     With TMoteurInference.TOrdreSortiePonts(PONTS.P_1, 1)
                     If NumZoneDepart = NUMZONE_ANO Then
                     'If .NumPont = PONTS.P_1 Then
@@ -2326,30 +2326,46 @@ Public Sub MoteurInference()
                     End With
                     
                     With TMoteurInference.TOrdreSortiePonts(PONTS.P_2, 1)
+                    If NumZoneDepart = NUMZONE_ANO Then
                     If TEtatsPonts(PONTS.P_2).PosteActuel = .NumPoste Then
                     If IsNumeric(.DecompteDuTempsAuPosteReelSecondes) = True Then
                     If CLng(.DecompteDuTempsAuPosteReelSecondes) <= 2 Then
-                        Const NOM_GROUPE As String = "REDRESSEURS"
-                        Const CODE_ARRET_REDRESSEUR As String = "9"
+                        Dim NomGroupe As String
+                        
+                        Dim NumChargeRed As Integer
+                        
+                       
                         
                         '--- déclaration ---
                         Dim ValeurRetourneeAPI As Long          'valeur retournée par une fonction concernant le dialogue avec l'automate
                         Dim NomVariable As String
                                    
-                        '--- affectation du nom de la variable ---
-                        NomVariable = "DemandesDuPCR1"  ' "DemandesDuPCR2", "DemandesDuPCR3", "DemandesDuPCR4")
+     
+                        If POSTES.P_C13 = .NumPoste Then
+                            NumChargeRed = TEtatsRedresseurs(1).NumCharge
+                        End If
+                        If POSTES.P_C14 = .NumPoste Then
+                            NumChargeRed = TEtatsRedresseurs(2).NumCharge
+                        End If
+                        If POSTES.P_C15 = .NumPoste Then
+                            NumChargeRed = TEtatsRedresseurs(3).NumCharge
+                        End If
+                        NomGroupe = "CHARGE_" & Right("00" & NumChargeRed, 2)
+                        
+                        Call Log("HORS TENSION: " & Chr(13) & NomGroupe, logMoteurInference)
                                 
                         '--- écriture dans l'automate ---
-                        ValeurRetourneeAPI = APIEcritureVariableNommee(NOM_GROUPE, NomVariable, CODE_ARRET_REDRESSEUR)
+                        ValeurRetourneeAPI = APIEcritureVariableNommee(NomGroupe, "UPhase4", 0)
                         If ValeurRetourneeAPI <> 0 Then
                             Bidon = MessageErreur("erreur couper redreseur", MESSAGE_500)             'lancer un message d'erreur
                         End If
                     End If
                     End If
                     End If
+                    End If
                     End With
                   
-                    
+                    ' FIN ---------------------------------------------------------------------
                    
                     
                     
