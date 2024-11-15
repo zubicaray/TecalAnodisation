@@ -7,16 +7,16 @@ Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
 Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Begin VB.Form FChargementPrevisionnel 
-   ClientHeight    =   13020
+   ClientHeight    =   13005
    ClientLeft      =   -75
    ClientTop       =   2085
-   ClientWidth     =   14490
+   ClientWidth     =   13395
    Icon            =   "FChargementPrevisionnel.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   13020
-   ScaleWidth      =   14490
+   ScaleHeight     =   13005
+   ScaleWidth      =   13395
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBDeplacementFenetre 
@@ -29,10 +29,10 @@ Begin VB.Form FChargementPrevisionnel
       Index           =   0
       Left            =   0
       ScaleHeight     =   12795
-      ScaleWidth      =   14490
+      ScaleWidth      =   13395
       TabIndex        =   3
       Top             =   375
-      Width           =   14490
+      Width           =   13395
       Begin VB.PictureBox PBDeplacementFenetre 
          Height          =   12675
          Index           =   1
@@ -124,7 +124,7 @@ Begin VB.Form FChargementPrevisionnel
                   MaskColor       =   &H00FF00FF&
                   Picture         =   "FChargementPrevisionnel.frx":1538
                   Style           =   1  'Graphical
-                  TabIndex        =   182
+                  TabIndex        =   124
                   Top             =   480
                   UseMaskColor    =   -1  'True
                   Width           =   1935
@@ -147,7 +147,7 @@ Begin VB.Form FChargementPrevisionnel
                   Left            =   180
                   ScaleHeight     =   1485
                   ScaleWidth      =   7425
-                  TabIndex        =   163
+                  TabIndex        =   105
                   Top             =   180
                   Width           =   7455
                   Begin VB.CommandButton CBRaz 
@@ -168,7 +168,7 @@ Begin VB.Form FChargementPrevisionnel
                      MaskColor       =   &H00FF00FF&
                      Picture         =   "FChargementPrevisionnel.frx":1C82
                      Style           =   1  'Graphical
-                     TabIndex        =   168
+                     TabIndex        =   110
                      ToolTipText     =   " Annule tris et recherches "
                      Top             =   780
                      UseMaskColor    =   -1  'True
@@ -192,7 +192,7 @@ Begin VB.Form FChargementPrevisionnel
                      MaskColor       =   &H00FF00FF&
                      Picture         =   "FChargementPrevisionnel.frx":1E74
                      Style           =   1  'Graphical
-                     TabIndex        =   167
+                     TabIndex        =   109
                      ToolTipText     =   " Lancer une recherche "
                      Top             =   120
                      UseMaskColor    =   -1  'True
@@ -212,7 +212,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Index           =   1
                      Left            =   2100
-                     TabIndex        =   166
+                     TabIndex        =   108
                      Top             =   600
                      Width           =   3135
                   End
@@ -230,7 +230,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Index           =   1
                      Left            =   2100
-                     TabIndex        =   165
+                     TabIndex        =   107
                      Top             =   1020
                      Width           =   3135
                   End
@@ -251,7 +251,7 @@ Begin VB.Form FChargementPrevisionnel
                      Left            =   2100
                      List            =   "FChargementPrevisionnel.frx":21C3
                      Style           =   2  'Dropdown List
-                     TabIndex        =   164
+                     TabIndex        =   106
                      Top             =   120
                      Width           =   3135
                   End
@@ -273,7 +273,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   255
                      Index           =   30
                      Left            =   0
-                     TabIndex        =   171
+                     TabIndex        =   113
                      Top             =   180
                      Width           =   1935
                   End
@@ -295,7 +295,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   255
                      Index           =   29
                      Left            =   180
-                     TabIndex        =   170
+                     TabIndex        =   112
                      Top             =   660
                      Width           =   1755
                   End
@@ -317,7 +317,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   255
                      Index           =   27
                      Left            =   840
-                     TabIndex        =   169
+                     TabIndex        =   111
                      Top             =   1080
                      Width           =   1095
                   End
@@ -350,7 +350,7 @@ Begin VB.Form FChargementPrevisionnel
                      Index           =   1
                      Left            =   11340
                      Style           =   1  'Graphical
-                     TabIndex        =   180
+                     TabIndex        =   122
                      Top             =   225
                      Width           =   3915
                   End
@@ -362,7 +362,7 @@ Begin VB.Form FChargementPrevisionnel
                      Left            =   10800
                      ScaleHeight     =   2160
                      ScaleWidth      =   2805
-                     TabIndex        =   174
+                     TabIndex        =   116
                      Top             =   1080
                      Visible         =   0   'False
                      Width           =   2835
@@ -382,7 +382,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   4
                         Left            =   60
                         Style           =   1  'Graphical
-                        TabIndex        =   179
+                        TabIndex        =   121
                         Top             =   1740
                         Visible         =   0   'False
                         Width           =   2715
@@ -403,7 +403,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   3
                         Left            =   60
                         Style           =   1  'Graphical
-                        TabIndex        =   178
+                        TabIndex        =   120
                         Top             =   1320
                         Width           =   2715
                      End
@@ -423,7 +423,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   2
                         Left            =   60
                         Style           =   1  'Graphical
-                        TabIndex        =   177
+                        TabIndex        =   119
                         Top             =   900
                         Width           =   2715
                      End
@@ -443,7 +443,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   1
                         Left            =   60
                         Style           =   1  'Graphical
-                        TabIndex        =   176
+                        TabIndex        =   118
                         Top             =   480
                         Width           =   2715
                      End
@@ -463,7 +463,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   0
                         Left            =   60
                         Style           =   1  'Graphical
-                        TabIndex        =   175
+                        TabIndex        =   117
                         Top             =   60
                         Width           =   2715
                      End
@@ -484,7 +484,7 @@ Begin VB.Form FChargementPrevisionnel
                      Index           =   0
                      Left            =   7260
                      Style           =   1  'Graphical
-                     TabIndex        =   173
+                     TabIndex        =   115
                      Top             =   225
                      Width           =   3915
                   End
@@ -563,7 +563,7 @@ Begin VB.Form FChargementPrevisionnel
                   Begin MSMask.MaskEdBox MEBEditionPrevisionnel 
                      Height          =   255
                      Left            =   540
-                     TabIndex        =   162
+                     TabIndex        =   104
                      Top             =   1260
                      Visible         =   0   'False
                      Width           =   1515
@@ -652,7 +652,7 @@ Begin VB.Form FChargementPrevisionnel
                   Height          =   9135
                   Index           =   1
                   Left            =   120
-                  TabIndex        =   172
+                  TabIndex        =   114
                   Top             =   1860
                   Width           =   10155
                   _ExtentX        =   17912
@@ -891,6 +891,41 @@ Begin VB.Form FChargementPrevisionnel
                TabIndex        =   12
                Top             =   495
                Width           =   28125
+               Begin VB.Frame FNumBarres 
+                  Caption         =   " Numéro de barre "
+                  BeginProperty Font 
+                     Name            =   "Tahoma"
+                     Size            =   9.75
+                     Charset         =   0
+                     Weight          =   700
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  Height          =   1095
+                  Left            =   21480
+                  TabIndex        =   135
+                  Top             =   7080
+                  Visible         =   0   'False
+                  Width           =   6375
+                  Begin VB.ComboBox ComboBarre 
+                     BeginProperty Font 
+                        Name            =   "MS Sans Serif"
+                        Size            =   9.75
+                        Charset         =   0
+                        Weight          =   700
+                        Underline       =   0   'False
+                        Italic          =   0   'False
+                        Strikethrough   =   0   'False
+                     EndProperty
+                     Height          =   360
+                     Left            =   840
+                     Style           =   2  'Dropdown List
+                     TabIndex        =   136
+                     Top             =   360
+                     Width           =   3135
+                  End
+               End
                Begin VB.Frame RepositonnerCadre 
                   Caption         =   "Positionner la charge sur un poste:"
                   BeginProperty Font 
@@ -904,7 +939,7 @@ Begin VB.Form FChargementPrevisionnel
                   EndProperty
                   Height          =   855
                   Left            =   21480
-                  TabIndex        =   183
+                  TabIndex        =   125
                   Top             =   8160
                   Visible         =   0   'False
                   Width           =   6375
@@ -921,7 +956,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   360
                      Left            =   840
                      Style           =   2  'Dropdown List
-                     TabIndex        =   185
+                     TabIndex        =   127
                      Top             =   360
                      Width           =   3135
                   End
@@ -942,7 +977,7 @@ Begin VB.Form FChargementPrevisionnel
                      Left            =   4440
                      MaskColor       =   &H000000FF&
                      Picture         =   "FChargementPrevisionnel.frx":296F
-                     TabIndex        =   184
+                     TabIndex        =   126
                      Top             =   360
                      UseMaskColor    =   -1  'True
                      Width           =   1575
@@ -963,7 +998,7 @@ Begin VB.Form FChargementPrevisionnel
                   Height          =   435
                   Left            =   17460
                   Style           =   1  'Graphical
-                  TabIndex        =   181
+                  TabIndex        =   123
                   Top             =   150
                   Visible         =   0   'False
                   Width           =   3915
@@ -1011,7 +1046,7 @@ Begin VB.Form FChargementPrevisionnel
                   Left            =   180
                   ScaleHeight     =   1485
                   ScaleWidth      =   10125
-                  TabIndex        =   152
+                  TabIndex        =   94
                   Top             =   180
                   Width           =   10155
                   Begin VB.ComboBox CBRechercherPar 
@@ -1031,7 +1066,7 @@ Begin VB.Form FChargementPrevisionnel
                      Left            =   2100
                      List            =   "FChargementPrevisionnel.frx":2C66
                      Style           =   2  'Dropdown List
-                     TabIndex        =   160
+                     TabIndex        =   102
                      Top             =   120
                      Width           =   3135
                   End
@@ -1049,7 +1084,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Index           =   0
                      Left            =   2100
-                     TabIndex        =   156
+                     TabIndex        =   98
                      Top             =   1020
                      Width           =   3135
                   End
@@ -1067,7 +1102,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Index           =   0
                      Left            =   2100
-                     TabIndex        =   155
+                     TabIndex        =   97
                      Top             =   600
                      Width           =   3135
                   End
@@ -1089,7 +1124,7 @@ Begin VB.Form FChargementPrevisionnel
                      MaskColor       =   &H00FF00FF&
                      Picture         =   "FChargementPrevisionnel.frx":2C9F
                      Style           =   1  'Graphical
-                     TabIndex        =   154
+                     TabIndex        =   96
                      ToolTipText     =   " Lancer une recherche "
                      Top             =   120
                      UseMaskColor    =   -1  'True
@@ -1113,7 +1148,7 @@ Begin VB.Form FChargementPrevisionnel
                      MaskColor       =   &H00FF00FF&
                      Picture         =   "FChargementPrevisionnel.frx":2FE1
                      Style           =   1  'Graphical
-                     TabIndex        =   153
+                     TabIndex        =   95
                      ToolTipText     =   " Annule tris et recherches "
                      Top             =   780
                      UseMaskColor    =   -1  'True
@@ -1137,7 +1172,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   255
                      Index           =   26
                      Left            =   840
-                     TabIndex        =   159
+                     TabIndex        =   101
                      Top             =   1080
                      Width           =   1095
                   End
@@ -1159,7 +1194,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   255
                      Index           =   25
                      Left            =   180
-                     TabIndex        =   158
+                     TabIndex        =   100
                      Top             =   660
                      Width           =   1755
                   End
@@ -1181,7 +1216,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   255
                      Index           =   24
                      Left            =   0
-                     TabIndex        =   157
+                     TabIndex        =   99
                      Top             =   180
                      Width           =   1935
                   End
@@ -1199,7 +1234,7 @@ Begin VB.Form FChargementPrevisionnel
                   EndProperty
                   Height          =   4215
                   Left            =   10560
-                  TabIndex        =   113
+                  TabIndex        =   55
                   Top             =   7320
                   Visible         =   0   'False
                   Width           =   10875
@@ -1209,7 +1244,7 @@ Begin VB.Form FChargementPrevisionnel
                      Left            =   4620
                      ScaleHeight     =   3675
                      ScaleWidth      =   6015
-                     TabIndex        =   132
+                     TabIndex        =   74
                      Top             =   300
                      Width           =   6075
                      Begin VB.TextBox TBIntensitesPhases 
@@ -1228,7 +1263,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   4
                         Left            =   4440
                         MaxLength       =   6
-                        TabIndex        =   131
+                        TabIndex        =   73
                         Top             =   2460
                         Width           =   855
                      End
@@ -1248,7 +1283,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   3
                         Left            =   4440
                         MaxLength       =   6
-                        TabIndex        =   128
+                        TabIndex        =   70
                         Top             =   1920
                         Width           =   855
                      End
@@ -1268,7 +1303,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   2
                         Left            =   4440
                         MaxLength       =   6
-                        TabIndex        =   125
+                        TabIndex        =   67
                         Top             =   1380
                         Width           =   855
                      End
@@ -1288,7 +1323,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   1
                         Left            =   4440
                         MaxLength       =   6
-                        TabIndex        =   122
+                        TabIndex        =   64
                         Top             =   840
                         Width           =   855
                      End
@@ -1308,7 +1343,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   4
                         Left            =   2880
                         MaxLength       =   6
-                        TabIndex        =   130
+                        TabIndex        =   72
                         Top             =   2460
                         Width           =   855
                      End
@@ -1328,7 +1363,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   3
                         Left            =   2880
                         MaxLength       =   6
-                        TabIndex        =   127
+                        TabIndex        =   69
                         Top             =   1920
                         Width           =   855
                      End
@@ -1348,7 +1383,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   2
                         Left            =   2880
                         MaxLength       =   6
-                        TabIndex        =   124
+                        TabIndex        =   66
                         Top             =   1380
                         Width           =   855
                      End
@@ -1368,7 +1403,7 @@ Begin VB.Form FChargementPrevisionnel
                         Index           =   1
                         Left            =   2880
                         MaxLength       =   6
-                        TabIndex        =   121
+                        TabIndex        =   63
                         Top             =   840
                         Width           =   855
                      End
@@ -1376,7 +1411,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   315
                         Index           =   1
                         Left            =   1560
-                        TabIndex        =   120
+                        TabIndex        =   62
                         Top             =   840
                         Width           =   855
                         _ExtentX        =   1508
@@ -1401,7 +1436,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   315
                         Index           =   2
                         Left            =   1560
-                        TabIndex        =   123
+                        TabIndex        =   65
                         Top             =   1380
                         Width           =   855
                         _ExtentX        =   1508
@@ -1426,7 +1461,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   315
                         Index           =   3
                         Left            =   1560
-                        TabIndex        =   126
+                        TabIndex        =   68
                         Top             =   1920
                         Width           =   855
                         _ExtentX        =   1508
@@ -1451,7 +1486,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   315
                         Index           =   4
                         Left            =   1560
-                        TabIndex        =   129
+                        TabIndex        =   71
                         Top             =   2460
                         Width           =   855
                         _ExtentX        =   1508
@@ -1491,7 +1526,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   315
                         Index           =   23
                         Left            =   480
-                        TabIndex        =   149
+                        TabIndex        =   91
                         Top             =   3000
                         Width           =   630
                      End
@@ -1512,7 +1547,7 @@ Begin VB.Form FChargementPrevisionnel
                         ForeColor       =   &H80000008&
                         Height          =   285
                         Left            =   1560
-                        TabIndex        =   148
+                        TabIndex        =   90
                         Top             =   3015
                         Width           =   855
                      End
@@ -1556,7 +1591,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   255
                         Index           =   12
                         Left            =   1440
-                        TabIndex        =   138
+                        TabIndex        =   80
                         Top             =   360
                         Width           =   1095
                      End
@@ -1589,7 +1624,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   315
                         Index           =   22
                         Left            =   480
-                        TabIndex        =   147
+                        TabIndex        =   89
                         Top             =   2460
                         Width           =   630
                      End
@@ -1612,7 +1647,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   315
                         Index           =   21
                         Left            =   480
-                        TabIndex        =   146
+                        TabIndex        =   88
                         Top             =   1920
                         Width           =   630
                      End
@@ -1635,7 +1670,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   315
                         Index           =   20
                         Left            =   480
-                        TabIndex        =   145
+                        TabIndex        =   87
                         Top             =   1380
                         Width           =   630
                      End
@@ -1658,7 +1693,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   315
                         Index           =   19
                         Left            =   480
-                        TabIndex        =   144
+                        TabIndex        =   86
                         Top             =   840
                         Width           =   630
                      End
@@ -1677,7 +1712,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   255
                         Index           =   18
                         Left            =   5400
-                        TabIndex        =   143
+                        TabIndex        =   85
                         Top             =   2490
                         Width           =   195
                      End
@@ -1696,7 +1731,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   255
                         Index           =   17
                         Left            =   5400
-                        TabIndex        =   142
+                        TabIndex        =   84
                         Top             =   1950
                         Width           =   195
                      End
@@ -1715,7 +1750,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   255
                         Index           =   16
                         Left            =   5400
-                        TabIndex        =   141
+                        TabIndex        =   83
                         Top             =   1410
                         Width           =   195
                      End
@@ -1738,7 +1773,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   255
                         Index           =   15
                         Left            =   4320
-                        TabIndex        =   140
+                        TabIndex        =   82
                         Top             =   360
                         Width           =   1335
                      End
@@ -1761,7 +1796,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   255
                         Index           =   14
                         Left            =   2760
-                        TabIndex        =   139
+                        TabIndex        =   81
                         Top             =   360
                         Width           =   1335
                      End
@@ -1780,7 +1815,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   255
                         Index           =   10
                         Left            =   5400
-                        TabIndex        =   137
+                        TabIndex        =   79
                         Top             =   870
                         Width           =   195
                      End
@@ -1799,7 +1834,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   255
                         Index           =   9
                         Left            =   3840
-                        TabIndex        =   136
+                        TabIndex        =   78
                         Top             =   2490
                         Width           =   195
                      End
@@ -1818,7 +1853,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   255
                         Index           =   8
                         Left            =   3840
-                        TabIndex        =   135
+                        TabIndex        =   77
                         Top             =   1950
                         Width           =   195
                      End
@@ -1837,7 +1872,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   255
                         Index           =   7
                         Left            =   3840
-                        TabIndex        =   134
+                        TabIndex        =   76
                         Top             =   1410
                         Width           =   195
                      End
@@ -1856,7 +1891,7 @@ Begin VB.Form FChargementPrevisionnel
                         Height          =   255
                         Index           =   6
                         Left            =   3840
-                        TabIndex        =   133
+                        TabIndex        =   75
                         Top             =   870
                         Width           =   195
                      End
@@ -1950,7 +1985,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Index           =   2
                      Left            =   3150
-                     TabIndex        =   117
+                     TabIndex        =   59
                      Top             =   300
                      Width           =   1170
                   End
@@ -1980,7 +2015,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Index           =   28
                      Left            =   240
-                     TabIndex        =   116
+                     TabIndex        =   58
                      Top             =   300
                      Width           =   2910
                   End
@@ -2003,7 +2038,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Index           =   0
                      Left            =   3270
-                     TabIndex        =   115
+                     TabIndex        =   57
                      Top             =   720
                      Width           =   915
                   End
@@ -2026,7 +2061,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Index           =   1
                      Left            =   3270
-                     TabIndex        =   114
+                     TabIndex        =   56
                      Top             =   1140
                      Width           =   915
                   End
@@ -2039,1565 +2074,6 @@ Begin VB.Form FChargementPrevisionnel
                      Left            =   3150
                      Top             =   615
                      Width           =   1170
-                  End
-               End
-               Begin VB.Frame FNumBarres 
-                  Caption         =   " Numéro de barre "
-                  BeginProperty Font 
-                     Name            =   "Tahoma"
-                     Size            =   9.75
-                     Charset         =   0
-                     Weight          =   700
-                     Underline       =   0   'False
-                     Italic          =   0   'False
-                     Strikethrough   =   0   'False
-                  EndProperty
-                  Height          =   3495
-                  Left            =   21600
-                  TabIndex        =   55
-                  Top             =   4680
-                  Visible         =   0   'False
-                  Width           =   6375
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "S04"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   161
-                     Left            =   240
-                     TabIndex        =   200
-                     Top             =   2880
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "S05"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   162
-                     Left            =   840
-                     TabIndex        =   199
-                     Top             =   2880
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "S06"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   163
-                     Left            =   1440
-                     TabIndex        =   198
-                     Top             =   2880
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "D01"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   164
-                     Left            =   2040
-                     TabIndex        =   197
-                     Top             =   2880
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "D02"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   165
-                     Left            =   2640
-                     TabIndex        =   196
-                     Top             =   2880
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "D03"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   166
-                     Left            =   3240
-                     TabIndex        =   195
-                     Top             =   2880
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "D04"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   167
-                     Left            =   3840
-                     TabIndex        =   194
-                     Top             =   2880
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "S01"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   158
-                     Left            =   4440
-                     TabIndex        =   193
-                     Top             =   2460
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "S02"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   159
-                     Left            =   5040
-                     TabIndex        =   192
-                     Top             =   2460
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "S03"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   160
-                     Left            =   5640
-                     TabIndex        =   191
-                     Top             =   2460
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "57"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   57
-                     Left            =   3840
-                     TabIndex        =   112
-                     Top             =   2460
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "56"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   56
-                     Left            =   3240
-                     TabIndex        =   111
-                     Top             =   2460
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "55"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   55
-                     Left            =   2640
-                     TabIndex        =   110
-                     Top             =   2460
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "54"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   54
-                     Left            =   2040
-                     TabIndex        =   109
-                     Top             =   2460
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "53"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   53
-                     Left            =   1440
-                     TabIndex        =   108
-                     Top             =   2460
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "52"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   52
-                     Left            =   840
-                     TabIndex        =   107
-                     Top             =   2460
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "51"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   51
-                     Left            =   240
-                     TabIndex        =   106
-                     Top             =   2460
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "50"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   50
-                     Left            =   5640
-                     TabIndex        =   105
-                     Top             =   2040
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "49"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   49
-                     Left            =   5040
-                     TabIndex        =   104
-                     Top             =   2040
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "48"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   48
-                     Left            =   4440
-                     TabIndex        =   103
-                     Top             =   2040
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "47"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   47
-                     Left            =   3840
-                     TabIndex        =   102
-                     Top             =   2040
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "46"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   46
-                     Left            =   3240
-                     TabIndex        =   101
-                     Top             =   2040
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "45"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   45
-                     Left            =   2640
-                     TabIndex        =   100
-                     Top             =   2040
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "44"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   44
-                     Left            =   2040
-                     TabIndex        =   99
-                     Top             =   2040
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "43"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   43
-                     Left            =   1440
-                     TabIndex        =   98
-                     Top             =   2040
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "42"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   42
-                     Left            =   840
-                     TabIndex        =   97
-                     Top             =   2040
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "41"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   41
-                     Left            =   240
-                     TabIndex        =   96
-                     Top             =   2040
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "40"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   40
-                     Left            =   5640
-                     TabIndex        =   95
-                     Top             =   1620
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "39"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   39
-                     Left            =   5040
-                     TabIndex        =   94
-                     Top             =   1620
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "38"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   38
-                     Left            =   4440
-                     TabIndex        =   93
-                     Top             =   1620
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "37"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   37
-                     Left            =   3840
-                     TabIndex        =   92
-                     Top             =   1620
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "36"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   36
-                     Left            =   3240
-                     TabIndex        =   91
-                     Top             =   1620
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "35"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   35
-                     Left            =   2640
-                     TabIndex        =   90
-                     Top             =   1620
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "34"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   34
-                     Left            =   2040
-                     TabIndex        =   89
-                     Top             =   1620
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "33"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   33
-                     Left            =   1440
-                     TabIndex        =   88
-                     Top             =   1620
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "32"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   32
-                     Left            =   840
-                     TabIndex        =   87
-                     Top             =   1620
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "31"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   31
-                     Left            =   240
-                     TabIndex        =   86
-                     Top             =   1620
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "30"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   30
-                     Left            =   5640
-                     TabIndex        =   85
-                     Top             =   1200
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "29"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   29
-                     Left            =   5040
-                     TabIndex        =   84
-                     Top             =   1200
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "28"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   28
-                     Left            =   4440
-                     TabIndex        =   83
-                     Top             =   1200
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "27"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   27
-                     Left            =   3840
-                     TabIndex        =   82
-                     Top             =   1200
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "26"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   26
-                     Left            =   3240
-                     TabIndex        =   81
-                     Top             =   1200
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "25"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   25
-                     Left            =   2640
-                     TabIndex        =   80
-                     Top             =   1200
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "24"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   24
-                     Left            =   2040
-                     TabIndex        =   79
-                     Top             =   1200
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "23"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   23
-                     Left            =   1440
-                     TabIndex        =   78
-                     Top             =   1200
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "22"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   22
-                     Left            =   840
-                     TabIndex        =   77
-                     Top             =   1200
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "21"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   21
-                     Left            =   240
-                     TabIndex        =   76
-                     Top             =   1200
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "20"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   20
-                     Left            =   5640
-                     TabIndex        =   75
-                     Top             =   780
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "19"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   19
-                     Left            =   5040
-                     TabIndex        =   74
-                     Top             =   780
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "18"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   18
-                     Left            =   4440
-                     TabIndex        =   73
-                     Top             =   780
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "17"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   17
-                     Left            =   3840
-                     TabIndex        =   72
-                     Top             =   780
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "16"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   16
-                     Left            =   3240
-                     TabIndex        =   71
-                     Top             =   780
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "15"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   15
-                     Left            =   2640
-                     TabIndex        =   70
-                     Top             =   780
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "14"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   14
-                     Left            =   2040
-                     TabIndex        =   69
-                     Top             =   780
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "13"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   13
-                     Left            =   1440
-                     TabIndex        =   68
-                     Top             =   780
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "12"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   12
-                     Left            =   840
-                     TabIndex        =   67
-                     Top             =   780
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "11"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   11
-                     Left            =   240
-                     TabIndex        =   66
-                     Top             =   780
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "10"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   10
-                     Left            =   5640
-                     TabIndex        =   65
-                     Top             =   360
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "9"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   9
-                     Left            =   5040
-                     TabIndex        =   64
-                     Top             =   360
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "8"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   8
-                     Left            =   4440
-                     TabIndex        =   63
-                     Top             =   360
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "7"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   7
-                     Left            =   3840
-                     TabIndex        =   62
-                     Top             =   360
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "6"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   6
-                     Left            =   3240
-                     TabIndex        =   61
-                     Top             =   360
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "5"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   5
-                     Left            =   2640
-                     TabIndex        =   60
-                     Top             =   360
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "4"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   4
-                     Left            =   2040
-                     TabIndex        =   59
-                     Top             =   360
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "3"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   3
-                     Left            =   1440
-                     TabIndex        =   58
-                     Top             =   360
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "2"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   2
-                     Left            =   840
-                     TabIndex        =   57
-                     Top             =   360
-                     Width           =   495
-                  End
-                  Begin VB.Label LNumBarres 
-                     Alignment       =   2  'Center
-                     Appearance      =   0  'Flat
-                     BackColor       =   &H80000005&
-                     BorderStyle     =   1  'Fixed Single
-                     Caption         =   "1"
-                     BeginProperty Font 
-                        Name            =   "Arial"
-                        Size            =   12
-                        Charset         =   0
-                        Weight          =   700
-                        Underline       =   0   'False
-                        Italic          =   0   'False
-                        Strikethrough   =   0   'False
-                     EndProperty
-                     ForeColor       =   &H80000008&
-                     Height          =   315
-                     Index           =   1
-                     Left            =   240
-                     TabIndex        =   56
-                     Top             =   360
-                     Width           =   495
                   End
                End
                Begin VB.PictureBox PBReferencesClient 
@@ -3749,7 +2225,7 @@ Begin VB.Form FChargementPrevisionnel
                   Begin VB.TextBox EtuveTpsPoste 
                      Height          =   305
                      Left            =   3600
-                     TabIndex        =   190
+                     TabIndex        =   132
                      Text            =   "20"
                      Top             =   2180
                      Width           =   495
@@ -3769,7 +2245,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   255
                      Index           =   1
                      Left            =   420
-                     TabIndex        =   186
+                     TabIndex        =   128
                      Top             =   2230
                      Width           =   2715
                   End
@@ -3788,7 +2264,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   255
                      Index           =   0
                      Left            =   480
-                     TabIndex        =   161
+                     TabIndex        =   103
                      Top             =   3960
                      Width           =   5475
                   End
@@ -3903,7 +2379,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   210
                      Index           =   33
                      Left            =   4140
-                     TabIndex        =   189
+                     TabIndex        =   131
                      Top             =   2225
                      Width           =   975
                   End
@@ -4106,7 +2582,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Index           =   5
                      Left            =   3780
-                     TabIndex        =   119
+                     TabIndex        =   61
                      Top             =   420
                      Width           =   195
                      WordWrap        =   -1  'True
@@ -4126,7 +2602,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   255
                      Index           =   4
                      Left            =   4620
-                     TabIndex        =   118
+                     TabIndex        =   60
                      Top             =   465
                      Width           =   795
                      WordWrap        =   -1  'True
@@ -4204,7 +2680,7 @@ Begin VB.Form FChargementPrevisionnel
                      Left            =   2760
                      ScaleHeight     =   855
                      ScaleWidth      =   495
-                     TabIndex        =   188
+                     TabIndex        =   130
                      Top             =   120
                      Width           =   495
                   End
@@ -4218,7 +2694,7 @@ Begin VB.Form FChargementPrevisionnel
                      Left            =   3600
                      ScaleHeight     =   855
                      ScaleWidth      =   435
-                     TabIndex        =   187
+                     TabIndex        =   129
                      Top             =   120
                      Width           =   435
                   End
@@ -4328,7 +2804,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   360
                      Left            =   9000
                      MaxLength       =   6
-                     TabIndex        =   201
+                     TabIndex        =   133
                      Top             =   275
                      Width           =   1695
                   End
@@ -4379,7 +2855,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   240
                      Index           =   31
                      Left            =   8040
-                     TabIndex        =   202
+                     TabIndex        =   134
                      Top             =   330
                      Width           =   705
                      WordWrap        =   -1  'True
@@ -4503,7 +2979,7 @@ Begin VB.Form FChargementPrevisionnel
                   Height          =   9135
                   Index           =   0
                   Left            =   180
-                  TabIndex        =   151
+                  TabIndex        =   93
                   Top             =   1860
                   Width           =   10155
                   _ExtentX        =   17912
@@ -4785,11 +3261,11 @@ Begin VB.Form FChargementPrevisionnel
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   14430
+      ScaleWidth      =   13335
       TabIndex        =   0
       TabStop         =   0   'False
-      Top             =   11925
-      Width           =   14490
+      Top             =   11910
+      Width           =   13395
       Begin MSComctlLib.ImageList ILImagesNumChoix 
          Left            =   6120
          Top             =   60
@@ -5277,7 +3753,7 @@ Begin VB.Form FChargementPrevisionnel
          ForeColor       =   &H0000FFFF&
          Height          =   735
          Left            =   19260
-         TabIndex        =   150
+         TabIndex        =   92
          Top             =   180
          Visible         =   0   'False
          Width           =   2895
@@ -5299,10 +3775,10 @@ Begin VB.Form FChargementPrevisionnel
       Left            =   0
       Picture         =   "FChargementPrevisionnel.frx":14C87E
       ScaleHeight     =   315
-      ScaleWidth      =   14430
+      ScaleWidth      =   13335
       TabIndex        =   1
       Top             =   0
-      Width           =   14490
+      Width           =   13395
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -5789,7 +4265,9 @@ Private Sub CBTransfererVersChargement_Click(Index As Integer)
                 TransfertDonneesEntreGrilles TG_PREVISIONNEL, LigneDepartDeplacement
     
                 '--- sélection du n° de barre ---
-                Call LNumBarres_Click(Index:=TPrevisionnel(LigneDepartDeplacement).NumBarre)
+                ComboBarre.ListIndex = TPrevisionnel(LigneDepartDeplacement).NumBarre
+                
+                Call ComboBarre_Click
                 
                 '--- affectation du numéro de gamme et chargement de la gamme dans la mémoire ---
                 TBNumGammeAnodisation.Text = TPrevisionnel(LigneDepartDeplacement).NumGammeAnodisation
@@ -6086,7 +4564,7 @@ Private Sub LNomsPostes_MouseDown(Index As Integer, Button As Integer, Shift As 
 
 End Sub
 
-Private Sub LNumBarres_Click(Index As Integer)
+Private Sub ComboBarre_Click()
     
     '--- aiguillage en cas d'erreurs ---
     On Error Resume Next
@@ -6094,10 +4572,10 @@ Private Sub LNumBarres_Click(Index As Integer)
     '--- déclaration ---
     Dim OccLNumBarres As Label
 
-    If Index = 0 Then
+    If ComboBarre.ListIndex <= 0 Then
     
         '--- effacement de tous les champs ---
-        For Each OccLNumBarres In LNumBarres
+        For Each OccLNumBarres In ComboBarre
             With OccLNumBarres
                 .BackColor = COULEURS.BLANC
                 .ForeColor = COULEURS.NOIR
@@ -6109,20 +4587,20 @@ Private Sub LNumBarres_Click(Index As Integer)
     
     Else
     
-        If NumBarreEnCours <> Index Then
+        If NumBarreEnCours <> ComboBarre.ListIndex Then
             
-            For Each OccLNumBarres In LNumBarres
+            For Each OccLNumBarres In ComboBarre
                 
                 With OccLNumBarres
                     
-                    If .Index = Index Then
+                    If .Index = ComboBarre.ListIndex Then
                         
                         '--- changement des couleurs ---
                         .BackColor = COULEURS.BLEU_3
                         .ForeColor = COULEURS.JAUNE_3
                     
                         '--- affectation du numéro de barre en cours ---
-                        NumBarreEnCours = Index
+                        NumBarreEnCours = ComboBarre.ListIndex
                     
                     Else
                         
@@ -7720,6 +6198,15 @@ Public Sub InitialisationFenetre()
         End With
     Next a
     
+    ' TODO add barre 202411
+    
+    For a = LBound(TBarres()) To UBound(TBarres())
+        ComboBarre.AddItem (TBarres(a).Libelle)
+        ComboBarre.ItemData(ComboBarre.NewIndex) = TBarres(a).Libelle
+        
+        
+    Next a
+    
     '--- gestion de l'états des boutons ---
     GestionBoutons E_CHARGEMENT_FENETRE
     
@@ -8438,7 +6925,7 @@ Private Sub EffacementCompletChargement()
     End With
     LTempsAnodisationGamme.Caption = ""
     CBChoixPosteAnodisation.ListIndex = -1
-    
+    ComboBarre.ListIndex = -1
     '--- rendre invisible la partie du poste d'anodisation ---
     FTempsEtPosteAnodisation.Visible = False
 
@@ -8452,7 +6939,7 @@ Private Sub EffacementCompletChargement()
     FOptions.Visible = False
     
     '--- effacement du numéro de barre ---
-    Call LNumBarres_Click(0)
+    Call ComboBarre_Click
     FNumBarres.Visible = False
     RepositonnerCadre.Visible = False
     
@@ -9708,6 +8195,7 @@ Private Function InsertionCommandeInterne(ByVal GrilleConcernee As TYPES_GRILLES
             
             '--- affectation ---
             InsertionCommandeInterne = TROUVE
+            'MsgBox ("Clipper trouvé")
             
       Else
 

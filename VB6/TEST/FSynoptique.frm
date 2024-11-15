@@ -646,23 +646,23 @@ Begin VB.Form FSynoptique
    End
    Begin VB.PictureBox PBSynoptique 
       AutoRedraw      =   -1  'True
-      Height          =   12795
-      Left            =   0
-      ScaleHeight     =   849
+      Height          =   5475
+      Left            =   -360
+      ScaleHeight     =   361
       ScaleMode       =   3  'Pixel
       ScaleWidth      =   1919
       TabIndex        =   1
-      Top             =   0
+      Top             =   720
       Width           =   28845
       Begin VB.PictureBox PBEtatsLigne 
          BackColor       =   &H00E0E0E0&
-         Height          =   12435
+         Height          =   12195
          Left            =   420
-         ScaleHeight     =   825
+         ScaleHeight     =   809
          ScaleMode       =   3  'Pixel
          ScaleWidth      =   1877
          TabIndex        =   12
-         Top             =   5160
+         Top             =   5400
          Width           =   28215
          Begin VB.Frame FApresAnodisation 
             Height          =   10335
@@ -10567,7 +10567,8 @@ Private Sub GestionEnCours(ByVal EtatSouhaite As GESTION_GRILLES)
                                 AffichageTexteMatrice VSFGEnCours, a, COLONNES_DETAILS_EN_COURS.C_CODE_CLIENT, TexteCellule
                                 
                                 '--- numéro de barre ---
-                                TexteCellule = TEtatsCharges(a).NumBarre
+                                TexteCellule = TBarres(TEtatsCharges(a).NumBarre + 1).Libelle
+                                
                                 AffichageTexteMatrice VSFGEnCours, a, COLONNES_DETAILS_EN_COURS.C_NUM_BARRE, TexteCellule
                             
                                 '--- nombre de pièces ---
@@ -11088,10 +11089,10 @@ Public Sub VisualisationEtatsLigne()
             End If
             If ModeAffichageSynoptique = MA_NUM_BARRES And _
                NumBarre >= BARRES.B_NUM_MINI And NumBarre <= BARRES.B_NUM_MAXI Then
-                AffichageTexte LNumCharges(a), NumBarre, COULEURS.VERT_3
+                AffichageTexte LNumCharges(a), TBarres(NumBarre + 1).Libelle, COULEURS.VERT_3
             Else
                 If NumCharge >= CHARGES.C_NUM_MINI And NumCharge <= CHARGES.C_NUM_MAXI Then
-                    AffichageTexte LNumCharges(a), NumCharge, COULEURS.JAUNE_3
+                    AffichageTexte LNumCharges(a), TBarres(NumBarre + 1).Libelle, COULEURS.JAUNE_3
                 Else
                     AffichageTexte LNumCharges(a), "", COULEURS.BLANC
                 End If

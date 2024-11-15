@@ -7,17 +7,17 @@ Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
 Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Begin VB.Form FGammesAnodisation 
-   ClientHeight    =   11010
+   ClientHeight    =   13005
    ClientLeft      =   405
    ClientTop       =   3870
-   ClientWidth     =   13680
+   ClientWidth     =   13395
    Icon            =   "FGammesAnodisation.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   13320
+   ScaleHeight     =   18981.91
    ScaleMode       =   0  'User
-   ScaleWidth      =   24079.09
+   ScaleWidth      =   1.6717e5
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBCriteresRecherche 
@@ -33,9 +33,9 @@ Begin VB.Form FGammesAnodisation
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H80000008&
-      Height          =   1095
+      Height          =   13575
       Left            =   240
-      ScaleHeight     =   1065
+      ScaleHeight     =   13545
       ScaleWidth      =   28185
       TabIndex        =   37
       Top             =   600
@@ -57,7 +57,7 @@ Begin VB.Form FGammesAnodisation
          List            =   "FGammesAnodisation.frx":015A
          Style           =   2  'Dropdown List
          TabIndex        =   150
-         Top             =   540
+         Top             =   420
          Width           =   3495
       End
       Begin VB.OptionButton OBFormeGrille 
@@ -80,7 +80,7 @@ Begin VB.Form FGammesAnodisation
          Style           =   1  'Graphical
          TabIndex        =   44
          ToolTipText     =   " Change la présentation de la grille "
-         Top             =   540
+         Top             =   420
          Width           =   375
       End
       Begin VB.OptionButton OBFormeGrille 
@@ -102,7 +102,7 @@ Begin VB.Form FGammesAnodisation
          Left            =   1140
          Style           =   1  'Graphical
          TabIndex        =   43
-         Top             =   180
+         Top             =   60
          Value           =   -1  'True
          Width           =   375
       End
@@ -125,7 +125,7 @@ Begin VB.Form FGammesAnodisation
          Style           =   1  'Graphical
          TabIndex        =   42
          ToolTipText     =   " Annule tris et recherches "
-         Top             =   180
+         Top             =   60
          UseMaskColor    =   -1  'True
          Width           =   915
       End
@@ -150,7 +150,7 @@ Begin VB.Form FGammesAnodisation
          TabIndex        =   41
          TabStop         =   0   'False
          ToolTipText     =   " Rechercher sur la grille "
-         Top             =   180
+         Top             =   60
          UseMaskColor    =   -1  'True
          Width           =   915
       End
@@ -173,7 +173,7 @@ Begin VB.Form FGammesAnodisation
          Style           =   1  'Graphical
          TabIndex        =   40
          ToolTipText     =   " Lancer une recherche "
-         Top             =   180
+         Top             =   60
          UseMaskColor    =   -1  'True
          Width           =   1335
       End
@@ -191,7 +191,7 @@ Begin VB.Form FGammesAnodisation
          Height          =   315
          Left            =   8460
          TabIndex        =   39
-         Top             =   180
+         Top             =   60
          Width           =   2655
       End
       Begin VB.TextBox TBContenant 
@@ -208,18 +208,18 @@ Begin VB.Form FGammesAnodisation
          Height          =   315
          Left            =   8460
          TabIndex        =   38
-         Top             =   600
+         Top             =   480
          Width           =   2655
       End
       Begin TrueOleDBGrid80.TDBGrid TDBGGrilleRecherche 
          Bindings        =   "FGammesAnodisation.frx":14DD
-         Height          =   10875
+         Height          =   9915
          Left            =   240
          TabIndex        =   152
-         Top             =   1140
+         Top             =   840
          Width           =   27675
          _ExtentX        =   48816
-         _ExtentY        =   19182
+         _ExtentY        =   17489
          _LayoutType     =   4
          _RowHeight      =   -2147483647
          _WasPersistedAsPixels=   0
@@ -469,7 +469,7 @@ Begin VB.Form FGammesAnodisation
          Index           =   20
          Left            =   1740
          TabIndex        =   47
-         Top             =   180
+         Top             =   60
          Width           =   3360
       End
       Begin VB.Label LLibelles 
@@ -491,7 +491,7 @@ Begin VB.Form FGammesAnodisation
          Index           =   13
          Left            =   6540
          TabIndex        =   46
-         Top             =   240
+         Top             =   120
          Width           =   1755
       End
       Begin VB.Label LLibelles 
@@ -513,7 +513,7 @@ Begin VB.Form FGammesAnodisation
          Index           =   12
          Left            =   6540
          TabIndex        =   45
-         Top             =   660
+         Top             =   540
          Width           =   1050
       End
    End
@@ -524,10 +524,10 @@ Begin VB.Form FGammesAnodisation
       Left            =   0
       Picture         =   "FGammesAnodisation.frx":1502
       ScaleHeight     =   315
-      ScaleWidth      =   13620
+      ScaleWidth      =   28620
       TabIndex        =   8
       Top             =   0
-      Width           =   13680
+      Width           =   28680
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -559,11 +559,11 @@ Begin VB.Form FGammesAnodisation
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   13620
+      ScaleWidth      =   28620
       TabIndex        =   5
       TabStop         =   0   'False
-      Top             =   9915
-      Width           =   13680
+      Top             =   14595
+      Width           =   28680
       Begin VB.Frame FNouveauNumGamme 
          BackColor       =   &H00E0E0E0&
          BeginProperty Font 
@@ -1071,7 +1071,7 @@ Begin VB.Form FGammesAnodisation
       FrontTabForeColor=   0
       Caption         =   "Renseignements|Détails de la gamme d'ANODISATION|Calculs par apprentissage"
       Align           =   0
-      CurrTab         =   -1
+      CurrTab         =   0
       FirstTab        =   0
       Style           =   1
       Position        =   0
@@ -1099,24 +1099,24 @@ Begin VB.Form FGammesAnodisation
       Picture(1)      =   "FGammesAnodisation.frx":3632D
       Picture(2)      =   "FGammesAnodisation.frx":36487
       Begin VB.PictureBox PBOnglets 
-         Height          =   9645
+         Height          =   9615
          Index           =   9
-         Left            =   14055
-         ScaleHeight     =   9585
-         ScaleWidth      =   2730
+         Left            =   30060
+         ScaleHeight     =   9555
+         ScaleWidth      =   28065
          TabIndex        =   21
-         Top             =   480
-         Width           =   2790
+         Top             =   495
+         Width           =   28125
       End
       Begin VB.PictureBox PBOnglets 
-         Height          =   9645
+         Height          =   9615
          Index           =   1
-         Left            =   2835
-         ScaleHeight     =   9585
-         ScaleWidth      =   2730
+         Left            =   28860
+         ScaleHeight     =   9555
+         ScaleWidth      =   28065
          TabIndex        =   20
-         Top             =   480
-         Width           =   2790
+         Top             =   495
+         Width           =   28125
          Begin MSMask.MaskEdBox MEBEditionDetailsGammesAnodisation 
             Height          =   255
             Left            =   7920
@@ -2438,14 +2438,14 @@ Begin VB.Form FGammesAnodisation
          End
       End
       Begin VB.PictureBox PBOnglets 
-         Height          =   9645
+         Height          =   9615
          Index           =   0
-         Left            =   30
-         ScaleHeight     =   9585
-         ScaleWidth      =   2730
+         Left            =   45
+         ScaleHeight     =   9555
+         ScaleWidth      =   28065
          TabIndex        =   19
-         Top             =   480
-         Width           =   2790
+         Top             =   495
+         Width           =   28125
          Begin VB.Frame FCaracteristiques 
             Caption         =   " Matières concernées "
             BeginProperty Font 
@@ -3222,64 +3222,64 @@ Begin VB.Form FGammesAnodisation
          End
       End
       Begin VB.PictureBox PBOnglets 
-         Height          =   9645
+         Height          =   9615
          Index           =   4
-         Left            =   11250
-         ScaleHeight     =   9585
-         ScaleWidth      =   2730
+         Left            =   29760
+         ScaleHeight     =   9555
+         ScaleWidth      =   28065
          TabIndex        =   18
-         Top             =   480
-         Width           =   2790
+         Top             =   495
+         Width           =   28125
       End
       Begin VB.PictureBox PBOnglets 
-         Height          =   9645
+         Height          =   9615
          Index           =   5
-         Left            =   16860
-         ScaleHeight     =   9585
-         ScaleWidth      =   2730
+         Left            =   30360
+         ScaleHeight     =   9555
+         ScaleWidth      =   28065
          TabIndex        =   17
-         Top             =   480
-         Width           =   2790
+         Top             =   495
+         Width           =   28125
       End
       Begin VB.PictureBox PBOnglets 
-         Height          =   9645
+         Height          =   9615
          Index           =   6
-         Left            =   19665
-         ScaleHeight     =   9585
-         ScaleWidth      =   2730
+         Left            =   30660
+         ScaleHeight     =   9555
+         ScaleWidth      =   28065
          TabIndex        =   16
-         Top             =   480
-         Width           =   2790
+         Top             =   495
+         Width           =   28125
       End
       Begin VB.PictureBox PBOnglets 
-         Height          =   9645
+         Height          =   9615
          Index           =   7
-         Left            =   22470
-         ScaleHeight     =   9585
-         ScaleWidth      =   2730
+         Left            =   30960
+         ScaleHeight     =   9555
+         ScaleWidth      =   28065
          TabIndex        =   15
-         Top             =   480
-         Width           =   2790
+         Top             =   495
+         Width           =   28125
       End
       Begin VB.PictureBox PBOnglets 
-         Height          =   9645
+         Height          =   9615
          Index           =   8
-         Left            =   25275
-         ScaleHeight     =   9585
-         ScaleWidth      =   2730
+         Left            =   31260
+         ScaleHeight     =   9555
+         ScaleWidth      =   28065
          TabIndex        =   14
-         Top             =   480
-         Width           =   2790
+         Top             =   495
+         Width           =   28125
       End
       Begin VB.PictureBox PBOnglets 
-         Height          =   9645
+         Height          =   9615
          Index           =   2
-         Left            =   5640
-         ScaleHeight     =   9585
-         ScaleWidth      =   2730
+         Left            =   29160
+         ScaleHeight     =   9555
+         ScaleWidth      =   28065
          TabIndex        =   13
-         Top             =   480
-         Width           =   2790
+         Top             =   495
+         Width           =   28125
          Begin VB.Label LLibelles 
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
@@ -3905,14 +3905,14 @@ Begin VB.Form FGammesAnodisation
          End
       End
       Begin VB.PictureBox PBOnglets 
-         Height          =   9645
+         Height          =   9615
          Index           =   3
-         Left            =   8445
-         ScaleHeight     =   9585
-         ScaleWidth      =   2730
+         Left            =   29460
+         ScaleHeight     =   9555
+         ScaleWidth      =   28065
          TabIndex        =   12
-         Top             =   480
-         Width           =   2790
+         Top             =   495
+         Width           =   28125
       End
    End
    Begin VB.PictureBox PBCommuns 
@@ -5140,7 +5140,7 @@ Private Sub AfficheGrilleRecherche()
     On Error Resume Next
     
     '--- constantes privées ---
-    Const HauteurPBCriteresRecherche As Integer = 1095
+    Const HauteurPBCriteresRecherche As Integer = 1094
     
     '--- déclaration ---
     Dim HauteurGrilleRecherche As Long
@@ -5158,7 +5158,7 @@ Private Sub AfficheGrilleRecherche()
     '--- hauteur de la grille de recherche ---
     HauteurGrilleRecherche = PBCriteresRecherche.Height - TDBGGrilleRecherche.Top - TDBGGrilleRecherche.Left - 5 * Screen.TwipsPerPixelY
     If HauteurGrilleRecherche > 0 Then
-        TDBGGrilleRecherche.Height = HauteurGrilleRecherche
+        'TDBGGrilleRecherche.Height = HauteurGrilleRecherche - 500
     End If
     
     '--- placer le focus ---
@@ -5535,7 +5535,7 @@ Private Sub OBFormeGrille_Click(Index As Integer)
             Case 0
                 '--- remettre en présentation normale ---
                 .DataView = dbgNormalView               'présentation normale
-                .Splits(0).AllowSizing = True               'autorise le fractionnement de la grille (petite rectangle noir en bas à gauche)
+                '.Splits(0).AllowSizing = True               'autorise le fractionnement de la grille (petite rectangle noir en bas à gauche)
             
             Case 1
                 '--- changement de la présentation ---

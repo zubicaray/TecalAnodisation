@@ -963,6 +963,7 @@ Public Function ChargeConfiguration() As String
         Input #NumFic, varConfig
         
         If varConfig = TYPE_BDD_ANO.PROD Then
+            
             PARAMETRES_CONNEXION_BD_CLIPPER_HF = CST_PARAMETRES_CONNEXION_BD_CLIPPER_HF
         End If
         
@@ -970,9 +971,9 @@ Public Function ChargeConfiguration() As String
         If varConfig = TYPE_BDD_CLIPPER.ACCESS_TEST Then
             PARAMETRES_CONNEXION_BD_CLIPPER_HF = CST_PARAMETRES_CONNEXION_BD_CLIPPER_TEST_ACCESS
         End If
-        If varConfig = TYPE_BDD_ANO.TEST Then
-            PARAMETRES_CONNEXION_BD_CLIPPER_HF = CST_PARAMETRES_CONNEXION_BD_CLIPPER_TEST_HF
-        End If
+        'If varConfig = TYPE_BDD_ANO.TEST Then
+        '    PARAMETRES_CONNEXION_BD_CLIPPER_HF = CST_PARAMETRES_CONNEXION_BD_CLIPPER_TEST_HF
+        'End If
         
 
         

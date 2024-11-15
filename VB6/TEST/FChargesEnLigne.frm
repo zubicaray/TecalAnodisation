@@ -4,17 +4,17 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.ocx"
 Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "msmask32.ocx"
 Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
 Begin VB.Form FChargesEnLigne 
-   ClientHeight    =   14100
+   ClientHeight    =   13005
    ClientLeft      =   525
    ClientTop       =   2415
-   ClientWidth     =   28680
+   ClientWidth     =   13395
    Icon            =   "FChargesEnLigne.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   940
+   ScaleHeight     =   867
    ScaleMode       =   3  'Pixel
-   ScaleWidth      =   1912
+   ScaleWidth      =   893
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBRenseignementsFenetre 
       Align           =   1  'Align Top
@@ -23,10 +23,10 @@ Begin VB.Form FChargesEnLigne
       Left            =   0
       Picture         =   "FChargesEnLigne.frx":014A
       ScaleHeight     =   315
-      ScaleWidth      =   28620
+      ScaleWidth      =   13335
       TabIndex        =   2
       Top             =   0
-      Width           =   28680
+      Width           =   13395
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -59,11 +59,11 @@ Begin VB.Form FChargesEnLigne
       Left            =   0
       Picture         =   "FChargesEnLigne.frx":24A8C
       ScaleHeight     =   1035
-      ScaleWidth      =   28620
+      ScaleWidth      =   13335
       TabIndex        =   0
       TabStop         =   0   'False
-      Top             =   13005
-      Width           =   28680
+      Top             =   11910
+      Width           =   13395
       Begin VB.PictureBox PBRedresseurs 
          Appearance      =   0  'Flat
          BackColor       =   &H80000005&
@@ -798,10 +798,10 @@ Begin VB.Form FChargesEnLigne
       Left            =   0
       ScaleHeight     =   865
       ScaleMode       =   3  'Pixel
-      ScaleWidth      =   1912
+      ScaleWidth      =   893
       TabIndex        =   1
       Top             =   375
-      Width           =   28680
+      Width           =   13395
       Begin VB.PictureBox PBDeplacementFenetre 
          Height          =   12795
          Index           =   1
@@ -4920,16 +4920,19 @@ Private Sub GestionEtatsCharges(ByVal EtatSouhaite As GESTION_GRILLES)
                     If .NumBarre = 0 Then
                         Texte = "-"
                     Else
-                        Texte = .NumBarre
+                        Texte = TBarres(.NumBarre + 1).Libelle
                     End If
+                    
                     AffichageTexte LNumBarre(0), Texte
                     
                     '--- numéro de barre dans l'écran de la gamme ---
                     If .NumBarre = 0 Then
                         Texte = "-"
                     Else
-                        Texte = "Barre n° " & .NumBarre
+                        Texte = "Barre n° " & TBarres(.NumBarre + 1).Libelle
                     End If
+                     
+                     
                     AffichageTexte LNumBarre(1), Texte
                     
                     '--- affichage du pointeur de la zone ---

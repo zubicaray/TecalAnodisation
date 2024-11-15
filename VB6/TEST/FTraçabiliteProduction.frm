@@ -7,10 +7,10 @@ Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
 Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Begin VB.Form FTraçabiliteProduction 
    BackColor       =   &H00C0C0C0&
-   ClientHeight    =   13020
+   ClientHeight    =   13005
    ClientLeft      =   -405
    ClientTop       =   4890
-   ClientWidth     =   13680
+   ClientWidth     =   13395
    BeginProperty Font 
       Name            =   "Marlett"
       Size            =   7.5
@@ -24,8 +24,8 @@ Begin VB.Form FTraçabiliteProduction
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   13020
-   ScaleWidth      =   13680
+   ScaleHeight     =   13005
+   ScaleWidth      =   13395
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBRenseignementsFenetre 
@@ -35,10 +35,10 @@ Begin VB.Form FTraçabiliteProduction
       Left            =   0
       Picture         =   "FTraçabiliteProduction.frx":0442
       ScaleHeight     =   315
-      ScaleWidth      =   13620
+      ScaleWidth      =   13335
       TabIndex        =   5
       Top             =   0
-      Width           =   13680
+      Width           =   13395
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -70,11 +70,11 @@ Begin VB.Form FTraçabiliteProduction
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   13620
+      ScaleWidth      =   13335
       TabIndex        =   0
       TabStop         =   0   'False
-      Top             =   11925
-      Width           =   13680
+      Top             =   11910
+      Width           =   13395
       Begin VB.PictureBox PBOutilsDeplacementFenetre 
          BackColor       =   &H00E0E0E0&
          Height          =   1035
@@ -383,10 +383,10 @@ Begin VB.Form FTraçabiliteProduction
       Index           =   0
       Left            =   0
       ScaleHeight     =   12915
-      ScaleWidth      =   13680
+      ScaleWidth      =   13395
       TabIndex        =   1
       Top             =   375
-      Width           =   13680
+      Width           =   13395
       Begin VB.PictureBox PBDeplacementFenetre 
          Height          =   12705
          Index           =   1
@@ -4320,7 +4320,8 @@ Private Sub GestionDetailsChargesProduction(ByVal EtatSouhaite As GESTION_GRILLE
             If TDetailsChargesProduction(1).NumBarre = 0 Then
                 Texte = "-"
             Else
-                Texte = TDetailsChargesProduction(1).NumBarre
+                Texte = TBarres(TDetailsChargesProduction(1).NumBarre + 1).Libelle
+                
             End If
             AffichageTexte LNumBarre, Texte
             

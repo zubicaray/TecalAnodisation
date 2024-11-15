@@ -127,6 +127,9 @@ Public ModeSurFrappe As Boolean
 Public LIMITE_BASSE_ZONES As Integer             'limite basse du tableau des zones
 Public LIMITE_HAUTE_ZONES As Integer             'limite haute du tableau des zones
 
+'--- limites du tableau des barres ---
+Public LIMITE_BASSE_BARRES As Integer             'limite basse du tableau des barres
+Public LIMITE_HAUTE_BARRES As Integer             'limite haute du tableau des barres
 '--- images ---
 Public ImgFondDeFenetre As Picture                     'image de fond standard d'un fenêtre
 Public ImgFondDeFenetreXP As Picture                 'image de fond standard d'une fenêtre type XP
@@ -194,6 +197,8 @@ Public TMatieres(1 To 50) As EnrMatieres
 
 '--- zones ---
 Public TZones() As EnrZones                                 'zones de la ligne d'anodisation
+'--- barres ---
+Public TBarres() As EnrBarres                                 'zones de la ligne d'anodisation
 
 '--- actions ---
 Public TActions(NUM_ACTION_NOP To NUM_ACTION_FCY) As EnrActions

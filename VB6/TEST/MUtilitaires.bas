@@ -1174,6 +1174,8 @@ Public Sub AffichageTexte(ByRef LeControleConcerne As Control, _
     '--- aiguillage en cas d'erreurs ---
     On Error Resume Next
     
+    
+    
     '--- déclaration ---
     
     '--- modification ---

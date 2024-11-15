@@ -1347,7 +1347,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                             End If
                             
                             '--- le numéro de barre ---
-                            If InStr(TabItemName(a), Cle & "NumBarre") > 0 Then .NumBarre = value(a)
+                            If InStr(TabItemName(a), Cle & "NumBarre") > 0 Then .Numbarre = value(a)
                             
                             '--- mode de travail du redresseur U(tension)=0, I(intensité)=1 ---
                             If InStr(TabItemName(a), Cle & "ModeUouI") > 0 Then .ModeUouI = value(a)
@@ -2201,6 +2201,10 @@ Private Sub MDIForm_Activate()
         '--- chargement des zones ---
         Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "Chargement des zones de la ligne")
         Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_ANALYSE, ChargeZones())
+        
+         '--- chargement des zones ---
+        Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "Chargement des barres de la ligne")
+        Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_ANALYSE, ChargeBarres())
         
         '--- chargement des caractéristiques des cuves ---
         Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "Chargement des cuves")

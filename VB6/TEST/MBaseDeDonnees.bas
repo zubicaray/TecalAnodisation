@@ -1108,6 +1108,102 @@ GestionErreurs:
 End Function
 
 '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+' Rôle      : Chargement des barres
+' Détails  :
+' Entrées :
+' Retours :
+'----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Public Function ChargeBarres() As String
+    
+    '--- aiguillage en cas d'erreurs ---
+    On Error GoTo GestionErreurs
+  
+    '--- constante privées ---
+    
+    '--- déclaration ---
+    Dim a As Integer, _
+           NumBarre As Integer
+    Dim Requete As String
+    Dim ConnexionBDAnodisationSQL As New ADODB.Connection
+    Dim Enregistrement As New ADODB.Recordset
+    
+    '--- déclaration ---
+ 
+    '--- affichage du type de tâche ---
+    AfficheTypeTache "Chargement des zones"
+    
+    '--- ouverture de la connexion à la base de données de l'anodisation en SQL SERVER 2000 ---
+    With ConnexionBDAnodisationSQL
+        .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+        .CursorLocation = adUseServer
+        .Mode = adModeReadWrite
+        .ConnectionTimeout = 2     'X secondes d'attente de connexion avant de lancer un message d'erreur
+        .Open
+    End With
+    
+    '--- recherche ---
+    With Enregistrement
+
+        '--- lancement de la requête ---
+        Requete = "SELECT barres.* FROM barres ORDER BY id"
+        .CursorLocation = adUseClient
+        .CacheSize = 50
+        .MaxRecords = 0
+        .Open Requete, ConnexionBDAnodisationSQL, adOpenStatic, adLockOptimistic, adCmdText
+
+        '--- redimensionnement du tableau ---
+        Erase TBarres()
+        ReDim TBarres(1 To .RecordCount) As EnrBarres
+        
+        '--- affectation ---
+        LIMITE_BASSE_BARRES = LBound(TBarres())
+        LIMITE_HAUTE_BARRES = UBound(TBarres())
+        
+        '--- extraction des valeurs ---
+        Do While Not .EOF
+            
+            '--- affectation ---
+            NumBarre = ![ID]
+            
+            '--- affectation dans le tableau ---
+            With TBarres(NumBarre)
+                .NumBarre = Enregistrement![ID]
+                .Libelle = Enregistrement![Libelle]
+            End With
+            
+            '--- enregistrement suivant ---
+            .MoveNext
+        
+        Loop
+
+    End With
+    
+    '--- fermeture de l'enregistrement / connexion ---
+    Enregistrement.Close
+    Set Enregistrement = Nothing
+    ConnexionBDAnodisationSQL.Close
+    Set ConnexionBDAnodisationSQL = Nothing
+
+    '--- affichage du type de tâche ---
+    AfficheTypeTache ("")
+  
+    Exit Function
+
+GestionErreurs:
+    
+    '--- valeur de retour ---
+    ChargeBarres = CStr(Err.Number)
+    
+    '--- fermeture de l'enregistrement / connexion ---
+    On Error Resume Next
+    Enregistrement.Close
+    Set Enregistrement = Nothing
+    ConnexionBDAnodisationSQL.Close
+    Set ConnexionBDAnodisationSQL = Nothing
+
+End Function
+
+'----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ' Rôle      : Chargement des zones
 ' Détails  :
 ' Entrées :

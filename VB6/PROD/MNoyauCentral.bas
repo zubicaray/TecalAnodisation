@@ -1303,7 +1303,8 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
         
             'Call Log("DETAILS DES FICHES DE PRODUCTION FIN")
         End With
-
+    Else
+        Call Log("pas de numfiche")
     End If
     
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1325,16 +1326,16 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
     '--- effacement des objets ---
     Set Enregistrement = Nothing
     Set ConnexionBDAnodisationSQL = Nothing
-    
+    Call Log("Record OK  ")
     Exit Sub
 
 GestionErreurs:
     
     '--- valeur de retour ---
-    'EnregistrementProduction = CStr(Err.Number)
+    
     
     AfficheRenseignements ROUGE_0, "Erreur d'enregitrement en base: " & CStr(Err.Number) & vbCrLf
-    
+    Call Log("Erreur d'enregitrement en base: " & CStr(Err.Description))
     '--- fermeture de l'enregistrement / connexion ---
     On Error Resume Next
     Enregistrement.Close
@@ -1405,7 +1406,7 @@ Public Sub AnalyseChargesEnLignePostes()
                     '--- remplissage de la fiche avec la date d'arrivée au déchargement ---
                     If a >= POSTES.P_D1 And a <= POSTES.P_D2 Then
                         .DateArriveeAuDechargement = Now
-                        ' SZP 20241004 ---------------------------------------------------------------
+                        ' SZP 202411 ---------------------------------------------------------------
                         EnregistrementProductionLocal (TEtatsPostes(a).NumCharge)
                         insertionClipperPointage (TEtatsPostes(a).NumCharge)
                         

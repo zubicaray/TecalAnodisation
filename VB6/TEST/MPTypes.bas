@@ -686,6 +686,12 @@ Public Type EnrZones
     NbrPostes As Integer                    'Nombre de postes concernés par la zone
 End Type
 
+'--- enregistrement du type des barres de la ligne ---
+Public Type EnrBarres
+    NumBarre As Integer                     'N° de la barre
+    Libelle As String                   'Libellé de la barre
+End Type
+
 '***************************************************************************************************************************
 '                                                                      GAMMES D'ANODISATION
 '***************************************************************************************************************************
