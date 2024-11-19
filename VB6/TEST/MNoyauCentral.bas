@@ -1105,6 +1105,8 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                         Enregistrement("DateEntreeEnLigne") = TEtatsCharges(NumCharge).DateEntreeEnLigne
                         Enregistrement("DateArriveeAuDechargement") = TEtatsCharges(NumCharge).DateArriveeAuDechargement
                         Enregistrement("NumBarre") = TEtatsCharges(NumCharge).NumBarre
+                        Call Log("Enregistrement(NumBarre) = TEtatsCharges(NumCharge).NumBarre", showLogs)
+                        
                         Enregistrement("NumLigne") = a
                         Enregistrement("CodeClient") = .CodeClient
                         Enregistrement("NbrPieces") = .NbrPieces
@@ -1113,13 +1115,16 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                         Enregistrement("Matiere") = .Matiere
                         Enregistrement("NumGammeAnodisation") = TEtatsCharges(NumCharge).TGammesAnodisation.NumGamme
                         Enregistrement("RefGammeAnodisation") = TEtatsCharges(NumCharge).TGammesAnodisation.RefGamme
+                        Call Log("RefGammeAnodisation", showLogs)
                         Enregistrement("TempsAnodisationTexte") = CTemps(TEtatsCharges(NumCharge).TempsTotalGammeRedresseur)
+                         Call Log("ici", showLogs)
                         Enregistrement("NumFicheProduction") = NumFicheProduction
                         If TEtatsCharges(NumCharge).ChargePrioritaire = True Then
                             Enregistrement("ChargePrioritaire") = 1
                         Else
                             Enregistrement("ChargePrioritaire") = 0
                         End If
+                        Call Log("barre2 =" & NumCharge, showLogs)
                         Enregistrement("AlarmesLigne") = TEtatsCharges(NumCharge).AlarmesLigne
                         'Enregistrement.Update
                     
@@ -1132,7 +1137,7 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                 
                 End With
             Next a
-            
+             Call Log("barre3 =" & NumCharge, showLogs)
             Enregistrement.UpdateBatch
             
             Enregistrement.Close
@@ -1853,7 +1858,7 @@ Public Sub MoteurInference()
     '--- analyse en fonction du PC ---
     If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
     
-    logMoteurInference = True
+    logMoteurInference = False
     
     '**********************************************************************************************************
     '**********************************************************************************************************
@@ -2332,7 +2337,7 @@ Public Sub MoteurInference()
                     If NumZoneDepart = NUMZONE_ANO Then
                     If TEtatsPonts(PONTS.P_2).PosteActuel = .NumPoste Then
                     If IsNumeric(.DecompteDuTempsAuPosteReelSecondes) = True Then
-                    If CLng(.DecompteDuTempsAuPosteReelSecondes) <= 2 Then
+                    If CLng(.DecompteDuTempsAuPosteReelSecondes) <= 20 Then
                         Dim NomGroupe As String
                         
                         Dim NumChargeRed As Integer

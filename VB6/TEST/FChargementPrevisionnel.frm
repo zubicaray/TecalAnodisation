@@ -10,13 +10,13 @@ Begin VB.Form FChargementPrevisionnel
    ClientHeight    =   13005
    ClientLeft      =   -75
    ClientTop       =   2085
-   ClientWidth     =   13395
+   ClientWidth     =   12825
    Icon            =   "FChargementPrevisionnel.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    ScaleHeight     =   13005
-   ScaleWidth      =   13395
+   ScaleWidth      =   12825
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBDeplacementFenetre 
@@ -29,10 +29,10 @@ Begin VB.Form FChargementPrevisionnel
       Index           =   0
       Left            =   0
       ScaleHeight     =   12795
-      ScaleWidth      =   13395
+      ScaleWidth      =   12825
       TabIndex        =   3
       Top             =   375
-      Width           =   13395
+      Width           =   12825
       Begin VB.PictureBox PBDeplacementFenetre 
          Height          =   12675
          Index           =   1
@@ -3261,11 +3261,11 @@ Begin VB.Form FChargementPrevisionnel
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   13335
+      ScaleWidth      =   12765
       TabIndex        =   0
       TabStop         =   0   'False
       Top             =   11910
-      Width           =   13395
+      Width           =   12825
       Begin MSComctlLib.ImageList ILImagesNumChoix 
          Left            =   6120
          Top             =   60
@@ -3775,10 +3775,10 @@ Begin VB.Form FChargementPrevisionnel
       Left            =   0
       Picture         =   "FChargementPrevisionnel.frx":14C87E
       ScaleHeight     =   315
-      ScaleWidth      =   13335
+      ScaleWidth      =   12765
       TabIndex        =   1
       Top             =   0
-      Width           =   13395
+      Width           =   12825
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -4569,53 +4569,21 @@ Private Sub ComboBarre_Click()
     '--- aiguillage en cas d'erreurs ---
     On Error Resume Next
 
+      
     '--- déclaration ---
     Dim OccLNumBarres As Label
-
-    If ComboBarre.ListIndex <= 0 Then
     
-        '--- effacement de tous les champs ---
-        For Each OccLNumBarres In ComboBarre
-            With OccLNumBarres
-                .BackColor = COULEURS.BLANC
-                .ForeColor = COULEURS.NOIR
-            End With
-        Next
+    Dim Index As Integer
+    Index = ComboBarre.ListIndex
+    
+    
+    If Index = 0 Then
                         
         '--- RAZ du numéro de barre en cours ---
         NumBarreEnCours = 0
     
     Else
-    
-        If NumBarreEnCours <> ComboBarre.ListIndex Then
-            
-            For Each OccLNumBarres In ComboBarre
-                
-                With OccLNumBarres
-                    
-                    If .Index = ComboBarre.ListIndex Then
-                        
-                        '--- changement des couleurs ---
-                        .BackColor = COULEURS.BLEU_3
-                        .ForeColor = COULEURS.JAUNE_3
-                    
-                        '--- affectation du numéro de barre en cours ---
-                        NumBarreEnCours = ComboBarre.ListIndex
-                    
-                    Else
-                        
-                        '--- changement des couleurs ---
-                        .BackColor = COULEURS.BLANC
-                        .ForeColor = COULEURS.NOIR
-                    
-                    End If
-                
-                End With
-            
-            Next
-        
-        End If
-
+        NumBarreEnCours = Index
     End If
 
 End Sub
@@ -6199,7 +6167,8 @@ Public Sub InitialisationFenetre()
     Next a
     
     ' TODO add barre 202411
-    
+    ComboBarre.AddItem ("")
+    ComboBarre.ItemData(ComboBarre.NewIndex) = ""
     For a = LBound(TBarres()) To UBound(TBarres())
         ComboBarre.AddItem (TBarres(a).Libelle)
         ComboBarre.ItemData(ComboBarre.NewIndex) = TBarres(a).Libelle
@@ -6925,7 +6894,7 @@ Private Sub EffacementCompletChargement()
     End With
     LTempsAnodisationGamme.Caption = ""
     CBChoixPosteAnodisation.ListIndex = -1
-    ComboBarre.ListIndex = -1
+    ComboBarre.ListIndex = 0
     '--- rendre invisible la partie du poste d'anodisation ---
     FTempsEtPosteAnodisation.Visible = False
 
