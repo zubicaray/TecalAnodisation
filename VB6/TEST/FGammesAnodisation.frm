@@ -17,7 +17,7 @@ Begin VB.Form FGammesAnodisation
    MDIChild        =   -1  'True
    ScaleHeight     =   18981.91
    ScaleMode       =   0  'User
-   ScaleWidth      =   1.6717e5
+   ScaleWidth      =   1.67170e5
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBCriteresRecherche 
@@ -33,9 +33,9 @@ Begin VB.Form FGammesAnodisation
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H80000008&
-      Height          =   13575
+      Height          =   1215
       Left            =   240
-      ScaleHeight     =   13545
+      ScaleHeight     =   1185
       ScaleWidth      =   28185
       TabIndex        =   37
       Top             =   600
@@ -524,10 +524,10 @@ Begin VB.Form FGammesAnodisation
       Left            =   0
       Picture         =   "FGammesAnodisation.frx":1502
       ScaleHeight     =   315
-      ScaleWidth      =   28620
+      ScaleWidth      =   13335
       TabIndex        =   8
       Top             =   0
-      Width           =   28680
+      Width           =   13395
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -559,11 +559,11 @@ Begin VB.Form FGammesAnodisation
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   28620
+      ScaleWidth      =   13335
       TabIndex        =   5
       TabStop         =   0   'False
-      Top             =   14595
-      Width           =   28680
+      Top             =   11910
+      Width           =   13395
       Begin VB.Frame FNouveauNumGamme 
          BackColor       =   &H00E0E0E0&
          BeginProperty Font 
@@ -5140,7 +5140,7 @@ Private Sub AfficheGrilleRecherche()
     On Error Resume Next
     
     '--- constantes privées ---
-    Const HauteurPBCriteresRecherche As Integer = 1094
+    Const HauteurPBCriteresRecherche As Integer = 1294
     
     '--- déclaration ---
     Dim HauteurGrilleRecherche As Long
@@ -5158,7 +5158,7 @@ Private Sub AfficheGrilleRecherche()
     '--- hauteur de la grille de recherche ---
     HauteurGrilleRecherche = PBCriteresRecherche.Height - TDBGGrilleRecherche.Top - TDBGGrilleRecherche.Left - 5 * Screen.TwipsPerPixelY
     If HauteurGrilleRecherche > 0 Then
-        'TDBGGrilleRecherche.Height = HauteurGrilleRecherche - 500
+        'TDBGGrilleRecherche.Height = HauteurGrilleRecherche
     End If
     
     '--- placer le focus ---

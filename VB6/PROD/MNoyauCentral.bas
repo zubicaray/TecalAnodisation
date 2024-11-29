@@ -2287,8 +2287,8 @@ Public Sub MoteurInference()
                 '    ", depuis  DatesDerniersDeplacementsAVide P2=" & DateDiff("s", TDatesDerniersDeplacementsAVide(PONTS.P_2), Now), logMoteurInference)
                 'End With
                 
-                Call Log("TEtatsPonts(PONTS.P_1).PosteActuel=" & TEtatsPonts(PONTS.P_1).PosteActuel & " NumZoneArrivee=" & NumZoneArrivee & _
-                     " dateDiff(s, TDatesDerniersTransfertsCharges(.NumPont), Now)=" & DateDiff("s", TDatesDerniersTransfertsCharges(1), Now))
+                'Call Log("TEtatsPonts(PONTS.P_1).PosteActuel=" & TEtatsPonts(PONTS.P_1).PosteActuel & " NumZoneArrivee=" & NumZoneArrivee & _
+                '     " dateDiff(s, TDatesDerniersTransfertsCharges(.NumPont), Now)=" & DateDiff("s", TDatesDerniersTransfertsCharges(1), Now))
                 
                 
                 If .PtrZoneGammeAnodisation > 1 Then
@@ -2326,6 +2326,53 @@ Public Sub MoteurInference()
                     End If
                     End With
                     
+                     With TMoteurInference.TOrdreSortiePonts(PONTS.P_2, 1)
+                    If NumZoneDepart = NUMZONE_ANO Then
+                    If TEtatsPonts(PONTS.P_2).PosteActuel = .NumPoste Then
+                    If IsNumeric(.DecompteDuTempsAuPosteReelSecondes) = True Then
+                    If CLng(.DecompteDuTempsAuPosteReelSecondes) <= 30 Then
+                        Dim NomGroupe As String
+                        
+                        Dim NumChargeRed As Integer
+                        
+                       
+                        
+                        '--- déclaration ---
+                        Dim ValeurRetourneeAPI As Long          'valeur retournée par une fonction concernant le dialogue avec l'automate
+                        Dim NomVariable As String
+                                   
+     
+                        If POSTES.P_C13 = .NumPoste Then
+                            NumChargeRed = TEtatsRedresseurs(1).NumCharge
+                        End If
+                        If POSTES.P_C14 = .NumPoste Then
+                            NumChargeRed = TEtatsRedresseurs(2).NumCharge
+                        End If
+                        If POSTES.P_C15 = .NumPoste Then
+                            NumChargeRed = TEtatsRedresseurs(3).NumCharge
+                        End If
+                        NomGroupe = "CHARGE_" & Right("00" & NumChargeRed, 2)
+                        
+                        Call Log("HORS TENSION: " & Chr(13) & NomGroupe, logMoteurInference)
+                                
+                        '--- écriture dans l'automate ---
+                        ValeurRetourneeAPI = APIEcritureVariableNommee(NomGroupe, "UPhase4", 0)
+                        If ValeurRetourneeAPI <> 0 Then
+                            Bidon = MessageErreur("erreur couper redreseur", MESSAGE_500)             'lancer un message d'erreur
+                        End If
+                         ValeurRetourneeAPI = APIEcritureVariableNommee(NomGroupe, "IPhase4", 0)
+                        If ValeurRetourneeAPI <> 0 Then
+                            Bidon = MessageErreur("erreur couper redreseur", MESSAGE_500)             'lancer un message d'erreur
+                        End If
+                        ValeurRetourneeAPI = APIEcritureVariableNommee(NomGroupe, "TpsPhase4", 0)
+                        If ValeurRetourneeAPI <> 0 Then
+                            Bidon = MessageErreur("erreur couper redreseur", MESSAGE_500)             'lancer un message d'erreur
+                        End If
+                    End If
+                    End If
+                    End If
+                    End If
+                    End With
                    
                     
                     

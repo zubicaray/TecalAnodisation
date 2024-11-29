@@ -4569,23 +4569,14 @@ Private Sub ComboBarre_Click()
     '--- aiguillage en cas d'erreurs ---
     On Error Resume Next
 
-      
-    '--- déclaration ---
-    Dim OccLNumBarres As Label
     
     Dim Index As Integer
     Index = ComboBarre.ListIndex
     
+    MsgBox ("click sur barre" & NumBarreEnCours)
     
-    If Index = 0 Then
-                        
-        '--- RAZ du numéro de barre en cours ---
-        NumBarreEnCours = 0
+    NumBarreEnCours = Index
     
-    Else
-        NumBarreEnCours = Index
-    End If
-
 End Sub
 
 Private Sub LRenseignementsFenetre_DblClick()

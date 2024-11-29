@@ -928,33 +928,16 @@ Public Function ChargeConfiguration() As String
         Input #NumFic, Bidon
         Input #NumFic, varConfig
        
-        If varConfig = 1 Then
-            MODE_SECOURS = True
-        Else
-            If varConfig = 0 Then
-                MODE_SECOURS = False
-            Else
-                MODE_SECOURS = False
-                MsgBox ("Vous devez mettre 1 pour vrai, 0 pour faux")
-            End If
-        
-        
-        
-            
-        
-        End If
+  
        
 
         'CNX BDD ANODISATION
         Input #NumFic, Bidon
         Input #NumFic, varConfig
         
-        If varConfig = TYPE_BDD_ANO.PROD Then
-            PARAMETRES_CONNEXION_BD_ANODISATION_SQL = CST_PARAMETRES_CONNEXION_BD_ANODISATION_SQL
-        End If
-        If varConfig = TYPE_BDD_ANO.TEST Then
-            PARAMETRES_CONNEXION_BD_ANODISATION_SQL = CST_PARAMETRES_CONNEXION_BD_ANODISATION_TEST_SQL
-        End If
+        
+        PARAMETRES_CONNEXION_BD_ANODISATION_SQL = CST_PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+       
         
         
         'MsgBox (PARAMETRES_CONNEXION_BD_ANODISATION_SQL)
@@ -962,17 +945,12 @@ Public Function ChargeConfiguration() As String
         Input #NumFic, Bidon
         Input #NumFic, varConfig
         
-        If varConfig = TYPE_BDD_ANO.PROD Then
-            PARAMETRES_CONNEXION_BD_CLIPPER_HF = CST_PARAMETRES_CONNEXION_BD_CLIPPER_HF
-        End If
+        
+        PARAMETRES_CONNEXION_BD_CLIPPER_HF = CST_PARAMETRES_CONNEXION_BD_CLIPPER_HF
+      
         
         
-        If varConfig = TYPE_BDD_CLIPPER.ACCESS_TEST Then
-            PARAMETRES_CONNEXION_BD_CLIPPER_HF = CST_PARAMETRES_CONNEXION_BD_CLIPPER_TEST_ACCESS
-        End If
-        If varConfig = TYPE_BDD_ANO.TEST Then
-            PARAMETRES_CONNEXION_BD_CLIPPER_HF = CST_PARAMETRES_CONNEXION_BD_CLIPPER_TEST_HF
-        End If
+     
         
 
         

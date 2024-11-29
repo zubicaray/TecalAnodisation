@@ -1105,7 +1105,7 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                         Enregistrement("DateEntreeEnLigne") = TEtatsCharges(NumCharge).DateEntreeEnLigne
                         Enregistrement("DateArriveeAuDechargement") = TEtatsCharges(NumCharge).DateArriveeAuDechargement
                         Enregistrement("NumBarre") = TEtatsCharges(NumCharge).NumBarre
-                        Call Log("Enregistrement(NumBarre) = TEtatsCharges(NumCharge).NumBarre", showLogs)
+                        Call Log("Enregistrement(NumBarre) = TEtatsCharges(NumCharge).NumBarre=" & TEtatsCharges(NumCharge).NumBarre, showLogs)
                         
                         Enregistrement("NumLigne") = a
                         Enregistrement("CodeClient") = .CodeClient
@@ -1115,16 +1115,14 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                         Enregistrement("Matiere") = .Matiere
                         Enregistrement("NumGammeAnodisation") = TEtatsCharges(NumCharge).TGammesAnodisation.NumGamme
                         Enregistrement("RefGammeAnodisation") = TEtatsCharges(NumCharge).TGammesAnodisation.RefGamme
-                        Call Log("RefGammeAnodisation", showLogs)
                         Enregistrement("TempsAnodisationTexte") = CTemps(TEtatsCharges(NumCharge).TempsTotalGammeRedresseur)
-                         Call Log("ici", showLogs)
                         Enregistrement("NumFicheProduction") = NumFicheProduction
                         If TEtatsCharges(NumCharge).ChargePrioritaire = True Then
                             Enregistrement("ChargePrioritaire") = 1
                         Else
                             Enregistrement("ChargePrioritaire") = 0
                         End If
-                        Call Log("barre2 =" & NumCharge, showLogs)
+                        'Call Log("barre2 =" & NumCharge, showLogs)
                         Enregistrement("AlarmesLigne") = TEtatsCharges(NumCharge).AlarmesLigne
                         'Enregistrement.Update
                     
@@ -1137,7 +1135,7 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                 
                 End With
             Next a
-             Call Log("barre3 =" & NumCharge, showLogs)
+            
             Enregistrement.UpdateBatch
             
             Enregistrement.Close
@@ -1339,7 +1337,7 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
 GestionErreurs:
     
     '--- valeur de retour ---
-    'EnregistrementProduction = CStr(Err.Number)
+    'EnregistrementProductionLocal = CStr(Err.Number)
     
     AfficheRenseignements ROUGE_0, "Erreur d'enregitrement en base: " & CStr(Err.Number) & vbCrLf
     Call Log("Erreur d'enregitrement en base: " & CStr(Err.Description))
@@ -1858,7 +1856,7 @@ Public Sub MoteurInference()
     '--- analyse en fonction du PC ---
     If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
     
-    logMoteurInference = False
+    logMoteurInference = True
     
     '**********************************************************************************************************
     '**********************************************************************************************************
