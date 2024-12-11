@@ -1796,7 +1796,6 @@ End Sub
 Private Sub CBQuitter_Click()
     On Error Resume Next
     
-    'insertionClipperPointage 56
     
     If CBValider.Enabled = True Then
         Select Case AppelFenetre(F_MESSAGE, _

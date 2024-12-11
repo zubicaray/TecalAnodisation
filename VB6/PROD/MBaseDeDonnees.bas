@@ -1885,13 +1885,15 @@ End Function
 
 
 Sub insertionClipperPointage(ByVal NumCharge As Integer)
+    
 
+    
     
     If (mlID = 0) Then
         modMultiThreading.Initialize
         modMultiThreading.EnablePrivateMarshaling True
         Set mcInsertClipper = CreatePrivateObjectByNameInNewThread("CInsertionClipper", , mlID)
-        'Call Log("Création de mcInsertClipper avec pid: " & mlID)
+        Call Log("Création de mcInsertClipper avec pid: " & mlID)
     End If
 
     
@@ -1901,8 +1903,6 @@ Sub insertionClipperPointage(ByVal NumCharge As Integer)
  
    
 End Sub
-
-
 
 
 
@@ -2727,6 +2727,7 @@ Public Function EnregistrementProduction(ByVal NumCharge As Integer) As String
    
    
 End Function
+
 
 '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ' Rôle      : Enregistrement complet des temps de mouvements (couvercles et ponts)

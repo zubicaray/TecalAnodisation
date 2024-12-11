@@ -1412,8 +1412,9 @@ Public Sub AnalyseChargesEnLignePostes()
                     If a >= POSTES.P_D1 And a <= POSTES.P_D2 Then
                         .DateArriveeAuDechargement = Now
                       
-                        EnregistrementProductionLocal (TEtatsPostes(a).NumCharge)
+                        
                         insertionClipperPointage (TEtatsPostes(a).NumCharge)
+                        EnregistrementProductionLocal (TEtatsPostes(a).NumCharge)
                         
                         
                     End If

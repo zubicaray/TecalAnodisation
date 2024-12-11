@@ -2638,7 +2638,7 @@ Public Function AutomatiqueDeplacementPontOptimisation(ByVal NumPont As Integer,
     '--- constantes privées ---
     
     
-    Call Log("AutomatiqueDeplacementPontOptimisation entrée  pont:" & NumPont & " , NumPoste: " & NumPoste)
+   ' Call Log("AutomatiqueDeplacementPontOptimisation entrée  pont:" & NumPont & " , NumPoste: " & NumPoste)
     '--- déclaration ---
     Dim TUnCyclePont(1 To NBR_LIGNES_CYCLES_PONTS) As Integer
     Dim Reponse As String, _
@@ -2731,7 +2731,7 @@ Public Function AutomatiqueDeplacementPontOptimisation(ByVal NumPont As Integer,
         Reponse = MAUVAISE_FORMULATION
     
     End If
-     Call Log("AutomatiqueDeplacementPontOptimisation sortie")
+   '  Call Log("AutomatiqueDeplacementPontOptimisation sortie")
     '--- valeur de retour ---
     AutomatiqueDeplacementPontOptimisation = Reponse
 

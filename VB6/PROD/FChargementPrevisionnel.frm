@@ -7,7 +7,7 @@ Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
 Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
 Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Begin VB.Form FChargementPrevisionnel 
-   ClientHeight    =   13020
+   ClientHeight    =   13005
    ClientLeft      =   -75
    ClientTop       =   2085
    ClientWidth     =   24150
@@ -15,7 +15,7 @@ Begin VB.Form FChargementPrevisionnel
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   13020
+   ScaleHeight     =   13005
    ScaleWidth      =   24150
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
@@ -4788,7 +4788,7 @@ Begin VB.Form FChargementPrevisionnel
       ScaleWidth      =   24090
       TabIndex        =   0
       TabStop         =   0   'False
-      Top             =   11925
+      Top             =   11910
       Width           =   24150
       Begin MSComctlLib.ImageList ILImagesNumChoix 
          Left            =   6120
@@ -9954,6 +9954,7 @@ Private Sub IntroductionChargeAuChargement(ByVal NumPoste As Integer)
                 '--- date d'entrée en ligne ---
                 .DateEntreeEnLigne = Now
                 
+                
                 '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 
                 '--- numéro de barre ---
@@ -9961,7 +9962,7 @@ Private Sub IntroductionChargeAuChargement(ByVal NumPoste As Integer)
                 'SZB 2021
                 .NumBarreInc = getIDBARRE()
                
-                
+                Call Log("getIDBARRE=" & .NumBarreInc)
                 
                 '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 
