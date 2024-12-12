@@ -10,13 +10,13 @@ Begin VB.Form FChargementPrevisionnel
    ClientHeight    =   13005
    ClientLeft      =   -75
    ClientTop       =   2085
-   ClientWidth     =   12825
+   ClientWidth     =   13395
    Icon            =   "FChargementPrevisionnel.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    ScaleHeight     =   13005
-   ScaleWidth      =   12825
+   ScaleWidth      =   13395
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBDeplacementFenetre 
@@ -29,10 +29,10 @@ Begin VB.Form FChargementPrevisionnel
       Index           =   0
       Left            =   0
       ScaleHeight     =   12795
-      ScaleWidth      =   12825
+      ScaleWidth      =   13395
       TabIndex        =   3
       Top             =   375
-      Width           =   12825
+      Width           =   13395
       Begin VB.PictureBox PBDeplacementFenetre 
          Height          =   12675
          Index           =   1
@@ -820,14 +820,14 @@ Begin VB.Form FChargementPrevisionnel
                   ForeColor       =   -2147483640
                   Orientation     =   0
                   Enabled         =   -1
-                  Connect         =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
-                  OLEDBString     =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+                  Connect         =   ""
+                  OLEDBString     =   ""
                   OLEDBFile       =   ""
                   DataSourceName  =   ""
                   OtherAttributes =   ""
                   UserName        =   ""
                   Password        =   ""
-                  RecordSource    =   $"FChargementPrevisionnel.frx":2224
+                  RecordSource    =   ""
                   Caption         =   ""
                   BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                      Name            =   "MS Sans Serif"
@@ -963,7 +963,7 @@ Begin VB.Form FChargementPrevisionnel
                   Begin VB.CommandButton PositionneCharge 
                      BackColor       =   &H8000000E&
                      Caption         =   "Valider"
-                     DownPicture     =   "FChargementPrevisionnel.frx":226D
+                     DownPicture     =   "FChargementPrevisionnel.frx":2224
                      BeginProperty Font 
                         Name            =   "Arial"
                         Size            =   9
@@ -976,7 +976,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   375
                      Left            =   4440
                      MaskColor       =   &H000000FF&
-                     Picture         =   "FChargementPrevisionnel.frx":296F
+                     Picture         =   "FChargementPrevisionnel.frx":2926
                      TabIndex        =   126
                      Top             =   360
                      UseMaskColor    =   -1  'True
@@ -1062,9 +1062,9 @@ Begin VB.Form FChargementPrevisionnel
                      EndProperty
                      Height          =   360
                      Index           =   0
-                     ItemData        =   "FChargementPrevisionnel.frx":2C59
+                     ItemData        =   "FChargementPrevisionnel.frx":2C10
                      Left            =   2100
-                     List            =   "FChargementPrevisionnel.frx":2C66
+                     List            =   "FChargementPrevisionnel.frx":2C1D
                      Style           =   2  'Dropdown List
                      TabIndex        =   102
                      Top             =   120
@@ -1122,7 +1122,7 @@ Begin VB.Form FChargementPrevisionnel
                      Index           =   0
                      Left            =   5460
                      MaskColor       =   &H00FF00FF&
-                     Picture         =   "FChargementPrevisionnel.frx":2C9F
+                     Picture         =   "FChargementPrevisionnel.frx":2C56
                      Style           =   1  'Graphical
                      TabIndex        =   96
                      ToolTipText     =   " Lancer une recherche "
@@ -1146,7 +1146,7 @@ Begin VB.Form FChargementPrevisionnel
                      Index           =   0
                      Left            =   5460
                      MaskColor       =   &H00FF00FF&
-                     Picture         =   "FChargementPrevisionnel.frx":2FE1
+                     Picture         =   "FChargementPrevisionnel.frx":2F98
                      Style           =   1  'Graphical
                      TabIndex        =   95
                      ToolTipText     =   " Annule tris et recherches "
@@ -1992,7 +1992,7 @@ Begin VB.Form FChargementPrevisionnel
                   Begin VB.Image IPhasesAnodisation 
                      Height          =   2010
                      Left            =   240
-                     Picture         =   "FChargementPrevisionnel.frx":31D3
+                     Picture         =   "FChargementPrevisionnel.frx":318A
                      Top             =   600
                      Width           =   2925
                   End
@@ -2485,7 +2485,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Left            =   2040
                      MaskColor       =   &H00FF00FF&
-                     Picture         =   "FChargementPrevisionnel.frx":165DD
+                     Picture         =   "FChargementPrevisionnel.frx":16594
                      Style           =   1  'Graphical
                      TabIndex        =   28
                      Top             =   435
@@ -2516,7 +2516,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Left            =   180
                      MaskColor       =   &H00FF00FF&
-                     Picture         =   "FChargementPrevisionnel.frx":168C7
+                     Picture         =   "FChargementPrevisionnel.frx":1687E
                      Style           =   1  'Graphical
                      TabIndex        =   26
                      Top             =   435
@@ -2534,9 +2534,9 @@ Begin VB.Form FChargementPrevisionnel
                         Strikethrough   =   0   'False
                      EndProperty
                      Height          =   360
-                     ItemData        =   "FChargementPrevisionnel.frx":16BB1
+                     ItemData        =   "FChargementPrevisionnel.frx":16B68
                      Left            =   8640
-                     List            =   "FChargementPrevisionnel.frx":16BC4
+                     List            =   "FChargementPrevisionnel.frx":16B7B
                      Style           =   2  'Dropdown List
                      TabIndex        =   25
                      Top             =   420
@@ -2701,7 +2701,7 @@ Begin VB.Form FChargementPrevisionnel
                   Begin VB.Image IAutorisationChargement 
                      Height          =   1575
                      Left            =   1040
-                     Picture         =   "FChargementPrevisionnel.frx":16C05
+                     Picture         =   "FChargementPrevisionnel.frx":16BBC
                      Top             =   240
                      Visible         =   0   'False
                      Width           =   675
@@ -2712,7 +2712,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Index           =   2
                      Left            =   2640
-                     Picture         =   "FChargementPrevisionnel.frx":1A40F
+                     Picture         =   "FChargementPrevisionnel.frx":1A3C6
                      Top             =   1440
                      Width           =   735
                   End
@@ -2722,7 +2722,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Index           =   1
                      Left            =   3480
-                     Picture         =   "FChargementPrevisionnel.frx":1AF01
+                     Picture         =   "FChargementPrevisionnel.frx":1AEB8
                      Top             =   1440
                      Width           =   735
                   End
@@ -2831,7 +2831,7 @@ Begin VB.Form FChargementPrevisionnel
                      Height          =   315
                      Left            =   3120
                      MaskColor       =   &H00FF00FF&
-                     Picture         =   "FChargementPrevisionnel.frx":1B9F3
+                     Picture         =   "FChargementPrevisionnel.frx":1B9AA
                      Style           =   1  'Graphical
                      TabIndex        =   17
                      ToolTipText     =   " Lancer une recherche "
@@ -2975,7 +2975,7 @@ Begin VB.Form FChargementPrevisionnel
                   BorderStyle     =   1
                End
                Begin TrueOleDBGrid80.TDBGrid TDBGGrilleRecherche 
-                  Bindings        =   "FChargementPrevisionnel.frx":1BD35
+                  Bindings        =   "FChargementPrevisionnel.frx":1BCEC
                   Height          =   9135
                   Index           =   0
                   Left            =   180
@@ -3147,14 +3147,14 @@ Begin VB.Form FChargementPrevisionnel
                   ForeColor       =   -2147483640
                   Orientation     =   0
                   Enabled         =   -1
-                  Connect         =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
-                  OLEDBString     =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+                  Connect         =   ""
+                  OLEDBString     =   ""
                   OLEDBFile       =   ""
                   DataSourceName  =   ""
                   OtherAttributes =   ""
                   UserName        =   ""
                   Password        =   ""
-                  RecordSource    =   $"FChargementPrevisionnel.frx":1BD5D
+                  RecordSource    =   ""
                   Caption         =   ""
                   BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                      Name            =   "MS Sans Serif"
@@ -3261,11 +3261,11 @@ Begin VB.Form FChargementPrevisionnel
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   12765
+      ScaleWidth      =   13335
       TabIndex        =   0
       TabStop         =   0   'False
       Top             =   11910
-      Width           =   12825
+      Width           =   13395
       Begin MSComctlLib.ImageList ILImagesNumChoix 
          Left            =   6120
          Top             =   60
@@ -3279,43 +3279,43 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   10
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1BDA6
+               Picture         =   "FChargementPrevisionnel.frx":1BD14
                Key             =   "choix 1"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1C5A0
+               Picture         =   "FChargementPrevisionnel.frx":1C50E
                Key             =   "choix 2"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CD9A
+               Picture         =   "FChargementPrevisionnel.frx":1CD08
                Key             =   "choix 3"
             EndProperty
             BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1D594
+               Picture         =   "FChargementPrevisionnel.frx":1D502
                Key             =   "choix 4"
             EndProperty
             BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1DD8E
+               Picture         =   "FChargementPrevisionnel.frx":1DCFC
                Key             =   "choix 5"
             EndProperty
             BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1E588
+               Picture         =   "FChargementPrevisionnel.frx":1E4F6
                Key             =   "choix 6"
             EndProperty
             BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1ED82
+               Picture         =   "FChargementPrevisionnel.frx":1ECF0
                Key             =   "choix 7"
             EndProperty
             BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1F57C
+               Picture         =   "FChargementPrevisionnel.frx":1F4EA
                Key             =   "choix 8"
             EndProperty
             BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1FD76
+               Picture         =   "FChargementPrevisionnel.frx":1FCE4
                Key             =   "choix 9"
             EndProperty
             BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":20570
+               Picture         =   "FChargementPrevisionnel.frx":204DE
                Key             =   "choix 10"
             EndProperty
          EndProperty
@@ -3339,19 +3339,19 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   4
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":20D6A
+               Picture         =   "FChargementPrevisionnel.frx":20CD8
                Key             =   "anodisation"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":210BC
+               Picture         =   "FChargementPrevisionnel.frx":2102A
                Key             =   "spectro"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2140E
+               Picture         =   "FChargementPrevisionnel.frx":2137C
                Key             =   "or"
             EndProperty
             BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":21760
+               Picture         =   "FChargementPrevisionnel.frx":216CE
                Key             =   "noir"
             EndProperty
          EndProperty
@@ -3360,7 +3360,7 @@ Begin VB.Form FChargementPrevisionnel
          BackColor       =   &H00FFFFFF&
          Cancel          =   -1  'True
          Caption         =   "&Quitter"
-         DownPicture     =   "FChargementPrevisionnel.frx":21AB2
+         DownPicture     =   "FChargementPrevisionnel.frx":21A20
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -3373,7 +3373,7 @@ Begin VB.Form FChargementPrevisionnel
          Height          =   840
          Left            =   24600
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FChargementPrevisionnel.frx":221B4
+         Picture         =   "FChargementPrevisionnel.frx":22122
          Style           =   1  'Graphical
          TabIndex        =   10
          ToolTipText     =   " Quitter cette fenêtre "
@@ -3384,7 +3384,7 @@ Begin VB.Form FChargementPrevisionnel
       Begin VB.CommandButton CBReduire 
          BackColor       =   &H00FFFFFF&
          Caption         =   "&Réduire la fenêtre"
-         DownPicture     =   "FChargementPrevisionnel.frx":228B6
+         DownPicture     =   "FChargementPrevisionnel.frx":22824
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -3397,7 +3397,7 @@ Begin VB.Form FChargementPrevisionnel
          Height          =   840
          Left            =   22320
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FChargementPrevisionnel.frx":22FB8
+         Picture         =   "FChargementPrevisionnel.frx":22F26
          Style           =   1  'Graphical
          TabIndex        =   9
          ToolTipText     =   " Réduire cette fenêtre à la taille minimum "
@@ -3418,7 +3418,7 @@ Begin VB.Form FChargementPrevisionnel
          Begin VB.CommandButton CBAgrandirFenetre 
             BackColor       =   &H00FFFFFF&
             Caption         =   "Agrandir"
-            DownPicture     =   "FChargementPrevisionnel.frx":236BA
+            DownPicture     =   "FChargementPrevisionnel.frx":23628
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   8.25
@@ -3431,7 +3431,7 @@ Begin VB.Form FChargementPrevisionnel
             Height          =   720
             Left            =   0
             MaskColor       =   &H00FF00FF&
-            Picture         =   "FChargementPrevisionnel.frx":23864
+            Picture         =   "FChargementPrevisionnel.frx":237D2
             Style           =   1  'Graphical
             TabIndex        =   8
             ToolTipText     =   " Agrandissement de la fenêtre "
@@ -3477,11 +3477,11 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   2
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":23A0E
+               Picture         =   "FChargementPrevisionnel.frx":2397C
                Key             =   "croix de condamnation"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":24510
+               Picture         =   "FChargementPrevisionnel.frx":2447E
                Key             =   "rectangle vert"
             EndProperty
          EndProperty
@@ -3499,39 +3499,39 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   9
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":25012
+               Picture         =   "FChargementPrevisionnel.frx":24F80
                Key             =   "fleche haut"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":25C66
+               Picture         =   "FChargementPrevisionnel.frx":25BD4
                Key             =   "fleche basse"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":268BA
+               Picture         =   "FChargementPrevisionnel.frx":26828
                Key             =   "fleche gauche"
             EndProperty
             BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2750E
+               Picture         =   "FChargementPrevisionnel.frx":2747C
                Key             =   "fleche droite"
             EndProperty
             BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":28162
+               Picture         =   "FChargementPrevisionnel.frx":280D0
                Key             =   "fleche haut ombre"
             EndProperty
             BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":28DB6
+               Picture         =   "FChargementPrevisionnel.frx":28D24
                Key             =   "fleche gauche ombre"
             EndProperty
             BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":29A0A
+               Picture         =   "FChargementPrevisionnel.frx":29978
                Key             =   "fleche droite ombre"
             EndProperty
             BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2A65E
+               Picture         =   "FChargementPrevisionnel.frx":2A5CC
                Key             =   "sens interdit"
             EndProperty
             BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2B2B2
+               Picture         =   "FChargementPrevisionnel.frx":2B220
                Key             =   "etoile"
             EndProperty
          EndProperty
@@ -3549,7 +3549,7 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   1
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2BF06
+               Picture         =   "FChargementPrevisionnel.frx":2BE74
                Key             =   "bouton bas"
             EndProperty
          EndProperty
@@ -3562,7 +3562,7 @@ Begin VB.Form FChargementPrevisionnel
          _Version        =   393216
          Rows            =   12
          Cols            =   10
-         Picture         =   "FChargementPrevisionnel.frx":2C22E
+         Picture         =   "FChargementPrevisionnel.frx":2C19C
       End
       Begin MSComctlLib.ImageList ILOutilsGestionGrilles2 
          Left            =   3360
@@ -3577,15 +3577,15 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   3
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":B8AA0
+               Picture         =   "FChargementPrevisionnel.frx":B8A0E
                Key             =   "supprimer"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":B9E8A
+               Picture         =   "FChargementPrevisionnel.frx":B9DF8
                Key             =   "compacter"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":BB274
+               Picture         =   "FChargementPrevisionnel.frx":BB1E2
                Key             =   "inserer"
             EndProperty
          EndProperty
@@ -3603,7 +3603,7 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   1
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":BC65E
+               Picture         =   "FChargementPrevisionnel.frx":BC5CC
                Key             =   "effacer grille"
             EndProperty
          EndProperty
@@ -3616,7 +3616,7 @@ Begin VB.Form FChargementPrevisionnel
          _Version        =   393216
          Rows            =   12
          Cols            =   10
-         Picture         =   "FChargementPrevisionnel.frx":BCB24
+         Picture         =   "FChargementPrevisionnel.frx":BCA92
       End
       Begin MSComctlLib.ImageList ILGrillesDonnees 
          Left            =   1440
@@ -3631,107 +3631,107 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   26
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":149396
+               Picture         =   "FChargementPrevisionnel.frx":149304
                Key             =   "fleche noire"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1495A2
+               Picture         =   "FChargementPrevisionnel.frx":149510
                Key             =   "fleche blanche"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1497AE
+               Picture         =   "FChargementPrevisionnel.frx":14971C
                Key             =   "fleche grise"
             EndProperty
             BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1499BA
+               Picture         =   "FChargementPrevisionnel.frx":149928
                Key             =   "fleche rouge"
             EndProperty
             BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":149BC6
+               Picture         =   "FChargementPrevisionnel.frx":149B34
                Key             =   "fleche jaune"
             EndProperty
             BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":149DD2
+               Picture         =   "FChargementPrevisionnel.frx":149D40
                Key             =   "fleche verte"
             EndProperty
             BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":149FDE
+               Picture         =   "FChargementPrevisionnel.frx":149F4C
                Key             =   "fleche cyan"
             EndProperty
             BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14A1EA
+               Picture         =   "FChargementPrevisionnel.frx":14A158
                Key             =   "fleche bleue"
             EndProperty
             BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14A3F6
+               Picture         =   "FChargementPrevisionnel.frx":14A364
                Key             =   "etoile noire"
             EndProperty
             BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14A602
+               Picture         =   "FChargementPrevisionnel.frx":14A570
                Key             =   "etoile blanche"
             EndProperty
             BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14A80E
+               Picture         =   "FChargementPrevisionnel.frx":14A77C
                Key             =   "etoile grise"
             EndProperty
             BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14AA1A
+               Picture         =   "FChargementPrevisionnel.frx":14A988
                Key             =   "etoile rouge"
             EndProperty
             BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14AC26
+               Picture         =   "FChargementPrevisionnel.frx":14AB94
                Key             =   "etoile jaune"
             EndProperty
             BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14AE32
+               Picture         =   "FChargementPrevisionnel.frx":14ADA0
                Key             =   "etoile verte"
             EndProperty
             BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14B03E
+               Picture         =   "FChargementPrevisionnel.frx":14AFAC
                Key             =   "etoile cyan"
             EndProperty
             BeginProperty ListImage16 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14B24A
+               Picture         =   "FChargementPrevisionnel.frx":14B1B8
                Key             =   "etoile bleue"
             EndProperty
             BeginProperty ListImage17 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14B456
+               Picture         =   "FChargementPrevisionnel.frx":14B3C4
                Key             =   "modification noire"
             EndProperty
             BeginProperty ListImage18 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14B65A
+               Picture         =   "FChargementPrevisionnel.frx":14B5C8
                Key             =   "modification blanche"
             EndProperty
             BeginProperty ListImage19 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14B85E
+               Picture         =   "FChargementPrevisionnel.frx":14B7CC
                Key             =   "modification grise"
             EndProperty
             BeginProperty ListImage20 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14BA62
+               Picture         =   "FChargementPrevisionnel.frx":14B9D0
                Key             =   "modification rouge"
             EndProperty
             BeginProperty ListImage21 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14BC66
+               Picture         =   "FChargementPrevisionnel.frx":14BBD4
                Key             =   "modification jaune"
             EndProperty
             BeginProperty ListImage22 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14BE6A
+               Picture         =   "FChargementPrevisionnel.frx":14BDD8
                Key             =   "modification vert"
             EndProperty
             BeginProperty ListImage23 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14C06E
+               Picture         =   "FChargementPrevisionnel.frx":14BFDC
                Key             =   "modification cyan"
             EndProperty
             BeginProperty ListImage24 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14C272
+               Picture         =   "FChargementPrevisionnel.frx":14C1E0
                Key             =   "modification bleue"
             EndProperty
             BeginProperty ListImage25 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14C476
+               Picture         =   "FChargementPrevisionnel.frx":14C3E4
                Key             =   "indicateur vert"
             EndProperty
             BeginProperty ListImage26 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14C67A
+               Picture         =   "FChargementPrevisionnel.frx":14C5E8
                Key             =   "indicateur rouge"
             EndProperty
          EndProperty
@@ -3773,12 +3773,12 @@ Begin VB.Form FChargementPrevisionnel
       BackColor       =   &H00FF0000&
       Height          =   375
       Left            =   0
-      Picture         =   "FChargementPrevisionnel.frx":14C87E
+      Picture         =   "FChargementPrevisionnel.frx":14C7EC
       ScaleHeight     =   315
-      ScaleWidth      =   12765
+      ScaleWidth      =   13335
       TabIndex        =   1
       Top             =   0
-      Width           =   12825
+      Width           =   13395
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -3953,6 +3953,27 @@ Private Sub CBAgrandirFENETRE_Click()
     On Error Resume Next
     Me.WindowState = vbMaximized
 End Sub
+
+Private Sub Form_Load()
+    
+    
+     With ADODCGammesAnodisation(0)
+        .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+        .RecordSource = "SELECT GammesAnodisation.* From GammesAnodisation ORDER BY NumGamme"
+        .Refresh
+        
+       
+    End With
+    With ADODCGammesAnodisation(1)
+        .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+        .RecordSource = "SELECT GammesAnodisation.* From GammesAnodisation ORDER BY NumGamme"
+        .Refresh
+        
+    End With
+    
+    
+End Sub
+
 
 Private Sub CBAnnulerReferencesClient_Click()
     
@@ -4573,7 +4594,7 @@ Private Sub ComboBarre_Click()
     Dim Index As Integer
     Index = ComboBarre.ListIndex
     
-    MsgBox ("click sur barre" & NumBarreEnCours)
+    'MsgBox ("click sur barre" & NumBarreEnCours)
     
     NumBarreEnCours = Index
     

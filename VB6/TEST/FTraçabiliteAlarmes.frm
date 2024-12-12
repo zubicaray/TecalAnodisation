@@ -296,14 +296,14 @@ Begin VB.Form FTraçabiliteAlarmes
          ForeColor       =   -2147483640
          Orientation     =   0
          Enabled         =   -1
-         Connect         =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
-         OLEDBString     =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+         Connect         =   ""
+         OLEDBString     =   ""
          OLEDBFile       =   ""
          DataSourceName  =   ""
          OtherAttributes =   ""
          UserName        =   ""
          Password        =   ""
-         RecordSource    =   $"FTraçabiliteAlarmes.frx":282C8
+         RecordSource    =   ""
          Caption         =   ""
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
@@ -319,7 +319,7 @@ Begin VB.Form FTraçabiliteAlarmes
       Begin VB.CommandButton CBSupprimer 
          BackColor       =   &H00FFFFFF&
          Caption         =   "&Supprimer la totalité de la traçabilité"
-         DownPicture     =   "FTraçabiliteAlarmes.frx":283DC
+         DownPicture     =   "FTraçabiliteAlarmes.frx":282C8
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -332,7 +332,7 @@ Begin VB.Form FTraçabiliteAlarmes
          Height          =   840
          Left            =   7380
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FTraçabiliteAlarmes.frx":28ADE
+         Picture         =   "FTraçabiliteAlarmes.frx":289CA
          Style           =   1  'Graphical
          TabIndex        =   4
          ToolTipText     =   " Supprimer la totalité de la traçabilité des alarmes "
@@ -343,7 +343,7 @@ Begin VB.Form FTraçabiliteAlarmes
       Begin VB.CommandButton CBQuitter 
          Cancel          =   -1  'True
          Caption         =   "Echap=&QUITTER"
-         DownPicture     =   "FTraçabiliteAlarmes.frx":291E0
+         DownPicture     =   "FTraçabiliteAlarmes.frx":290CC
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -356,7 +356,7 @@ Begin VB.Form FTraçabiliteAlarmes
          Height          =   840
          Left            =   17280
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FTraçabiliteAlarmes.frx":298E2
+         Picture         =   "FTraçabiliteAlarmes.frx":297CE
          Style           =   1  'Graphical
          TabIndex        =   5
          ToolTipText     =   " Quitter cette fenêtre "
@@ -368,7 +368,7 @@ Begin VB.Form FTraçabiliteAlarmes
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFFF&
          Caption         =   "F10 = ACTUALISE&R"
-         DownPicture     =   "FTraçabiliteAlarmes.frx":29FE4
+         DownPicture     =   "FTraçabiliteAlarmes.frx":29ED0
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -381,7 +381,7 @@ Begin VB.Form FTraçabiliteAlarmes
          Height          =   840
          Left            =   11940
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FTraçabiliteAlarmes.frx":2A6E6
+         Picture         =   "FTraçabiliteAlarmes.frx":2A5D2
          Style           =   1  'Graphical
          TabIndex        =   17
          ToolTipText     =   " Actualiser les données "
@@ -478,7 +478,7 @@ Begin VB.Form FTraçabiliteAlarmes
             Top             =   1140
             Width           =   28335
             Begin TrueOleDBGrid80.TDBGrid TDBGTraçabiliteAlarmes 
-               Bindings        =   "FTraçabiliteAlarmes.frx":2ADE8
+               Bindings        =   "FTraçabiliteAlarmes.frx":2ACD4
                Height          =   10665
                Left            =   300
                TabIndex        =   18
@@ -702,9 +702,9 @@ Begin VB.Form FTraçabiliteAlarmes
                   Strikethrough   =   0   'False
                EndProperty
                Height          =   360
-               ItemData        =   "FTraçabiliteAlarmes.frx":2AE0E
+               ItemData        =   "FTraçabiliteAlarmes.frx":2ACFA
                Left            =   1680
-               List            =   "FTraçabiliteAlarmes.frx":2AE1B
+               List            =   "FTraçabiliteAlarmes.frx":2AD07
                Style           =   2  'Dropdown List
                TabIndex        =   3
                Top             =   300
@@ -862,6 +862,25 @@ Private MemDernierBouton As Long                'mémoire du dernier bouton
 
 '--- Variables publiques
 Public NumFenetre As Long                              'numéro de la fenêtre lorsqu'elle devient active
+
+
+
+Private Sub Form_Load()
+    
+    
+     With ADODCTraçabiliteAlarmes
+        .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+        .RecordSource = "SELECT TraçabiliteAlarmes.*, ListeDefauts.LibelleDefaut AS LibelleDefaut" & _
+                        "FROM   TraçabiliteAlarmes LEFT OUTER JOIN " & _
+                        "ListeDefauts ON TraçabiliteAlarmes.NumDefaut = ListeDefauts.NumDefaut" & _
+                        "ORDER BY TraçabiliteAlarmes.DateDetectionDefaut DESC"
+        .Refresh
+    End With
+    
+    
+    
+    
+End Sub
 
 Private Sub ADODCtraçabilitealarmes_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
     

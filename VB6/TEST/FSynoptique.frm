@@ -7190,6 +7190,7 @@ Begin VB.Form FSynoptique
          _ExtentY        =   1508
          _Version        =   393217
          BorderStyle     =   0
+         Enabled         =   -1  'True
          ScrollBars      =   3
          AutoVerbMenu    =   -1  'True
          TextRTF         =   $"FSynoptique.frx":661AB
@@ -10567,7 +10568,7 @@ Private Sub GestionEnCours(ByVal EtatSouhaite As GESTION_GRILLES)
                                 AffichageTexteMatrice VSFGEnCours, a, COLONNES_DETAILS_EN_COURS.C_CODE_CLIENT, TexteCellule
                                 
                                 '--- numéro de barre ---
-                                TexteCellule = TBarres(TEtatsCharges(a).NumBarre + 1).Libelle
+                                TexteCellule = TBarres(TEtatsCharges(a).NumBarre).Libelle
                                 
                                 AffichageTexteMatrice VSFGEnCours, a, COLONNES_DETAILS_EN_COURS.C_NUM_BARRE, TexteCellule
                             
@@ -11089,10 +11090,10 @@ Public Sub VisualisationEtatsLigne()
             End If
             If ModeAffichageSynoptique = MA_NUM_BARRES And _
                NumBarre >= BARRES.B_NUM_MINI And NumBarre <= BARRES.B_NUM_MAXI Then
-                AffichageTexte LNumCharges(a), TBarres(NumBarre + 1).Libelle, COULEURS.VERT_3
+                AffichageTexte LNumCharges(a), TBarres(NumBarre).Libelle, COULEURS.VERT_3
             Else
                 If NumCharge >= CHARGES.C_NUM_MINI And NumCharge <= CHARGES.C_NUM_MAXI Then
-                    AffichageTexte LNumCharges(a), TBarres(NumBarre + 1).Libelle, COULEURS.JAUNE_3
+                    AffichageTexte LNumCharges(a), TBarres(NumBarre).Libelle, COULEURS.JAUNE_3
                 Else
                     AffichageTexte LNumCharges(a), "", COULEURS.BLANC
                 End If

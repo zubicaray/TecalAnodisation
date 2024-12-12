@@ -700,14 +700,14 @@ Begin VB.Form FGammesAnodisation
          ForeColor       =   -2147483640
          Orientation     =   0
          Enabled         =   -1
-         Connect         =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
-         OLEDBString     =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+         Connect         =   ""
+         OLEDBString     =   ""
          OLEDBFile       =   ""
          DataSourceName  =   ""
          OtherAttributes =   ""
          UserName        =   ""
          Password        =   ""
-         RecordSource    =   $"FGammesAnodisation.frx":28B8C
+         RecordSource    =   ""
          Caption         =   ""
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
@@ -724,7 +724,7 @@ Begin VB.Form FGammesAnodisation
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFFF&
          Caption         =   "Actualise&r"
-         DownPicture     =   "FGammesAnodisation.frx":28BD5
+         DownPicture     =   "FGammesAnodisation.frx":28B8C
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -737,7 +737,7 @@ Begin VB.Form FGammesAnodisation
          Height          =   840
          Left            =   18420
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FGammesAnodisation.frx":292D7
+         Picture         =   "FGammesAnodisation.frx":2928E
          Style           =   1  'Graphical
          TabIndex        =   1
          ToolTipText     =   " Actualiser les données "
@@ -748,7 +748,7 @@ Begin VB.Form FGammesAnodisation
       Begin VB.CommandButton CBNouveau 
          BackColor       =   &H00FFFFFF&
          Caption         =   "&Nouveau"
-         DownPicture     =   "FGammesAnodisation.frx":299D9
+         DownPicture     =   "FGammesAnodisation.frx":29990
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -761,7 +761,7 @@ Begin VB.Form FGammesAnodisation
          Height          =   840
          Left            =   20160
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FGammesAnodisation.frx":2A0DB
+         Picture         =   "FGammesAnodisation.frx":2A092
          Style           =   1  'Graphical
          TabIndex        =   2
          ToolTipText     =   " Nouvel enregistrement "
@@ -772,7 +772,7 @@ Begin VB.Form FGammesAnodisation
       Begin VB.CommandButton CBValider 
          BackColor       =   &H00FFFFFF&
          Caption         =   "&Valider"
-         DownPicture     =   "FGammesAnodisation.frx":2A7DD
+         DownPicture     =   "FGammesAnodisation.frx":2A794
          Enabled         =   0   'False
          BeginProperty Font 
             Name            =   "MS Sans Serif"
@@ -786,7 +786,7 @@ Begin VB.Form FGammesAnodisation
          Height          =   840
          Left            =   25380
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FGammesAnodisation.frx":2AEDF
+         Picture         =   "FGammesAnodisation.frx":2AE96
          Style           =   1  'Graphical
          TabIndex        =   4
          ToolTipText     =   " Valider l'enregistrement "
@@ -797,7 +797,7 @@ Begin VB.Form FGammesAnodisation
       Begin VB.CommandButton CBAnnuler 
          BackColor       =   &H00FFFFFF&
          Caption         =   "&Annuler"
-         DownPicture     =   "FGammesAnodisation.frx":2B5E1
+         DownPicture     =   "FGammesAnodisation.frx":2B598
          Enabled         =   0   'False
          BeginProperty Font 
             Name            =   "MS Sans Serif"
@@ -811,7 +811,7 @@ Begin VB.Form FGammesAnodisation
          Height          =   840
          Left            =   23640
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FGammesAnodisation.frx":2BCE3
+         Picture         =   "FGammesAnodisation.frx":2BC9A
          Style           =   1  'Graphical
          TabIndex        =   3
          ToolTipText     =   " Annuler les dernières modifications "
@@ -822,7 +822,7 @@ Begin VB.Form FGammesAnodisation
       Begin VB.CommandButton CBSupprimer 
          BackColor       =   &H00FFFFFF&
          Caption         =   "&Supprimer"
-         DownPicture     =   "FGammesAnodisation.frx":2C3E5
+         DownPicture     =   "FGammesAnodisation.frx":2C39C
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -835,7 +835,7 @@ Begin VB.Form FGammesAnodisation
          Height          =   840
          Left            =   14040
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FGammesAnodisation.frx":2CAE7
+         Picture         =   "FGammesAnodisation.frx":2CA9E
          Style           =   1  'Graphical
          TabIndex        =   0
          ToolTipText     =   " Supprimer l'enregistrement en cours "
@@ -846,7 +846,7 @@ Begin VB.Form FGammesAnodisation
       Begin VB.CommandButton CBVerifierCoherenceGamme 
          BackColor       =   &H00FFFFFF&
          Caption         =   "&Vérifier la cohérence"
-         DownPicture     =   "FGammesAnodisation.frx":2D1E9
+         DownPicture     =   "FGammesAnodisation.frx":2D1A0
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -859,7 +859,7 @@ Begin VB.Form FGammesAnodisation
          Height          =   840
          Left            =   15720
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FGammesAnodisation.frx":2E18B
+         Picture         =   "FGammesAnodisation.frx":2E142
          Style           =   1  'Graphical
          TabIndex        =   7
          ToolTipText     =   " Vérifie la cohérence de la gamme "
@@ -880,15 +880,15 @@ Begin VB.Form FGammesAnodisation
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   3
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":2F12D
+               Picture         =   "FGammesAnodisation.frx":2F0E4
                Key             =   "supprimer"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":30517
+               Picture         =   "FGammesAnodisation.frx":304CE
                Key             =   "compacter"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":31901
+               Picture         =   "FGammesAnodisation.frx":318B8
                Key             =   "inserer"
             EndProperty
          EndProperty
@@ -906,107 +906,107 @@ Begin VB.Form FGammesAnodisation
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   26
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":32CEB
+               Picture         =   "FGammesAnodisation.frx":32CA2
                Key             =   "fleche noire"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":32EF7
+               Picture         =   "FGammesAnodisation.frx":32EAE
                Key             =   "fleche blanche"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":33103
+               Picture         =   "FGammesAnodisation.frx":330BA
                Key             =   "fleche grise"
             EndProperty
             BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":3330F
+               Picture         =   "FGammesAnodisation.frx":332C6
                Key             =   "fleche rouge"
             EndProperty
             BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":3351B
+               Picture         =   "FGammesAnodisation.frx":334D2
                Key             =   "fleche jaune"
             EndProperty
             BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":33727
+               Picture         =   "FGammesAnodisation.frx":336DE
                Key             =   "fleche verte"
             EndProperty
             BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":33933
+               Picture         =   "FGammesAnodisation.frx":338EA
                Key             =   "fleche cyan"
             EndProperty
             BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":33B3F
+               Picture         =   "FGammesAnodisation.frx":33AF6
                Key             =   "fleche bleue"
             EndProperty
             BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":33D4B
+               Picture         =   "FGammesAnodisation.frx":33D02
                Key             =   "etoile noire"
             EndProperty
             BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":33F57
+               Picture         =   "FGammesAnodisation.frx":33F0E
                Key             =   "etoile blanche"
             EndProperty
             BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":34163
+               Picture         =   "FGammesAnodisation.frx":3411A
                Key             =   "etoile grise"
             EndProperty
             BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":3436F
+               Picture         =   "FGammesAnodisation.frx":34326
                Key             =   "etoile rouge"
             EndProperty
             BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":3457B
+               Picture         =   "FGammesAnodisation.frx":34532
                Key             =   "etoile jaune"
             EndProperty
             BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":34787
+               Picture         =   "FGammesAnodisation.frx":3473E
                Key             =   "etoile verte"
             EndProperty
             BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":34993
+               Picture         =   "FGammesAnodisation.frx":3494A
                Key             =   "etoile cyan"
             EndProperty
             BeginProperty ListImage16 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":34B9F
+               Picture         =   "FGammesAnodisation.frx":34B56
                Key             =   "etoile bleue"
             EndProperty
             BeginProperty ListImage17 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":34DAB
+               Picture         =   "FGammesAnodisation.frx":34D62
                Key             =   "modification noire"
             EndProperty
             BeginProperty ListImage18 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":34FAF
+               Picture         =   "FGammesAnodisation.frx":34F66
                Key             =   "modification blanche"
             EndProperty
             BeginProperty ListImage19 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":351B3
+               Picture         =   "FGammesAnodisation.frx":3516A
                Key             =   "modification grise"
             EndProperty
             BeginProperty ListImage20 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":353B7
+               Picture         =   "FGammesAnodisation.frx":3536E
                Key             =   "modification rouge"
             EndProperty
             BeginProperty ListImage21 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":355BB
+               Picture         =   "FGammesAnodisation.frx":35572
                Key             =   "modification jaune"
             EndProperty
             BeginProperty ListImage22 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":357BF
+               Picture         =   "FGammesAnodisation.frx":35776
                Key             =   "modification vert"
             EndProperty
             BeginProperty ListImage23 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":359C3
+               Picture         =   "FGammesAnodisation.frx":3597A
                Key             =   "modification cyan"
             EndProperty
             BeginProperty ListImage24 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":35BC7
+               Picture         =   "FGammesAnodisation.frx":35B7E
                Key             =   "modification bleue"
             EndProperty
             BeginProperty ListImage25 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":35DCB
+               Picture         =   "FGammesAnodisation.frx":35D82
                Key             =   "indicateur vert"
             EndProperty
             BeginProperty ListImage26 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FGammesAnodisation.frx":35FCF
+               Picture         =   "FGammesAnodisation.frx":35F86
                Key             =   "indicateur rouge"
             EndProperty
          EndProperty
@@ -1095,9 +1095,9 @@ Begin VB.Form FGammesAnodisation
       AccessibleDescription=   ""
       AccessibleValue =   ""
       AccessibleRole  =   37
-      Picture(0)      =   "FGammesAnodisation.frx":361D3
-      Picture(1)      =   "FGammesAnodisation.frx":3632D
-      Picture(2)      =   "FGammesAnodisation.frx":36487
+      Picture(0)      =   "FGammesAnodisation.frx":3618A
+      Picture(1)      =   "FGammesAnodisation.frx":362E4
+      Picture(2)      =   "FGammesAnodisation.frx":3643E
       Begin VB.PictureBox PBOnglets 
          Height          =   9615
          Index           =   9
@@ -2007,7 +2007,7 @@ Begin VB.Form FGammesAnodisation
             Begin VB.Image IPhasesAnodisation 
                Height          =   2010
                Left            =   240
-               Picture         =   "FGammesAnodisation.frx":365E1
+               Picture         =   "FGammesAnodisation.frx":36598
                Top             =   720
                Width           =   2925
             End
@@ -2065,7 +2065,7 @@ Begin VB.Form FGammesAnodisation
             Begin VB.Image Image1 
                Height          =   480
                Left            =   8940
-               Picture         =   "FGammesAnodisation.frx":499EB
+               Picture         =   "FGammesAnodisation.frx":499A2
                Top             =   840
                Width           =   480
             End
@@ -2272,14 +2272,14 @@ Begin VB.Form FGammesAnodisation
             ForeColor       =   -2147483640
             Orientation     =   0
             Enabled         =   -1
-            Connect         =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
-            OLEDBString     =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+            Connect         =   ""
+            OLEDBString     =   ""
             OLEDBFile       =   ""
             DataSourceName  =   ""
             OtherAttributes =   ""
             UserName        =   ""
             Password        =   ""
-            RecordSource    =   $"FGammesAnodisation.frx":49E2D
+            RecordSource    =   ""
             Caption         =   ""
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                Name            =   "MS Sans Serif"
@@ -2293,7 +2293,7 @@ Begin VB.Form FGammesAnodisation
             _Version        =   393216
          End
          Begin MSDataGridLib.DataGrid DGZones 
-            Bindings        =   "FGammesAnodisation.frx":49E61
+            Bindings        =   "FGammesAnodisation.frx":49DE4
             Height          =   8355
             Left            =   300
             TabIndex        =   33
@@ -2463,12 +2463,12 @@ Begin VB.Form FGammesAnodisation
             Top             =   1920
             Width           =   20535
             Begin VB.CommandButton CBSupprimerMatieres 
-               DownPicture     =   "FGammesAnodisation.frx":49E7A
+               DownPicture     =   "FGammesAnodisation.frx":49DFD
                Height          =   375
                Index           =   10
                Left            =   5460
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FGammesAnodisation.frx":4A57C
+               Picture         =   "FGammesAnodisation.frx":4A4FF
                Style           =   1  'Graphical
                TabIndex        =   85
                Top             =   5280
@@ -2476,12 +2476,12 @@ Begin VB.Form FGammesAnodisation
                Width           =   435
             End
             Begin VB.CommandButton CBSupprimerMatieres 
-               DownPicture     =   "FGammesAnodisation.frx":4AC7E
+               DownPicture     =   "FGammesAnodisation.frx":4AC01
                Height          =   375
                Index           =   9
                Left            =   5460
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FGammesAnodisation.frx":4B380
+               Picture         =   "FGammesAnodisation.frx":4B303
                Style           =   1  'Graphical
                TabIndex        =   84
                Top             =   4740
@@ -2489,12 +2489,12 @@ Begin VB.Form FGammesAnodisation
                Width           =   435
             End
             Begin VB.CommandButton CBSupprimerMatieres 
-               DownPicture     =   "FGammesAnodisation.frx":4BA82
+               DownPicture     =   "FGammesAnodisation.frx":4BA05
                Height          =   375
                Index           =   8
                Left            =   5460
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FGammesAnodisation.frx":4C184
+               Picture         =   "FGammesAnodisation.frx":4C107
                Style           =   1  'Graphical
                TabIndex        =   83
                Top             =   4200
@@ -2502,12 +2502,12 @@ Begin VB.Form FGammesAnodisation
                Width           =   435
             End
             Begin VB.CommandButton CBSupprimerMatieres 
-               DownPicture     =   "FGammesAnodisation.frx":4C886
+               DownPicture     =   "FGammesAnodisation.frx":4C809
                Height          =   375
                Index           =   7
                Left            =   5460
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FGammesAnodisation.frx":4CF88
+               Picture         =   "FGammesAnodisation.frx":4CF0B
                Style           =   1  'Graphical
                TabIndex        =   82
                Top             =   3660
@@ -2515,12 +2515,12 @@ Begin VB.Form FGammesAnodisation
                Width           =   435
             End
             Begin VB.CommandButton CBSupprimerMatieres 
-               DownPicture     =   "FGammesAnodisation.frx":4D68A
+               DownPicture     =   "FGammesAnodisation.frx":4D60D
                Height          =   375
                Index           =   6
                Left            =   5460
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FGammesAnodisation.frx":4DD8C
+               Picture         =   "FGammesAnodisation.frx":4DD0F
                Style           =   1  'Graphical
                TabIndex        =   81
                Top             =   3120
@@ -2528,12 +2528,12 @@ Begin VB.Form FGammesAnodisation
                Width           =   435
             End
             Begin VB.CommandButton CBSupprimerMatieres 
-               DownPicture     =   "FGammesAnodisation.frx":4E48E
+               DownPicture     =   "FGammesAnodisation.frx":4E411
                Height          =   375
                Index           =   5
                Left            =   5460
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FGammesAnodisation.frx":4EB90
+               Picture         =   "FGammesAnodisation.frx":4EB13
                Style           =   1  'Graphical
                TabIndex        =   80
                Top             =   2580
@@ -2541,12 +2541,12 @@ Begin VB.Form FGammesAnodisation
                Width           =   435
             End
             Begin VB.CommandButton CBSupprimerMatieres 
-               DownPicture     =   "FGammesAnodisation.frx":4F292
+               DownPicture     =   "FGammesAnodisation.frx":4F215
                Height          =   375
                Index           =   4
                Left            =   5460
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FGammesAnodisation.frx":4F994
+               Picture         =   "FGammesAnodisation.frx":4F917
                Style           =   1  'Graphical
                TabIndex        =   79
                Top             =   2040
@@ -2554,12 +2554,12 @@ Begin VB.Form FGammesAnodisation
                Width           =   435
             End
             Begin VB.CommandButton CBSupprimerMatieres 
-               DownPicture     =   "FGammesAnodisation.frx":50096
+               DownPicture     =   "FGammesAnodisation.frx":50019
                Height          =   375
                Index           =   3
                Left            =   5460
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FGammesAnodisation.frx":50798
+               Picture         =   "FGammesAnodisation.frx":5071B
                Style           =   1  'Graphical
                TabIndex        =   78
                Top             =   1500
@@ -2567,12 +2567,12 @@ Begin VB.Form FGammesAnodisation
                Width           =   435
             End
             Begin VB.CommandButton CBSupprimerMatieres 
-               DownPicture     =   "FGammesAnodisation.frx":50E9A
+               DownPicture     =   "FGammesAnodisation.frx":50E1D
                Height          =   375
                Index           =   2
                Left            =   5460
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FGammesAnodisation.frx":5159C
+               Picture         =   "FGammesAnodisation.frx":5151F
                Style           =   1  'Graphical
                TabIndex        =   77
                Top             =   960
@@ -2580,12 +2580,12 @@ Begin VB.Form FGammesAnodisation
                Width           =   435
             End
             Begin VB.CommandButton CBSupprimerMatieres 
-               DownPicture     =   "FGammesAnodisation.frx":51C9E
+               DownPicture     =   "FGammesAnodisation.frx":51C21
                Height          =   375
                Index           =   1
                Left            =   5460
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FGammesAnodisation.frx":523A0
+               Picture         =   "FGammesAnodisation.frx":52323
                Style           =   1  'Graphical
                TabIndex        =   76
                Top             =   420
@@ -2808,14 +2808,14 @@ Begin VB.Form FGammesAnodisation
                ForeColor       =   -2147483640
                Orientation     =   0
                Enabled         =   -1
-               Connect         =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
-               OLEDBString     =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+               Connect         =   ""
+               OLEDBString     =   ""
                OLEDBFile       =   ""
                DataSourceName  =   ""
                OtherAttributes =   ""
                UserName        =   ""
                Password        =   ""
-               RecordSource    =   $"FGammesAnodisation.frx":52AA2
+               RecordSource    =   ""
                Caption         =   ""
                BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                   Name            =   "MS Sans Serif"
@@ -2829,7 +2829,7 @@ Begin VB.Form FGammesAnodisation
                _Version        =   393216
             End
             Begin MSDataGridLib.DataGrid DGMatieres 
-               Bindings        =   "FGammesAnodisation.frx":52B1B
+               Bindings        =   "FGammesAnodisation.frx":52A25
                Height          =   6135
                Left            =   6120
                TabIndex        =   86
@@ -4243,6 +4243,34 @@ Sub Form_Initialize()
    
     
 
+End Sub
+
+Private Sub Form_Load()
+    
+            
+     With ADODCGammesAnodisation
+        .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+        .RecordSource = "SELECT GammesAnodisation.* From GammesAnodisation ORDER BY NumGamme"
+        .Refresh
+        
+       
+    End With
+    With ADODCMatieres
+        .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+        .RecordSource = "SELECT OrdrePourAffichage, Matiere, TypeMatiere,   CompositionMatiere From Matieres ORDER BY OrdrePourAffichage"
+        .Refresh
+        
+    End With
+    
+    With ADODCZones
+        .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+        .RecordSource = " SELECT Zones.* From Zones ORDER BY NumZone"
+
+        .Refresh
+        
+    End With
+  
+    
 End Sub
 
 

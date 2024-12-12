@@ -4920,7 +4920,7 @@ Private Sub GestionEtatsCharges(ByVal EtatSouhaite As GESTION_GRILLES)
                     If .NumBarre = 0 Then
                         Texte = "-"
                     Else
-                        Texte = TBarres(.NumBarre + 1).Libelle
+                        Texte = TBarres(.NumBarre).Libelle
                     End If
                     
                     AffichageTexte LNumBarre(0), Texte
@@ -4929,7 +4929,7 @@ Private Sub GestionEtatsCharges(ByVal EtatSouhaite As GESTION_GRILLES)
                     If .NumBarre = 0 Then
                         Texte = "-"
                     Else
-                        Texte = "Barre n° " & TBarres(.NumBarre + 1).Libelle
+                        Texte = "Barre n° " & TBarres(.NumBarre).Libelle
                     End If
                      
                      

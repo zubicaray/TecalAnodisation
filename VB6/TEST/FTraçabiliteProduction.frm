@@ -204,14 +204,14 @@ Begin VB.Form FTraçabiliteProduction
          ForeColor       =   -2147483640
          Orientation     =   0
          Enabled         =   -1
-         Connect         =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
-         OLEDBString     =   "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+         Connect         =   ""
+         OLEDBString     =   ""
          OLEDBFile       =   ""
          DataSourceName  =   ""
          OtherAttributes =   ""
          UserName        =   ""
          Password        =   ""
-         RecordSource    =   $"FTraçabiliteProduction.frx":26CE0
+         RecordSource    =   ""
          Caption         =   ""
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
@@ -237,107 +237,107 @@ Begin VB.Form FTraçabiliteProduction
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   26
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":26E5C
+               Picture         =   "FTraçabiliteProduction.frx":26CE0
                Key             =   "fleche noire"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":27068
+               Picture         =   "FTraçabiliteProduction.frx":26EEC
                Key             =   "fleche blanche"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":27274
+               Picture         =   "FTraçabiliteProduction.frx":270F8
                Key             =   "fleche grise"
             EndProperty
             BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":27480
+               Picture         =   "FTraçabiliteProduction.frx":27304
                Key             =   "fleche rouge"
             EndProperty
             BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":2768C
+               Picture         =   "FTraçabiliteProduction.frx":27510
                Key             =   "fleche jaune"
             EndProperty
             BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":27898
+               Picture         =   "FTraçabiliteProduction.frx":2771C
                Key             =   "fleche verte"
             EndProperty
             BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":27AA4
+               Picture         =   "FTraçabiliteProduction.frx":27928
                Key             =   "fleche cyan"
             EndProperty
             BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":27CB0
+               Picture         =   "FTraçabiliteProduction.frx":27B34
                Key             =   "fleche bleue"
             EndProperty
             BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":27EBC
+               Picture         =   "FTraçabiliteProduction.frx":27D40
                Key             =   "etoile noire"
             EndProperty
             BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":280C8
+               Picture         =   "FTraçabiliteProduction.frx":27F4C
                Key             =   "etoile blanche"
             EndProperty
             BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":282D4
+               Picture         =   "FTraçabiliteProduction.frx":28158
                Key             =   "etoile grise"
             EndProperty
             BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":284E0
+               Picture         =   "FTraçabiliteProduction.frx":28364
                Key             =   "etoile rouge"
             EndProperty
             BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":286EC
+               Picture         =   "FTraçabiliteProduction.frx":28570
                Key             =   "etoile jaune"
             EndProperty
             BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":288F8
+               Picture         =   "FTraçabiliteProduction.frx":2877C
                Key             =   "etoile verte"
             EndProperty
             BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":28B04
+               Picture         =   "FTraçabiliteProduction.frx":28988
                Key             =   "etoile cyan"
             EndProperty
             BeginProperty ListImage16 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":28D10
+               Picture         =   "FTraçabiliteProduction.frx":28B94
                Key             =   "etoile bleue"
             EndProperty
             BeginProperty ListImage17 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":28F1C
+               Picture         =   "FTraçabiliteProduction.frx":28DA0
                Key             =   "modification noire"
             EndProperty
             BeginProperty ListImage18 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":29120
+               Picture         =   "FTraçabiliteProduction.frx":28FA4
                Key             =   "modification blanche"
             EndProperty
             BeginProperty ListImage19 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":29324
+               Picture         =   "FTraçabiliteProduction.frx":291A8
                Key             =   "modification grise"
             EndProperty
             BeginProperty ListImage20 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":29528
+               Picture         =   "FTraçabiliteProduction.frx":293AC
                Key             =   "modification rouge"
             EndProperty
             BeginProperty ListImage21 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":2972C
+               Picture         =   "FTraçabiliteProduction.frx":295B0
                Key             =   "modification jaune"
             EndProperty
             BeginProperty ListImage22 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":29930
+               Picture         =   "FTraçabiliteProduction.frx":297B4
                Key             =   "modification vert"
             EndProperty
             BeginProperty ListImage23 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":29B34
+               Picture         =   "FTraçabiliteProduction.frx":299B8
                Key             =   "modification cyan"
             EndProperty
             BeginProperty ListImage24 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":29D38
+               Picture         =   "FTraçabiliteProduction.frx":29BBC
                Key             =   "modification bleue"
             EndProperty
             BeginProperty ListImage25 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":29F3C
+               Picture         =   "FTraçabiliteProduction.frx":29DC0
                Key             =   "indicateur vert"
             EndProperty
             BeginProperty ListImage26 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FTraçabiliteProduction.frx":2A140
+               Picture         =   "FTraçabiliteProduction.frx":29FC4
                Key             =   "indicateur rouge"
             EndProperty
          EndProperty
@@ -462,9 +462,9 @@ Begin VB.Form FTraçabiliteProduction
                   Strikethrough   =   0   'False
                EndProperty
                Height          =   360
-               ItemData        =   "FTraçabiliteProduction.frx":2A344
+               ItemData        =   "FTraçabiliteProduction.frx":2A1C8
                Left            =   1740
-               List            =   "FTraçabiliteProduction.frx":2A354
+               List            =   "FTraçabiliteProduction.frx":2A1D8
                Style           =   2  'Dropdown List
                TabIndex        =   55
                Top             =   480
@@ -519,7 +519,7 @@ Begin VB.Form FTraçabiliteProduction
                Height          =   735
                Left            =   11400
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FTraçabiliteProduction.frx":2A3A7
+               Picture         =   "FTraçabiliteProduction.frx":2A22B
                Style           =   1  'Graphical
                TabIndex        =   47
                ToolTipText     =   " Lancer une recherche "
@@ -530,7 +530,7 @@ Begin VB.Form FTraçabiliteProduction
             Begin VB.CommandButton CBRechercherSurGrille 
                BackColor       =   &H00E0E0E0&
                Caption         =   "GRILLE"
-               DownPicture     =   "FTraçabiliteProduction.frx":2A6E9
+               DownPicture     =   "FTraçabiliteProduction.frx":2A56D
                BeginProperty Font 
                   Name            =   "Small Fonts"
                   Size            =   6.75
@@ -543,7 +543,7 @@ Begin VB.Form FTraçabiliteProduction
                Height          =   735
                Left            =   240
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FTraçabiliteProduction.frx":2ADEB
+               Picture         =   "FTraçabiliteProduction.frx":2AC6F
                Style           =   1  'Graphical
                TabIndex        =   46
                TabStop         =   0   'False
@@ -567,7 +567,7 @@ Begin VB.Form FTraçabiliteProduction
                Height          =   735
                Left            =   5400
                MaskColor       =   &H00FF00FF&
-               Picture         =   "FTraçabiliteProduction.frx":2B4ED
+               Picture         =   "FTraçabiliteProduction.frx":2B371
                Style           =   1  'Graphical
                TabIndex        =   45
                ToolTipText     =   " Annule tris et recherches "
@@ -622,7 +622,7 @@ Begin VB.Form FTraçabiliteProduction
                Width           =   375
             End
             Begin TrueOleDBGrid80.TDBGrid TDBGGrilleRecherche 
-               Bindings        =   "FTraçabiliteProduction.frx":2B6DF
+               Bindings        =   "FTraçabiliteProduction.frx":2B563
                Height          =   10875
                Left            =   240
                TabIndex        =   44
@@ -1066,10 +1066,10 @@ Begin VB.Form FTraçabiliteProduction
             AccessibleDescription=   ""
             AccessibleValue =   ""
             AccessibleRole  =   37
-            Picture(0)      =   "FTraçabiliteProduction.frx":2B70B
-            Picture(1)      =   "FTraçabiliteProduction.frx":2B865
-            Picture(2)      =   "FTraçabiliteProduction.frx":2B9BF
-            Picture(3)      =   "FTraçabiliteProduction.frx":2BB19
+            Picture(0)      =   "FTraçabiliteProduction.frx":2B58F
+            Picture(1)      =   "FTraçabiliteProduction.frx":2B6E9
+            Picture(2)      =   "FTraçabiliteProduction.frx":2B843
+            Picture(3)      =   "FTraçabiliteProduction.frx":2B99D
             Begin VB.PictureBox PBOnglets 
                Height          =   10395
                Index           =   3
@@ -1737,7 +1737,7 @@ Begin VB.Form FTraçabiliteProduction
                   Begin VB.CommandButton CBVisualisationGraphesProduction 
                      BackColor       =   &H00C0FFC0&
                      Caption         =   "Visualisation du graphe"
-                     DownPicture     =   "FTraçabiliteProduction.frx":2BC73
+                     DownPicture     =   "FTraçabiliteProduction.frx":2BAF7
                      BeginProperty Font 
                         Name            =   "MS Sans Serif"
                         Size            =   9.75
@@ -1750,7 +1750,7 @@ Begin VB.Form FTraçabiliteProduction
                      Height          =   915
                      Left            =   240
                      MaskColor       =   &H00FF00FF&
-                     Picture         =   "FTraçabiliteProduction.frx":2C375
+                     Picture         =   "FTraçabiliteProduction.frx":2C1F9
                      Style           =   1  'Graphical
                      TabIndex        =   108
                      Top             =   3060
@@ -2561,7 +2561,7 @@ Begin VB.Form FTraçabiliteProduction
                   Begin VB.Image IPhasesAnodisation 
                      Height          =   2010
                      Left            =   240
-                     Picture         =   "FTraçabiliteProduction.frx":2CA77
+                     Picture         =   "FTraçabiliteProduction.frx":2C8FB
                      Top             =   660
                      Width           =   2925
                   End
@@ -3030,6 +3030,25 @@ Private TDetailsFichesProduction(1 To NBR_LIGNES_DETAILS_FICHES_PRODUCTION) As I
 '--- variables publiques ---
 Public NumFenetre As Long                             'numéro de la fenêtre lorsqu'elle devient active
 Public RechercherSurGrille As Boolean          'publique pour le copier / coller
+
+
+Private Sub Form_Load()
+    
+    
+     With ADODCDetailsChargesProduction
+        .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+        .RecordSource = "SELECT     DetailsChargesProduction.*, OuiNon.OuiNonTexte AS ChargePrioritaireTexte " & _
+                        "FROM         DetailsChargesProduction LEFT OUTER JOIN " & _
+                        "OuiNon ON DetailsChargesProduction.ChargePrioritaire = OuiNon.OuiNonNumerique" & _
+                        "ORDER BY CAST(LEFT(DetailsChargesProduction.NumCommandeInterne, 4) + RIGHT(DetailsChargesProduction.NumCommandeInterne, 3) AS INT) DESC"
+        .Refresh
+    End With
+    
+    
+    
+    
+End Sub
+
 
 Private Sub ADODCDetailsChargesProduction_MoveComplete(ByVal adReason As ADODB.EventReasonEnum, ByVal pError As ADODB.Error, adStatus As ADODB.EventStatusEnum, ByVal pRecordset As ADODB.Recordset)
     
@@ -4320,7 +4339,7 @@ Private Sub GestionDetailsChargesProduction(ByVal EtatSouhaite As GESTION_GRILLE
             If TDetailsChargesProduction(1).NumBarre = 0 Then
                 Texte = "-"
             Else
-                Texte = TBarres(TDetailsChargesProduction(1).NumBarre + 1).Libelle
+                Texte = TBarres(TDetailsChargesProduction(1).NumBarre).Libelle
                 
             End If
             AffichageTexte LNumBarre, Texte

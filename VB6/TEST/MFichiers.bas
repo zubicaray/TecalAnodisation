@@ -11,6 +11,9 @@ Option Explicit
 '--- options générales ---
 Option Base 1
 DefVar A-Z
+Private Declare Function GetPrivateProfileString Lib "kernel32" Alias "GetPrivateProfileStringA" _
+    (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, _
+    ByVal lpReturnedString As String, ByVal nSize As Long, ByVal lpFileName As String) As Long
 
 '--- constantes privées ---
 
@@ -869,6 +872,16 @@ GestionErreurs:
 
 End Function
 
+
+
+Public Function GetConnectionString(categorie As String, champ As String) As String
+    Dim buffer As String * 255
+    Dim filePath As String
+    filePath = App.Path & "\config.ini"
+    GetPrivateProfileString categorie, champ, "", buffer, 255, filePath
+    GetConnectionString = Left$(buffer, InStr(buffer, Chr$(0)) - 1)
+End Function
+
 '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ' Rôle      : Chargement de la configuration
 ' Retours :
@@ -911,123 +924,51 @@ Public Function ChargeConfiguration() As String
     'NbrLignesMaxiAExtraire = GetSetting(App.Title, CONFIGURATION, "Nombre de lignes maxi. à extraire", 0)
     'TempsCompensationAnodisationMinutes = GetSetting(App.Title, CONFIGURATION, "Temps de compensation d'anodisation", 0)
     
-    '--- LE FICHIER DE CONFIGURATION DOIT SE TROUVER DANS LE REPERTOIRE DU PROGRAMME ---
+    PARAMETRES_CONNEXION_BD_CLIPPER_HF = GetConnectionString("database", "CLIPPER")
+    PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS")
+         
+    Dim lowerStr As String
+    lowerStr = LCase(Trim(GetConnectionString("GestionRegulation", "AppareillageConcerne")))
+    Dim b As Boolean
     
-    '--- affectation ---
-    CheminComplet = App.Path & "\" & FIC_CONFIGURATION
-    TypePC = TYPES_PC.PC_SUR_LIGNE
-    If FileExist(CheminComplet) = True Then
-  
-        '--- affectation ---
-        NumFic = FreeFile(1)
-    
-        '--- ouverture et lecture du fichier ---
-        Open CheminComplet For Input Shared As #NumFic
-
-        'MODE SECOURS
-        Input #NumFic, Bidon
-        Input #NumFic, varConfig
-       
-      
-       
-        MsgBox ("Vous êtes sur la base de TEST/SECOURS")
-
-        'CNX BDD ANODISATION
-        Input #NumFic, Bidon
-        Input #NumFic, varConfig
-        
-        'TODO a enelever
-        If varConfig = TYPE_BDD_ANO.PROD Then
-            'PARAMETRES_CONNEXION_BD_ANODISATION_SQL = CST_PARAMETRES_CONNEXION_BD_ANODISATION_SQL
-        End If
-        If varConfig = TYPE_BDD_ANO.TEST Then
-            'PARAMETRES_CONNEXION_BD_ANODISATION_SQL = CST_PARAMETRES_CONNEXION_BD_ANODISATION_TEST_SQL
-        End If
-        
-        PARAMETRES_CONNEXION_BD_ANODISATION_SQL = CST_PARAMETRES_CONNEXION_BD_ANODISATION_SQL
-        
-        'MsgBox (PARAMETRES_CONNEXION_BD_ANODISATION_SQL)
-        'CNX BDD CLIPPER
-        Input #NumFic, Bidon
-        Input #NumFic, varConfig
-        
-       
-            
-         PARAMETRES_CONNEXION_BD_CLIPPER_HF = varConfig ' CST_PARAMETRES_CONNEXION_BD_CLIPPER_HF
-        
-        
-        
-        'If varConfig = TYPE_BDD_CLIPPER.ACCESS_TEST Then
-        '    PARAMETRES_CONNEXION_BD_CLIPPER_HF = CST_PARAMETRES_CONNEXION_BD_CLIPPER_TEST_ACCESS
-        'End If
-        'If varConfig = TYPE_BDD_ANO.TEST Then
-        '    PARAMETRES_CONNEXION_BD_CLIPPER_HF = CST_PARAMETRES_CONNEXION_BD_CLIPPER_TEST_HF
-        'End If
-        
-
-        
-        
-        '--- programmateur cyclique ---
-        Input #NumFic, Bidon
-        Input #NumFic, MemDateProgCyclique
-    
-        '--- manipulations dans la fenêtre gestion de la régulation ---
-        Input #NumFic, Bidon
-        With VManipsGestionRegulation
-            Input #NumFic, .AppareillageConcerne
-            Input #NumFic, .CyclesPompe
-            Input #NumFic, .ModesChauffage
-        End With
-    
-        '--- manipulations dans la fenêtre du programmateur cyclique ---
-        Input #NumFic, Bidon
-        With VManipsProgCyclique
-            Input #NumFic, .AppareillageConcerne
-            Input #NumFic, .CyclesPompe
-            Input #NumFic, .ModesChauffage
-        End With
-    
-    
-        
-        '--- chemin des bains pour CLIPPER ---
-        Input #NumFic, Bidon
-        Input #NumFic, RepFicClipper
-    
-        '--- affichier les logs
-        Input #NumFic, Bidon
-        Input #NumFic, varConfig
-      
-        If varConfig = 1 Then
-            ShowLog = True
-        Else
-            ShowLog = False
-        End If
-        
-                
-        Close #NumFic
-    
-    
-        
-        Debug.Print DateDiff("s", Null, Now)
-        
-        
-        
-        If DateDiff("s", DateAdd("m", -3, Date), Now) > 40 Then
-            Debug.Print "FUCK"
-        Else
-            Debug.Print "KO"
-        End If
-
-        '--- affichage du type de tâche ---
-        AfficheTypeTache ("")
-    
+    ' Vérifier les valeurs typiques représentant True
+    If lowerStr = "true" Or lowerStr = "1" Or lowerStr = "yes" Or lowerStr = "oui" Then
+         b = True
     Else
-    
-        '--- fichier introuvable ---
-        ChargeConfiguration = CODE_ERREUR_FICHIER_INTROUVABLE
-    
+         b = False
     End If
-  
+         
+    With VManipsGestionRegulation
+            .AppareillageConcerne = b
+            .CyclesPompe = Val(GetConnectionString("GestionRegulation", "CyclesPompe"))
+            .ModesChauffage = Val(GetConnectionString("GestionRegulation", "ModesChauffage"))
+    End With
+    lowerStr = LCase(Trim(GetConnectionString("ManipsProgCyclique", "AppareillageConcerne")))
+    '--- manipulations dans la fenêtre du programmateur cyclique ---
+    If lowerStr = "true" Or lowerStr = "1" Or lowerStr = "yes" Or lowerStr = "oui" Then
+         b = True
+    Else
+         b = False
+    End If
+    With VManipsProgCyclique
+        .AppareillageConcerne = b
+        .CyclesPompe = Val(GetConnectionString("ManipsProgCyclique", "CyclesPompe"))
+        .ModesChauffage = Val(GetConnectionString("ManipsProgCyclique", "ModesChauffage"))
+    End With
+    
+    
+    lowerStr = LCase(Trim(GetConnectionString("parametres", "LOGS")))
+    '--- manipulations dans la fenêtre du programmateur cyclique ---
+    If lowerStr = "true" Or lowerStr = "1" Or lowerStr = "yes" Or lowerStr = "oui" Then
+         b = True
+    Else
+         b = False
+    End If
+    
+    ShowLog = b
+    
+    MemDateProgCyclique = GetConnectionString("parametres", "MemDateProgCyclique")
+    
     Exit Function
 
 GestionErreurs:
