@@ -83,7 +83,7 @@ Public Sub CopieCollageSpecial(ByVal CopieOuCollage As Boolean)
                 If CopieOuCollage = False Then
                     With .ADODCPremisses.Recordset
                         If Not .BOF And Not .EOF Then
-                            CleDeCopie = .Fields("PremisseDecodee").Value
+                            CleDeCopie = .Fields("PremisseDecodee").value
                         End If
                      End With
                 Else
@@ -239,17 +239,15 @@ Public Function AffectationChemins() As String
     RepFicAnodisation = App.Path & "\Fichiers communs\"
     RepGraphesProductionLocal = App.Path & "\Graphes de production\"
     RepGraphesProductionServeur = App.Path & "\Graphes de production\"
+    CONFIG_FILE = App.Path & "\" & FIC_CONFIGURATION
 
    
    
     
     If Environ("ANODISATION_TEST") = 1 Then
-        MsgBox ("ATTENTION: Mode TEST")
         RepFicAnodisation = App.Path & "\Fichiers communs\"
         RepGraphesProductionLocal = App.Path & "\Graphes de production\"
         RepGraphesProductionServeur = App.Path & "\Graphes de production\"
-               
-       
     Else
         RepFicAnodisation = "D:\Fichiers communs de l'ANODISATION\"
         RepGraphesProductionLocal = "D:\Graphes de production\"
@@ -294,7 +292,7 @@ Public Sub AfficheDateHeure()
     On Error Resume Next
 
     '--- affectation ---
-    HeureSysteme = FormatDateTime(Time, vbLongTime)
+    HeureSysteme = FormatDateTime(time, vbLongTime)
     DateSysteme = StrConv(FormatDateTime(Date, vbLongDate), vbProperCase)
     
     '--- affichage de la date et heure ---
@@ -964,7 +962,7 @@ Public Function DateMessages() As String
 
     '--- affectation ---
     DateMessages = "(" & StrConv(Format(Date, "Long Date"), vbProperCase) & _
-                                 " - " & Format(Time, "HH:MM:SS") & ")"
+                                 " - " & Format(time, "HH:MM:SS") & ")"
 
 End Function
 
@@ -1132,7 +1130,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
     
             Case TYPES_BOUTONS_OUTILS.B_VIDE
                 '--- vide la barre d'outil à partir de l'index ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = 0
                 .Key = ""
                 .Caption = ""
@@ -1141,7 +1139,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_SEPARATEUR
                 '--- séparateur ---
-                .Style = tbrSeparator
+                .style = tbrSeparator
                 .Image = 0
                 .Key = ""
                 .Caption = ""
@@ -1154,7 +1152,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_APERCU_AVANT_IMPRESSION
                 '--- aperçu avant impression ---
-                .Style = tbrDropdown
+                .style = tbrDropdown
                 .Image = OccFPrincipale.ILOutils.ListImages("ApercuAvantImpression").Index
                 .Key = "AperçuAvantImpression"
                 .Caption = "Aperçu"
@@ -1185,7 +1183,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_CALCULATRICE
                 '--- calculatrice ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("Calculatrice").Index
                 .Key = "Calculatrice"
                 .Caption = "Calculatrice"
@@ -1198,7 +1196,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_ORGANISATION_LIGNE
                 '--- organisation de la ligne ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("CaracteristiquesLigne").Index
                 .Key = "OrganisationLigne"
                 .Caption = "Organisation..."
@@ -1207,7 +1205,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_MOTEUR_INFERENCE
                 '--- moteur d'inférence ---
-                .Style = tbrDropdown
+                .style = tbrDropdown
                 .Image = OccFPrincipale.ILOutils.ListImages("MoteurInference").Index
                 .Key = "MoteurInference"
                 .Caption = "Moteur d'inférence"
@@ -1238,7 +1236,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_MODE_CYCLIQUE
                 '--- mode cyclique ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("ModeCyclique").Index
                 .Key = "ModeCyclique"
                 .Caption = "F2=Mode cyclique"
@@ -1251,7 +1249,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_GAMMES_PRODUCTION
                 '--- gammes de production ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("GammesAnodisation").Index
                 .Key = "GammesAnodisation"
                 .Caption = "F3=Gammes"
@@ -1260,7 +1258,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_TRACABILITE_PRODUCTION
                 '--- traçabilité de production ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("TracabiliteDeProduction").Index
                 .Key = "Tracabilite"
                 .Caption = "F4=Traçabilité"
@@ -1269,7 +1267,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_CHARGES_EN_LIGNE
                 '--- charges en ligne ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("ChargesEnLigne").Index
                 .Key = "ChargesEnLigne"
                 .Caption = "F5=Charges..."
@@ -1278,7 +1276,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
                 
             Case TYPES_BOUTONS_OUTILS.B_CYCLES_PONTS
                 '--- cycles des ponts ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("CyclesPonts").Index
                 .Key = "CyclesPonts"
                 .Caption = "F6=Cycles..."
@@ -1287,7 +1285,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_CHARGEMENT_PREVISIONNEL
                 '--- chargement / prévisionnel ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("ChargementPrevisionnel").Index
                 .Key = "ChargementPrevisionnel"
                 .Caption = "F7=Chargement"
@@ -1296,7 +1294,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_REDRESSEURS
                 '--- redresseurs ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("Redresseurs").Index
                 .Key = "Redresseurs"
                 .Caption = "F8=Redresseurs"
@@ -1305,7 +1303,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_CUVES
                 '--- cuves ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("Cuves").Index
                 .Key = "Cuves"
                 .Caption = "F9=Cuves"
@@ -1314,7 +1312,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_REGULATION
                 '--- régulation ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("Regulation").Index
                 .Key = "Regulation"
                 .Caption = "F10=Régulation"
@@ -1323,7 +1321,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_PROGRAMMATEUR_CYCLIQUE
                 '--- programmateur cyclique ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("ProgrammateurCyclique").Index
                 .Key = "ProgrammateurCyclique"
                 .Caption = "F11=Prog. cyclique"
@@ -1332,7 +1330,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_ANNEXES
                 '--- annexes ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("Annexes").Index
                 .Key = "Annexes"
                 .Caption = "F12=Annexes"
@@ -1341,7 +1339,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_LISTE_DEFAUTS
                 '--- liste des défauts ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("Defauts").Index
                 .Key = "Defauts"
                 .Caption = "Défauts"
@@ -1350,7 +1348,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_MAINTENANCE
                 '--- maintenance ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("Maintenance").Index
                 .Key = "Maintenance"
                 .Caption = "Maintenance"
@@ -1359,7 +1357,7 @@ Public Sub AfficheBoutonOutils(ByRef BarreOutils As Toolbar, _
             
             Case TYPES_BOUTONS_OUTILS.B_FERMER_TOUT
                 '--- fermer toutes les fenêtres ---
-                .Style = tbrDefault
+                .style = tbrDefault
                 .Image = OccFPrincipale.ILOutils.ListImages("General").Index
                 .Key = "Fermer tout"
                 .Caption = "Fermer tout"

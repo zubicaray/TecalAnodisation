@@ -66,6 +66,7 @@ Begin VB.MDIForm FPrincipale
          _ExtentX        =   1826
          _ExtentY        =   767
          _Version        =   393217
+         Enabled         =   -1  'True
          Appearance      =   0
          TextRTF         =   $"FPrincipale.frx":08CA
       End
@@ -740,7 +741,7 @@ Private Const TITRE_MESSAGES As String = TITRE_FENETRE
 
 Private Declare Function StrFormatByteSizeW Lib "Shlwapi" ( _
                          ByVal qdw As Currency, _
-                         ByVal pszBuf As Long, _
+                         ByVal pSZPuf As Long, _
                          ByVal cchBuf As Long) As Long
 
 
@@ -2161,6 +2162,7 @@ Private Sub MDIForm_Activate()
         '--- initialisation des variables ---
         InitialisationVariables
             
+        Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_ANALYSE, AffectationChemins)
         '--- configuration ---
         Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "Chargement de la configuration")
         Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_ANALYSE, ChargeConfiguration())
@@ -2176,7 +2178,7 @@ Private Sub MDIForm_Activate()
             Case Else
                 Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "TYPE de PC INCONNU (Voir fichier de configuration")
         End Select
-        Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_ANALYSE, AffectationChemins)
+        
         
         '--- UNIQUEMENT POUR LA CONSTRUCTION DES FICHIERS ---
         'Bidon = SauveProgCyclique()
@@ -2201,6 +2203,10 @@ Private Sub MDIForm_Activate()
         '--- chargement des zones ---
         Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "Chargement des zones de la ligne")
         Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_ANALYSE, ChargeZones())
+        
+         '--- chargement des zones ---
+        Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "Chargement des barres de la ligne")
+        Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_ANALYSE, ChargeBarres())
         
         '--- chargement des caractéristiques des cuves ---
         Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "Chargement des cuves")
@@ -2396,7 +2402,7 @@ Private Sub MDIForm_QueryUnload(Cancel As Integer, UnloadMode As Integer)
             Next
             
             '--- sauvegarde de la configuration ---
-            'SauveConfiguration
+            SauveConfiguration
             
         Else
     
@@ -2489,10 +2495,7 @@ Private Sub MenuAPropos_Click()
     AppelFenetre F_APROPOS
 End Sub
 
-Private Sub MenuDiversChargementCheminBDCLIPPER_Click()
-    On Error Resume Next
-    Bidon = ChargeCheminBDCLIPPER()
-End Sub
+
 
 Private Sub MenuDiversNettoyageGraphesProduction_Click()
     On Error Resume Next

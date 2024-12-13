@@ -598,7 +598,7 @@ Public Function APILectureEntree(ByVal LibelleEntree As String, _
     
     '--- aiguillage en cas d'erreurs ---
     On Error Resume Next
-    ''Call Log("APILectureEntree", "LibelleEntree:" & LibelleEntree & " ;ValeurEntree=" & CStr(ValeurEntree))
+    'Call Log("APILectureEntree", "LibelleEntree:" & LibelleEntree & " ;ValeurEntree=" & CStr(ValeurEntree))
     '--- constantes privées ---
     
     '--- déclaration ---
@@ -644,7 +644,7 @@ Public Function APILectureSortie(ByVal LibelleSortie As String, _
     
     '--- aiguillage en cas d'erreurs ---
     On Error Resume Next
-    ''Call Log("APILectureSortie", "LibelleSortie:" & LibelleSortie & " ;ValeurSortie=" & CStr(ValeurSortie))
+    'Call Log("APILectureSortie", "LibelleSortie:" & LibelleSortie & " ;ValeurSortie=" & CStr(ValeurSortie))
     '--- constantes privées ---
     
     '--- déclaration ---
@@ -690,7 +690,7 @@ Public Function APILectureOctet(ByVal LibelleOctet As String, _
     
     '--- aiguillage en cas d'erreurs ---
     On Error Resume Next
-    ''Call Log("APILectureOctet", "LibelleOctet:" & LibelleOctet & " ;ValeurOctet=" & CStr(ValeurOctet))
+    'Call Log("APILectureOctet", "LibelleOctet:" & LibelleOctet & " ;ValeurOctet=" & CStr(ValeurOctet))
     '--- constantes privées ---
     
     '--- déclaration ---

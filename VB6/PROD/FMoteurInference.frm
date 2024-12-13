@@ -5,14 +5,14 @@ Begin VB.Form FMoteurInference
    ClientHeight    =   11010
    ClientLeft      =   1455
    ClientTop       =   135
-   ClientWidth     =   20370
+   ClientWidth     =   13395
    Icon            =   "FMoteurInference.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    NegotiateMenus  =   0   'False
    ScaleHeight     =   11010
-   ScaleWidth      =   20370
+   ScaleWidth      =   13395
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBRenseignementsFenetre 
@@ -23,10 +23,10 @@ Begin VB.Form FMoteurInference
       Left            =   0
       Picture         =   "FMoteurInference.frx":014A
       ScaleHeight     =   315
-      ScaleWidth      =   20310
+      ScaleWidth      =   13335
       TabIndex        =   3
       Top             =   0
-      Width           =   20370
+      Width           =   13395
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -58,11 +58,11 @@ Begin VB.Form FMoteurInference
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   20310
+      ScaleWidth      =   13335
       TabIndex        =   0
       TabStop         =   0   'False
       Top             =   9915
-      Width           =   20370
+      Width           =   13395
       Begin VB.CommandButton CBReduire 
          BackColor       =   &H00FFFFFF&
          Caption         =   "&Réduire la fenêtre"
@@ -219,10 +219,10 @@ Begin VB.Form FMoteurInference
       Index           =   0
       Left            =   0
       ScaleHeight     =   14055
-      ScaleWidth      =   20370
+      ScaleWidth      =   13395
       TabIndex        =   1
       Top             =   375
-      Width           =   20370
+      Width           =   13395
       Begin VB.PictureBox PBDeplacementFenetre 
          BorderStyle     =   0  'None
          Height          =   13935
@@ -706,7 +706,7 @@ End Sub
 
 Private Sub HSDeplacementFenetre_Change()
     On Error Resume Next
-    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Left = -HSDeplacementFenetre.Value
+    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Left = -HSDeplacementFenetre.value
 End Sub
 
 Private Sub LRenseignementsFenetre_DblClick()
@@ -986,7 +986,7 @@ End Sub
 
 Private Sub VSDeplacementFENETRE_Change()
     On Error Resume Next
-    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Top = -VSDeplacementFenetre.Value
+    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Top = -VSDeplacementFenetre.value
 End Sub
 
 '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

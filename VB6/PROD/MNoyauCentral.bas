@@ -270,7 +270,7 @@ Public Sub AnalyseProgrammateurCyclique()
         MemDateProgCyclique = DateMaintenant
 
         '--- sauvegarde de la configuration ---
-        'SauveConfiguration
+        SauveConfiguration
 
     End If
 
@@ -1038,7 +1038,8 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
     '--- aiguillage en cas d'erreurs ---
     On Error GoTo GestionErreurs
 
-    '--- constantes privées ---
+    Dim showLogs As Boolean
+    showLogs = True
     
     '--- déclaration ---
     Dim a As Integer                                                'pour les boucles FOR...NEXT
@@ -1052,15 +1053,15 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
     Dim ConnexionBDAnodisationSQL As ADODB.Connection
     Dim Enregistrement As ADODB.Recordset
     
-   Dim FicheVideEtatsCharges As etatsCharges
+    Dim FicheVideEtatsCharges As etatsCharges
     
     '--- affectation ---
     'EnregistrementProduction = ""
     
-    'Call Log("ProchainNumFicheProduction  DEBUT")
+    Call Log("ProchainNumFicheProduction  DEBUT", showLogs)
     '--- recherche du prochain numéro de fiche de production ---
     NumFicheProduction = ProchainNumFicheProduction()
-    'Call Log("ProchainNumFicheProduction  FIN")
+    Call Log("ProchainNumFicheProduction  FIN", showLogs)
                     
     If NumFicheProduction <> "" Then
     
@@ -1074,7 +1075,7 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
             .Open
         End With
         
-        'Call Log("DETAILS DES CHARGES DE PRODUCTION  DEBUT")
+        Call Log("DETAILS DES CHARGES DE PRODUCTION  DEBUT", showLogs)
         '--- extraction et enregistrement ---
         With TEtatsCharges(NumCharge)
     
@@ -1104,6 +1105,8 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                         Enregistrement("DateEntreeEnLigne") = TEtatsCharges(NumCharge).DateEntreeEnLigne
                         Enregistrement("DateArriveeAuDechargement") = TEtatsCharges(NumCharge).DateArriveeAuDechargement
                         Enregistrement("NumBarre") = TEtatsCharges(NumCharge).NumBarre
+                        Call Log("Enregistrement(NumBarre) = TEtatsCharges(NumCharge).NumBarre=" & TEtatsCharges(NumCharge).NumBarre, showLogs)
+                        
                         Enregistrement("NumLigne") = a
                         Enregistrement("CodeClient") = .CodeClient
                         Enregistrement("NbrPieces") = .NbrPieces
@@ -1119,6 +1122,7 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                         Else
                             Enregistrement("ChargePrioritaire") = 0
                         End If
+                        'Call Log("barre2 =" & NumCharge, showLogs)
                         Enregistrement("AlarmesLigne") = TEtatsCharges(NumCharge).AlarmesLigne
                         'Enregistrement.Update
                     
@@ -1135,8 +1139,8 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
             Enregistrement.UpdateBatch
             
             Enregistrement.Close
-            'Call Log("DETAILS DES CHARGES DE PRODUCTION  FIN")
-            'Call Log("DETAILS DE LA GAMME D'ANODISATION DE PRODUCTION DEBUT")
+            Call Log("DETAILS DES CHARGES DE PRODUCTION  FIN", showLogs)
+            Call Log("DETAILS DE LA GAMME D'ANODISATION DE PRODUCTION DEBUT", showLogs)
         
             '****************************************************************************************************************
             '*                                      DETAILS DE LA GAMME D'ANODISATION DE PRODUCTION
@@ -1193,9 +1197,9 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
             Next a
             Enregistrement.UpdateBatch
             Enregistrement.Close
-            'Call Log("DETAILS DE LA GAMME D'ANODISATION DE PRODUCTION FIN")
+            Call Log("DETAILS DE LA GAMME D'ANODISATION DE PRODUCTION FIN", showLogs)
             
-            'Call Log("TRACABILITE DES REDRESSEURS DEBUT")
+            Call Log("TRACABILITE DES REDRESSEURS DEBUT", showLogs)
             '****************************************************************************************************************
             '*                                                  TRACABILITE DES REDRESSEURS
             '****************************************************************************************************************
@@ -1208,8 +1212,8 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
             
             End If
 
-            'Call Log("TRACABILITE DES REDRESSEURS FIN")
-            'Call Log("DETAILS DES PHASES DE PRODUCTION DEBUT")
+            Call Log("TRACABILITE DES REDRESSEURS FIN", showLogs)
+            Call Log("DETAILS DES PHASES DE PRODUCTION DEBUT", showLogs)
             '****************************************************************************************************************
             '*                                       DETAILS DES PHASES DE PRODUCTION
             '****************************************************************************************************************
@@ -1250,8 +1254,8 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
             '*                                                 DETAILS DES FICHES DE PRODUCTION
             '****************************************************************************************************************
         
-            'Call Log("DETAILS DES PHASES DE PRODUCTION FIN")
-            'Call Log("DETAILS DES FICHES DE PRODUCTION DEBUT")
+            Call Log("DETAILS DES PHASES DE PRODUCTION FIN", showLogs)
+            Call Log("DETAILS DES FICHES DE PRODUCTION DEBUT", showLogs)
             '--- ouverture de la table ---
             Set Enregistrement = New ADODB.Recordset
             With Enregistrement
@@ -1301,10 +1305,11 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
             Enregistrement.UpdateBatch
             Enregistrement.Close
         
-            'Call Log("DETAILS DES FICHES DE PRODUCTION FIN")
+            Call Log("DETAILS DES FICHES DE PRODUCTION FIN", showLogs)
         End With
     Else
-        Call Log("pas de numfiche")
+        
+        Call Log("Pas de fiche Production trouvée !!")
     End If
     
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1315,7 +1320,7 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
     TEtatsCharges(NumCharge) = FicheVideEtatsCharges
     
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    
+    Call Log("FIN ENREGISTREMENT DE PRODUCTION FIN", showLogs)
     '--- fermeture des enregistrements / connexions ---
     Select Case Enregistrement.State
         Case adStateClosed
@@ -1326,13 +1331,13 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
     '--- effacement des objets ---
     Set Enregistrement = Nothing
     Set ConnexionBDAnodisationSQL = Nothing
-    Call Log("Record OK  ")
+    
     Exit Sub
 
 GestionErreurs:
     
     '--- valeur de retour ---
-    
+    'EnregistrementProductionLocal = CStr(Err.Number)
     
     AfficheRenseignements ROUGE_0, "Erreur d'enregitrement en base: " & CStr(Err.Number) & vbCrLf
     Call Log("Erreur d'enregitrement en base: " & CStr(Err.Description))
@@ -1406,9 +1411,13 @@ Public Sub AnalyseChargesEnLignePostes()
                     '--- remplissage de la fiche avec la date d'arrivée au déchargement ---
                     If a >= POSTES.P_D1 And a <= POSTES.P_D2 Then
                         .DateArriveeAuDechargement = Now
-                        ' SZP 202411 ---------------------------------------------------------------
-                        insertionClipperPointage (TEtatsPostes(a).NumCharge)
-                        EnregistrementProductionLocal (TEtatsPostes(a).NumCharge)
+                      
+                        If MODE_DECONNECTE = False Then
+                            insertionClipperPointage (TEtatsPostes(a).NumCharge)
+                            EnregistrementProductionLocal (TEtatsPostes(a).NumCharge)
+                        End If
+                        
+                       
                         
                         
                     End If
@@ -2288,10 +2297,10 @@ Public Sub MoteurInference()
                 'End With
                 
                 'Call Log("TEtatsPonts(PONTS.P_1).PosteActuel=" & TEtatsPonts(PONTS.P_1).PosteActuel & " NumZoneArrivee=" & NumZoneArrivee & _
-                '     " dateDiff(s, TDatesDerniersTransfertsCharges(.NumPont), Now)=" & DateDiff("s", TDatesDerniersTransfertsCharges(1), Now))
+                '    " dateDiff(s, TDatesDerniersTransfertsCharges(.NumPont), Now)=" & DateDiff("s", TDatesDerniersTransfertsCharges(1), Now))
                 
                 
-                If .PtrZoneGammeAnodisation > 1 Then
+                  If .PtrZoneGammeAnodisation > 1 Then
                     'SZP 20241014
                     With TMoteurInference.TOrdreSortiePonts(PONTS.P_1, 1)
                     If NumZoneDepart = NUMZONE_ANO Then
@@ -2309,7 +2318,7 @@ Public Sub MoteurInference()
                        
                         ReponseDeplacementPont = AutomatiqueDeplacementPont(PONTS.P_1, POSTES.P_C08, CouleurReponse)
                         
-                        Call Log("Déplacement du PONT 1 en C08 avant terme du temps en ANODISATION" & Chr(13) & "ReponseDeplacementPont=" & ReponseDeplacementPont, logMoteurInference)
+                        'Call Log("Déplacement du PONT 1 en C08 avant terme du temps en ANODISATION" & Chr(13) & "ReponseDeplacementPont=" & ReponseDeplacementPont, logMoteurInference)
                         AfficheRenseignements CouleurReponse, ReponseDeplacementPont & vbCrLf
                         
                         'TEtatsPonts(PONTS.P_1).PosteActuel = P_C08
@@ -2383,6 +2392,8 @@ Public Sub MoteurInference()
                     End If
                     End If
                     End With
+                  
+                    ' FIN ---------------------------------------------------------------------
                    
                     
                     
@@ -2847,7 +2858,5 @@ Public Sub EffectueTraçabiliteRedresseurs()
     Next a
     
 End Sub
-
-
 
 

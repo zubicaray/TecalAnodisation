@@ -874,7 +874,7 @@ End Enum
 '*** CONSTANTES NUMERIQUES ***
 
 '--- programme ---
-Public Const PROGRAMME_AVEC_AUTOMATE As Boolean = True         'pour simplifié le développement
+
 Public Const PROGRAMME_TERMINE As Boolean = True                       'pour simplifié le développement
 
 '--- temps minimum de stabilisation a vide (sans charge, temps en secondes) ---
@@ -1088,9 +1088,9 @@ Public Const INDICATIF_ZONE_USINE As String = "ANODISATION"                   'i
 Public Const MOT_DE_PASSE_SYSTEME As String = "CDB"  'permet l'accés sans connaitre le mot de passe opérateur
 
 '--- connexions aux bases de données ---
-Public Const CST_PARAMETRES_CONNEXION_BD_ANODISATION_TEST_SQL As String = "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=ANODISATION;Uid=sa; Pwd=sa;Data Source=SRV2003\ZDEV;Connect Timeout=3;"
-Public Const CST_PARAMETRES_CONNEXION_BD_ANODISATION_SQL As String = "Provider=SQLNCLI11;Server=SRV-APP-ANOD\SQLEXPRESS;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
-'Public Const CST_PARAMETRES_CONNEXION_BD_ANODISATION_SQL As String = "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+Public Const CST_PARAMETRES_CONNEXION_BD_ANODISATION_TEST_SQL As String = "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=ANODISATION;Uid=sa; Pwd=sa;Data Source=SRV2003\SQLEXPRESS;Connect Timeout=3;"
+'Public Const CST_PARAMETRES_CONNEXION_BD_ANODISATION_SQL As String = "Provider=SQLNCLI11;Server=SRV-APP-ANOD\SQLEXPRESS;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+Public Const CST_PARAMETRES_CONNEXION_BD_ANODISATION_SQL As String = "Provider=SQLNCLI11;Server=VB-LANLIGNE2-20\SQLEXPRESSANO;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
 
 
 Public Const CST_PARAMETRES_CONNEXION_BD_CLIPPER_HF As String = "Provider=PCSoft.HFSQL;Initial Catalog=TECAL-VERBRUGGE;User ID=admin;Data Source=VBVSE001:4924;"
@@ -1100,7 +1100,7 @@ Public Const CST_PARAMETRES_CONNEXION_BD_CLIPPER_TEST_ACCESS As String = "Provid
 Public Const PARAMETRES_CONNEXION_BD_SAGE_SQL As String = ""
 
 '--- fichiers ---
-Public Const FIC_CONFIGURATION  As String = "Parametres.txt"
+Public Const FIC_CONFIGURATION  As String = "config.ini"
 Public Const FIC_REGULATION  As String = "Régulation.txt"
 Public Const FIC_JOURNEES_TYPES  As String = "Journées types.txt"
 Public Const FIC_PROG_CYCLIQUE  As String = "Programmateur cyclique.txt"

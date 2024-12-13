@@ -1866,7 +1866,7 @@ Private Sub CBValider_Click()
         SauveRegulation
     
         '--- sauvegarde de la configuration ---
-        'SauveConfiguration
+        SauveConfiguration
     
         '--- affectation ---
         BloqueChangementCuve False

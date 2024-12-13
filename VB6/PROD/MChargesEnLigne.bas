@@ -892,6 +892,8 @@ Public Function EnvoiNumeroChargePont(ByVal NumPont As Integer, _
     Dim ValeurRetourneeAPI As Long                  'valeur retournée par une fonction concernant le dialogue avec l'automate
     Dim NomVariable As String                            'nom de la variable
     
+
+    
     '--- affectation ---
     EnvoiNumeroChargePont = ""
     
@@ -2084,7 +2086,7 @@ Public Function ProchainNumeroPosteValide(ByVal NumCharge As Integer, _
                 '--- zone d'anodisation ---
                 ProchainNumeroPosteValide = ProchainNumeroPosteAnodisation(NumCharge, False)
                 
-            ' DEBUT MODIF 20200120 SZB
+            ' DEBUT MODIF 20200120 SZP
             'ElseIf NumPremierPosteZone = POSTES.P_C32 And NumDernierPosteZone = POSTES.P_C33 Then
             '    LogCharge ("ProchainNumeroPosteColmatageChaud DEPART")
                 '--- colmatage chaud ---
@@ -2100,7 +2102,7 @@ Public Function ProchainNumeroPosteValide(ByVal NumCharge As Integer, _
                 'ProchainNumeroPosteValide = ProchainNumeroPosteSechoir(NumCharge, False)
             
             
-            ' FIN MODIF 20200120 SZB
+            ' FIN MODIF 20200120 SZP
             ElseIf NumPremierPosteZone = POSTES.P_D1 And NumDernierPosteZone = POSTES.P_D2 Then
                 
                 '--- zone du déchargement ---
@@ -2152,7 +2154,7 @@ Public Function ProchainNumeroPosteValide(ByVal NumCharge As Integer, _
                 '--- zone d'anodisation ---
                 ProchainNumeroPosteValide = ProchainNumeroPosteAnodisation(NumCharge, True)
             
-            ' DEBUT MODIF 20200120 SZB **********************************************************************
+            ' DEBUT MODIF 20200120 SZP **********************************************************************
             ElseIf NumPremierPosteZone = POSTES.P_C31 And NumDernierPosteZone = POSTES.P_C32 Then
                 'LogCharge ("ProchainNumeroPosteColmatageChaud ARRIVEE")
                 '--- colmatage chaud ---
@@ -2166,7 +2168,7 @@ Public Function ProchainNumeroPosteValide(ByVal NumCharge As Integer, _
             
                 '--- séchoir (poste 1 et 2) ---
                 'ProchainNumeroPosteValide = ProchainNumeroPosteSechoir(NumCharge, True)
-            ' FIN MODIF 20200120 SZB ***********************************************************************
+            ' FIN MODIF 20200120 SZP ***********************************************************************
             
             
             ElseIf NumPremierPosteZone = POSTES.P_D1 And NumDernierPosteZone = POSTES.P_D2 Then
@@ -2531,6 +2533,11 @@ Public Function AutomatiqueDeplacementPont(ByVal NumPont As Integer, _
     Texte = "AutomatiqueDeplacementPont " & NumPont & ", NumPoste: " & NumPoste
     AfficheRenseignementsDebug CouleurReponse, Texte & vbCrLf
     
+    If NumPoste >= POSTES.P_C13 And NumPoste <= POSTES.P_C16 Then
+        Call Log(Texte)
+    End If
+    
+    
     '--- déclaration ---
     Dim TUnCyclePont(1 To NBR_LIGNES_CYCLES_PONTS) As Integer
     Dim Reponse As String, _
@@ -2638,7 +2645,7 @@ Public Function AutomatiqueDeplacementPontOptimisation(ByVal NumPont As Integer,
     '--- constantes privées ---
     
     
-   ' Call Log("AutomatiqueDeplacementPontOptimisation entrée  pont:" & NumPont & " , NumPoste: " & NumPoste)
+    'Call Log("AutomatiqueDeplacementPontOptimisation entrée  pont:" & NumPont & " , NumPoste: " & NumPoste)
     '--- déclaration ---
     Dim TUnCyclePont(1 To NBR_LIGNES_CYCLES_PONTS) As Integer
     Dim Reponse As String, _
@@ -2731,7 +2738,7 @@ Public Function AutomatiqueDeplacementPontOptimisation(ByVal NumPont As Integer,
         Reponse = MAUVAISE_FORMULATION
     
     End If
-   '  Call Log("AutomatiqueDeplacementPontOptimisation sortie")
+     'Call Log("AutomatiqueDeplacementPontOptimisation sortie")
     '--- valeur de retour ---
     AutomatiqueDeplacementPontOptimisation = Reponse
 
@@ -2786,6 +2793,12 @@ Public Function AutomatiqueTransfertCharge(ByVal NumPontImpose As Integer, _
     '--- affectation par défaut ---
     AutomatiqueTransfertCharge = ""
     NumPontReelDuTransfert = 0
+    
+    
+        
+    If NumPosteDepart >= POSTES.P_C13 And NumPosteDepart <= POSTES.P_C16 Then
+        'Call Log("transfert de l'ano vers la prochaine cuve d'id poste" & NumPosteArrivee & "DelaiSupStabilisationChargeSecondes = " & DelaiSupStabilisationChargeSecondes)
+    End If
     
     If NumPosteDepart >= POSTES.P_CHGT_1 And NumPosteDepart <= DERNIER_POSTE And _
        NumPosteArrivee >= POSTES.P_CHGT_1 And NumPosteArrivee <= DERNIER_POSTE Then

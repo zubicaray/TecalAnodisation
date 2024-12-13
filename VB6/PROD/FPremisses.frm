@@ -661,14 +661,14 @@ Begin VB.Form FPremisses
          ForeColor       =   -2147483640
          Orientation     =   0
          Enabled         =   -1
-         Connect         =   "Provider=SQLNCLI11;Server=SRV-APP-ANOD\SQLEXPRESS;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
-         OLEDBString     =   "Provider=SQLNCLI11;Server=SRV-APP-ANOD\SQLEXPRESS;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+         Connect         =   ""
+         OLEDBString     =   ""
          OLEDBFile       =   ""
          DataSourceName  =   ""
          OtherAttributes =   ""
          UserName        =   ""
          Password        =   ""
-         RecordSource    =   $"FPremisses.frx":2F171
+         RecordSource    =   ""
          Caption         =   ""
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
@@ -694,107 +694,107 @@ Begin VB.Form FPremisses
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   26
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":2F332
+               Picture         =   "FPremisses.frx":2F171
                Key             =   "fleche noire"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":2F53E
+               Picture         =   "FPremisses.frx":2F37D
                Key             =   "fleche blanche"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":2F74A
+               Picture         =   "FPremisses.frx":2F589
                Key             =   "fleche grise"
             EndProperty
             BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":2F956
+               Picture         =   "FPremisses.frx":2F795
                Key             =   "fleche rouge"
             EndProperty
             BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":2FB62
+               Picture         =   "FPremisses.frx":2F9A1
                Key             =   "fleche jaune"
             EndProperty
             BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":2FD6E
+               Picture         =   "FPremisses.frx":2FBAD
                Key             =   "fleche verte"
             EndProperty
             BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":2FF7A
+               Picture         =   "FPremisses.frx":2FDB9
                Key             =   "fleche cyan"
             EndProperty
             BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":30186
+               Picture         =   "FPremisses.frx":2FFC5
                Key             =   "fleche bleue"
             EndProperty
             BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":30392
+               Picture         =   "FPremisses.frx":301D1
                Key             =   "etoile noire"
             EndProperty
             BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":3059E
+               Picture         =   "FPremisses.frx":303DD
                Key             =   "etoile blanche"
             EndProperty
             BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":307AA
+               Picture         =   "FPremisses.frx":305E9
                Key             =   "etoile grise"
             EndProperty
             BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":309B6
+               Picture         =   "FPremisses.frx":307F5
                Key             =   "etoile rouge"
             EndProperty
             BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":30BC2
+               Picture         =   "FPremisses.frx":30A01
                Key             =   "etoile jaune"
             EndProperty
             BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":30DCE
+               Picture         =   "FPremisses.frx":30C0D
                Key             =   "etoile verte"
             EndProperty
             BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":30FDA
+               Picture         =   "FPremisses.frx":30E19
                Key             =   "etoile cyan"
             EndProperty
             BeginProperty ListImage16 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":311E6
+               Picture         =   "FPremisses.frx":31025
                Key             =   "etoile bleue"
             EndProperty
             BeginProperty ListImage17 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":313F2
+               Picture         =   "FPremisses.frx":31231
                Key             =   "modification noire"
             EndProperty
             BeginProperty ListImage18 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":315F6
+               Picture         =   "FPremisses.frx":31435
                Key             =   "modification blanche"
             EndProperty
             BeginProperty ListImage19 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":317FA
+               Picture         =   "FPremisses.frx":31639
                Key             =   "modification grise"
             EndProperty
             BeginProperty ListImage20 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":319FE
+               Picture         =   "FPremisses.frx":3183D
                Key             =   "modification rouge"
             EndProperty
             BeginProperty ListImage21 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":31C02
+               Picture         =   "FPremisses.frx":31A41
                Key             =   "modification jaune"
             EndProperty
             BeginProperty ListImage22 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":31E06
+               Picture         =   "FPremisses.frx":31C45
                Key             =   "modification vert"
             EndProperty
             BeginProperty ListImage23 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":3200A
+               Picture         =   "FPremisses.frx":31E49
                Key             =   "modification cyan"
             EndProperty
             BeginProperty ListImage24 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":3220E
+               Picture         =   "FPremisses.frx":3204D
                Key             =   "modification bleue"
             EndProperty
             BeginProperty ListImage25 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":32412
+               Picture         =   "FPremisses.frx":32251
                Key             =   "indicateur vert"
             EndProperty
             BeginProperty ListImage26 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":32616
+               Picture         =   "FPremisses.frx":32455
                Key             =   "indicateur rouge"
             EndProperty
          EndProperty
@@ -812,15 +812,15 @@ Begin VB.Form FPremisses
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   3
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":3281A
+               Picture         =   "FPremisses.frx":32659
                Key             =   "supprimer"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":33C04
+               Picture         =   "FPremisses.frx":33A43
                Key             =   "compacter"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FPremisses.frx":34FEE
+               Picture         =   "FPremisses.frx":34E2D
                Key             =   "inserer"
             EndProperty
          EndProperty
@@ -1175,14 +1175,14 @@ Begin VB.Form FPremisses
             ForeColor       =   -2147483640
             Orientation     =   0
             Enabled         =   -1
-            Connect         =   "Provider=SQLNCLI11;Server=SRV-APP-ANOD\SQLEXPRESS;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
-            OLEDBString     =   "Provider=SQLNCLI11;Server=SRV-APP-ANOD\SQLEXPRESS;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+            Connect         =   ""
+            OLEDBString     =   ""
             OLEDBFile       =   ""
             DataSourceName  =   ""
             OtherAttributes =   ""
             UserName        =   ""
             Password        =   ""
-            RecordSource    =   $"FPremisses.frx":363D8
+            RecordSource    =   ""
             Caption         =   ""
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                Name            =   "MS Sans Serif"
@@ -1196,7 +1196,7 @@ Begin VB.Form FPremisses
             _Version        =   393216
          End
          Begin MSDataGridLib.DataGrid DGActions 
-            Bindings        =   "FPremisses.frx":3640D
+            Bindings        =   "FPremisses.frx":36217
             Height          =   8955
             Left            =   300
             TabIndex        =   24
@@ -1796,6 +1796,7 @@ End Sub
 Private Sub CBQuitter_Click()
     On Error Resume Next
     
+    'insertionClipperPointage 56
     
     If CBValider.Enabled = True Then
         Select Case AppelFenetre(F_MESSAGE, _
@@ -1987,6 +1988,31 @@ Private Sub CBSupprimer_GotFocus()
         .Visible = True
     End With
 
+End Sub
+
+
+Private Sub Form_Load()
+    
+    
+     With ADODCActions
+        .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+        .RecordSource = "SELECT Actions.* FROM Actions ORDER BY NumAction"
+        .Refresh
+    End With
+    
+    
+    With ADODCPremisses
+        .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+        .RecordSource = "SELECT Postes1.NomPoste AS NomPosteDepart, " & _
+        "Postes.NomPoste AS NomPosteArrivee, Premisses.NumPont,        Premisses.NumPosteDepart," & _
+        "Premisses.NumPosteArrivee, Premisses.PremisseCodee,Premisses.PremisseDecodee " & _
+        "FROM Premisses LEFT OUTER JOIN Postes ON Premisses.NumPosteArrivee = Postes.NumPoste LEFT OUTER JOIN " & _
+        "Postes Postes1 ON Premisses.NumPosteDepart = Postes1.NumPoste ORDER BY Premisses.NumPosteDepart, " & _
+        "Premisses.NumPosteArrivee "
+        .Refresh
+    End With
+    
+    
 End Sub
 
 Private Sub CBSupprimer_LostFocus()

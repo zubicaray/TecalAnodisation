@@ -1866,7 +1866,7 @@ Private Sub CBValider_Click()
         SauveRegulation
     
         '--- sauvegarde de la configuration ---
-        'SauveConfiguration
+        SauveConfiguration
     
         '--- affectation ---
         BloqueChangementCuve False
@@ -2323,7 +2323,7 @@ End Sub
 
 Private Sub HSDeplacementFenetre_Change()
     On Error Resume Next
-    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Left = -HSDeplacementFenetre.Value
+    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Left = -HSDeplacementFenetre.value
 End Sub
 
 Private Sub LRenseignementsFenetre_DblClick()
@@ -2358,7 +2358,7 @@ Private Sub OBCyclesPompe_Click(Index As Integer)
     '--- changement de couleur de l'outil sélectionné ---
     For Each OCCBoutonOption In OBCyclesPompe
         With OCCBoutonOption
-            If .Value = True Then
+            If .value = True Then
                 .BackColor = COULEURS.ROUGE_3
                 .ForeColor = COULEURS.NOIR
             Else
@@ -2385,7 +2385,7 @@ Private Sub OBModesChauffage_Click(Index As Integer)
     '--- changement de couleur de l'outil sélectionné ---
     For Each OCCBoutonOption In OBModesChauffage
         With OCCBoutonOption
-            If .Value = True Then
+            If .value = True Then
                 .BackColor = COULEURS.ROUGE_3
                 .ForeColor = COULEURS.NOIR
             Else
@@ -2424,15 +2424,15 @@ Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
         
         Case vbKeyPageUp
             '--- saut de page arrière ---
-            If VSChangementCuve.Value > VSChangementCuve.min Then
-                VSChangementCuve.Value = Pred(VSChangementCuve.Value)
+            If VSChangementCuve.value > VSChangementCuve.min Then
+                VSChangementCuve.value = Pred(VSChangementCuve.value)
             End If
             KeyCode = 0
         
         Case vbKeyPageDown
             '--- saut de page avant ---
-            If VSChangementCuve.Value < VSChangementCuve.Max Then
-                VSChangementCuve.Value = Succ(VSChangementCuve.Value)
+            If VSChangementCuve.value < VSChangementCuve.Max Then
+                VSChangementCuve.value = Succ(VSChangementCuve.value)
             End If
             KeyCode = 0
             
@@ -2480,7 +2480,7 @@ Private Sub OBNomsCuves_Click(Index As Integer)
 
     For Each OCCBoutonOption In OBNomsCuves
         With OCCBoutonOption
-            If .Value = True Then
+            If .value = True Then
                 .BackColor = COULEURS.ROUGE_3
                 .ForeColor = COULEURS.NOIR
             Else
@@ -2495,7 +2495,7 @@ Private Sub OBNomsCuves_Click(Index As Integer)
                         '--- préparation ---
                         .BackColor = COULEURS.BLANC
                         .ForeColor = COULEURS.NOIR
-                    Case CUVES_REGULATION.C_C13 To CUVES_REGULATION.C_C15 ' SZB C16
+                    Case CUVES_REGULATION.C_C13 To CUVES_REGULATION.C_C15 ' SZP C16
                         '--- anodisation ---
                         .BackColor = COULEURS.VERT_5
                         .ForeColor = COULEURS.BLANC
@@ -2510,7 +2510,7 @@ Private Sub OBNomsCuves_Click(Index As Integer)
     
     '--- changement de l'ascenseur (si click direct dans un des boutons) ---
     If InterdireEvenements = False Then
-        VSChangementCuve.Value = Index
+        VSChangementCuve.value = Index
     End If
 
 End Sub
@@ -2783,7 +2783,7 @@ Private Sub LectureValeursFenetre()
     '--- analyse de la présence de la pompe en fonction de la cuve ---
     Select Case CuveEnCours
     
-        Case CUVES_REGULATION.C_DEC, CUVES_REGULATION.C_C31, CUVES_REGULATION.C_C32  'SZB CUVES_REGULATION.C_SAT,
+        Case CUVES_REGULATION.C_DEC, CUVES_REGULATION.C_C31, CUVES_REGULATION.C_C32  'SZP CUVES_REGULATION.C_SAT,
             '--- cuves avec pompe ---
             PBTousCyclesPompe.Visible = True
             LTitreTousCyclesPompe.Visible = True
@@ -2811,8 +2811,8 @@ Private Sub LectureValeursFenetre()
     
     '--- sélecteurs ---
     With VManipsGestionRegulation
-        OBCyclesPompe(.CyclesPompe).Value = True
-        OBModesChauffage(.ModesChauffage).Value = True
+        OBCyclesPompe(.CyclesPompe).value = True
+        OBModesChauffage(.ModesChauffage).value = True
     End With
 
     '--- choix de l'appareillage ---
@@ -2845,7 +2845,7 @@ Private Sub PBModesChauffage_Click(Index As Integer)
     On Error Resume Next
     
     '--- affectation ---
-    OBModesChauffage(Index).Value = True
+    OBModesChauffage(Index).value = True
 
 End Sub
 
@@ -2855,7 +2855,7 @@ Private Sub PBCyclesPompe_Click(Index As Integer)
     On Error Resume Next
     
     '--- affectation ---
-    OBCyclesPompe(Index).Value = True
+    OBCyclesPompe(Index).value = True
 
 End Sub
 
@@ -2988,10 +2988,10 @@ Private Sub VSChangementCuve_Change()
     On Error Resume Next
     
     '--- changement de la cuve en cours ---
-    If VSChangementCuve.Value >= CUVES_REGULATION.C_C00 And VSChangementCuve.Value <= DERNIERE_CUV_REGULATION Then
+    If VSChangementCuve.value >= CUVES_REGULATION.C_C00 And VSChangementCuve.value <= DERNIERE_CUV_REGULATION Then
         InterdireEvenements = True
-        CuveEnCours = VSChangementCuve.Value
-        OBNomsCuves(CuveEnCours).Value = True
+        CuveEnCours = VSChangementCuve.value
+        OBNomsCuves(CuveEnCours).value = True
         LectureValeursFenetre
         InterdireEvenements = False
     End If
@@ -3106,7 +3106,7 @@ Public Sub ParametrageFenetre(ByVal NumCuve As Integer)
     CuveEnCours = NumCuve
         
     '--- divers ---
-    VSChangementCuve.Value = CuveEnCours        'déclenche les évènements
+    VSChangementCuve.value = CuveEnCours        'déclenche les évènements
     
     '--- visualisation des différents états de la régulation ---
     EtatsRegulation
@@ -3118,5 +3118,5 @@ End Sub
 
 Private Sub VSDeplacementFENETRE_Change()
     On Error Resume Next
-    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Top = -VSDeplacementFenetre.Value
+    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Top = -VSDeplacementFenetre.value
 End Sub

@@ -23,6 +23,7 @@ Public TypePC As TYPES_PC                                       'indique le type
 Public TypeBD As TYPES_BD                                          'indique le type de bases de données
 
 
+Public ShowLog As Boolean
 
 '--- chemins ---
 Public RepFicAnodisation  As String                            'répertoire des fichiers de l'anodisation
@@ -30,7 +31,7 @@ Public RepImagesAnodisation As String                      'répertoire des image
 Public RepGraphesProductionLocal As String             'répertoire contenant les graphes de production de l'anodisation sur le PC en local
 Public RepGraphesProductionServeur As String         'répertoire contenant les graphes de production de l'anodisation sur le serveur
 Public RepFicClipper As String                                     'répertoire des fichiers de Clipper
-Public ShowLog As Boolean
+Public CONFIG_FILE As String
 
 '--- divers pour construction du programme ---
 Public Bidon As Variant
@@ -81,7 +82,9 @@ Public ModeDeConnexion As Integer                  '0=en réseau, 1=en autonome
 
 Public PARAMETRES_CONNEXION_BD_ANODISATION_SQL As String
 Public PARAMETRES_CONNEXION_BD_CLIPPER_HF As String
-Public MODE_SECOURS As Boolean
+Public MODE_DECONNECTE As Boolean
+Public SHOW_LOGS As Boolean
+Public PROGRAMME_AVEC_AUTOMATE As Boolean       'pour simplifié le développement
 
 Public SuppressionMotsDePasse As Boolean   'suppression des demandes de mots de passe dans le logiciel
 Public MotDePasseDirection As String               'mot de passe de la direction
@@ -127,6 +130,9 @@ Public ModeSurFrappe As Boolean
 Public LIMITE_BASSE_ZONES As Integer             'limite basse du tableau des zones
 Public LIMITE_HAUTE_ZONES As Integer             'limite haute du tableau des zones
 
+'--- limites du tableau des barres ---
+Public LIMITE_BASSE_BARRES As Integer             'limite basse du tableau des barres
+Public LIMITE_HAUTE_BARRES As Integer             'limite haute du tableau des barres
 '--- images ---
 Public ImgFondDeFenetre As Picture                     'image de fond standard d'un fenêtre
 Public ImgFondDeFenetreXP As Picture                 'image de fond standard d'une fenêtre type XP
@@ -194,6 +200,8 @@ Public TMatieres(1 To 50) As EnrMatieres
 
 '--- zones ---
 Public TZones() As EnrZones                                 'zones de la ligne d'anodisation
+'--- barres ---
+Public TBarres() As EnrBarres                                 'zones de la ligne d'anodisation
 
 '--- actions ---
 Public TActions(NUM_ACTION_NOP To NUM_ACTION_FCY) As EnrActions

@@ -1132,7 +1132,7 @@ Public Function CalculAutomatiquePremisseDecodee(ByVal NumPosteDepart As Integer
         
         
         '--- cas de l'étuve (ordre d'arrêt) ---
-        'If NumPosteDepart = POSTES.P_C37 Then ' 3 Or NumPosteDepart = POSTES.P_C38 Then 'SZB 20180406
+        'If NumPosteDepart = POSTES.P_C37 Then ' 3 Or NumPosteDepart = POSTES.P_C38 Then 'SZP 20180406
         '    PremisseDecodee = PremisseDecodee & NumActionParCode(CODE_ARRET_SECHOIR).NumAction & SEPARATEUR_PREMISSES
         '    PremisseDecodee = PremisseDecodee & NumActionParCode(CODE_TEMPO).NumAction & SEPARATEUR_PREMISSES
         '    PremisseDecodee = PremisseDecodee & "3" & SEPARATEUR_PREMISSES

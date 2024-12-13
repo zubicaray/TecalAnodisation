@@ -11,8 +11,8 @@ Begin VB.Form FProgrammateurCyclique
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    NegotiateMenus  =   0   'False
-   ScaleHeight     =   15690
-   ScaleWidth      =   28680
+   ScaleHeight     =   13050
+   ScaleWidth      =   13440
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBBoutons 
@@ -22,11 +22,11 @@ Begin VB.Form FProgrammateurCyclique
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   28620
+      ScaleWidth      =   13380
       TabIndex        =   7
       TabStop         =   0   'False
-      Top             =   14595
-      Width           =   28680
+      Top             =   11955
+      Width           =   13440
       Begin VB.Timer TimerSortieObligatoire 
          Enabled         =   0   'False
          Interval        =   60000
@@ -184,10 +184,10 @@ Begin VB.Form FProgrammateurCyclique
       Left            =   0
       Picture         =   "FProgrammateurCyclique.frx":2EAA
       ScaleHeight     =   315
-      ScaleWidth      =   28620
+      ScaleWidth      =   13380
       TabIndex        =   0
       Top             =   0
-      Width           =   28680
+      Width           =   13440
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -222,10 +222,10 @@ Begin VB.Form FProgrammateurCyclique
       Index           =   0
       Left            =   0
       ScaleHeight     =   13395
-      ScaleWidth      =   28680
+      ScaleWidth      =   13440
       TabIndex        =   2
       Top             =   375
-      Width           =   28680
+      Width           =   13440
       Begin VB.PictureBox PBDeplacementFenetre 
          Appearance      =   0  'Flat
          BorderStyle     =   0  'None
@@ -2792,17 +2792,17 @@ Private Sub CBModeGeneralCuves_MouseDown(Index As Integer, Button As Integer, Sh
     CBModeGeneralCuves(Index).BackColor = COULEURS.ROUGE_1
 
     '--- changement du mode de la totalité des cuves ---
-    OBTypesJourneesIdx01(Index).Value = True
-    OBTypesJourneesIdx02(Index).Value = True
-    OBTypesJourneesIdx03(Index).Value = True
-    OBTypesJourneesIdx04(Index).Value = True
-    OBTypesJourneesIdx05(Index).Value = True
-    OBTypesJourneesIdx06(Index).Value = True
-    OBTypesJourneesIdx07(Index).Value = True
-    OBTypesJourneesIdx08(Index).Value = True
-    OBTypesJourneesIdx09(Index).Value = True
-    OBTypesJourneesIdx10(Index).Value = True
-    OBTypesJourneesIdx11(Index).Value = True
+    OBTypesJourneesIdx01(Index).value = True
+    OBTypesJourneesIdx02(Index).value = True
+    OBTypesJourneesIdx03(Index).value = True
+    OBTypesJourneesIdx04(Index).value = True
+    OBTypesJourneesIdx05(Index).value = True
+    OBTypesJourneesIdx06(Index).value = True
+    OBTypesJourneesIdx07(Index).value = True
+    OBTypesJourneesIdx08(Index).value = True
+    OBTypesJourneesIdx09(Index).value = True
+    OBTypesJourneesIdx10(Index).value = True
+    OBTypesJourneesIdx11(Index).value = True
     'OBTypesJourneesIdx12(Index).Value = True
     'OBTypesJourneesIdx13(Index).Value = True
     'OBTypesJourneesIdx14(Index).Value = True
@@ -2977,15 +2977,15 @@ Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
         
         Case vbKeyPageUp
             '--- saut de page arrière ---
-            If VSJours.Value > VSJours.min Then
-                VSJours.Value = Pred(VSJours.Value)
+            If VSJours.value > VSJours.min Then
+                VSJours.value = Pred(VSJours.value)
             End If
             KeyCode = 0
         
         Case vbKeyPageDown
             '--- saut de page avant ---
-            If VSJours.Value < VSJours.Max Then
-                VSJours.Value = Succ(VSJours.Value)
+            If VSJours.value < VSJours.Max Then
+                VSJours.value = Succ(VSJours.value)
             End If
             KeyCode = 0
         
@@ -3093,8 +3093,8 @@ Private Sub LectureValeursFenetre()
     
     '--- sélecteurs ---
     With VManipsProgCyclique
-        OBCyclesPompe(.CyclesPompe).Value = True
-        OBModesChauffage(.ModesChauffage).Value = True
+        OBCyclesPompe(.CyclesPompe).value = True
+        OBModesChauffage(.ModesChauffage).value = True
     End With
 
     '--- choix de l'appareillage ---
@@ -3169,7 +3169,7 @@ Private Sub LectureCycleParCuve(Optional NumCuve As Integer = 0)
     
             End Select
             
-            With TCopieProgCyclique(VSJours.Value, a)
+            With TCopieProgCyclique(VSJours.value, a)
                 
                 Select Case a
     
@@ -3302,7 +3302,7 @@ Private Sub EnregistreCycleParCuve(Optional NumCuve As Integer = 0)
             PointeurChauffage = 0
             MemCouleurPointChauffage = -1                       'forcer un mode inexistant pour la comparaison
 
-            With TCopieProgCyclique(VSJours.Value, a)
+            With TCopieProgCyclique(VSJours.value, a)
 
                 '--- analyse des graphiques ---
                 For b = 0 To 23                                                     'cycle des heures
@@ -3316,7 +3316,7 @@ Private Sub EnregistreCycleParCuve(Optional NumCuve As Integer = 0)
                         CouleurPointChauffage = PBEchelle24H(a).Point(xPoint, Y_MINI_CHAUFFAGE)
                         
                         '--- vérification avec la couleur pour la pompe ---
-                        'SZB   a = CUVES_REGULATION.C_SAT Or
+                        'SZP   a = CUVES_REGULATION.C_SAT Or
                         If CouleurPointPompe <> MemCouleurPointPompe And _
                             (a = CUVES_REGULATION.C_DEC Or _
                             a = CUVES_REGULATION.C_C31 Or _
@@ -3422,7 +3422,7 @@ Private Sub AffichageJourGere()
     Dim DateATraiter As String
 
     '--- date en cours ---
-    DateATraiter = DateAdd("d", Now, Pred(Me.VSJours.Value))
+    DateATraiter = DateAdd("d", Now, Pred(Me.VSJours.value))
     LRenseignementsFenetre.Caption = StrConv(Format(CDate(DateATraiter), "Long Date"), vbProperCase)
     LaDateATraiter = Format(DateATraiter, "yyyymmdd")
     
@@ -3458,7 +3458,7 @@ End Sub
 
 Private Sub HSDeplacementFenetre_Change()
     On Error Resume Next
-    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Left = -HSDeplacementFenetre.Value
+    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Left = -HSDeplacementFenetre.value
 End Sub
 
 Private Sub LRenseignementsFenetre_DblClick()
@@ -3492,7 +3492,7 @@ Private Sub OBJours_Click(Index As Integer)
 
     For Each OCCBoutonOption In OBJours
         With OCCBoutonOption
-            If .Value = True Then
+            If .value = True Then
                 .BackColor = COULEURS.ROUGE_3
                 .ForeColor = COULEURS.NOIR
             Else
@@ -3504,7 +3504,7 @@ Private Sub OBJours_Click(Index As Integer)
     
     '--- changement de l'ascenseur (si click direct dans un des boutons) ---
     If InterdireEvenements = False Then
-        VSJours.Value = Index
+        VSJours.value = Index
     End If
 
 End Sub
@@ -3520,7 +3520,7 @@ Private Sub OBCyclesPompe_Click(Index As Integer)
     '--- changement de couleur de l'outil sélectionné ---
     For Each OCCBoutonOption In OBCyclesPompe
         With OCCBoutonOption
-            If .Value = True Then
+            If .value = True Then
                 .BackColor = COULEURS.ROUGE_3
                 .ForeColor = COULEURS.NOIR
             Else
@@ -3547,7 +3547,7 @@ Private Sub OBModesChauffage_Click(Index As Integer)
     '--- changement de couleur de l'outil sélectionné ---
     For Each OCCBoutonOption In OBModesChauffage
         With OCCBoutonOption
-            If .Value = True Then
+            If .value = True Then
                 .BackColor = COULEURS.ROUGE_3
                 .ForeColor = COULEURS.NOIR
             Else
@@ -3711,7 +3711,7 @@ Private Sub PBEchelle24H_MouseDown(Index As Integer, Button As Integer, Shift As
             If VManipsProgCyclique.AppareillageConcerne = False Then
                 If X >= X_MINI_POMPE And X <= X_MAXI_POMPE And Y >= Y_MINI_POMPE And Y <= Y_MAXI_POMPE Then
                     Select Case Index
-                        Case CUVES_REGULATION.C_DEC, CUVES_REGULATION.C_C31, CUVES_REGULATION.C_C32: ZoneTravail = 1                             'cuves avec pompe SZB  CUVES_REGULATION.C_SAT,
+                        Case CUVES_REGULATION.C_DEC, CUVES_REGULATION.C_C31, CUVES_REGULATION.C_C32: ZoneTravail = 1                             'cuves avec pompe SZP  CUVES_REGULATION.C_SAT,
                         Case Else: ZoneTravail = 0
                     End Select
                 End If
@@ -3856,7 +3856,7 @@ End Sub
 
 Private Sub PBCyclesPompe_Click(Index As Integer)
     On Error Resume Next
-    OBCyclesPompe(Index).Value = True
+    OBCyclesPompe(Index).value = True
 End Sub
 
 Private Sub PBTousModesChauffage_Click()
@@ -3903,7 +3903,7 @@ End Sub
 
 Private Sub VSDeplacementFENETRE_Change()
     On Error Resume Next
-    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Top = -VSDeplacementFenetre.Value
+    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Top = -VSDeplacementFenetre.value
 End Sub
 
 Private Sub VSJours_Change()
@@ -3915,7 +3915,7 @@ Private Sub VSJours_Change()
     InterdireEvenements = True
     
     '--- réaffichage ---
-    OBJours(VSJours.Value).Value = True                 'sélection de la journée
+    OBJours(VSJours.value).value = True                 'sélection de la journée
     AffichageJourGere
     LectureCycleParCuve
     LectureTypesDeJournees
@@ -3940,25 +3940,25 @@ Private Sub LectureTypesDeJournees()
 
     '--- affichage ---
     For a = CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION
-        With TCopieProgCyclique(VSJours.Value, a)
+        With TCopieProgCyclique(VSJours.value, a)
             Select Case a
-                Case CUVES_REGULATION.C_C00: OBTypesJourneesIdx01(.TypeDeJournee).Value = True
+                Case CUVES_REGULATION.C_C00: OBTypesJourneesIdx01(.TypeDeJournee).value = True
                 'Case CUVES_REGULATION.C_SAT: OBTypesJourneesIdx02(.TypeDeJournee).Value = True
-                Case CUVES_REGULATION.C_DEC: OBTypesJourneesIdx02(.TypeDeJournee).Value = True
+                Case CUVES_REGULATION.C_DEC: OBTypesJourneesIdx02(.TypeDeJournee).value = True
                 'Case CUVES_REGULATION.C_C03: OBTypesJourneesIdx04(.TypeDeJournee).Value = True
                 'Case CUVES_REGULATION.C_C05: OBTypesJourneesIdx05(.TypeDeJournee).Value = True
                 'Case CUVES_REGULATION.C_C06: OBTypesJourneesIdx06(.TypeDeJournee).Value = True
-                Case CUVES_REGULATION.C_C07: OBTypesJourneesIdx03(.TypeDeJournee).Value = True
-                Case CUVES_REGULATION.C_C13: OBTypesJourneesIdx04(.TypeDeJournee).Value = True
-                Case CUVES_REGULATION.C_C14: OBTypesJourneesIdx05(.TypeDeJournee).Value = True
-                Case CUVES_REGULATION.C_C15: OBTypesJourneesIdx06(.TypeDeJournee).Value = True
+                Case CUVES_REGULATION.C_C07: OBTypesJourneesIdx03(.TypeDeJournee).value = True
+                Case CUVES_REGULATION.C_C13: OBTypesJourneesIdx04(.TypeDeJournee).value = True
+                Case CUVES_REGULATION.C_C14: OBTypesJourneesIdx05(.TypeDeJournee).value = True
+                Case CUVES_REGULATION.C_C15: OBTypesJourneesIdx06(.TypeDeJournee).value = True
                 'Case CUVES_REGULATION.C_C16: OBTypesJourneesIdx11(.TypeDeJournee).Value = True
                 'Case CUVES_REGULATION.C_C19: OBTypesJourneesIdx12(.TypeDeJournee).Value = True
-                Case CUVES_REGULATION.C_C22: OBTypesJourneesIdx07(.TypeDeJournee).Value = True
-                Case CUVES_REGULATION.C_C27: OBTypesJourneesIdx08(.TypeDeJournee).Value = True
-                Case CUVES_REGULATION.C_C28: OBTypesJourneesIdx09(.TypeDeJournee).Value = True
-                Case CUVES_REGULATION.C_C31: OBTypesJourneesIdx10(.TypeDeJournee).Value = True
-                Case CUVES_REGULATION.C_C32: OBTypesJourneesIdx11(.TypeDeJournee).Value = True
+                Case CUVES_REGULATION.C_C22: OBTypesJourneesIdx07(.TypeDeJournee).value = True
+                Case CUVES_REGULATION.C_C27: OBTypesJourneesIdx08(.TypeDeJournee).value = True
+                Case CUVES_REGULATION.C_C28: OBTypesJourneesIdx09(.TypeDeJournee).value = True
+                Case CUVES_REGULATION.C_C31: OBTypesJourneesIdx10(.TypeDeJournee).value = True
+                Case CUVES_REGULATION.C_C32: OBTypesJourneesIdx11(.TypeDeJournee).value = True
                 'Case CUVES_REGULATION.C_C33: OBTypesJourneesIdx18(.TypeDeJournee).Value = True
                 'Case CUVES_REGULATION.C_MAX: OBTypesJourneesIdx19(.TypeDeJournee).Value = True
                 'Case CUVES_REGULATION.C_C35: OBTypesJourneesIdx20(.TypeDeJournee).Value = True
@@ -4125,7 +4125,7 @@ Public Sub InitialisationFenetre()
     With VSJours
         .min = 1
         .Max = NBR_JOURS_PROG_CYCLIQUE
-        .Value = VSJours.Value   'uniquement pour déclencher l'évènement
+        .value = VSJours.value   'uniquement pour déclencher l'évènement
     End With
     
     '--- affectation ---
@@ -4160,7 +4160,7 @@ Private Sub ChangementTypesJournees(ByVal NumCuve As Integer, _
     '--- changement de couleur de l'outil sélectionné ---
     For Each OCCBoutonOption In ObjOBTypesJournees
         With OCCBoutonOption
-            If .Value = True Then
+            If .value = True Then
                 .BackColor = COULEURS.ROUGE_3
                 .ForeColor = COULEURS.NOIR
             Else
@@ -4180,7 +4180,7 @@ Private Sub ChangementTypesJournees(ByVal NumCuve As Integer, _
     PermettreValidation True
 
     '--- transfert dans le tableau ---
-    With TCopieProgCyclique(VSJours.Value, NumCuve)
+    With TCopieProgCyclique(VSJours.value, NumCuve)
 
         '--- type de journée ---
         .TypeDeJournee = JourneeType

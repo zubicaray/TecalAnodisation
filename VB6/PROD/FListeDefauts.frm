@@ -559,14 +559,14 @@ Begin VB.Form FListeDefauts
       ForeColor       =   0
       Orientation     =   0
       Enabled         =   -1
-      Connect         =   "Provider=SQLNCLI11;Server=SRV-APP-ANOD\SQLEXPRESS;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
-      OLEDBString     =   "Provider=SQLNCLI11;Server=SRV-APP-ANOD\SQLEXPRESS;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+      Connect         =   ""
+      OLEDBString     =   ""
       OLEDBFile       =   ""
       DataSourceName  =   ""
       OtherAttributes =   ""
       UserName        =   ""
       Password        =   ""
-      RecordSource    =   "SELECT * FROM ListeDefauts ORDER BY NumDefaut"
+      RecordSource    =   ""
       Caption         =   ""
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
@@ -877,14 +877,14 @@ Begin VB.Form FListeDefauts
       ForeColor       =   0
       Orientation     =   0
       Enabled         =   -1
-      Connect         =   "PProvider=SQLNCLI11;Server=SRV-APP-ANOD\SQLEXPRESS;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
-      OLEDBString     =   "PProvider=SQLNCLI11;Server=SRV-APP-ANOD\SQLEXPRESS;Database=ANODISATION;Uid=sa; Pwd=Jeff_nenette;"
+      Connect         =   ""
+      OLEDBString     =   ""
       OLEDBFile       =   ""
       DataSourceName  =   ""
       OtherAttributes =   ""
       UserName        =   ""
       Password        =   ""
-      RecordSource    =   $"FListeDefauts.frx":30948
+      RecordSource    =   ""
       Caption         =   "ADODCIntervenants"
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
@@ -959,6 +959,26 @@ Private Sub CBActualiser_Click()
     ADODCListeDefauts.Refresh
     ChargeDefauts
 End Sub
+
+Private Sub Form_Load()
+    
+    
+     With ADODCIntervenants
+        .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+        .RecordSource = "SELECT DISTINCT NumIntervenant, NomPrenomIntervenant, NumTelephone From Intervenants ORDER BY NumIntervenant"
+        .Refresh
+    End With
+    
+    
+    With ADODCListeDefauts
+        .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
+        .RecordSource = "SELECT * FROM ListeDefauts ORDER BY NumDefaut"
+        .Refresh
+    End With
+    
+    
+End Sub
+
 
 Private Sub CBActualiser_GotFocus()
     

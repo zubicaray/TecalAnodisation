@@ -11,6 +11,42 @@ Option Explicit
 '--- options générales ---
 Option Base 1
 DefVar A-Z
+Private Declare Function GetPrivateProfileString Lib "kernel32" Alias "GetPrivateProfileStringA" _
+    (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, _
+    ByVal lpReturnedString As String, ByVal nSize As Long, ByVal lpFileName As String) As Long
+    
+    
+Private Declare Function WritePrivateProfileString Lib "kernel32" Alias "WritePrivateProfileStringA" _
+    (ByVal lpApplicationName As String, _
+     ByVal lpKeyName As String, _
+     ByVal lpString As String, _
+     ByVal lpFileName As String) As Long
+
+Sub EcrireDansIni(Section As String, Cle As String, Valeur As String)
+    Dim Resultat As Long
+    Resultat = WritePrivateProfileString(Section, Cle, Valeur, CONFIG_FILE)
+    
+    If Resultat = 0 Then
+        MsgBox "Erreur lors de l'écriture dans le fichier .ini", vbCritical
+    End If
+End Sub
+
+
+Function StringToBoolean(ByVal inputString As String) As Boolean
+    ' Convertit une chaîne en booléen selon certaines règles
+    Select Case LCase(Trim(inputString)) ' Convertit en minuscule et supprime les espaces
+        Case "true", "1", "yes", "oui"
+            StringToBoolean = True
+        Case "false", "0", "no", "non"
+            StringToBoolean = False
+        Case Else
+            ' Si la chaîne ne correspond à aucun cas, on retourne False par défaut
+            ' Vous pouvez lever une erreur ici si nécessaire
+            StringToBoolean = False
+    End Select
+End Function
+
+
 
 '--- constantes privées ---
 
@@ -782,91 +818,15 @@ GestionErreurs:
     
 End Function
 
-'----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-' Rôle      : Chargement du chemin de la base de données CLIPPER
-' Retours :
-' Détails  :
-'----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Public Function ChargeCheminBDCLIPPER() As String
-    
-    '--- aiguillage en cas d'erreurs ---
-    On Error GoTo GestionErreurs
-  
-    '--- constante privées ---
-    Const CONFIGURATION As String = "Configuration"
-    Const CODE_ERREUR_FICHIER_INTROUVABLE As String = "53"
-    
-    '--- déclaration ---
-    Dim NumFic As Integer
-    Dim CheminComplet  As String
-    
-    '--- affectation ---
-    ChargeCheminBDCLIPPER = ""
-    
-    '--- affichage du type de tâche ---
-    AfficheTypeTache "Chargement du chemin de la base de données CLIPPER"
 
-    '--- LE FICHIER DE CONFIGURATION DOIT SE TROUVER DANS LE REPERTOIRE DU PROGRAMME ---
-    
-    '--- affectation ---
-    CheminComplet = App.Path & "\" & FIC_CONFIGURATION
-    
-    If FileExist(CheminComplet) = True Then
-  
-        '--- affectation ---
-        NumFic = FreeFile(1)
-    
-        '--- ouverture et lecture du fichier ---
-        Open CheminComplet For Input Shared As #NumFic
 
-        '--- type de PC ---
-        Input #NumFic, Bidon
-        Input #NumFic, Bidon
-        
-        '--- programmateur cyclique ---
-        Input #NumFic, Bidon
-        Input #NumFic, Bidon
-    
-        '--- manipulations dans la fenêtre gestion de la régulation ---
-        Input #NumFic, Bidon
-        With VManipsGestionRegulation
-            Input #NumFic, Bidon
-            Input #NumFic, Bidon
-            Input #NumFic, Bidon
-        End With
-    
-        '--- manipulations dans la fenêtre du programmateur cyclique ---
-        Input #NumFic, Bidon
-        With VManipsProgCyclique
-            Input #NumFic, Bidon
-            Input #NumFic, Bidon
-            Input #NumFic, Bidon
-        End With
-    
-        '--- chemin des bains pour CLIPPER ---
-        Input #NumFic, Bidon
-        Input #NumFic, RepFicClipper
-        
 
-        '--- fermeture du fichier ---
-        Close #NumFic
-    
-        '--- affichage du type de tâche ---
-        AfficheTypeTache ("")
-    
-    Else
-    
-        '--- fichier introuvable ---
-        ChargeCheminBDCLIPPER = CODE_ERREUR_FICHIER_INTROUVABLE
-    
-    End If
-  
-    Exit Function
-
-GestionErreurs:
-    If NumFic > 0 Then Close #NumFic
-    ChargeCheminBDCLIPPER = CStr(Err.Number)
-
+Public Function GetConnectionString(categorie As String, champ As String) As String
+    Dim buffer As String * 255
+    Dim filePath As String
+    filePath = CONFIG_FILE
+    GetPrivateProfileString categorie, champ, "", buffer, 255, filePath
+    GetConnectionString = Left$(buffer, InStr(buffer, Chr$(0)) - 1)
 End Function
 
 '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -886,6 +846,7 @@ Public Function ChargeConfiguration() As String
     '--- déclaration ---
     Dim NumFic As Integer
     Dim CheminComplet  As String
+    Dim BDD As String
     
     '--- affectation ---
     ChargeConfiguration = ""
@@ -904,113 +865,59 @@ Public Function ChargeConfiguration() As String
     MotDePasseDirection = DecodeMotDePasse(MotDePasseDirection)
     MotDePassePersonnel = GetSetting(App.Title, CONFIGURATION, "Mot de passe personnel", "")
     MotDePassePersonnel = DecodeMotDePasse(MotDePassePersonnel)
-    'SuppressionMotsDePasse = GetSetting(App.Title, CONFIGURATION, "Suppression des mots de passe", True)
-    'UniteMonetaire = GetSetting(App.Title, CONFIGURATION, "Unité monètaire (0=Francs français, 1=Euro)", 0)
-    'IndicePrestationParDefaut = GetSetting(App.Title, CONFIGURATION, "Indice de la prestation par défaut", 0)
-    'LibellePrestationParDefaut = GetSetting(App.Title, CONFIGURATION, "Libellé de la prestation par défaut", "CHROMAGE")
-    'NbrLignesMaxiAExtraire = GetSetting(App.Title, CONFIGURATION, "Nombre de lignes maxi. à extraire", 0)
-    'TempsCompensationAnodisationMinutes = GetSetting(App.Title, CONFIGURATION, "Temps de compensation d'anodisation", 0)
-    
-    '--- LE FICHIER DE CONFIGURATION DOIT SE TROUVER DANS LE REPERTOIRE DU PROGRAMME ---
-    
-    '--- affectation ---
-    CheminComplet = App.Path & "\" & FIC_CONFIGURATION
-    TypePC = TYPES_PC.PC_SUR_LIGNE
-    If FileExist(CheminComplet) = True Then
-  
-        '--- affectation ---
-        NumFic = FreeFile(1)
-    
-        '--- ouverture et lecture du fichier ---
-        Open CheminComplet For Input Shared As #NumFic
 
-        'MODE SECOURS
-        Input #NumFic, Bidon
-        Input #NumFic, varConfig
-       
-  
-       
-
-        'CNX BDD ANODISATION
-        Input #NumFic, Bidon
-        Input #NumFic, varConfig
-        
-        
-        PARAMETRES_CONNEXION_BD_ANODISATION_SQL = CST_PARAMETRES_CONNEXION_BD_ANODISATION_SQL
-       
-        
-        
-        'MsgBox (PARAMETRES_CONNEXION_BD_ANODISATION_SQL)
-        'CNX BDD CLIPPER
-        Input #NumFic, Bidon
-        Input #NumFic, varConfig
-        
-        
-        PARAMETRES_CONNEXION_BD_CLIPPER_HF = CST_PARAMETRES_CONNEXION_BD_CLIPPER_HF
-      
-        
-        
-     
-        
-
-        
-        
-        '--- programmateur cyclique ---
-        Input #NumFic, Bidon
-        Input #NumFic, MemDateProgCyclique
     
-        '--- manipulations dans la fenêtre gestion de la régulation ---
-        Input #NumFic, Bidon
-        With VManipsGestionRegulation
-            Input #NumFic, .AppareillageConcerne
-            Input #NumFic, .CyclesPompe
-            Input #NumFic, .ModesChauffage
-        End With
+    PARAMETRES_CONNEXION_BD_CLIPPER_HF = GetConnectionString("database", "CLIPPER")
     
-        '--- manipulations dans la fenêtre du programmateur cyclique ---
-        Input #NumFic, Bidon
-        With VManipsProgCyclique
-            Input #NumFic, .AppareillageConcerne
-            Input #NumFic, .CyclesPompe
-            Input #NumFic, .ModesChauffage
-        End With
+    MODE_DECONNECTE = StringToBoolean(LCase(Trim(GetConnectionString("parametres", "MODE_DECONNECTE"))))
     
-    
-        
-        '--- chemin des bains pour CLIPPER ---
-        Input #NumFic, Bidon
-        Input #NumFic, RepFicClipper
-    
-      
-          '--- affichier les logs
-        Input #NumFic, Bidon
-        Input #NumFic, varConfig
-      
-        If varConfig = 1 Then
-            ShowLog = True
-        Else
-            ShowLog = False
-        End If
-                
-        Close #NumFic
-    
-    
-     
-    
-        '--- affichage du type de tâche ---
-        AfficheTypeTache ("")
-    
+    If Environ("ANODISATION_TEST") = 1 Then
+        'VM XP
+        PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS")
+        PROGRAMME_AVEC_AUTOMATE = False
     Else
-    
-        '--- fichier introuvable ---
-        ChargeConfiguration = CODE_ERREUR_FICHIER_INTROUVABLE
-    
+    PROGRAMME_AVEC_AUTOMATE = True
+        BDD = GetConnectionString("parametres", "BDD")
+        Select Case BDD
+            Case "PROD"
+                PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS_PROD")
+            Case "LOCAL"
+                MsgBox ("BASE DE DONNEES LOCALE !")
+                PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS_LOCAL")
+            Case Else
+                 MsgBox ("Erreur lecture config.ini pour la BDD")
+        End Select
+     
     End If
+    
+         
   
+    Dim b As Boolean
+    
+    b = StringToBoolean(LCase(Trim(GetConnectionString("GestionRegulation", "AppareillageConcerne"))))
+         
+    With VManipsGestionRegulation
+            .AppareillageConcerne = b
+            .CyclesPompe = Val(GetConnectionString("GestionRegulation", "CyclesPompe"))
+            .ModesChauffage = Val(GetConnectionString("GestionRegulation", "ModesChauffage"))
+    End With
+    
+    b = StringToBoolean(LCase(Trim(GetConnectionString("ManipsProgCyclique", "AppareillageConcerne"))))
+    With VManipsProgCyclique
+        .AppareillageConcerne = b
+        .CyclesPompe = Val(GetConnectionString("ManipsProgCyclique", "CyclesPompe"))
+        .ModesChauffage = Val(GetConnectionString("ManipsProgCyclique", "ModesChauffage"))
+    End With
+   
+    
+    SHOW_LOGS = StringToBoolean(LCase(Trim(GetConnectionString("parametres", "LOGS"))))
+    
+    MemDateProgCyclique = GetConnectionString("parametres", "MemDateProgCyclique")
+    
     Exit Function
 
 GestionErreurs:
-    If NumFic > 0 Then Close #NumFic
+   
     ChargeConfiguration = CStr(Err.Number)
 
 End Function
@@ -1021,7 +928,7 @@ End Function
 ' Retours :
 ' Détails  :
 '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Public Function SauveConfiguration_OLD() As String
+Public Function SauveConfiguration() As String
     
     '--- aiguillage en cas d'erreurs ---
     On Error GoTo GestionErreurs
@@ -1034,7 +941,7 @@ Public Function SauveConfiguration_OLD() As String
     Dim CheminComplet As String
     
     '--- affectation ---
-    SauveConfiguration_OLD = ""
+    SauveConfiguration = ""
     
     '--- affichage du type de tâche ---
     AfficheTypeTache "Sauvegarde de la configuration"
@@ -1053,19 +960,7 @@ Public Function SauveConfiguration_OLD() As String
        
     '--- LE FICHIER DE CONFIGURATION DOIT SE TROUVER DANS LE REPERTOIRE DU PROGRAMME ---
     
-    '--- affectation ---
-    CheminComplet = App.Path & "\" & FIC_CONFIGURATION
-    
-    '--- affectation ---
-    NumFic = FreeFile(1)
-    
-    '--- ouverture et écriture du fichier ---
-    Open CheminComplet For Output Shared As #NumFic
-
-    '--- type de PC ---
-    Write #NumFic, "Indique le type de PC (1 = PC de la ligne d'anodisation, 2 = PC Entreprise, 3 = PC Distant)"
-    Write #NumFic, TypePC
-    
+   
     '--- programmateur cyclique ---
     Write #NumFic, "Mémoire de la date pour changer le programmateur cyclique"
     Write #NumFic, MemDateProgCyclique
@@ -1086,12 +981,7 @@ Public Function SauveConfiguration_OLD() As String
         Write #NumFic, .ModesChauffage
     End With
 
-    '--- chemin des bains pour CLIPPER ---
-    Write #NumFic, "Chemin des bains pour CLIPPER"
-    Write #NumFic, RepFicClipper
     
-    '--- fermeture du fichier ---
-    Close #NumFic
 
     '--- affichage du type de tâche ---
     AfficheTypeTache ""
@@ -1099,8 +989,8 @@ Public Function SauveConfiguration_OLD() As String
     Exit Function
 
 GestionErreurs:
-    If NumFic > 0 Then Close #NumFic
-    SauveConfiguration_OLD = CStr(Err.Number)
+    
+    SauveConfiguration = CStr(Err.Number)
     
 End Function
 

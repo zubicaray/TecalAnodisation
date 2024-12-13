@@ -13,7 +13,6 @@ Option Base 1
 DefVar A-Z
 
 
-
 Public Sub LogCharges(ByVal msg As String)
 
         'SZ 2023
@@ -1174,6 +1173,8 @@ Public Sub AffichageTexte(ByRef LeControleConcerne As Control, _
     
     '--- aiguillage en cas d'erreurs ---
     On Error Resume Next
+    
+    
     
     '--- déclaration ---
     

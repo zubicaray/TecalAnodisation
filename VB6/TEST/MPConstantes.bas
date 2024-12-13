@@ -1100,7 +1100,7 @@ Public Const CST_PARAMETRES_CONNEXION_BD_CLIPPER_TEST_ACCESS As String = "Provid
 Public Const PARAMETRES_CONNEXION_BD_SAGE_SQL As String = ""
 
 '--- fichiers ---
-Public Const FIC_CONFIGURATION  As String = "Parametres.txt"
+Public Const FIC_CONFIGURATION  As String = "config.ini"
 Public Const FIC_REGULATION  As String = "Régulation.txt"
 Public Const FIC_JOURNEES_TYPES  As String = "Journées types.txt"
 Public Const FIC_PROG_CYCLIQUE  As String = "Programmateur cyclique.txt"

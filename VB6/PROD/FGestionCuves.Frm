@@ -2143,7 +2143,7 @@ Private Sub CBValider_Click()
         EnregistreValeursfenetre
         
         '--- sauvegarde de la configuration ---
-        'SauveConfiguration_Old
+        SauveConfiguration
         
         '--- affectation ---
         CBValider.Enabled = False
@@ -2223,15 +2223,15 @@ Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
         
         Case vbKeyPageUp
             '--- saut de page arrière ---
-            If VSChangementCuve.Value > VSChangementCuve.min Then
-                VSChangementCuve.Value = Pred(VSChangementCuve.Value)
+            If VSChangementCuve.value > VSChangementCuve.min Then
+                VSChangementCuve.value = Pred(VSChangementCuve.value)
             End If
             KeyCode = 0
         
         Case vbKeyPageDown
             '--- saut de page avant ---
-            If VSChangementCuve.Value < VSChangementCuve.Max Then
-                VSChangementCuve.Value = Succ(VSChangementCuve.Value)
+            If VSChangementCuve.value < VSChangementCuve.Max Then
+                VSChangementCuve.value = Succ(VSChangementCuve.value)
             End If
             KeyCode = 0
             
@@ -2309,7 +2309,7 @@ Private Sub LectureValeursFenetre()
             '--- cuves avec pompe ---
             Set PBEchelle24H.Picture = TImgEchelles24H(ECHELLES_24H.E_POMPE_CHAUFFAGE)
     
-        'Case CUVES_REGULATION.C_C37 'SZB
+        'Case CUVES_REGULATION.C_C37 'SZP
             '--- cas de l'étuve ---
             'Set PBEchelle24H.Picture = TImgEchelles24H(ECHELLES_24H.E_VENTILATION_CHAUFFAGE)
             
@@ -2419,7 +2419,7 @@ Private Sub PositionneSelecteurs()
             '--- positionnement du sélecteur ---
             Select Case .ModePompe
                 Case MODES_POMPES.M_AUTO To MODES_POMPES.M_FORCER_MARCHE
-                    OBModesPompe(.ModePompe).Value = True
+                    OBModesPompe(.ModePompe).value = True
                 Case Else
             End Select
                 
@@ -2916,7 +2916,7 @@ End Sub
 
 Private Sub HSDeplacementFenetre_Change()
     On Error Resume Next
-    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Left = -HSDeplacementFenetre.Value
+    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Left = -HSDeplacementFenetre.value
 End Sub
 
 Private Sub LRenseignementsFenetre_DblClick()
@@ -2949,7 +2949,7 @@ Private Sub OBNomsCuves_Click(Index As Integer)
 
     For Each OCCBoutonOption In OBNomsCuves
         With OCCBoutonOption
-            If .Value = True Then
+            If .value = True Then
                 .BackColor = COULEURS.ROUGE_3
                 .ForeColor = COULEURS.NOIR
             Else
@@ -2963,7 +2963,7 @@ Private Sub OBNomsCuves_Click(Index As Integer)
                         '--- préparation ---
                         .BackColor = COULEURS.BLANC
                         .ForeColor = COULEURS.NOIR
-                    Case CUVES_REGULATION.C_C13 To CUVES_REGULATION.C_C15 ' CUVES_REGULATION.C_C16 SZB
+                    Case CUVES_REGULATION.C_C13 To CUVES_REGULATION.C_C15 ' CUVES_REGULATION.C_C16 SZP
                         '--- anodisation ---
                         .BackColor = COULEURS.VERT_5
                         .ForeColor = COULEURS.BLANC
@@ -2978,7 +2978,7 @@ Private Sub OBNomsCuves_Click(Index As Integer)
     
     '--- changement de l'ascenseur (si click direct dans un des boutons) ---
     If InterdireEvenements = False Then
-        VSChangementCuve.Value = Index
+        VSChangementCuve.value = Index
     End If
 
 End Sub
@@ -3123,10 +3123,10 @@ Private Sub VSChangementCuve_Change()
     On Error Resume Next
     
     '--- changement de la cuve en cours ---
-    If VSChangementCuve.Value >= CUVES_REGULATION.C_C00 And VSChangementCuve.Value <= DERNIERE_CUV_REGULATION Then
+    If VSChangementCuve.value >= CUVES_REGULATION.C_C00 And VSChangementCuve.value <= DERNIERE_CUV_REGULATION Then
         InterdireEvenements = True
-        CuveEnCours = VSChangementCuve.Value
-        OBNomsCuves(CuveEnCours).Value = True
+        CuveEnCours = VSChangementCuve.value
+        OBNomsCuves(CuveEnCours).value = True
         LectureValeursFenetre
         EtatsCuve
         InterdireEvenements = False
@@ -3239,7 +3239,7 @@ Public Sub ParametrageFenetre(ByVal NumCuve As Integer)
     CuveEnCours = NumCuve
         
     '--- divers ---
-    VSChangementCuve.Value = CuveEnCours        'déclenche les évènements
+    VSChangementCuve.value = CuveEnCours        'déclenche les évènements
     
     '--- valeurs de la fenêtre ---
     LectureValeursFenetre
@@ -3257,7 +3257,7 @@ End Sub
 
 Private Sub VSDeplacementFENETRE_Change()
     On Error Resume Next
-    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Top = -VSDeplacementFenetre.Value
+    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Top = -VSDeplacementFenetre.value
 End Sub
 
 '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

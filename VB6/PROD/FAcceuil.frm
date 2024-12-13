@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{27395F88-0C0C-101B-A3C9-08002B2F49FB}#1.1#0"; "PICCLP32.OCX"
+Object = "{27395F88-0C0C-101B-A3C9-08002B2F49FB}#1.1#0"; "picclp32.ocx"
 Begin VB.Form FAcceuil 
    BorderStyle     =   3  'Fixed Dialog
    ClientHeight    =   5370
@@ -336,6 +336,7 @@ Private Sub Form_Load()
     '--- aiguillage en cas d'erreur ---
     On Error Resume Next
 
+
     '--- divers sur la fenêtre ---
     LVersion.Caption = "Version " & App.Major & "." & App.Minor
     Centrefenetre Me
@@ -419,7 +420,7 @@ Private Sub TimerDateHeure_Timer()
 
     '--- affectation et affichage de la date et heure ---
     DateHeureActuel = StrConv(FormatDateTime(Date, vbLongDate), vbProperCase) & " - " & _
-                                  FormatDateTime(Time, vbLongTime)
+                                  FormatDateTime(time, vbLongTime)
                                  
     '--- affichage ---
     If MemDateHeureActuel <> DateHeureActuel Then
