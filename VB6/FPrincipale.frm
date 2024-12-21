@@ -12,7 +12,7 @@ Begin VB.MDIForm FPrincipale
    ClientHeight    =   9495
    ClientLeft      =   2010
    ClientTop       =   2730
-   ClientWidth     =   14655
+   ClientWidth     =   13395
    Icon            =   "FPrincipale.frx":0000
    LinkTopic       =   "MDIForm1"
    WindowState     =   2  'Maximized
@@ -21,11 +21,11 @@ Begin VB.MDIForm FPrincipale
       Height          =   990
       Left            =   0
       ScaleHeight     =   930
-      ScaleWidth      =   14595
+      ScaleWidth      =   13335
       TabIndex        =   5
       Top             =   7950
       Visible         =   0   'False
-      Width           =   14655
+      Width           =   13395
       Begin RTUPDATEMANAGERLib.RTUpdateManager RTUpdateManager1 
          Height          =   675
          Left            =   2640
@@ -110,10 +110,10 @@ Begin VB.MDIForm FPrincipale
       Height          =   555
       Left            =   0
       ScaleHeight     =   495
-      ScaleWidth      =   14595
+      ScaleWidth      =   13335
       TabIndex        =   1
       Top             =   8940
-      Width           =   14655
+      Width           =   13395
       Begin VB.CommandButton CBAcquittementAlarmes 
          BackColor       =   &H0000FFFF&
          Height          =   375
@@ -210,12 +210,12 @@ Begin VB.MDIForm FPrincipale
       Left            =   0
       TabIndex        =   0
       Top             =   0
-      Width           =   14655
-      _ExtentX        =   25850
+      Width           =   13395
+      _ExtentX        =   23627
       _ExtentY        =   1111
       FixedOrder      =   -1  'True
       VariantHeight   =   0   'False
-      _CBWidth        =   14655
+      _CBWidth        =   13395
       _CBHeight       =   630
       _Version        =   "6.7.9816"
       Child1          =   "TOBOutils (0)"
@@ -2162,23 +2162,13 @@ Private Sub MDIForm_Activate()
         '--- initialisation des variables ---
         InitialisationVariables
             
-        Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_ANALYSE, AffectationChemins)
-        '--- configuration ---
+        
+       
+        Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "Affectation des chemins")
+        Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_ANALYSE, AffectationChemins())
+         '--- configuration ---
         Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "Chargement de la configuration")
         Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_ANALYSE, ChargeConfiguration())
-        
-        '--- affectation des chemins ---
-        Select Case TypePC
-            Case TYPES_PC.PC_SUR_LIGNE
-                Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "Affectation des chemins (PC de l'atelier d'anodisation)")
-            Case TYPES_PC.PC_ENTREPRISE
-                Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "Affectation des chemins (Un des PC de l'entreprise)")
-            Case TYPES_PC.PC_DISTANT
-                Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "Affectation des chemins (PC Distant)")
-            Case Else
-                Call FAnalyseDeDemarrage.ControleFonction(AFFICHAGE_LIBELLE, "TYPE de PC INCONNU (Voir fichier de configuration")
-        End Select
-        
         
         '--- UNIQUEMENT POUR LA CONSTRUCTION DES FICHIERS ---
         'Bidon = SauveProgCyclique()

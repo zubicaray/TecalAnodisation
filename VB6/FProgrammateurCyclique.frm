@@ -2,17 +2,17 @@ VERSION 5.00
 Object = "{0AFE7BE0-11B7-4A3E-978D-D4501E9A57FE}#1.0#0"; "c1sizer.ocx"
 Begin VB.Form FProgrammateurCyclique 
    BackColor       =   &H00C0C0C0&
-   ClientHeight    =   13050
+   ClientHeight    =   13005
    ClientLeft      =   2100
    ClientTop       =   705
-   ClientWidth     =   13440
+   ClientWidth     =   13395
    Icon            =   "FProgrammateurCyclique.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    NegotiateMenus  =   0   'False
-   ScaleHeight     =   13050
-   ScaleWidth      =   13440
+   ScaleHeight     =   13005
+   ScaleWidth      =   13395
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBBoutons 
@@ -22,11 +22,11 @@ Begin VB.Form FProgrammateurCyclique
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   13380
+      ScaleWidth      =   13335
       TabIndex        =   7
       TabStop         =   0   'False
-      Top             =   11955
-      Width           =   13440
+      Top             =   11910
+      Width           =   13395
       Begin VB.Timer TimerSortieObligatoire 
          Enabled         =   0   'False
          Interval        =   60000
@@ -184,10 +184,10 @@ Begin VB.Form FProgrammateurCyclique
       Left            =   0
       Picture         =   "FProgrammateurCyclique.frx":2EAA
       ScaleHeight     =   315
-      ScaleWidth      =   13380
+      ScaleWidth      =   13335
       TabIndex        =   0
       Top             =   0
-      Width           =   13440
+      Width           =   13395
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -222,10 +222,10 @@ Begin VB.Form FProgrammateurCyclique
       Index           =   0
       Left            =   0
       ScaleHeight     =   13395
-      ScaleWidth      =   13440
+      ScaleWidth      =   13395
       TabIndex        =   2
       Top             =   375
-      Width           =   13440
+      Width           =   13395
       Begin VB.PictureBox PBDeplacementFenetre 
          Appearance      =   0  'Flat
          BorderStyle     =   0  'None
@@ -3037,7 +3037,7 @@ Private Sub EtatsProgCyclique()
     On Error Resume Next
 
     '--- analyse du changement de jour ---
-    If TypePC = TYPES_PC.PC_SUR_LIGNE Then
+    'If TypePC = TYPES_PC.PC_SUR_LIGNE Then
         With LAvertissement
             If MemDateProgCyclique <> DateMaintenant Then
                 .Visible = True
@@ -3048,7 +3048,7 @@ Private Sub EtatsProgCyclique()
                 .Visible = False
             End If
         End With
-    End If
+    'End If
 
 End Sub
 

@@ -81,7 +81,7 @@ Public Sub NoyauCentral()
         '--- gestion des commandes de l'opérateur ---
         'uniquement lorsque les 2 ponts sont sous le contrôle de l'opérateur
         GestionCommandesOperateur
-    
+        Call Log("gestion des commandes de l'opérateur ")
     Else
        
         '--- RAZ de la variable de passage en gestion des commandes opérateur ---
@@ -158,7 +158,7 @@ Public Sub AnalyseProgrammateurCyclique()
     Dim DateATraiter As Variant
 
     '--- analyse en fonction du PC ---
-    If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
 
     '--- ne pas lancer l'analyse si la fenêtre du programmateur cyclique est ouverte _
          pour éviter l'écrasement au passage de minuit ---
@@ -289,7 +289,7 @@ Public Sub AnalyseCuves()
            b As Integer
     
     '--- analyse en fonction du PC ---
-    If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
 
     '--- marche automatique des pompes et des chauffages ---
     For a = CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION
@@ -388,7 +388,7 @@ Public Sub AnalyseTempsMouvements()
     Static TAnalyseTranslation(PONTS.P_1 To PONTS.P_2)  As VarAnalyseMouvements
     
     '--- analyse en fonction du PC ---
-    If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
     
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
@@ -912,7 +912,7 @@ Public Sub AnalyseChargesEnLignePonts()
     Static TCopieEtatsPonts(PONTS.P_1 To PONTS.P_2) As EtatsPonts
     
     '--- analyse en fonction du PC ---
-    If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
 
     '*************************************************************************************************
     '                                              ANALYSE POUR LES PONTS
@@ -1661,7 +1661,7 @@ Public Sub GestionCommandesOperateur()
     Static MemReponseDeplacementOuTransfert As String                       'mémoire de la réponse à un déplacement de pont ou un transfert
     
     '--- analyse en fonction du PC ---
-    If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
 
     '--- vérification du contrôle des 2 ponts par l'opérateur ---
     If TEtatsPonts(PONTS.P_1).ControleParOperateur = True And _
@@ -1858,7 +1858,7 @@ Public Sub MoteurInference()
     Static TDatesDerniersDeplacementsAVide(PONTS.P_1 To PONTS.P_2) As Date 'indique la date du dernier déplacement à vide de chaque pont
 
     '--- analyse en fonction du PC ---
-    If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
     
     logMoteurInference = True
     
@@ -2557,7 +2557,7 @@ Public Sub AutomatiquePompe(ByVal NumCuve As Integer)
     Dim NomVariable As String                            'nom de la variable
     Dim NumCuveAutomate As Integer
     '--- analyse en fonction du PC ---
-    If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
 
     With TEtatsCuves(NumCuve)
          NumCuveAutomate = .IndexAutomate
@@ -2599,7 +2599,7 @@ Public Sub AutomatiqueChauffage(ByVal NumCuve As Integer)
     Dim NomVariable As String                            'nom de la variable
     
     '--- analyse en fonction du PC ---
-    If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
 
 
     Dim NumCuveAutomate As Integer
@@ -2638,7 +2638,7 @@ Public Sub SignalisationDefautsGyrophareKlaxonVersAPI()
     '--- déclaration ---
 
     '--- analyse en fonction du PC ---
-    If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
 
     If PROGRAMME_AVEC_AUTOMATE = True Then
     

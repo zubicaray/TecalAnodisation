@@ -30,7 +30,7 @@ Public Sub InitialisationCharge(ByVal NumCharge As Integer)
             FicheVideDetailsFichesProduction As DetailsFichesProduction
     
     '--- analyse en fonction du PC ---
-    If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
 
     '--- contrôle avant d'initialiser la charge ---
     If NumCharge >= CHARGES.C_NUM_MINI And NumCharge <= CHARGES.C_NUM_MAXI Then

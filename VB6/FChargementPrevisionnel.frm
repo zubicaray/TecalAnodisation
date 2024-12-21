@@ -3956,7 +3956,7 @@ End Sub
 
 Private Sub Form_Load()
     
-    
+     Call Log("Form_Load, PROGRAMME_AVEC_AUTOMATE=" & PROGRAMME_AVEC_AUTOMATE)
      With ADODCGammesAnodisation(0)
         .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
         .RecordSource = "SELECT GammesAnodisation.* From GammesAnodisation ORDER BY NumGamme"
@@ -8476,6 +8476,7 @@ Private Sub IntroductionChargeAuChargement(ByVal NumPoste As Integer)
                 '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 'Call LogCharges("************************************")
                 'Call LogCharges("numéro de barre : " & .NumBarreInc)
+                'Call Log("numéro de barre : " & .NumBarreInc)
                 '--- transfert des détails de la charge ---
                 For a = 1 To UBound(.TDetailsCharges())
                     .TDetailsCharges(a) = TChargement.TDetailsCharges(a)

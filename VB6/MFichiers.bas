@@ -22,14 +22,14 @@ Private Declare Function WritePrivateProfileString Lib "kernel32" Alias "WritePr
      ByVal lpString As String, _
      ByVal lpFileName As String) As Long
 
-Sub EcrireDansIni(Section As String, Cle As String, Valeur As String)
+Public Function EcrireDansIni(Section As String, Cle As String, Valeur As String)
     Dim Resultat As Long
     Resultat = WritePrivateProfileString(Section, Cle, Valeur, CONFIG_FILE)
     
     If Resultat = 0 Then
         MsgBox "Erreur lors de l'écriture dans le fichier .ini", vbCritical
     End If
-End Sub
+End Function
 
 
 Function StringToBoolean(ByVal inputString As String) As Boolean
@@ -85,9 +85,6 @@ Public Function SauveTraçabiliteRedresseurs(ByVal NumCharge As Integer, _
                                                                                               "R" & CStr(NumRedresseur) & _
                                                                                               ".TRA"
     
-    
-   
-
     
     '--- copie du fichier ---
     
@@ -870,13 +867,13 @@ Public Function ChargeConfiguration() As String
     PARAMETRES_CONNEXION_BD_CLIPPER_HF = GetConnectionString("database", "CLIPPER")
     
     MODE_DECONNECTE = StringToBoolean(LCase(Trim(GetConnectionString("parametres", "MODE_DECONNECTE"))))
-    
+    PROGRAMME_AVEC_AUTOMATE = True
     If Environ("ANODISATION_TEST") = 1 Then
         'VM XP
         PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS")
         PROGRAMME_AVEC_AUTOMATE = False
     Else
-    PROGRAMME_AVEC_AUTOMATE = True
+        PROGRAMME_AVEC_AUTOMATE = True
         BDD = GetConnectionString("parametres", "BDD")
         Select Case BDD
             Case "PROD"
@@ -960,25 +957,25 @@ Public Function SauveConfiguration() As String
        
     '--- LE FICHIER DE CONFIGURATION DOIT SE TROUVER DANS LE REPERTOIRE DU PROGRAMME ---
     
+    
+    EcrireDansIni "parametres", "MemDateProgCyclique", MemDateProgCyclique
    
-    '--- programmateur cyclique ---
-    Write #NumFic, "Mémoire de la date pour changer le programmateur cyclique"
-    Write #NumFic, MemDateProgCyclique
+  
 
     '--- manipulations dans la fenêtre gestion de la régulation ---
     Write #NumFic, "Manipulations dans la fenêtre gestion de la régulation"
     With VManipsGestionRegulation
-        Write #NumFic, .AppareillageConcerne
-        Write #NumFic, .CyclesPompe
-        Write #NumFic, .ModesChauffage
+        EcrireDansIni "GestionRegulation", "AppareillageConcerne", CStr(.AppareillageConcerne)
+        EcrireDansIni "GestionRegulation", "CyclesPompe", CStr(.CyclesPompe)
+        EcrireDansIni "GestionRegulation", "ModesChauffage", CStr(.ModesChauffage)
     End With
 
     '--- manipulations dans la fenêtre du programmateur cyclique ---
     Write #NumFic, "Manipulations dans la fenêtre du programmateur cyclique"
     With VManipsProgCyclique
-        Write #NumFic, .AppareillageConcerne
-        Write #NumFic, .CyclesPompe
-        Write #NumFic, .ModesChauffage
+        EcrireDansIni "ManipsProgCyclique", "AppareillageConcerne", CStr(.AppareillageConcerne)
+        EcrireDansIni "ManipsProgCyclique", "CyclesPompe", CStr(.CyclesPompe)
+        EcrireDansIni "ManipsProgCyclique", "ModesChauffage", CStr(.ModesChauffage)
     End With
 
     

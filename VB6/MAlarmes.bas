@@ -26,7 +26,7 @@ Public Sub AcquittementAlarmes()
     '--- déclaration ---
 
     '--- analyse en fonction du PC ---
-    If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
     
     '--- écriture dans l'API ---
     If PROGRAMME_AVEC_AUTOMATE = True Then

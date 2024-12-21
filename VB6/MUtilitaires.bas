@@ -36,7 +36,7 @@ End Sub
 Public Sub Log(ByVal msg As String, Optional toPrint As Boolean = True)
 
     
-    If toPrint = True And ShowLog Then
+    If toPrint = True And SHOW_LOGS Then
      
         Dim nUnit As Integer
         nUnit = FreeFile

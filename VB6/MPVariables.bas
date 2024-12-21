@@ -17,13 +17,13 @@ DefVar A-Z
 Public CORRESPONDANCES_IDX_AUTOMATE(11) As Integer
 Public CORRESPONDANCES_IDX_CUVES_API(18) As Integer
 '--- type de PC ---
-Public TypePC As TYPES_PC                                       'indique le type de PC première donnée du fichier de configuration
+'Public TypePC As TYPES_PC                                       'indique le type de PC première donnée du fichier de configuration
 
 '--- type de BD (base de données) ---
 Public TypeBD As TYPES_BD                                          'indique le type de bases de données
 
 
-Public ShowLog As Boolean
+
 
 '--- chemins ---
 Public RepFicAnodisation  As String                            'répertoire des fichiers de l'anodisation
