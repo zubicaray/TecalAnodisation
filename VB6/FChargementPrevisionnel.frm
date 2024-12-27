@@ -3956,7 +3956,7 @@ End Sub
 
 Private Sub Form_Load()
     
-     Call Log("Form_Load, PROGRAMME_AVEC_AUTOMATE=" & PROGRAMME_AVEC_AUTOMATE)
+   
      With ADODCGammesAnodisation(0)
         .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
         .RecordSource = "SELECT GammesAnodisation.* From GammesAnodisation ORDER BY NumGamme"

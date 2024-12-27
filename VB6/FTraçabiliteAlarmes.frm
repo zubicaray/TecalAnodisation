@@ -870,9 +870,9 @@ Private Sub Form_Load()
     
      With ADODCTraçabiliteAlarmes
         .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
-        .RecordSource = "SELECT TraçabiliteAlarmes.*, ListeDefauts.LibelleDefaut AS LibelleDefaut" & _
+        .RecordSource = "SELECT TraçabiliteAlarmes.*, ListeDefauts.LibelleDefaut AS LibelleDefaut " & _
                         "FROM   TraçabiliteAlarmes LEFT OUTER JOIN " & _
-                        "ListeDefauts ON TraçabiliteAlarmes.NumDefaut = ListeDefauts.NumDefaut" & _
+                        "ListeDefauts ON TraçabiliteAlarmes.NumDefaut = ListeDefauts.NumDefaut " & _
                         "ORDER BY TraçabiliteAlarmes.DateDetectionDefaut DESC"
         .Refresh
     End With

@@ -239,7 +239,7 @@ Public Function AffectationChemins() As String
     RepFicAnodisation = App.Path & "\Fichiers communs\"
     RepGraphesProductionLocal = App.Path & "\Graphes de production\"
     RepGraphesProductionServeur = App.Path & "\Graphes de production\"
-    CONFIG_FILE = App.Path & "\" & FIC_CONFIGURATION
+    'CONFIG_FILE = App.Path & "\" & FIC_CONFIGURATION
 
    
    

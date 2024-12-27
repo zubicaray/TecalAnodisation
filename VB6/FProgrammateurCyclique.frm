@@ -3037,7 +3037,7 @@ Private Sub EtatsProgCyclique()
     On Error Resume Next
 
     '--- analyse du changement de jour ---
-    'If TypePC = TYPES_PC.PC_SUR_LIGNE Then
+    'If TypePC = TYPES_PC. Then
         With LAvertissement
             If MemDateProgCyclique <> DateMaintenant Then
                 .Visible = True

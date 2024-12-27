@@ -404,12 +404,7 @@ Public Enum CYCLES
     C_PROCHAIN = 1
 End Enum
 
-'--- types de PC ---
-Public Enum TYPES_PC
-    PC_SUR_LIGNE = 1                                    'ordinateur sur la ligne d'anodisation
-    PC_ENTREPRISE = 2                                  'ordinateur quelconque de l'entreprise (connecté au réseau interne)
-    PC_DISTANT = 3                                          'ordinateur distant (liaison par modem)
-End Enum
+
 '--- types ENV BDD ANO---
 Public Enum TYPE_BDD_ANO
     PROD = 1

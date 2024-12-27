@@ -5,7 +5,7 @@ Begin VB.Form FAcceuil
    ClientHeight    =   5370
    ClientLeft      =   9465
    ClientTop       =   3720
-   ClientWidth     =   7560
+   ClientWidth     =   7515
    ControlBox      =   0   'False
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
@@ -13,24 +13,52 @@ Begin VB.Form FAcceuil
    MinButton       =   0   'False
    Moveable        =   0   'False
    ScaleHeight     =   5370
-   ScaleWidth      =   7560
+   ScaleWidth      =   7515
    ShowInTaskbar   =   0   'False
    Visible         =   0   'False
+   Begin VB.CheckBox ENV_CHECK 
+      Caption         =   "SECOURS"
+      Height          =   255
+      Index           =   2
+      Left            =   6220
+      TabIndex        =   12
+      Top             =   3360
+      Width           =   1095
+   End
+   Begin VB.CheckBox ENV_CHECK 
+      Caption         =   "LOCAL"
+      Height          =   255
+      Index           =   1
+      Left            =   5160
+      TabIndex        =   11
+      Top             =   3360
+      Width           =   855
+   End
    Begin VB.Frame fraMainFrame 
       Height          =   3990
       Left            =   0
       TabIndex        =   0
       Top             =   -60
       Width           =   7515
+      Begin VB.CheckBox ENV_CHECK 
+         Caption         =   "PROD"
+         Height          =   255
+         Index           =   0
+         Left            =   4130
+         TabIndex        =   10
+         Top             =   3420
+         Value           =   1  'Checked
+         Width           =   855
+      End
       Begin VB.PictureBox Picture1 
          BackColor       =   &H0000FF00&
          Height          =   1395
-         Left            =   4200
+         Left            =   4080
          ScaleHeight     =   1335
-         ScaleWidth      =   3015
+         ScaleWidth      =   3255
          TabIndex        =   3
-         Top             =   1740
-         Width           =   3075
+         Top             =   1680
+         Width           =   3315
          Begin VB.Label LVersion 
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
@@ -67,7 +95,7 @@ Begin VB.Form FAcceuil
             EndProperty
             ForeColor       =   &H00FF0000&
             Height          =   855
-            Left            =   120
+            Left            =   0
             TabIndex        =   5
             Top             =   120
             Width           =   2775
@@ -126,11 +154,11 @@ Begin VB.Form FAcceuil
       Left            =   0
       Picture         =   "FAcceuil.frx":2DEAF
       ScaleHeight     =   1035
-      ScaleWidth      =   7500
+      ScaleWidth      =   7455
       TabIndex        =   7
       TabStop         =   0   'False
       Top             =   4275
-      Width           =   7560
+      Width           =   7515
       Begin VB.CommandButton CBQuitter 
          BackColor       =   &H00FFFFFF&
          Cancel          =   -1  'True
@@ -323,6 +351,8 @@ Private Sub Form_Activate()
     
     '--- lancement du timer ---
     Timer_Animation.Enabled = True
+    CONFIG_FILE = App.Path & "\" & FIC_CONFIGURATION
+    PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS_PROD")
 
 End Sub
 
@@ -408,6 +438,36 @@ Private Sub Timer_Animation_Timer()
     If PROGRAMME_AVEC_AUTOMATE = False Then Beep
 
 End Sub
+
+
+Private Sub ENV_CHECK_MouseUp(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
+    Dim I As Integer
+
+    ' Si la case cliquée est déjà cochée, ne rien faire
+   'If ENV_CHECK(Index).value = vbChecked Then Exit Sub
+   
+   If Index = 0 Then
+        PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS_PROD")
+   End If
+   If Index = 1 Then
+        PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS_LOCAL")
+   End If
+   If Index = 2 Then
+         PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS_LOCAL")
+         MODE_DECONNECTE = True
+   End If
+    ' Coche la case cliquée et décoche toutes les autres
+    For I = 0 To 2
+        If I = Index Then
+            ENV_CHECK(I).value = vbChecked ' Coche la case cliquée
+        Else
+            ENV_CHECK(I).value = vbUnchecked ' Décoche les autres
+        End If
+    Next I
+    'MsgBox ("Index=" & Index)
+    'MsgBox ("PARAMETRES_CONNEXION_BD_ANODISATION_SQL=" & PARAMETRES_CONNEXION_BD_ANODISATION_SQL)
+End Sub
+     
 
 Private Sub TimerDateHeure_Timer()
 

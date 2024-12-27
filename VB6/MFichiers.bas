@@ -866,28 +866,30 @@ Public Function ChargeConfiguration() As String
     
     PARAMETRES_CONNEXION_BD_CLIPPER_HF = GetConnectionString("database", "CLIPPER")
     
-    MODE_DECONNECTE = StringToBoolean(LCase(Trim(GetConnectionString("parametres", "MODE_DECONNECTE"))))
-    PROGRAMME_AVEC_AUTOMATE = True
+    'MODE_DECONNECTE = StringToBoolean(LCase(Trim(GetConnectionString("parametres", "MODE_DECONNECTE"))))
+   
     If Environ("ANODISATION_TEST") = 1 Then
         'VM XP
         PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS")
         PROGRAMME_AVEC_AUTOMATE = False
     Else
         PROGRAMME_AVEC_AUTOMATE = True
-        BDD = GetConnectionString("parametres", "BDD")
-        Select Case BDD
-            Case "PROD"
-                PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS_PROD")
-            Case "LOCAL"
-                MsgBox ("BASE DE DONNEES LOCALE !")
-                PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS_LOCAL")
-            Case Else
-                 MsgBox ("Erreur lecture config.ini pour la BDD")
-        End Select
+        'BDD = GetConnectionString("parametres", "BDD")
+        'Select Case BDD
+        '    Case "PROD"
+        '        PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS_PROD")
+        '    Case "LOCAL"
+        '        MsgBox ("BASE DE DONNEES LOCALE !")
+        '        PARAMETRES_CONNEXION_BD_ANODISATION_SQL = GetConnectionString("database", "SQLEXPRESS_LOCAL")
+        '    Case Else
+        '         MsgBox ("Erreur lecture config.ini pour la BDD")
+        'End Select
      
     End If
     
-         
+  
+    'MsgBox ("PARAMETRES_CONNEXION_BD_ANODISATION_SQL=" & PARAMETRES_CONNEXION_BD_ANODISATION_SQL)
+    'MsgBox ("Environ(ANODISATION_TEST) " & Environ("ANODISATION_TEST"))
   
     Dim b As Boolean
     
@@ -1009,7 +1011,7 @@ Public Function SauveEtatsPostes() As String
     SauveEtatsPostes = ""
     
     '--- analyse en fonction du PC ---
-    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Function
+    'If TypePC <> TYPES_PC. Then Exit Function
 
     '--- affectation ---
     NumFic = FreeFile(1)

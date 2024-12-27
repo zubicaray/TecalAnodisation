@@ -158,7 +158,7 @@ Public Sub AnalyseProgrammateurCyclique()
     Dim DateATraiter As Variant
 
     '--- analyse en fonction du PC ---
-    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC. Then Exit Sub
 
     '--- ne pas lancer l'analyse si la fenêtre du programmateur cyclique est ouverte _
          pour éviter l'écrasement au passage de minuit ---
@@ -289,7 +289,7 @@ Public Sub AnalyseCuves()
            b As Integer
     
     '--- analyse en fonction du PC ---
-    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC. Then Exit Sub
 
     '--- marche automatique des pompes et des chauffages ---
     For a = CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION
@@ -388,7 +388,7 @@ Public Sub AnalyseTempsMouvements()
     Static TAnalyseTranslation(PONTS.P_1 To PONTS.P_2)  As VarAnalyseMouvements
     
     '--- analyse en fonction du PC ---
-    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC. Then Exit Sub
     
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
@@ -912,7 +912,7 @@ Public Sub AnalyseChargesEnLignePonts()
     Static TCopieEtatsPonts(PONTS.P_1 To PONTS.P_2) As EtatsPonts
     
     '--- analyse en fonction du PC ---
-    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC. Then Exit Sub
 
     '*************************************************************************************************
     '                                              ANALYSE POUR LES PONTS
@@ -998,7 +998,7 @@ Public Sub AnalyseFinDeCycleEtuve()
 '           NumCharge As Integer
 '
 '    '--- analyse en fonction du PC ---
-'    If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+'    If TypePC <> TYPES_PC. Then Exit Sub
 '
 '    '--- analyse de la charge au poste ---
 '    With TEtatsPostes(POSTES.P_A18)
@@ -1033,324 +1033,6 @@ Public Sub AnalyseFinDeCycleEtuve()
     
 End Sub
 
-Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
-
-    '--- aiguillage en cas d'erreurs ---
-    On Error GoTo GestionErreurs
-
-    Dim showLogs As Boolean
-    showLogs = True
-    
-    '--- déclaration ---
-    Dim a As Integer                                                'pour les boucles FOR...NEXT
-    Dim b As Integer                                                'pour les boucles FOR...NEXT
-    Dim NumRedresseur As Integer                        'numéro d'un redresseur
-    
-    Dim MsgTracabilite As String
-    
-    Dim NumFicheProduction As String                   'numéro de fiche de production
-    
-    Dim ConnexionBDAnodisationSQL As ADODB.Connection
-    Dim Enregistrement As ADODB.Recordset
-    
-    Dim FicheVideEtatsCharges As etatsCharges
-    
-    '--- affectation ---
-    'EnregistrementProduction = ""
-    
-    Call Log("ProchainNumFicheProduction  DEBUT", showLogs)
-    '--- recherche du prochain numéro de fiche de production ---
-    NumFicheProduction = ProchainNumFicheProduction()
-    Call Log("ProchainNumFicheProduction  FIN", showLogs)
-                    
-    If NumFicheProduction <> "" Then
-    
-        '--- ouverture de la connexion ---
-        Set ConnexionBDAnodisationSQL = New ADODB.Connection
-        With ConnexionBDAnodisationSQL
-            .ConnectionString = PARAMETRES_CONNEXION_BD_ANODISATION_SQL
-            .CursorLocation = adUseServer
-            .Mode = adModeReadWrite
-            .ConnectionTimeout = 2     'X secondes d'attente de connexion avant de lancer un message d'erreur
-            .Open
-        End With
-        
-        Call Log("DETAILS DES CHARGES DE PRODUCTION  DEBUT", showLogs)
-        '--- extraction et enregistrement ---
-        With TEtatsCharges(NumCharge)
-    
-            '****************************************************************************************************************
-            '*                                                DETAILS DES CHARGES DE PRODUCTION
-            '****************************************************************************************************************
-            
-            '--- ouverture de la table ---
-            Set Enregistrement = New ADODB.Recordset
-            With Enregistrement
-                .CursorLocation = adUseServer
-                .CursorType = adOpenStatic 'adOpenKeyset
-                .LockType = adLockBatchOptimistic    'adLockOptimistic
-                .Open TABLE_DETAILS_CHARGES_PRODUCTION, ConnexionBDAnodisationSQL, , adCmdTable
-            End With
-    
-            '--- enregistrement des détails des charges ---
-            For a = LBound(.TDetailsCharges()) To UBound(.TDetailsCharges())
-                With .TDetailsCharges(a)
-                    
-                    If .NumCommandeInterne > 0 Then
-                    
-                        '--- enregistrement de la fiche ---
-                        Enregistrement.AddNew
-                        Enregistrement("NumCommandeInterne") = .NumCommandeInterne
-                        Enregistrement("NbrReparations") = .NbrReparations
-                        Enregistrement("DateEntreeEnLigne") = TEtatsCharges(NumCharge).DateEntreeEnLigne
-                        Enregistrement("DateArriveeAuDechargement") = TEtatsCharges(NumCharge).DateArriveeAuDechargement
-                        Enregistrement("NumBarre") = TEtatsCharges(NumCharge).NumBarre
-                        Call Log("Enregistrement(NumBarre) = TEtatsCharges(NumCharge).NumBarre=" & TEtatsCharges(NumCharge).NumBarre, showLogs)
-                        
-                        Enregistrement("NumLigne") = a
-                        Enregistrement("CodeClient") = .CodeClient
-                        Enregistrement("NbrPieces") = .NbrPieces
-                        Enregistrement("Designation") = .Designation
-                        Enregistrement("NumLignesReferencesClient") = .NumLignesReferencesClient
-                        Enregistrement("Matiere") = .Matiere
-                        Enregistrement("NumGammeAnodisation") = TEtatsCharges(NumCharge).TGammesAnodisation.NumGamme
-                        Enregistrement("RefGammeAnodisation") = TEtatsCharges(NumCharge).TGammesAnodisation.RefGamme
-                        Enregistrement("TempsAnodisationTexte") = CTemps(TEtatsCharges(NumCharge).TempsTotalGammeRedresseur)
-                        Enregistrement("NumFicheProduction") = NumFicheProduction
-                        If TEtatsCharges(NumCharge).ChargePrioritaire = True Then
-                            Enregistrement("ChargePrioritaire") = 1
-                        Else
-                            Enregistrement("ChargePrioritaire") = 0
-                        End If
-                        'Call Log("barre2 =" & NumCharge, showLogs)
-                        Enregistrement("AlarmesLigne") = TEtatsCharges(NumCharge).AlarmesLigne
-                        'Enregistrement.Update
-                    
-                    Else
-                        
-                        '--- sortie directe si plus de n° de fiche détails de charge ---
-                        Exit For
-            
-                    End If
-                
-                End With
-            Next a
-            
-            Enregistrement.UpdateBatch
-            
-            Enregistrement.Close
-            Call Log("DETAILS DES CHARGES DE PRODUCTION  FIN", showLogs)
-            Call Log("DETAILS DE LA GAMME D'ANODISATION DE PRODUCTION DEBUT", showLogs)
-        
-            '****************************************************************************************************************
-            '*                                      DETAILS DE LA GAMME D'ANODISATION DE PRODUCTION
-            '****************************************************************************************************************
-            
-            '--- ouverture de la table ---
-            Set Enregistrement = New ADODB.Recordset
-            With Enregistrement
-                .CursorLocation = adUseServer
-                .CursorType = adOpenStatic 'adOpenKeyset
-                .LockType = adLockBatchOptimistic    'adLockOptimistic
-                .Open TABLE_DETAILS_GAMMES_ANODISATION_PRODUCTION, ConnexionBDAnodisationSQL, , adCmdTable
-            End With
-            
-            '--- enregistrement des détails de la gamme d'anodisation ---
-            For a = LBound(.TGammesAnodisation.TDetailsGammesAnodisation()) To UBound(.TGammesAnodisation.TDetailsGammesAnodisation())
-                
-                With .TGammesAnodisation.TDetailsGammesAnodisation(a)
-                    
-                    If .NumZone <> 0 Then
-                     
-                        '--- enregistrement de la fiche ---
-                        Enregistrement.AddNew
-                        Enregistrement("NumFicheProduction") = NumFicheProduction
-                        Enregistrement("NumLigne") = a
-                        Enregistrement("NumZone") = .NumZone
-                        Enregistrement("TempsAuPosteTexte") = .TempsAuPosteTexte
-                        Enregistrement("TempsEgouttageTexte") = .TempsEgouttageTexte
-                        Enregistrement("TempsAuPosteSecondes") = .TempsAuPosteSecondes
-                        Enregistrement("TempsEgouttageSecondes") = .TempsEgouttageSecondes
-                        Enregistrement("DecompteDuTempsAuPosteReelSecondes") = .DecompteDuTempsAuPosteReelSecondes
-                        Enregistrement("NumPosteReel") = .NumPosteReel
-                        
-                        '--- affectation du numéro de redresseur ---
-                        Select Case .NumPosteReel
-                            Case POSTES.P_C13: NumRedresseur = REDRESSEURS.R_C13
-                            Case POSTES.P_C14: NumRedresseur = REDRESSEURS.R_C14
-                            Case POSTES.P_C15: NumRedresseur = REDRESSEURS.R_C15
-                            Case POSTES.P_C16: NumRedresseur = REDRESSEURS.R_C16
-                            Case Else
-                        End Select
-                        
-                        '--- enregistrement ---
-                        'Enregistrement.Update
-                    
-                    Else
-                        
-                        '--- sortie directe si plus de n° de fiche détails de charge ---
-                        Exit For
-            
-                    End If
-                
-                End With
-            Next a
-            Enregistrement.UpdateBatch
-            Enregistrement.Close
-            Call Log("DETAILS DE LA GAMME D'ANODISATION DE PRODUCTION FIN", showLogs)
-            
-            Call Log("TRACABILITE DES REDRESSEURS DEBUT", showLogs)
-            '****************************************************************************************************************
-            '*                                                  TRACABILITE DES REDRESSEURS
-            '****************************************************************************************************************
-            If NumRedresseur > 0 Then                 'enregistrement de la production uniquement si passage dans un
-                                                                          'des redresseurs
-                Bidon = SauveTraçabiliteRedresseurs(NumCharge:=NumCharge, _
-                                                                               NumFicheProduction:=NumFicheProduction, _
-                                                                               DateEntreeEnLigne:=TEtatsCharges(NumCharge).DateEntreeEnLigne, _
-                                                                               NumRedresseur:=NumRedresseur)
-            
-            End If
-
-            Call Log("TRACABILITE DES REDRESSEURS FIN", showLogs)
-            Call Log("DETAILS DES PHASES DE PRODUCTION DEBUT", showLogs)
-            '****************************************************************************************************************
-            '*                                       DETAILS DES PHASES DE PRODUCTION
-            '****************************************************************************************************************
-            
-            '--- ouverture de la table ---
-            Set Enregistrement = New ADODB.Recordset
-            With Enregistrement
-                .CursorLocation = adUseServer
-                .CursorType = adOpenStatic 'adOpenKeyset
-                .LockType = adLockBatchOptimistic    'adLockOptimistic
-                .Open TABLE_DETAILS_PHASES_PRODUCTION, ConnexionBDAnodisationSQL, , adCmdTable
-            End With
-            
-            '--- enregistrement des détails de la gamme d'anodisation ---
-            For a = LBound(.TDetailsPhasesProduction()) To UBound(.TDetailsPhasesProduction())
-                
-                With .TDetailsPhasesProduction(a)
-                    
-                    '--- enregistrement de la fiche ---
-                    Enregistrement.AddNew
-                    Enregistrement("NumFicheProduction") = NumFicheProduction
-                    Enregistrement("NumRedresseur") = NumRedresseur
-                    Enregistrement("ModeUouI") = TEtatsCharges(NumCharge).ModeUouI
-                    Enregistrement("NumPhase") = a
-                    Enregistrement("TempsPhase") = .TempsPhase
-                    Enregistrement("UPhase") = .UPhase
-                    Enregistrement("IPhase") = .IPhase
-                    'Enregistrement.Update
-                    
-                End With
-            
-            Next a
-            Enregistrement.UpdateBatch
-            Enregistrement.Close
-            
-            
-            '****************************************************************************************************************
-            '*                                                 DETAILS DES FICHES DE PRODUCTION
-            '****************************************************************************************************************
-        
-            Call Log("DETAILS DES PHASES DE PRODUCTION FIN", showLogs)
-            Call Log("DETAILS DES FICHES DE PRODUCTION DEBUT", showLogs)
-            '--- ouverture de la table ---
-            Set Enregistrement = New ADODB.Recordset
-            With Enregistrement
-                .CursorLocation = adUseServer
-                .CursorType = adOpenStatic 'adOpenKeyset
-                .LockType = adLockBatchOptimistic    'adLockOptimistic
-                .Open TABLE_DETAILS_FICHES_PRODUCTION, ConnexionBDAnodisationSQL, , adCmdTable
-            End With
-        
-            '--- enregistrement des détails des fiches de production ---
-            For a = LBound(.TDetailsFichesProduction()) To UBound(.TDetailsFichesProduction())
-                
-                With .TDetailsFichesProduction(a)
-                    
-                    If .NumPoste <> 0 Then
-                   
-                        '--- enregistrement de la fiche ---
-                        Enregistrement.AddNew
-                        Enregistrement("NumFicheProduction") = NumFicheProduction
-                        Enregistrement("NumLigne") = a
-                        Enregistrement("NumPoste") = .NumPoste
-                        Enregistrement("DateEntreePoste") = .DateEntreePoste
-                        Enregistrement("DateSortiePoste") = .DateSortiePoste
-                        Enregistrement("DateDebutEgouttage") = .DateDebutEgouttage
-                        Enregistrement("DateFinEgouttage") = .DateFinEgouttage
-                        Enregistrement("TemperatureEnEntree") = .TemperatureEnEntree
-                        Enregistrement("TemperatureEnSortie") = .TemperatureEnSortie
-                        Enregistrement("GrapheTemperature") = .GrapheTemperature
-                        Enregistrement("URedresseur") = .URedresseur
-                        Enregistrement("IRedresseur") = .IRedresseur
-                        Enregistrement("GrapheRedresseur") = .GrapheRedresseur
-                        Enregistrement("AnalyseurEnEntree") = .AnalyseurEnEntree
-                        Enregistrement("AnalyseurEnSortie") = .AnalyseurEnSortie
-                        Enregistrement("GrapheAnalyseur") = .GrapheAnalyseur
-                        Enregistrement("AlarmesPoste") = .AlarmesPoste
-                        'Enregistrement.Update
-                    
-                    Else
-                   
-                        '--- sortie directe si plus de n° de fiche détails de charge ---
-                        Exit For
-           
-                    End If
-           
-                End With
-            Next a
-            Enregistrement.UpdateBatch
-            Enregistrement.Close
-        
-            Call Log("DETAILS DES FICHES DE PRODUCTION FIN", showLogs)
-        End With
-    Else
-        
-        Call Log("Pas de fiche Production trouvée !!")
-    End If
-    
-    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    
-    '****************************************************************************************************************
-    '*                                        VIDAGE DE LA CHARGE DANS LE TABLEAU
-    '****************************************************************************************************************
-    TEtatsCharges(NumCharge) = FicheVideEtatsCharges
-    
-    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Call Log("FIN ENREGISTREMENT DE PRODUCTION FIN", showLogs)
-    '--- fermeture des enregistrements / connexions ---
-    Select Case Enregistrement.State
-        Case adStateClosed
-        Case Else: Enregistrement.Close
-    End Select
-    ConnexionBDAnodisationSQL.Close
-    
-    '--- effacement des objets ---
-    Set Enregistrement = Nothing
-    Set ConnexionBDAnodisationSQL = Nothing
-    
-    Exit Sub
-
-GestionErreurs:
-    
-    '--- valeur de retour ---
-    'EnregistrementProductionLocal = CStr(Err.Number)
-    
-    AfficheRenseignements ROUGE_0, "Erreur d'enregitrement en base: " & CStr(Err.Number) & vbCrLf
-    Call Log("Erreur d'enregitrement en base: " & CStr(Err.Description))
-    '--- fermeture de l'enregistrement / connexion ---
-    On Error Resume Next
-    Enregistrement.Close
-    Set Enregistrement = Nothing
-    ConnexionBDAnodisationSQL.Close
-    Set ConnexionBDAnodisationSQL = Nothing
-
-End Sub
-
-
 
 Private Function MakeTrue( _
                  ByRef bValue As Boolean) As Boolean
@@ -1375,7 +1057,7 @@ Public Sub AnalyseChargesEnLignePostes()
     Static TCopieEtatsPostes(POSTES.P_CHGT_1 To DERNIER_POSTE) As EtatsPostes
     
     '--- analyse en fonction du PC ---
-    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC. Then Exit Sub
     
     '*************************************************************************************************
     '                                               ANALYSE POUR LES POSTES
@@ -1661,7 +1343,7 @@ Public Sub GestionCommandesOperateur()
     Static MemReponseDeplacementOuTransfert As String                       'mémoire de la réponse à un déplacement de pont ou un transfert
     
     '--- analyse en fonction du PC ---
-    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC. Then Exit Sub
 
     '--- vérification du contrôle des 2 ponts par l'opérateur ---
     If TEtatsPonts(PONTS.P_1).ControleParOperateur = True And _
@@ -1858,7 +1540,7 @@ Public Sub MoteurInference()
     Static TDatesDerniersDeplacementsAVide(PONTS.P_1 To PONTS.P_2) As Date 'indique la date du dernier déplacement à vide de chaque pont
 
     '--- analyse en fonction du PC ---
-    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC. Then Exit Sub
     
     logMoteurInference = True
     
@@ -2557,7 +2239,7 @@ Public Sub AutomatiquePompe(ByVal NumCuve As Integer)
     Dim NomVariable As String                            'nom de la variable
     Dim NumCuveAutomate As Integer
     '--- analyse en fonction du PC ---
-    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC. Then Exit Sub
 
     With TEtatsCuves(NumCuve)
          NumCuveAutomate = .IndexAutomate
@@ -2599,7 +2281,7 @@ Public Sub AutomatiqueChauffage(ByVal NumCuve As Integer)
     Dim NomVariable As String                            'nom de la variable
     
     '--- analyse en fonction du PC ---
-    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC. Then Exit Sub
 
 
     Dim NumCuveAutomate As Integer
@@ -2638,7 +2320,7 @@ Public Sub SignalisationDefautsGyrophareKlaxonVersAPI()
     '--- déclaration ---
 
     '--- analyse en fonction du PC ---
-    'If TypePC <> TYPES_PC.PC_SUR_LIGNE Then Exit Sub
+    'If TypePC <> TYPES_PC. Then Exit Sub
 
     If PROGRAMME_AVEC_AUTOMATE = True Then
     
