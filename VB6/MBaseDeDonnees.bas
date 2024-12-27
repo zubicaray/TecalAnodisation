@@ -2651,7 +2651,7 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
     On Error GoTo GestionErreurs
 
     Dim showLogs As Boolean
-    showLogs = True
+    showLogs = False
     
     '--- déclaration ---
     Dim a As Integer                                                'pour les boucles FOR...NEXT
