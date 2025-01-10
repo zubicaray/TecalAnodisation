@@ -213,7 +213,7 @@ Public TImageAPICyclesPonts(PONTS.P_1 To PONTS.P_2, 1 To NBR_LIGNES_CYCLES_PONTS
 Public TEtatsPonts(PONTS.P_1 To PONTS.P_2) As EtatsPonts
 
 '--- caractéristiques des cuves ---
-Public TCaracteristiquesCuves(CUVES.C_C00 To CUVES.C_C02) As CaracteristiquesCuves
+Public TCaracteristiquesCuves(CUVES.C_C00 To CUVES.C_C38) As CaracteristiquesCuves
 
 '--- états de la ligne ---
 Public TEtatsLigne As EtatsLigne                          'états de la ligne

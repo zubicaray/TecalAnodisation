@@ -891,6 +891,14 @@ Begin VB.Form FChargementPrevisionnel
                TabIndex        =   12
                Top             =   495
                Width           =   28125
+               Begin VB.ComboBox ComboBoxR 
+                  Height          =   315
+                  Left            =   840
+                  TabIndex        =   137
+                  Text            =   "Combo1"
+                  Top             =   3360
+                  Width           =   495
+               End
                Begin VB.Frame FNumBarres 
                   Caption         =   " Numéro de barre "
                   BeginProperty Font 
@@ -3283,39 +3291,39 @@ Begin VB.Form FChargementPrevisionnel
                Key             =   "choix 1"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1C50E
+               Picture         =   "FChargementPrevisionnel.frx":1BD72
                Key             =   "choix 2"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CD08
+               Picture         =   "FChargementPrevisionnel.frx":1BDD0
                Key             =   "choix 3"
             EndProperty
             BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1D502
+               Picture         =   "FChargementPrevisionnel.frx":1BE2E
                Key             =   "choix 4"
             EndProperty
             BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1DCFC
+               Picture         =   "FChargementPrevisionnel.frx":1BE8C
                Key             =   "choix 5"
             EndProperty
             BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1E4F6
+               Picture         =   "FChargementPrevisionnel.frx":1BEEA
                Key             =   "choix 6"
             EndProperty
             BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1ECF0
+               Picture         =   "FChargementPrevisionnel.frx":1BF48
                Key             =   "choix 7"
             EndProperty
             BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1F4EA
+               Picture         =   "FChargementPrevisionnel.frx":1BFA6
                Key             =   "choix 8"
             EndProperty
             BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1FCE4
+               Picture         =   "FChargementPrevisionnel.frx":1C004
                Key             =   "choix 9"
             EndProperty
             BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":204DE
+               Picture         =   "FChargementPrevisionnel.frx":1C062
                Key             =   "choix 10"
             EndProperty
          EndProperty
@@ -3339,19 +3347,19 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   4
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":20CD8
+               Picture         =   "FChargementPrevisionnel.frx":1C0C0
                Key             =   "anodisation"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2102A
+               Picture         =   "FChargementPrevisionnel.frx":1C11E
                Key             =   "spectro"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2137C
+               Picture         =   "FChargementPrevisionnel.frx":1C17C
                Key             =   "or"
             EndProperty
             BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":216CE
+               Picture         =   "FChargementPrevisionnel.frx":1C1DA
                Key             =   "noir"
             EndProperty
          EndProperty
@@ -3360,7 +3368,6 @@ Begin VB.Form FChargementPrevisionnel
          BackColor       =   &H00FFFFFF&
          Cancel          =   -1  'True
          Caption         =   "&Quitter"
-         DownPicture     =   "FChargementPrevisionnel.frx":21A20
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   9.75
@@ -3373,7 +3380,6 @@ Begin VB.Form FChargementPrevisionnel
          Height          =   840
          Left            =   24600
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FChargementPrevisionnel.frx":22122
          Style           =   1  'Graphical
          TabIndex        =   10
          ToolTipText     =   " Quitter cette fenêtre "
@@ -3384,7 +3390,6 @@ Begin VB.Form FChargementPrevisionnel
       Begin VB.CommandButton CBReduire 
          BackColor       =   &H00FFFFFF&
          Caption         =   "&Réduire la fenêtre"
-         DownPicture     =   "FChargementPrevisionnel.frx":22824
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -3397,7 +3402,6 @@ Begin VB.Form FChargementPrevisionnel
          Height          =   840
          Left            =   22320
          MaskColor       =   &H00FF00FF&
-         Picture         =   "FChargementPrevisionnel.frx":22F26
          Style           =   1  'Graphical
          TabIndex        =   9
          ToolTipText     =   " Réduire cette fenêtre à la taille minimum "
@@ -3418,7 +3422,6 @@ Begin VB.Form FChargementPrevisionnel
          Begin VB.CommandButton CBAgrandirFenetre 
             BackColor       =   &H00FFFFFF&
             Caption         =   "Agrandir"
-            DownPicture     =   "FChargementPrevisionnel.frx":23628
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   8.25
@@ -3431,7 +3434,6 @@ Begin VB.Form FChargementPrevisionnel
             Height          =   720
             Left            =   0
             MaskColor       =   &H00FF00FF&
-            Picture         =   "FChargementPrevisionnel.frx":237D2
             Style           =   1  'Graphical
             TabIndex        =   8
             ToolTipText     =   " Agrandissement de la fenêtre "
@@ -3477,11 +3479,11 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   2
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2397C
+               Picture         =   "FChargementPrevisionnel.frx":1C238
                Key             =   "croix de condamnation"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2447E
+               Picture         =   "FChargementPrevisionnel.frx":1C296
                Key             =   "rectangle vert"
             EndProperty
          EndProperty
@@ -3499,39 +3501,39 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   9
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":24F80
+               Picture         =   "FChargementPrevisionnel.frx":1C2F4
                Key             =   "fleche haut"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":25BD4
+               Picture         =   "FChargementPrevisionnel.frx":1C352
                Key             =   "fleche basse"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":26828
+               Picture         =   "FChargementPrevisionnel.frx":1C3B0
                Key             =   "fleche gauche"
             EndProperty
             BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2747C
+               Picture         =   "FChargementPrevisionnel.frx":1C40E
                Key             =   "fleche droite"
             EndProperty
             BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":280D0
+               Picture         =   "FChargementPrevisionnel.frx":1C46C
                Key             =   "fleche haut ombre"
             EndProperty
             BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":28D24
+               Picture         =   "FChargementPrevisionnel.frx":1C4CA
                Key             =   "fleche gauche ombre"
             EndProperty
             BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":29978
+               Picture         =   "FChargementPrevisionnel.frx":1C528
                Key             =   "fleche droite ombre"
             EndProperty
             BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2A5CC
+               Picture         =   "FChargementPrevisionnel.frx":1C586
                Key             =   "sens interdit"
             EndProperty
             BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2B220
+               Picture         =   "FChargementPrevisionnel.frx":1C5E4
                Key             =   "etoile"
             EndProperty
          EndProperty
@@ -3549,7 +3551,7 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   1
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":2BE74
+               Picture         =   "FChargementPrevisionnel.frx":1C642
                Key             =   "bouton bas"
             EndProperty
          EndProperty
@@ -3562,7 +3564,6 @@ Begin VB.Form FChargementPrevisionnel
          _Version        =   393216
          Rows            =   12
          Cols            =   10
-         Picture         =   "FChargementPrevisionnel.frx":2C19C
       End
       Begin MSComctlLib.ImageList ILOutilsGestionGrilles2 
          Left            =   3360
@@ -3577,15 +3578,15 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   3
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":B8A0E
+               Picture         =   "FChargementPrevisionnel.frx":1C6A0
                Key             =   "supprimer"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":B9DF8
+               Picture         =   "FChargementPrevisionnel.frx":1C6FE
                Key             =   "compacter"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":BB1E2
+               Picture         =   "FChargementPrevisionnel.frx":1C75C
                Key             =   "inserer"
             EndProperty
          EndProperty
@@ -3603,7 +3604,7 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   1
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":BC5CC
+               Picture         =   "FChargementPrevisionnel.frx":1C7BA
                Key             =   "effacer grille"
             EndProperty
          EndProperty
@@ -3616,7 +3617,6 @@ Begin VB.Form FChargementPrevisionnel
          _Version        =   393216
          Rows            =   12
          Cols            =   10
-         Picture         =   "FChargementPrevisionnel.frx":BCA92
       End
       Begin MSComctlLib.ImageList ILGrillesDonnees 
          Left            =   1440
@@ -3631,107 +3631,107 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   26
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":149304
+               Picture         =   "FChargementPrevisionnel.frx":1C818
                Key             =   "fleche noire"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":149510
+               Picture         =   "FChargementPrevisionnel.frx":1C876
                Key             =   "fleche blanche"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14971C
+               Picture         =   "FChargementPrevisionnel.frx":1C8D4
                Key             =   "fleche grise"
             EndProperty
             BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":149928
+               Picture         =   "FChargementPrevisionnel.frx":1C932
                Key             =   "fleche rouge"
             EndProperty
             BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":149B34
+               Picture         =   "FChargementPrevisionnel.frx":1C990
                Key             =   "fleche jaune"
             EndProperty
             BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":149D40
+               Picture         =   "FChargementPrevisionnel.frx":1C9EE
                Key             =   "fleche verte"
             EndProperty
             BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":149F4C
+               Picture         =   "FChargementPrevisionnel.frx":1CA4C
                Key             =   "fleche cyan"
             EndProperty
             BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14A158
+               Picture         =   "FChargementPrevisionnel.frx":1CAAA
                Key             =   "fleche bleue"
             EndProperty
             BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14A364
+               Picture         =   "FChargementPrevisionnel.frx":1CB08
                Key             =   "etoile noire"
             EndProperty
             BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14A570
+               Picture         =   "FChargementPrevisionnel.frx":1CB66
                Key             =   "etoile blanche"
             EndProperty
             BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14A77C
+               Picture         =   "FChargementPrevisionnel.frx":1CBC4
                Key             =   "etoile grise"
             EndProperty
             BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14A988
+               Picture         =   "FChargementPrevisionnel.frx":1CC22
                Key             =   "etoile rouge"
             EndProperty
             BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14AB94
+               Picture         =   "FChargementPrevisionnel.frx":1CC80
                Key             =   "etoile jaune"
             EndProperty
             BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14ADA0
+               Picture         =   "FChargementPrevisionnel.frx":1CCDE
                Key             =   "etoile verte"
             EndProperty
             BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14AFAC
+               Picture         =   "FChargementPrevisionnel.frx":1CD3C
                Key             =   "etoile cyan"
             EndProperty
             BeginProperty ListImage16 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14B1B8
+               Picture         =   "FChargementPrevisionnel.frx":1CD9A
                Key             =   "etoile bleue"
             EndProperty
             BeginProperty ListImage17 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14B3C4
+               Picture         =   "FChargementPrevisionnel.frx":1CDF8
                Key             =   "modification noire"
             EndProperty
             BeginProperty ListImage18 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14B5C8
+               Picture         =   "FChargementPrevisionnel.frx":1CE56
                Key             =   "modification blanche"
             EndProperty
             BeginProperty ListImage19 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14B7CC
+               Picture         =   "FChargementPrevisionnel.frx":1CEB4
                Key             =   "modification grise"
             EndProperty
             BeginProperty ListImage20 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14B9D0
+               Picture         =   "FChargementPrevisionnel.frx":1CF12
                Key             =   "modification rouge"
             EndProperty
             BeginProperty ListImage21 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14BBD4
+               Picture         =   "FChargementPrevisionnel.frx":1CF70
                Key             =   "modification jaune"
             EndProperty
             BeginProperty ListImage22 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14BDD8
+               Picture         =   "FChargementPrevisionnel.frx":1CFCE
                Key             =   "modification vert"
             EndProperty
             BeginProperty ListImage23 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14BFDC
+               Picture         =   "FChargementPrevisionnel.frx":1D02C
                Key             =   "modification cyan"
             EndProperty
             BeginProperty ListImage24 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14C1E0
+               Picture         =   "FChargementPrevisionnel.frx":1D08A
                Key             =   "modification bleue"
             EndProperty
             BeginProperty ListImage25 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14C3E4
+               Picture         =   "FChargementPrevisionnel.frx":1D0E8
                Key             =   "indicateur vert"
             EndProperty
             BeginProperty ListImage26 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":14C5E8
+               Picture         =   "FChargementPrevisionnel.frx":1D146
                Key             =   "indicateur rouge"
             EndProperty
          EndProperty
@@ -3773,7 +3773,6 @@ Begin VB.Form FChargementPrevisionnel
       BackColor       =   &H00FF0000&
       Height          =   375
       Left            =   0
-      Picture         =   "FChargementPrevisionnel.frx":14C7EC
       ScaleHeight     =   315
       ScaleWidth      =   13335
       TabIndex        =   1
@@ -3869,13 +3868,13 @@ End Enum
 Private Enum COLONNES_DETAILS_CHARGES
     C_NUM_LIGNES = 0
     C_NUM_COMMANDE_INTERNE = 1           'n° de commande interne
-    'C_NBR_REPARATIONS = 2                         'nombre de réparations
-    C_CODE_CLIENT = 2                                   'code du client
-    C_NBR_PIECES = 3                                    'nombre de pièces
-    C_DESIGNATION = 4                                   'désignation
-    C_GAMME = 5
-    C_MATIERE = 6
-    C_OBSERVATIONS = 7                                'observations
+    C_NBR_REPARATIONS = 2                         'nombre de réparations
+    C_CODE_CLIENT = 3                                   'code du client
+    C_NBR_PIECES = 4                                    'nombre de pièces
+    C_DESIGNATION = 5                                   'désignation
+    C_GAMME = 6
+    C_MATIERE = 7
+    C_OBSERVATIONS = 8                                'observations
                                                'matière
 End Enum
 
@@ -3971,9 +3970,56 @@ Private Sub Form_Load()
         
     End With
     
+     ' Ajout des éléments à la ComboBox
+    ComboBoxR.AddItem "Option A"
+    ComboBoxR.AddItem "Option B"
+    ComboBoxR.AddItem "Option C"
+    ComboBoxR.Visible = False ' Cachée par défaut
+    
     
 End Sub
 
+
+
+Private Sub MSHFGDetailsCharges_Click()
+    Dim CellLeft As Single
+    Dim CellTop As Single
+    Dim CellWidth As Single
+    Dim CellHeight As Single
+    
+    ' Vérifier si la colonne sélectionnée est la colonne 2 (index 1)
+    If MSHFGDetailsCharges.Col = 2 Then
+        ' Calcul des dimensions de la cellule sélectionnée
+        With MSHFGDetailsCharges
+            CellLeft = .Left + .CellLeft
+            CellTop = .Top + .CellTop
+            CellWidth = .CellWidth
+            CellHeight = .CellHeight
+        End With
+
+        ' Positionner la ComboBox sur la cellule
+        With ComboBoxR
+            .Left = CellLeft
+            .Top = CellTop
+            .Width = CellWidth
+            '.Height = CellHeight
+            .Visible = True
+            .Text = "" ' Réinitialiser le texte de la ComboBox
+            .SetFocus
+        End With
+    Else
+        ' Cacher la ComboBox si une autre colonne est sélectionnée
+        ComboBoxR.Visible = False
+    End If
+End Sub
+
+Private Sub ComboBoxR_LostFocus()
+    ' Transférer la valeur sélectionnée dans la cellule
+    If ComboBoxR.Visible Then
+        MSHFGDetailsCharges.TextMatrix(MSHFGDetailsCharges.Row, MSHFGDetailsCharges.Col) = ComboBoxR.Text
+        ComboBoxR.Visible = False
+    End If
+End Sub
 
 Private Sub CBAnnulerReferencesClient_Click()
     
@@ -4672,10 +4718,10 @@ Private Sub MEBEditionDetailsCharges_Change()
                     MemNumLigne = .Row
                     MemNumColonne = .Col
                 
-                'Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
+                Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
                     '--- nombre de réparations ---
-                 '   MemNumLigne = .Row
-                  '  MemNumColonne = .Col
+                    MemNumLigne = .Row
+                    MemNumColonne = .Col
                     
                 Case COLONNES_DETAILS_CHARGES.C_NBR_PIECES
                     '--- nombre de pièces ---
@@ -4756,9 +4802,9 @@ Private Sub MEBEditionDetailsCharges_KeyPress(KeyAscii As Integer)
                         '--- n° de la commande interne ---
                         .Col = COLONNES_DETAILS_CHARGES.C_NBR_PIECES
                     
-                    'Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
+                    Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
                         '--- nombre de réparations ---
-                    '    .Col = COLONNES_DETAILS_CHARGES.C_NBR_PIECES
+                        .Col = COLONNES_DETAILS_CHARGES.C_NBR_PIECES
                 
                     Case COLONNES_DETAILS_CHARGES.C_NBR_PIECES
                         '--- nombre de pièces ---
@@ -4776,7 +4822,7 @@ Private Sub MEBEditionDetailsCharges_KeyPress(KeyAscii As Integer)
             Case Else
                 Select Case .Col
                     Case COLONNES_DETAILS_CHARGES.C_NUM_COMMANDE_INTERNE: FiltreToucheASCII KeyAscii, DONNEES.D_GENERALE_MAJUSCULES, 8
-                    'Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS: FiltreToucheASCII KeyAscii, DONNEES.D_NBR_NATURELS, 1
+                    Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS: FiltreToucheASCII KeyAscii, DONNEES.D_NBR_NATURELS, 1
                     Case COLONNES_DETAILS_CHARGES.C_NBR_PIECES: FiltreToucheASCII KeyAscii, DONNEES.D_NBR_NATURELS, 6
                     Case Else
                 End Select
@@ -4842,13 +4888,13 @@ Private Sub MEBEditionDetailsCharges_LostFocus()
                 
                 End If
             
-            'Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
+            Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
                 '--- nombre de réparations ---
-             '   If IsNumeric(TexteSansMasque) = True Then
-             '       TChargement.TDetailsCharges(MemNumLigne).NbrReparations = TexteSansMasque
-             '   Else
-             '       TChargement.TDetailsCharges(MemNumLigne).NbrReparations = ""
-             '   End If
+                If IsNumeric(TexteSansMasque) = True Then
+                    TChargement.TDetailsCharges(MemNumLigne).NbrReparations = TexteSansMasque
+                Else
+                    TChargement.TDetailsCharges(MemNumLigne).NbrReparations = ""
+                End If
             
             Case COLONNES_DETAILS_CHARGES.C_NBR_PIECES
                 '--- nombre de pièces ---
@@ -7460,9 +7506,9 @@ Private Sub GestionDetailsCharges(ByVal EtatSouhaite As GESTION_GRILLES)
                 .ColWidth(.Col) = 12 * EPAISSEUR_CARACTERE: .Text = "Numéro de pointage"
                 .ColAlignment(.Col) = flexAlignCenterCenter
                 
-                '.Col = COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
-                '.ColWidth(.Col) = 3 * EPAISSEUR_CARACTERE: .Text = "R."
-                '.ColAlignment(.Col) = flexAlignCenterCenter
+                .Col = COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
+                .ColWidth(.Col) = 3 * EPAISSEUR_CARACTERE: .Text = "R."
+                .ColAlignment(.Col) = flexAlignCenterCenter
 
                 .Col = COLONNES_DETAILS_CHARGES.C_CODE_CLIENT
                 .ColWidth(.Col) = 15 * EPAISSEUR_CARACTERE: .Text = "Code client"
@@ -7593,8 +7639,8 @@ Private Sub GestionDetailsCharges(ByVal EtatSouhaite As GESTION_GRILLES)
 
                         End If
 
-                        '.Col = COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
-                        'If .Text <> TChargement.TDetailsCharges(a).NbrReparations Then .Text = TChargement.TDetailsCharges(a).NbrReparations
+                        .Col = COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
+                        If .Text <> TChargement.TDetailsCharges(a).NbrReparations Then .Text = TChargement.TDetailsCharges(a).NbrReparations
                         
                         .Col = COLONNES_DETAILS_CHARGES.C_CODE_CLIENT
                         If .Text <> TChargement.TDetailsCharges(a).CodeClient Then .Text = TChargement.TDetailsCharges(a).CodeClient
@@ -7865,8 +7911,8 @@ Private Sub EditionChargement(ByRef KeyAscii As Integer)
     Select Case MSHFGDetailsCharges.Col
 
         Case COLONNES_DETAILS_CHARGES.C_NUM_COMMANDE_INTERNE, _
-                                 COLONNES_DETAILS_CHARGES.C_NBR_PIECES
-             ' COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS,
+                                 COLONNES_DETAILS_CHARGES.C_NBR_PIECES, _
+              COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
             With MEBEditionDetailsCharges
 
                 '--- affiche le contrôle texte au bon endroit (dans la cellule) ---
@@ -7881,7 +7927,7 @@ Private Sub EditionChargement(ByRef KeyAscii As Integer)
                 Select Case MSHFGDetailsCharges.Col
                     'SZP 2023
                     Case COLONNES_DETAILS_CHARGES.C_NUM_COMMANDE_INTERNE: .Mask = ""
-                    'Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS: .Mask = "#"
+                    Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS: .Mask = "#"
                     Case COLONNES_DETAILS_CHARGES.C_NBR_PIECES: .Mask = "######"
                     Case Else
                 End Select
@@ -7910,7 +7956,7 @@ Private Sub EditionChargement(ByRef KeyAscii As Integer)
                         With MSHFGDetailsCharges
                             Select Case .Col
                                 Case COLONNES_DETAILS_CHARGES.C_NUM_COMMANDE_INTERNE: .Col = COLONNES_DETAILS_CHARGES.C_NBR_PIECES
-                                'Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS: .Col = COLONNES_DETAILS_CHARGES.C_NBR_PIECES
+                                Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS: .Col = COLONNES_DETAILS_CHARGES.C_NBR_PIECES
                                 Case COLONNES_DETAILS_CHARGES.C_NBR_PIECES
                                     If .Row < .Rows - 1 Then .Row = .Row + 1
                                     .Col = COLONNES_DETAILS_CHARGES.C_NUM_COMMANDE_INTERNE
@@ -8541,7 +8587,7 @@ Private Sub IntroductionChargeAuChargement(ByVal NumPoste As Integer)
                     
                     ' l'avant dernière zone devient un passage à l'étuve
                     With .TGammesAnodisation.TDetailsGammesAnodisation(NumDerniereLigneGamme)
-                        .NumZone = ZONE_ETUVE
+                        .NumZone = POSTE_ETUVE
                         .TempsAuPosteTexte = "00:" & EtuveTpsPoste.Text & ":00"
                         .TempsAuPosteSecondes = CInt(EtuveTpsPoste.Text) * 60
                         
