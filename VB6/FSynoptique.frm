@@ -7710,7 +7710,7 @@ Private Sub CBEssais_Click()
     NumCharge = 7
     
     
-    For a = 4 To POSTES.P_C12
+    For a = PREMIER_BAIN To POSTES.P_C12
         TEtatsPostes(a).NumCharge = a
         If a <= POSTES.P_C07 Then
             TEtatsCharges(TEtatsPostes(a).NumCharge).TGammesAnodisation.PassageAnodisation = True
@@ -9820,7 +9820,7 @@ Private Sub AfficheAnimations(ByVal NomAnimations As NOMS_ANIMATIONS, _
                         Case POSTES.P_CHGT_1 To POSTES.P_CHGT_2
                             .Right = .Left + DIMENSIONS_ANIMATIONS.D_LONG_1_LIBELLE
                         'Case PREMIER_BAIN To POSTES.P_C35
-                        Case POSTES.P_C00 To POSTES.P_C36
+                        Case POSTES.P_C02 To POSTES.P_C35
                             .Right = .Left + DIMENSIONS_ANIMATIONS.D_LONG_2_LIBELLE
                         Case POSTES.P_D1 To POSTES.P_D2
                             .Right = .Left + DIMENSIONS_ANIMATIONS.D_LONG_3_LIBELLE
