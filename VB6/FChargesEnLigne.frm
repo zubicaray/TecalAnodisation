@@ -3625,7 +3625,7 @@ End Type
 
 Private Type ImgDetailsCharges
     NumCommandeInterne As Long                           'n° de commande interne
-    NbrReparations As String                                       'nombre de réparations (champ texte volontaire)
+    TypeReparation As String                                       'nombre de réparations (champ texte volontaire)
     CodeClient As String                                               'code client
     NbrPieces As String                                                'nombre de pièces
     Designation As String                                             'désignation
@@ -4729,7 +4729,7 @@ Private Sub GestionDetailsCharges(ByVal EtatSouhaite As GESTION_GRILLES)
                             Exit For
                         Else
                             TDetailsCharges(a).NumCommandeInterne = .NumCommandeInterne
-                            TDetailsCharges(a).NbrReparations = .NbrReparations
+                            TDetailsCharges(a).TypeReparation = .TypeReparation
                             TDetailsCharges(a).CodeClient = .CodeClient
                             TDetailsCharges(a).NbrPieces = .NbrPieces
                             TDetailsCharges(a).Designation = .Designation
@@ -4778,7 +4778,7 @@ Private Sub GestionDetailsCharges(ByVal EtatSouhaite As GESTION_GRILLES)
                         AffichageTexte MSHFGDetailsCharges, TDetailsCharges(a).NumCommandeInterne
 
                         .Col = COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
-                        AffichageTexte MSHFGDetailsCharges, TDetailsCharges(a).NbrReparations
+                        AffichageTexte MSHFGDetailsCharges, TDetailsCharges(a).TypeReparation
                         
                         .Col = COLONNES_DETAILS_CHARGES.C_CODE_CLIENT
                         AffichageTexte MSHFGDetailsCharges, TDetailsCharges(a).CodeClient

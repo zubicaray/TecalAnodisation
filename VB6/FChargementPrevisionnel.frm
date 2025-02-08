@@ -3969,16 +3969,37 @@ Private Sub Form_Load()
         .Refresh
         
     End With
+   
     
-     ' Ajout des éléments à la ComboBox
-    ComboBoxR.AddItem "Option A"
-    ComboBoxR.AddItem "Option B"
-    ComboBoxR.AddItem "Option C"
+    ID_REPARATIONS = Split("0000A,0000B,0000C,0000D,0000E,0000F,0000G,0000H,0000I", ",")
+
+    ' Ajouter seulement les descriptions dans la ComboBox
+    ComboBoxR.AddItem "Non conduites"
+    ComboBoxR.AddItem "Manque épaisseur"
+    ComboBoxR.AddItem "Colmatage Nok"
+    ComboBoxR.AddItem "Accrochage Nok"
+    ComboBoxR.AddItem "Gamme Nok"
+    ComboBoxR.AddItem "Polissage Nok"
+    ComboBoxR.AddItem "Piqures"
+    ComboBoxR.AddItem "Rayures"
+    ComboBoxR.AddItem "Aspect"
     ComboBoxR.Visible = False ' Cachée par défaut
+    
+    
     
     
 End Sub
 
+Private Sub ComboBoxR_Click()
+    Dim selectedID As String
+    selectedID = ID_REPARATIONS(ComboBoxR.ListIndex) ' Récupérer l'ID correspondant
+      ' Transférer la valeur sélectionnée dans la cellule
+   
+    MSHFGDetailsCharges.TextMatrix(MSHFGDetailsCharges.Row, MSHFGDetailsCharges.Col) = selectedID
+    'ComboBoxR.Visible = False
+   
+    'MsgBox "ID sélectionné : " & selectedID
+End Sub
 
 
 Private Sub MSHFGDetailsCharges_Click()
@@ -4013,13 +4034,6 @@ Private Sub MSHFGDetailsCharges_Click()
     End If
 End Sub
 
-Private Sub ComboBoxR_LostFocus()
-    ' Transférer la valeur sélectionnée dans la cellule
-    If ComboBoxR.Visible Then
-        MSHFGDetailsCharges.TextMatrix(MSHFGDetailsCharges.Row, MSHFGDetailsCharges.Col) = ComboBoxR.Text
-        ComboBoxR.Visible = False
-    End If
-End Sub
 
 Private Sub CBAnnulerReferencesClient_Click()
     
@@ -4890,10 +4904,11 @@ Private Sub MEBEditionDetailsCharges_LostFocus()
             
             Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
                 '--- nombre de réparations ---
-                If IsNumeric(TexteSansMasque) = True Then
-                    TChargement.TDetailsCharges(MemNumLigne).NbrReparations = TexteSansMasque
+                If TexteSansMasque <> "" Then
+                     
+                    TChargement.TDetailsCharges(MemNumLigne).TypeReparation = TexteSansMasque
                 Else
-                    TChargement.TDetailsCharges(MemNumLigne).NbrReparations = ""
+                    TChargement.TDetailsCharges(MemNumLigne).TypeReparation = ""
                 End If
             
             Case COLONNES_DETAILS_CHARGES.C_NBR_PIECES
@@ -5308,9 +5323,9 @@ Private Sub MEBEditionPrevisionnel_LostFocus()
             Case COLONNES_PREVISIONNEL.C_NBR_REPARATIONS
                 '--- nombre de réparations ---
                 If IsNumeric(TexteSansMasque) = True Then
-                    TPrevisionnel(MemNumLigne).NbrReparations = TexteSansMasque
+                    TPrevisionnel(MemNumLigne).TypeReparation = TexteSansMasque
                 Else
-                    TPrevisionnel(MemNumLigne).NbrReparations = ""
+                    TPrevisionnel(MemNumLigne).TypeReparation = ""
                 End If
             
             Case COLONNES_PREVISIONNEL.C_NBR_PIECES
@@ -7640,7 +7655,7 @@ Private Sub GestionDetailsCharges(ByVal EtatSouhaite As GESTION_GRILLES)
                         End If
 
                         .Col = COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
-                        If .Text <> TChargement.TDetailsCharges(a).NbrReparations Then .Text = TChargement.TDetailsCharges(a).NbrReparations
+                        If .Text <> TChargement.TDetailsCharges(a).TypeReparation Then .Text = TChargement.TDetailsCharges(a).TypeReparation
                         
                         .Col = COLONNES_DETAILS_CHARGES.C_CODE_CLIENT
                         If .Text <> TChargement.TDetailsCharges(a).CodeClient Then .Text = TChargement.TDetailsCharges(a).CodeClient
@@ -8191,7 +8206,8 @@ Private Function InsertionCommandeInterne(ByVal GrilleConcernee As TYPES_GRILLES
             If RecherchePhasesClipper(NumCommandeInterne) = TROUVE Then
             
                 ChargeGammeAnodisationChargement NumGammeTexte
-                
+                TBNumGammeAnodisation = TTempEnrPhasesClipper.NumGamme
+                TBMatiere = TTempEnrPhasesClipper.Matiere
                 If GrilleConcernee = TG_CHARGEMENT Then
                 
                     '--- grille du chargement ---
@@ -8228,7 +8244,7 @@ Private Function InsertionCommandeInterne(ByVal GrilleConcernee As TYPES_GRILLES
             
             
       Else
-
+    
            '--- affectation -
            '-- SZP 20241004 TODO CHECK
            InsertionCommandeInterne = NON_TROUVE
@@ -8378,7 +8394,7 @@ Private Sub TransfertDonneesEntreGrilles(ByVal GrilleDepart As TYPES_GRILLES, _
             '--- transfert ---
             With TChargement.TDetailsCharges(NBR_LIGNES_DETAILS_CHARGES)
                 .NumCommandeInterne = TPrevisionnel(NumLigneDepart).NumCommandeInterne
-                .NbrReparations = TPrevisionnel(NumLigneDepart).NbrReparations
+                .TypeReparation = TPrevisionnel(NumLigneDepart).TypeReparation
                 .CodeClient = TPrevisionnel(NumLigneDepart).CodeClient
                 .NbrPieces = TPrevisionnel(NumLigneDepart).NbrPieces
                 .Designation = TPrevisionnel(NumLigneDepart).Designation
@@ -8991,7 +9007,7 @@ Private Sub GestionPrevisionnel(ByVal EtatSouhaite As GESTION_GRILLES)
                         AffichageTexte MSHFGPrevisionnel, TPrevisionnel(a).NumCommandeInterne
                         
                         .Col = COLONNES_PREVISIONNEL.C_NBR_REPARATIONS
-                        AffichageTexte MSHFGPrevisionnel, TPrevisionnel(a).NbrReparations
+                        AffichageTexte MSHFGPrevisionnel, TPrevisionnel(a).TypeReparation
                         
                         .Col = COLONNES_PREVISIONNEL.C_CODE_CLIENT
                         AffichageTexte MSHFGPrevisionnel, TPrevisionnel(a).CodeClient

@@ -269,6 +269,7 @@ Public TRenseignementsGraphe As RenseignementsGraphe
 Public TCanauxFichiersTraçabilite(REDRESSEURS.R_C13 To REDRESSEURS.R_C16) As Integer
 
 
+Public ID_REPARATIONS() As String
 
 
 

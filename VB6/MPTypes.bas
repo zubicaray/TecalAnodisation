@@ -793,7 +793,7 @@ Public Type DetailsCharges
     NumCommandeInterne As Long                                                        'n° de commande interne = GACLEUNIK
     NumGamme As Long                                                                  'n° de gamme provenant de Clipper
     Naf As Long                                                                       'N° affaire
-    NbrReparations As String                                                                              'nombre de réparations (champ texte volontaire)
+    TypeReparation As String                                                                              'nombre de réparations (champ texte volontaire)
     CodeClient As String                                                                                      'code du client
     NbrPieces As Double                                                                                        'nombre de pièces
     Designation As String                                                                                    'désignation
@@ -858,6 +858,9 @@ Public Type etatsCharges
     
     ModeUouI As MODES_U_OU_I                                 'mode de travail du redresseur U(tension)=0, I(intensité)=1
     
+    FinPhase4 As Boolean
+    
+    
     TDetailsPhasesProduction(PHASES_GAMMES_REDRESSEURS.PH_T1 To PHASES_GAMMES_REDRESSEURS.PH_T4) As DetailsPhases  'pour renseigner le redresseur en entrant dans le bain
     
     TempsTotalGammeRedresseur As Long                   'temps total de la gamme redresseur en secondes
@@ -888,7 +891,7 @@ Public Type VarPrevisionnel
     NumCommandeInterne As Long                                         'n° de commande interne
     NumGamme As Long
     Naf As Long
-    NbrReparations As String                                                     'nombre de réparations (champ texte volontaire)
+    TypeReparation As String                                                     'nombre de réparations (champ texte volontaire)
     CodeClient As String                                                             'code du client
     NbrPieces As Double                                                               'nombre de pièces
     Designation As String                                                           'désignation
@@ -924,7 +927,7 @@ End Type
 Public Type EnrDetailsChargesProduction
     
     NumCommandeInterne As Long                            'n° de commande interne
-    NbrReparations As String                                        'nombre de réparations (champ texte volontaire)
+    TypeReparation As String                                        'nombre de réparations (champ texte volontaire)
     DateEntreeEnLigne As Date                                    'date d'entrée dans la ligne (généralement le chargement)
     DateArriveeAuDechargement As Date                     'date d'arrivée au déchargement
     NumBarre As Integer                                               'n° de barre

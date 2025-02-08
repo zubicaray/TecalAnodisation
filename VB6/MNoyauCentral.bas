@@ -1232,59 +1232,12 @@ End Sub
 
 Public Sub enregistreRedresseursAno(NumCharge As Integer, NumPoste As Integer)
 
-    With TEtatsCharges(NumCharge)
-        If .NbrPostesTraites > 0 Then
-        Select Case NumPoste
-            
-            Case POSTES.P_C13
-                '--- premier poste d'anodisation ---
-                If .TDetailsPhasesProduction(PHASES_GAMMES_REDRESSEURS.PH_T4).TempsPhase > 0 Then
-                    
-                    '--- prendre la mesure uniquement sur la phase 4 ---
-                    With .TDetailsFichesProduction(.NbrPostesTraites)
-                        If TEtatsRedresseurs(REDRESSEURS.R_C13).NumPhaseEnCours = PHASES_GAMMES_REDRESSEURS.PH_T4 Then
-                            .IRedresseur = TEtatsRedresseurs(REDRESSEURS.R_C13).I
-                            .URedresseur = TEtatsRedresseurs(REDRESSEURS.R_C13).U
-                        End If
-                    End With
-                
-                End If
-            
-            Case POSTES.P_C14
-                '--- second poste d'anodisation ---
-                If .TDetailsPhasesProduction(PHASES_GAMMES_REDRESSEURS.PH_T4).TempsPhase > 0 Then
-                    
-                    '--- prendre la mesure uniquement sur la phase 4 ---
-                    With .TDetailsFichesProduction(.NbrPostesTraites)
-                        If TEtatsRedresseurs(REDRESSEURS.R_C14).NumPhaseEnCours = PHASES_GAMMES_REDRESSEURS.PH_T4 Then
-                            .IRedresseur = TEtatsRedresseurs(REDRESSEURS.R_C14).I
-                            .URedresseur = TEtatsRedresseurs(REDRESSEURS.R_C14).U
-                        End If
-                    End With
-                
-                End If
-            
-            Case POSTES.P_C15
-                '--- troisième poste d'anodisation ---
-                If .TDetailsPhasesProduction(PHASES_GAMMES_REDRESSEURS.PH_T4).TempsPhase > 0 Then
-                    
-                    '--- prendre la mesure uniquement sur la phase 4 ---
-                    With .TDetailsFichesProduction(.NbrPostesTraites)
-                        If TEtatsRedresseurs(REDRESSEURS.R_C15).NumPhaseEnCours = PHASES_GAMMES_REDRESSEURS.PH_T4 Then
-                            .IRedresseur = TEtatsRedresseurs(REDRESSEURS.R_C15).I
-                            .URedresseur = TEtatsRedresseurs(REDRESSEURS.R_C15).U
-                        End If
-                    End With
-                
-                End If
-            
-          
-            
-            Case Else
-        End Select
+    Call Log("enregistreRedresseursAno: " & NumCharge & "  " & NumPoste)
     
-        End If
+   
 
+    With TEtatsCharges(NumCharge)
+        .FinPhase4 = True
     End With
 
     
@@ -1770,7 +1723,7 @@ Public Sub MoteurInference()
                                         'on initialise le temps de traitement de la charge
                                         TEtatsCharges(NumCharge).DateEntreeEnLigne = Now
                                         
-                                        
+                                        TEtatsCharges(NumCharge).FinPhase4 = False
                                         
                                         Bidon = ConstruitProchainCyclePont(ViderProchainCycle:=False, _
                                                                                                     TypeCycle:=TC_TRANSFERT_CHARGE, _

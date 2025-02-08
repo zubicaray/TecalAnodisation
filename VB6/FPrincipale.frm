@@ -1368,11 +1368,15 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                             If InStr(TabItemName(a), Cle & "UPhase3") > 0 Then .TDetailsPhasesProduction(PHASES_GAMMES_REDRESSEURS.PH_T3).UPhase = value(a) / 10
                             If InStr(TabItemName(a), Cle & "IPhase3") > 0 Then .TDetailsPhasesProduction(PHASES_GAMMES_REDRESSEURS.PH_T3).IPhase = value(a)
                             
-                            '--- phase 4 complète ---
-                            If InStr(TabItemName(a), Cle & "TpsPhase4") > 0 Then .TDetailsPhasesProduction(PHASES_GAMMES_REDRESSEURS.PH_T4).TempsPhase = value(a)
-                            If InStr(TabItemName(a), Cle & "UPhase4") > 0 Then .TDetailsPhasesProduction(PHASES_GAMMES_REDRESSEURS.PH_T4).UPhase = value(a) / 10
-                            If InStr(TabItemName(a), Cle & "IPhase4") > 0 Then .TDetailsPhasesProduction(PHASES_GAMMES_REDRESSEURS.PH_T4).IPhase = value(a)
-
+                            'SZP 2025
+                            'on a coupé l'ano en avance, il ne faut plus mettre à jour les valeurs de traça
+                            If .FinPhase4 = False Then
+                                '--- phase 4 complète ---
+                                If InStr(TabItemName(a), Cle & "TpsPhase4") > 0 Then .TDetailsPhasesProduction(PHASES_GAMMES_REDRESSEURS.PH_T4).TempsPhase = value(a)
+                                If InStr(TabItemName(a), Cle & "UPhase4") > 0 Then .TDetailsPhasesProduction(PHASES_GAMMES_REDRESSEURS.PH_T4).UPhase = value(a) / 10
+                                If InStr(TabItemName(a), Cle & "IPhase4") > 0 Then .TDetailsPhasesProduction(PHASES_GAMMES_REDRESSEURS.PH_T4).IPhase = value(a)
+                            End If
+                            
                         End With
                     
                     End If

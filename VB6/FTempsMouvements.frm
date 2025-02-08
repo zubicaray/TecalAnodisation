@@ -3506,7 +3506,7 @@ End Sub
 
 Private Sub HSDeplacementFenetre_Change()
     On Error Resume Next
-    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Left = -HSDeplacementFenetre.Value
+    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Left = -HSDeplacementFenetre.value
 End Sub
 
 Private Sub LTempsDescenteAccroches_Click(Index As Integer)
@@ -3522,6 +3522,7 @@ Private Sub LTempsDescenteAccroches_Click(Index As Integer)
         Reponse = InputBox("Entrez la valeur numérique sans unité correspondant" & vbCrLf & "au temps de DESCENTE des ACCROCHES pour ce PONT")
         If IsNumeric(Reponse) = True Then
             TEtatsPonts(Index).TTempsMouvements.TempsAccrochesChargeVersBas = CSng(Reponse)
+            EnregistrementTempsMouvements
         End If
     End If
 
@@ -3540,6 +3541,7 @@ Private Sub LTempsDescenteHautVersBas_Click(Index As Integer)
         Reponse = InputBox("Entrez la valeur numérique sans unité correspondant" & vbCrLf & "au temps de DESCENTE du NIVEAU HAUT vers le NIVEAU BAS pour ce PONT")
         If IsNumeric(Reponse) = True Then
             TEtatsPonts(Index).TTempsMouvements.TempsDescenteHautVersBas = CSng(Reponse)
+            EnregistrementTempsMouvements
         End If
     End If
 
@@ -3558,6 +3560,7 @@ Private Sub LTempsDescenteIntermediaireVersBas_Click(Index As Integer)
         Reponse = InputBox("Entrez la valeur numérique sans unité correspondant" & vbCrLf & "au temps de DESCENTE du NIVEAU INTERMEDIAIRE vers le NIVEAU BAS pour ce PONT")
         If IsNumeric(Reponse) = True Then
             TEtatsPonts(Index).TTempsMouvements.TempsDescenteIntermediaireVersBas = CSng(Reponse)
+            EnregistrementTempsMouvements
         End If
     End If
 
@@ -3594,6 +3597,7 @@ Private Sub LTempsMonteeAccroches_Click(Index As Integer)
         Reponse = InputBox("Entrez la valeur numérique sans unité correspondant" & vbCrLf & "au temps de MONTEE des ACCROCHES pour ce PONT")
         If IsNumeric(Reponse) = True Then
             TEtatsPonts(Index).TTempsMouvements.TempsAccrochesChargeVersHaut = CSng(Reponse)
+            EnregistrementTempsMouvements
         End If
     End If
 
@@ -3612,6 +3616,7 @@ Private Sub LTempsMonteeBasVersHaut_Click(Index As Integer)
         Reponse = InputBox("Entrez la valeur numérique sans unité correspondant" & vbCrLf & "au temps de MONTEE du NIVEAU BAS vers le NIVEAU HAUT pour ce PONT")
         If IsNumeric(Reponse) = True Then
             TEtatsPonts(Index).TTempsMouvements.TempsMonteeBasVersHaut = CSng(Reponse)
+            EnregistrementTempsMouvements
         End If
     End If
 
@@ -3630,6 +3635,7 @@ Private Sub LTempsMonteeBasVersIntermediaire_Click(Index As Integer)
         Reponse = InputBox("Entrez la valeur numérique sans unité correspondant" & vbCrLf & "au temps de MONTEE du NIVEAU BAS vers le NIVEAU INTERMEDIAIRE pour ce PONT")
         If IsNumeric(Reponse) = True Then
             TEtatsPonts(Index).TTempsMouvements.TempsMonteeBasVersIntermediaire = CSng(Reponse)
+            EnregistrementTempsMouvements
         End If
     End If
 
@@ -3689,6 +3695,7 @@ Private Sub LTempsTranslation_Click(Index As Integer)
         '--- affectation de la valeur ---
         If IsNumeric(Reponse) = True Then
             TEtatsPonts(Index).TTempsMouvements.TTempsTranslation(NumPosteDepart, NumPosteArrivee) = CSng(Reponse)
+            EnregistrementTempsMouvements
         End If
 
     End If
@@ -4041,7 +4048,7 @@ End Sub
 
 Private Sub VSDeplacementFENETRE_Change()
     On Error Resume Next
-    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Top = -VSDeplacementFenetre.Value
+    PBDeplacementFenetre(ZONES_DEPLACEMENT_FENETRE.Z_FILLE).Top = -VSDeplacementFenetre.value
 End Sub
 
 '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

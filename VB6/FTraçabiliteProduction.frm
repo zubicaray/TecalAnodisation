@@ -2960,7 +2960,7 @@ End Enum
 '--- types privées ---
 Private Type ImgDetailsChargesProduction
     NumCommandeInterne As Long                        'n° de commande interne
-    NbrReparations As String                                    'nombre de réparations (champ texte volontaire)
+    TypeReparation As String                                    'nombre de réparations (champ texte volontaire)
     DateEntreeEnLigne As Date                                'date d'entrée en ligne
     DateArriveeAuDechargement As Date                 'date d'arrivée au déchargement
     NumBarre As Integer                                           'n° de barre
@@ -4282,7 +4282,7 @@ Private Sub GestionDetailsChargesProduction(ByVal EtatSouhaite As GESTION_GRILLE
                     
                     '--- détails de la charge ---
                     TDetailsChargesProduction(a).NumCommandeInterne = .NumCommandeInterne
-                    TDetailsChargesProduction(a).NbrReparations = .NbrReparations
+                    TDetailsChargesProduction(a).TypeReparation = .TypeReparation
                     TDetailsChargesProduction(a).DateEntreeEnLigne = .DateEntreeEnLigne
                     TDetailsChargesProduction(a).DateArriveeAuDechargement = .DateArriveeAuDechargement
                     TDetailsChargesProduction(a).NumBarre = .NumBarre

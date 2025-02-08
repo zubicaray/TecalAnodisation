@@ -5,7 +5,7 @@ REM Définir les chemins vers VB6, le projet et le dossier de destination
 SET VB6_PATH="C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE"
 SET PROJECT_PATH="C:\Anodisation\anodisation.vbp"
 SET DEST_PATH="Z:\ANO"
-SET BIN_PATH="C:\Anodisation\Anodisation_9.2.0.exe"
+SET BIN_PATH="C:\Anodisation\Anodisation_9.3.0.exe"
 
 REM Compiler le projet
 echo Compilation du projet anodisation...
