@@ -3996,7 +3996,7 @@ Private Sub ComboBoxR_Click()
       ' Transférer la valeur sélectionnée dans la cellule
    
     MSHFGDetailsCharges.TextMatrix(MSHFGDetailsCharges.Row, MSHFGDetailsCharges.Col) = selectedID
-    'ComboBoxR.Visible = False
+    ComboBoxR.Visible = False
    
     'MsgBox "ID sélectionné : " & selectedID
 End Sub
@@ -4905,11 +4905,11 @@ Private Sub MEBEditionDetailsCharges_LostFocus()
             Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
                 '--- nombre de réparations ---
                 If TexteSansMasque <> "" Then
-                     
                     TChargement.TDetailsCharges(MemNumLigne).TypeReparation = TexteSansMasque
                 Else
                     TChargement.TDetailsCharges(MemNumLigne).TypeReparation = ""
                 End If
+                Call Log("TypeReparation=" & TChargement.TDetailsCharges(MemNumLigne).TypeReparation)
             
             Case COLONNES_DETAILS_CHARGES.C_NBR_PIECES
                 '--- nombre de pièces ---

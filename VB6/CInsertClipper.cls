@@ -35,7 +35,7 @@ Public Function insertionClipperPointageBackground(ByVal NumCharge As Integer)
     Dim ConnexionBDClipper As New ADODB.Connection
    
     Dim logClipper As Boolean
-    logClipper = False
+    logClipper = True
     
     
     
@@ -166,13 +166,14 @@ Public Function insertionClipperPointageBackground(ByVal NumCharge As Integer)
                 'EnregistrementComplem2.Close
                 
                 Call Log("CLIPPER FIN INSERT INTO COMPLEMS POCPL02 ", logClipper)
+                
+                Call Log(".TDetailsCharges(a).TypeReparation= " & .TDetailsCharges(a).TypeReparation, logClipper)
                
                 If (.TDetailsCharges(a).TypeReparation <> "") Then
                     Requete = "INSERT INTO COMPLEMS " & _
                     "(CLEUNIK,COPAR, COMPLEMENT) " & _
                     "VALUES ( " & lastId & "," _
-                    & "'POCPL03','" & .TDetailsCharges(a).TypeReparation _
-                    & "')"
+                    & "'POCPL03','" & .TDetailsCharges(a).TypeReparation & "')"
                     With EnregistrementComplem2
                         '--- lancement de la requête ---
                         .CursorLocation = adUseServer
@@ -337,7 +338,7 @@ Public Sub EnregistrementProductionAutreThread(ByVal NumCharge As Integer)
                         '--- enregistrement de la fiche ---
                         Enregistrement.AddNew
                         Enregistrement("NumCommandeInterne") = .NumCommandeInterne
-                        Enregistrement("TypeReparation") = .TypeReparation
+                        Enregistrement("NbrReparations") = .TypeReparation
                         Enregistrement("DateEntreeEnLigne") = TEtatsCharges(NumCharge).DateEntreeEnLigne
                         Enregistrement("DateArriveeAuDechargement") = TEtatsCharges(NumCharge).DateArriveeAuDechargement
                         Enregistrement("NumBarre") = TEtatsCharges(NumCharge).NumBarre

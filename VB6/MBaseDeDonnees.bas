@@ -2713,7 +2713,7 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                         '--- enregistrement de la fiche ---
                         Enregistrement.AddNew
                         Enregistrement("NumCommandeInterne") = .NumCommandeInterne
-                        Enregistrement("TypeReparation") = .TypeReparation
+                        Enregistrement("NbrReparations") = .TypeReparation
                         Enregistrement("DateEntreeEnLigne") = TEtatsCharges(NumCharge).DateEntreeEnLigne
                         Enregistrement("DateArriveeAuDechargement") = TEtatsCharges(NumCharge).DateArriveeAuDechargement
                         Enregistrement("NumBarre") = TEtatsCharges(NumCharge).NumBarre
@@ -3054,7 +3054,7 @@ Public Function testRecord()
     Enregistrement.AddNew
     Enregistrement("ClePrimaire") = 100906
     Enregistrement("NumCommandeInterne") = "260797"
-    Enregistrement("TypeReparation") = "5"
+    Enregistrement("NbrReparations") = "5"
     Enregistrement("DateEntreeEnLigne") = Now
     Enregistrement("DateArriveeAuDechargement") = Now
     Enregistrement("NumBarre") = 15
@@ -3075,7 +3075,7 @@ Public Function testRecord()
     Enregistrement.AddNew
     Enregistrement("ClePrimaire") = 100907
     Enregistrement("NumCommandeInterne") = "260798"
-    Enregistrement("TypeReparation") = 1
+    Enregistrement("NbrReparations") = 1
     Enregistrement("DateEntreeEnLigne") = Now
     Enregistrement("DateArriveeAuDechargement") = Now
     Enregistrement("NumBarre") = 16
