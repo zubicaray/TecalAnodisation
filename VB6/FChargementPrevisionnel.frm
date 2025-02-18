@@ -16,7 +16,7 @@ Begin VB.Form FChargementPrevisionnel
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    ScaleHeight     =   13005
-   ScaleWidth      =   13395
+   ScaleWidth      =   28680
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBDeplacementFenetre 
@@ -29,10 +29,10 @@ Begin VB.Form FChargementPrevisionnel
       Index           =   0
       Left            =   0
       ScaleHeight     =   12795
-      ScaleWidth      =   13395
+      ScaleWidth      =   28680
       TabIndex        =   3
       Top             =   375
-      Width           =   13395
+      Width           =   28680
       Begin VB.PictureBox PBDeplacementFenetre 
          Height          =   12675
          Index           =   1
@@ -3269,11 +3269,11 @@ Begin VB.Form FChargementPrevisionnel
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   13335
+      ScaleWidth      =   28620
       TabIndex        =   0
       TabStop         =   0   'False
       Top             =   11910
-      Width           =   13395
+      Width           =   28680
       Begin MSComctlLib.ImageList ILImagesNumChoix 
          Left            =   6120
          Top             =   60
@@ -3774,10 +3774,10 @@ Begin VB.Form FChargementPrevisionnel
       Height          =   375
       Left            =   0
       ScaleHeight     =   315
-      ScaleWidth      =   13335
+      ScaleWidth      =   28620
       TabIndex        =   1
       Top             =   0
-      Width           =   13395
+      Width           =   28680
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -7942,7 +7942,7 @@ Private Sub EditionChargement(ByRef KeyAscii As Integer)
                 Select Case MSHFGDetailsCharges.Col
                     'SZP 2023
                     Case COLONNES_DETAILS_CHARGES.C_NUM_COMMANDE_INTERNE: .Mask = ""
-                    Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS: .Mask = "#"
+                    Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS: .Mask = "#######"
                     Case COLONNES_DETAILS_CHARGES.C_NBR_PIECES: .Mask = "######"
                     Case Else
                 End Select
@@ -8197,17 +8197,19 @@ Private Function InsertionCommandeInterne(ByVal GrilleConcernee As TYPES_GRILLES
         TBNumGammeAnodisation = TTempEnrPhasesClipper.NumGamme
         TBMatiere = TTempEnrPhasesClipper.Matiere
         
-        
-        Dim NumGammeTexte As String
-        NumGammeTexte = Format(CLng(TBNumGammeAnodisation.Text), FORMAT_NUM_GAMME_ANODISATION)
             
         If MODE_DECONNECTE = False Then
             
             If RecherchePhasesClipper(NumCommandeInterne) = TROUVE Then
-            
-                ChargeGammeAnodisationChargement NumGammeTexte
                 TBNumGammeAnodisation = TTempEnrPhasesClipper.NumGamme
                 TBMatiere = TTempEnrPhasesClipper.Matiere
+                
+                
+                Dim NumGammeTexte As String
+                NumGammeTexte = Format(CLng(TBNumGammeAnodisation.Text), FORMAT_NUM_GAMME_ANODISATION)
+                ChargeGammeAnodisationChargement NumGammeTexte
+                
+         
                 If GrilleConcernee = TG_CHARGEMENT Then
                 
                     '--- grille du chargement ---

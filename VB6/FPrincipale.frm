@@ -26,6 +26,19 @@ Begin VB.MDIForm FPrincipale
       Top             =   7950
       Visible         =   0   'False
       Width           =   13395
+      Begin APPOCXCLIENTLib.AppOcxClient AOCFPrincipale 
+         Height          =   720
+         Left            =   1680
+         TabIndex        =   8
+         Top             =   240
+         Width           =   1050
+         _Version        =   65536
+         _ExtentX        =   1852
+         _ExtentY        =   1270
+         _StockProps     =   0
+         NameConfig      =   ""
+         PathConfig      =   "C:\PROGRAM FILES\COMMON FILES\APPLICOM"
+      End
       Begin RTUPDATEMANAGERLib.RTUpdateManager RTUpdateManager1 
          Height          =   675
          Left            =   2640
@@ -44,19 +57,6 @@ Begin VB.MDIForm FPrincipale
          XIPPort         =   -1  'True
          XRadioModemPort =   -1  'True
       End
-      Begin APPOCXCLIENTLib.AppOcxClient AOCFPrincipale 
-         Height          =   720
-         Left            =   1215
-         TabIndex        =   8
-         Top             =   105
-         Width           =   1050
-         _Version        =   65536
-         _ExtentX        =   1852
-         _ExtentY        =   1270
-         _StockProps     =   0
-         NameConfig      =   "FPrincipale"
-         PathConfig      =   "C:\Anodisation\Base de données"
-      End
       Begin RichTextLib.RichTextBox RTBTampon 
          Height          =   435
          Left            =   120
@@ -66,7 +66,6 @@ Begin VB.MDIForm FPrincipale
          _ExtentX        =   1826
          _ExtentY        =   767
          _Version        =   393217
-         Enabled         =   -1  'True
          Appearance      =   0
          TextRTF         =   $"FPrincipale.frx":08CA
       End
@@ -240,8 +239,8 @@ Begin VB.MDIForm FPrincipale
          Negotiate       =   -1  'True
          TabIndex        =   11
          Top             =   45
-         Width           =   6870
-         _ExtentX        =   12118
+         Width           =   5610
+         _ExtentX        =   9895
          _ExtentY        =   953
          ButtonWidth     =   609
          ButtonHeight    =   953

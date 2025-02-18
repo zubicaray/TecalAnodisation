@@ -4,6 +4,7 @@ REM Définition des chemins sources et de destination
 set "source_frx=C:\Anodisation\VBFeuilles"
 set "source_bas=C:\Anodisation\VBModules"
 set "source_bat=C:\Anodisation"
+set "source_class=C:\Anodisation\VBClasses"
 set "destination=Z:\ZDEV\TECAL\SOURCES\TecalAnodisation\VB6\"
 
 REM Vérifie si le dossier de destination existe, sinon le crée
@@ -12,9 +13,18 @@ if not exist "%destination%" (
     mkdir "%destination%"
 )
 
+REM Copie des fichiers .cls
+echo Copie des fichiers .cls depuis %source_class% vers %destination%
+xcopy "%source_class%\*.cls" "%destination%" /Y
+
 REM Copie des fichiers .frm
 echo Copie des fichiers .frm depuis %source_frx% vers %destination%
 xcopy "%source_frx%\*.frm" "%destination%" /Y
+
+REM Copie des fichiers .frx
+echo Copie des fichiers .frx depuis %source_frx% vers %destination%
+xcopy "%source_frx%\*.frx" "%destination%" /Y
+
 
 REM Copie des fichiers .bas
 echo Copie des fichiers .bas depuis %source_bas% vers %destination%
