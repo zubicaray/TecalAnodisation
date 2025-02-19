@@ -16,7 +16,7 @@ Begin VB.Form FChargementPrevisionnel
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    ScaleHeight     =   13005
-   ScaleWidth      =   28680
+   ScaleWidth      =   13395
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBDeplacementFenetre 
@@ -29,10 +29,10 @@ Begin VB.Form FChargementPrevisionnel
       Index           =   0
       Left            =   0
       ScaleHeight     =   12795
-      ScaleWidth      =   28680
+      ScaleWidth      =   13395
       TabIndex        =   3
       Top             =   375
-      Width           =   28680
+      Width           =   13395
       Begin VB.PictureBox PBDeplacementFenetre 
          Height          =   12675
          Index           =   1
@@ -3269,11 +3269,11 @@ Begin VB.Form FChargementPrevisionnel
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   28620
+      ScaleWidth      =   13335
       TabIndex        =   0
       TabStop         =   0   'False
       Top             =   11910
-      Width           =   28680
+      Width           =   13395
       Begin MSComctlLib.ImageList ILImagesNumChoix 
          Left            =   6120
          Top             =   60
@@ -3774,10 +3774,10 @@ Begin VB.Form FChargementPrevisionnel
       Height          =   375
       Left            =   0
       ScaleHeight     =   315
-      ScaleWidth      =   28620
+      ScaleWidth      =   13335
       TabIndex        =   1
       Top             =   0
-      Width           =   28680
+      Width           =   13395
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -3996,6 +3996,7 @@ Private Sub ComboBoxR_Click()
       ' Transférer la valeur sélectionnée dans la cellule
    
     MSHFGDetailsCharges.TextMatrix(MSHFGDetailsCharges.Row, MSHFGDetailsCharges.Col) = selectedID
+    TChargement.TDetailsCharges(MSHFGDetailsCharges.Row).TypeReparation = selectedID
     ComboBoxR.Visible = False
    
     'MsgBox "ID sélectionné : " & selectedID
@@ -4918,6 +4919,7 @@ Private Sub MEBEditionDetailsCharges_LostFocus()
                 Else
                     TChargement.TDetailsCharges(MemNumLigne).NbrPieces = 0
                 End If
+                
             
             Case Else
     
@@ -7655,7 +7657,9 @@ Private Sub GestionDetailsCharges(ByVal EtatSouhaite As GESTION_GRILLES)
                         End If
 
                         .Col = COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS
-                        If .Text <> TChargement.TDetailsCharges(a).TypeReparation Then .Text = TChargement.TDetailsCharges(a).TypeReparation
+                        If .Text <> TChargement.TDetailsCharges(a).TypeReparation Then
+                            .Text = TChargement.TDetailsCharges(a).TypeReparation
+                        End If
                         
                         .Col = COLONNES_DETAILS_CHARGES.C_CODE_CLIENT
                         If .Text <> TChargement.TDetailsCharges(a).CodeClient Then .Text = TChargement.TDetailsCharges(a).CodeClient
@@ -7942,7 +7946,7 @@ Private Sub EditionChargement(ByRef KeyAscii As Integer)
                 Select Case MSHFGDetailsCharges.Col
                     'SZP 2023
                     Case COLONNES_DETAILS_CHARGES.C_NUM_COMMANDE_INTERNE: .Mask = ""
-                    Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS: .Mask = "#######"
+                    'Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS: .Mask = "#######"
                     Case COLONNES_DETAILS_CHARGES.C_NBR_PIECES: .Mask = "######"
                     Case Else
                 End Select
@@ -8030,7 +8034,7 @@ Private Sub EditionPrevisionnel(ByRef KeyAscii As Integer)
                 .Text = ""
                 Select Case MSHFGPrevisionnel.Col
                     Case COLONNES_PREVISIONNEL.C_NUM_COMMANDE_INTERNE: .Mask = "########"
-                    Case COLONNES_PREVISIONNEL.C_NBR_REPARATIONS: .Mask = "#"
+                    Case COLONNES_PREVISIONNEL.C_NBR_REPARATIONS: .Mask = "#######"
                     Case COLONNES_PREVISIONNEL.C_NBR_PIECES: .Mask = "######.##"
                     Case COLONNES_PREVISIONNEL.C_NUM_BARRE: .Mask = "##"
                     Case COLONNES_PREVISIONNEL.C_NUM_GAMME_ANODISATION: .Mask = "######"

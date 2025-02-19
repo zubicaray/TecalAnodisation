@@ -36,8 +36,8 @@ Begin VB.MDIForm FPrincipale
          _ExtentX        =   1852
          _ExtentY        =   1270
          _StockProps     =   0
-         NameConfig      =   ""
-         PathConfig      =   "C:\PROGRAM FILES\COMMON FILES\APPLICOM"
+         NameConfig      =   "FPrincipale"
+         PathConfig      =   "C:\Anodisation\Base de données"
       End
       Begin RTUPDATEMANAGERLib.RTUpdateManager RTUpdateManager1 
          Height          =   675
@@ -66,6 +66,7 @@ Begin VB.MDIForm FPrincipale
          _ExtentX        =   1826
          _ExtentY        =   767
          _Version        =   393217
+         Enabled         =   -1  'True
          Appearance      =   0
          TextRTF         =   $"FPrincipale.frx":08CA
       End
