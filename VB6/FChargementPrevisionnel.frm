@@ -43,13 +43,13 @@ Begin VB.Form FChargementPrevisionnel
          Top             =   0
          Width           =   28560
          Begin C1SizerLibCtl.C1Tab CTOnglets 
-            Height          =   12255
+            Height          =   12375
             Left            =   240
             TabIndex        =   11
             Top             =   240
             Width           =   28215
             _cx             =   49768
-            _cy             =   21616
+            _cy             =   21828
             BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                Name            =   "Arial"
                Size            =   9.75
@@ -98,10 +98,10 @@ Begin VB.Form FChargementPrevisionnel
             Picture(0)      =   "FChargementPrevisionnel.frx":014A
             Picture(1)      =   "FChargementPrevisionnel.frx":02A4
             Begin VB.PictureBox PBOnglets 
-               Height          =   11715
+               Height          =   11835
                Index           =   1
                Left            =   28860
-               ScaleHeight     =   11655
+               ScaleHeight     =   11775
                ScaleWidth      =   28065
                TabIndex        =   41
                Top             =   495
@@ -853,40 +853,40 @@ Begin VB.Form FChargementPrevisionnel
                End
             End
             Begin VB.PictureBox PBOnglets 
-               Height          =   11715
+               Height          =   11835
                Index           =   8
                Left            =   29760
-               ScaleHeight     =   11655
+               ScaleHeight     =   11775
                ScaleWidth      =   28065
                TabIndex        =   15
                Top             =   495
                Width           =   28125
             End
             Begin VB.PictureBox PBOnglets 
-               Height          =   11715
+               Height          =   11835
                Index           =   7
                Left            =   29460
-               ScaleHeight     =   11655
+               ScaleHeight     =   11775
                ScaleWidth      =   28065
                TabIndex        =   14
                Top             =   495
                Width           =   28125
             End
             Begin VB.PictureBox PBOnglets 
-               Height          =   11715
+               Height          =   11835
                Index           =   5
                Left            =   29160
-               ScaleHeight     =   11655
+               ScaleHeight     =   11775
                ScaleWidth      =   28065
                TabIndex        =   13
                Top             =   495
                Width           =   28125
             End
             Begin VB.PictureBox PBOnglets 
-               Height          =   11715
+               Height          =   11835
                Index           =   0
                Left            =   45
-               ScaleHeight     =   11655
+               ScaleHeight     =   11775
                ScaleWidth      =   28065
                TabIndex        =   12
                Top             =   495
@@ -3557,13 +3557,14 @@ Begin VB.Form FChargementPrevisionnel
          EndProperty
       End
       Begin PicClip.PictureClip PCCharges 
-         Left            =   9300
-         Top             =   60
+         Left            =   10920
+         Top             =   -480
          _ExtentX        =   7673
          _ExtentY        =   17463
          _Version        =   393216
          Rows            =   12
          Cols            =   10
+         Picture         =   "FChargementPrevisionnel.frx":1C6A0
       End
       Begin MSComctlLib.ImageList ILOutilsGestionGrilles2 
          Left            =   3360
@@ -3578,15 +3579,15 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   3
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1C6A0
+               Picture         =   "FChargementPrevisionnel.frx":A8F12
                Key             =   "supprimer"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1C6FE
+               Picture         =   "FChargementPrevisionnel.frx":A8F70
                Key             =   "compacter"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1C75C
+               Picture         =   "FChargementPrevisionnel.frx":A8FCE
                Key             =   "inserer"
             EndProperty
          EndProperty
@@ -3604,7 +3605,7 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   1
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1C7BA
+               Picture         =   "FChargementPrevisionnel.frx":A902C
                Key             =   "effacer grille"
             EndProperty
          EndProperty
@@ -3617,6 +3618,7 @@ Begin VB.Form FChargementPrevisionnel
          _Version        =   393216
          Rows            =   12
          Cols            =   10
+         Picture         =   "FChargementPrevisionnel.frx":A908A
       End
       Begin MSComctlLib.ImageList ILGrillesDonnees 
          Left            =   1440
@@ -3631,107 +3633,107 @@ Begin VB.Form FChargementPrevisionnel
          BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
             NumListImages   =   26
             BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1C818
+               Picture         =   "FChargementPrevisionnel.frx":1358FC
                Key             =   "fleche noire"
             EndProperty
             BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1C876
+               Picture         =   "FChargementPrevisionnel.frx":13595A
                Key             =   "fleche blanche"
             EndProperty
             BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1C8D4
+               Picture         =   "FChargementPrevisionnel.frx":1359B8
                Key             =   "fleche grise"
             EndProperty
             BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1C932
+               Picture         =   "FChargementPrevisionnel.frx":135A16
                Key             =   "fleche rouge"
             EndProperty
             BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1C990
+               Picture         =   "FChargementPrevisionnel.frx":135A74
                Key             =   "fleche jaune"
             EndProperty
             BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1C9EE
+               Picture         =   "FChargementPrevisionnel.frx":135AD2
                Key             =   "fleche verte"
             EndProperty
             BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CA4C
+               Picture         =   "FChargementPrevisionnel.frx":135B30
                Key             =   "fleche cyan"
             EndProperty
             BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CAAA
+               Picture         =   "FChargementPrevisionnel.frx":135B8E
                Key             =   "fleche bleue"
             EndProperty
             BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CB08
+               Picture         =   "FChargementPrevisionnel.frx":135BEC
                Key             =   "etoile noire"
             EndProperty
             BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CB66
+               Picture         =   "FChargementPrevisionnel.frx":135C4A
                Key             =   "etoile blanche"
             EndProperty
             BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CBC4
+               Picture         =   "FChargementPrevisionnel.frx":135CA8
                Key             =   "etoile grise"
             EndProperty
             BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CC22
+               Picture         =   "FChargementPrevisionnel.frx":135D06
                Key             =   "etoile rouge"
             EndProperty
             BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CC80
+               Picture         =   "FChargementPrevisionnel.frx":135D64
                Key             =   "etoile jaune"
             EndProperty
             BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CCDE
+               Picture         =   "FChargementPrevisionnel.frx":135DC2
                Key             =   "etoile verte"
             EndProperty
             BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CD3C
+               Picture         =   "FChargementPrevisionnel.frx":135E20
                Key             =   "etoile cyan"
             EndProperty
             BeginProperty ListImage16 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CD9A
+               Picture         =   "FChargementPrevisionnel.frx":135E7E
                Key             =   "etoile bleue"
             EndProperty
             BeginProperty ListImage17 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CDF8
+               Picture         =   "FChargementPrevisionnel.frx":135EDC
                Key             =   "modification noire"
             EndProperty
             BeginProperty ListImage18 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CE56
+               Picture         =   "FChargementPrevisionnel.frx":135F3A
                Key             =   "modification blanche"
             EndProperty
             BeginProperty ListImage19 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CEB4
+               Picture         =   "FChargementPrevisionnel.frx":135F98
                Key             =   "modification grise"
             EndProperty
             BeginProperty ListImage20 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CF12
+               Picture         =   "FChargementPrevisionnel.frx":135FF6
                Key             =   "modification rouge"
             EndProperty
             BeginProperty ListImage21 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CF70
+               Picture         =   "FChargementPrevisionnel.frx":136054
                Key             =   "modification jaune"
             EndProperty
             BeginProperty ListImage22 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1CFCE
+               Picture         =   "FChargementPrevisionnel.frx":1360B2
                Key             =   "modification vert"
             EndProperty
             BeginProperty ListImage23 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1D02C
+               Picture         =   "FChargementPrevisionnel.frx":136110
                Key             =   "modification cyan"
             EndProperty
             BeginProperty ListImage24 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1D08A
+               Picture         =   "FChargementPrevisionnel.frx":13616E
                Key             =   "modification bleue"
             EndProperty
             BeginProperty ListImage25 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1D0E8
+               Picture         =   "FChargementPrevisionnel.frx":1361CC
                Key             =   "indicateur vert"
             EndProperty
             BeginProperty ListImage26 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-               Picture         =   "FChargementPrevisionnel.frx":1D146
+               Picture         =   "FChargementPrevisionnel.frx":13622A
                Key             =   "indicateur rouge"
             EndProperty
          EndProperty
@@ -8706,18 +8708,25 @@ Private Sub IntroductionChargeAuChargement(ByVal NumPoste As Integer)
                 .Options1 = 0
                 .Options2 = 0
                 
+                .VitesseBas = 2
+                .VitesseHaut = 2
+                
                 '--- options 1 / partie concernant les ponts ---
                 If CBOptionsPonts(OPTIONS_GAMME.O_FORCER_DESCENTE_EN_PV).value = 1 Then
                     .Options1 = .Options1 + 8                         'bit 3 du mot des options 1
+                     .VitesseBas = 1
                 End If
                 If CBOptionsPonts(OPTIONS_GAMME.O_FORCER_DESCENTE_EN_TPV).value = 1 Then
                     .Options1 = .Options1 + 4                         'bit 2 du mot des options 1
+                     .VitesseBas = 0
                 End If
                 If CBOptionsPonts(OPTIONS_GAMME.O_FORCER_MONTEE_EN_PV).value = 1 Then
                     .Options1 = .Options1 + 2                         'bit 1 du mot des options 1
+                     .VitesseHaut = 1
                 End If
                 If CBOptionsPonts(OPTIONS_GAMME.O_FORCER_MONTEE_EN_TPV).value = 1 Then
                     .Options1 = .Options1 + 1                         'bit 0 du mot des options 1
+                     .VitesseHaut = 0
                 End If
             
                 '--- options 2 / partie concernant les postes ---

@@ -2717,6 +2717,9 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                         Enregistrement("DateEntreeEnLigne") = TEtatsCharges(NumCharge).DateEntreeEnLigne
                         Enregistrement("DateArriveeAuDechargement") = TEtatsCharges(NumCharge).DateArriveeAuDechargement
                         Enregistrement("NumBarre") = TEtatsCharges(NumCharge).NumBarre
+                        Enregistrement("vitesse_bas") = TEtatsCharges(NumCharge).VitesseBas
+                        Enregistrement("vitesse_haut") = TEtatsCharges(NumCharge).VitesseHaut
+                        
                         Call Log("Enregistrement(NumBarre) = TEtatsCharges(NumCharge).NumBarre=" & TEtatsCharges(NumCharge).NumBarre, showLogs)
                         
                         Enregistrement("NumLigne") = a
@@ -2877,6 +2880,14 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                 .Open TABLE_DETAILS_FICHES_PRODUCTION, ConnexionBDAnodisationSQL, , adCmdTable
             End With
         
+            Dim previousDateSortie As Date
+            previousDateSortie = ""
+            Dim previousPoste As Integer
+            Dim egouttage As Integer
+            previousPoste = 0
+            Dim diffEnSecondes As Long
+
+            
             '--- enregistrement des détails des fiches de production ---
             For a = LBound(.TDetailsFichesProduction()) To UBound(.TDetailsFichesProduction())
                 
@@ -2903,6 +2914,16 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                         Enregistrement("AnalyseurEnSortie") = .AnalyseurEnSortie
                         Enregistrement("GrapheAnalyseur") = .GrapheAnalyseur
                         Enregistrement("AlarmesPoste") = .AlarmesPoste
+                        
+                        If previousDateSortie <> "" Then
+                            diffEnSecondes = DateDiff("s", previousDateSortie, .DateEntreePoste) - egouttage
+                            Enregistrement("TempsDeplacement") = diffEnSecondes
+                            Enregistrement("NumPostePrecedent") = previousPoste
+                        End If
+                        previousDateSortie = .DateSortiePoste
+                        previousPoste = .NumPoste
+                        egouttage = DateDiff("s", .DateDebutEgouttage, .DateFinEgouttage)
+                        
                         'Enregistrement.Update
                     
                     Else

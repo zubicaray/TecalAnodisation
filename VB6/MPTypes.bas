@@ -851,6 +851,11 @@ Public Type etatsCharges
                                                                                        'les options 2 (vitesses de montée-descente, etc ...)
                                                                                        'pour certaines charges sur les ponts
    
+    
+    VitesseHaut As Integer
+    VitesseBas As Integer
+        
+    
     TDetailsCharges(1 To NBR_LIGNES_DETAILS_CHARGES) As DetailsCharges 'voir ci-dessus
     
     TGammesAnodisation As EnrGammesAnodisation  'gammes d'anodisation complète pour la production
