@@ -225,7 +225,7 @@ Public Enum POSTES
         
 End Enum
 
-Public Const POSTE_ETUVE  As Integer = 37
+Public Const ZONE_ETUVE  As Integer = 37
 
 Public Const PREMIER_POSTE  As Integer = 1
 Public Const PREMIER_BAIN  As Integer = 4

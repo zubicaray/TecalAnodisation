@@ -35,7 +35,7 @@ Public Function insertionClipperPointageBackground(ByVal NumCharge As Integer)
     Dim ConnexionBDClipper As New ADODB.Connection
    
     Dim logClipper As Boolean
-    logClipper = True
+    logClipper = False
     
     
     

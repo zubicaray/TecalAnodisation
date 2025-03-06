@@ -15,8 +15,8 @@ Begin VB.Form FChargementPrevisionnel
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   13005
-   ScaleWidth      =   13395
+   ScaleHeight     =   15690
+   ScaleWidth      =   28680
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBDeplacementFenetre 
@@ -29,10 +29,10 @@ Begin VB.Form FChargementPrevisionnel
       Index           =   0
       Left            =   0
       ScaleHeight     =   12795
-      ScaleWidth      =   13395
+      ScaleWidth      =   28680
       TabIndex        =   3
       Top             =   375
-      Width           =   13395
+      Width           =   28680
       Begin VB.PictureBox PBDeplacementFenetre 
          Height          =   12675
          Index           =   1
@@ -3269,11 +3269,11 @@ Begin VB.Form FChargementPrevisionnel
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   13335
+      ScaleWidth      =   28620
       TabIndex        =   0
       TabStop         =   0   'False
-      Top             =   11910
-      Width           =   13395
+      Top             =   14595
+      Width           =   28680
       Begin MSComctlLib.ImageList ILImagesNumChoix 
          Left            =   6120
          Top             =   60
@@ -3776,10 +3776,10 @@ Begin VB.Form FChargementPrevisionnel
       Height          =   375
       Left            =   0
       ScaleHeight     =   315
-      ScaleWidth      =   13335
+      ScaleWidth      =   28620
       TabIndex        =   1
       Top             =   0
-      Width           =   13395
+      Width           =   28680
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -8611,7 +8611,7 @@ Private Sub IntroductionChargeAuChargement(ByVal NumPoste As Integer)
                     
                     ' l'avant dernière zone devient un passage à l'étuve
                     With .TGammesAnodisation.TDetailsGammesAnodisation(NumDerniereLigneGamme)
-                        .NumZone = POSTE_ETUVE
+                        .NumZone = ZONE_ETUVE
                         .TempsAuPosteTexte = "00:" & EtuveTpsPoste.Text & ":00"
                         .TempsAuPosteSecondes = CInt(EtuveTpsPoste.Text) * 60
                         

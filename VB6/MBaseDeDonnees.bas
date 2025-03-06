@@ -2881,11 +2881,11 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
             End With
         
             Dim previousDateSortie As Date
-            previousDateSortie = ""
+            previousDateSortie = 0
             Dim previousPoste As Integer
             Dim egouttage As Integer
             previousPoste = 0
-            Dim diffEnSecondes As Long
+            Dim diffEnSecondes As Integer
 
             
             '--- enregistrement des détails des fiches de production ---
@@ -2897,6 +2897,7 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                    
                         '--- enregistrement de la fiche ---
                         Enregistrement.AddNew
+                        Call Log("DETAILS DES FICHES DE PRODUCTION ici -1", showLogs)
                         Enregistrement("NumFicheProduction") = NumFicheProduction
                         Enregistrement("NumLigne") = a
                         Enregistrement("NumPoste") = .NumPoste
@@ -2907,23 +2908,34 @@ Public Sub EnregistrementProductionLocal(ByVal NumCharge As Integer)
                         Enregistrement("TemperatureEnEntree") = .TemperatureEnEntree
                         Enregistrement("TemperatureEnSortie") = .TemperatureEnSortie
                         Enregistrement("GrapheTemperature") = .GrapheTemperature
+                        Call Log("DETAILS DES FICHES DE PRODUCTION ici a", showLogs)
                         Enregistrement("URedresseur") = .URedresseur
                         Enregistrement("IRedresseur") = .IRedresseur
                         Enregistrement("GrapheRedresseur") = .GrapheRedresseur
                         Enregistrement("AnalyseurEnEntree") = .AnalyseurEnEntree
+                        Call Log("DETAILS DES FICHES DE PRODUCTION ici b", showLogs)
                         Enregistrement("AnalyseurEnSortie") = .AnalyseurEnSortie
                         Enregistrement("GrapheAnalyseur") = .GrapheAnalyseur
                         Enregistrement("AlarmesPoste") = .AlarmesPoste
-                        
-                        If previousDateSortie <> "" Then
+                        Call Log("DETAILS DES FICHES DE PRODUCTION ici 1", showLogs)
+                        If previousPoste <> 0 Then
+                            Call Log("DETAILS DES FICHES DE PRODUCTION FIRST", showLogs)
                             diffEnSecondes = DateDiff("s", previousDateSortie, .DateEntreePoste) - egouttage
                             Enregistrement("TempsDeplacement") = diffEnSecondes
                             Enregistrement("NumPostePrecedent") = previousPoste
                         End If
+                        Call Log("DETAILS DES FICHES DE PRODUCTION ici 2", showLogs)
                         previousDateSortie = .DateSortiePoste
+                        Call Log("DETAILS DES FICHES DE PRODUCTION ici 2", showLogs)
                         previousPoste = .NumPoste
-                        egouttage = DateDiff("s", .DateDebutEgouttage, .DateFinEgouttage)
+                        Call Log("DETAILS DES FICHES DE PRODUCTION ici 3", showLogs)
+                        If .DateDebutEgouttage <> 0 And .DateFinEgouttage <> 0 Then
+                            egouttage = DateDiff("s", .DateDebutEgouttage, .DateFinEgouttage)
+                        Else
+                            egouttage = 0
+                        End If
                         
+                        Call Log("DETAILS DES FICHES DE PRODUCTION ici 4", showLogs)
                         'Enregistrement.Update
                     
                     Else
@@ -2973,7 +2985,7 @@ GestionErreurs:
     'EnregistrementProductionLocal = CStr(Err.Number)
     
     AfficheRenseignements ROUGE_0, "Erreur d'enregitrement en base: " & CStr(Err.Number) & vbCrLf
-    Call Log("Erreur d'enregitrement en base: " & CStr(Err.Description))
+    Call Log("Erreur d'enregitrement en base: " & Err.Description & CStr(Err.Number))
     '--- fermeture de l'enregistrement / connexion ---
     On Error Resume Next
     Enregistrement.Close
