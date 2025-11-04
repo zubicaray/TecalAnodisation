@@ -9007,7 +9007,7 @@ Private Sub VisualisationLibelles(ByRef EtatsUnPoste As EtatsPostes, _
             Else
                 NumCuve = CorrespondancePostesCuvesAPI(.DefinitionPoste.NumPoste)
                 If NumCuve > 0 Then
-                    If TEtatsCuves(NumCuve).UnDefautAuMoinsSignale = True Then
+                    If TEtatsCuvesAPI(NumCuve).UnDefautAuMoinsSignale = True Then
                         AfficheAnimations N_LIBELLES, EffacerOuActualiser, .DefinitionPoste.NumPoste, TYPES_AFFICHAGES_LIBELLES.E_DEFAUT
                     End If
                 End If
@@ -9820,11 +9820,11 @@ Private Sub AfficheAnimations(ByVal NomAnimations As NOMS_ANIMATIONS, _
                         Case POSTES.P_CHGT_1 To POSTES.P_CHGT_2
                             .Right = .Left + DIMENSIONS_ANIMATIONS.D_LONG_1_LIBELLE
                         'Case PREMIER_BAIN To POSTES.P_C35
-                        Case POSTES.P_C02 To POSTES.P_C35
+                        Case POSTES.P_C00 To POSTES.P_C37
                             .Right = .Left + DIMENSIONS_ANIMATIONS.D_LONG_2_LIBELLE
                         Case POSTES.P_D1 To POSTES.P_D2
                             .Right = .Left + DIMENSIONS_ANIMATIONS.D_LONG_3_LIBELLE
-                        Case POSTES.P_C37 To POSTES.P_C38
+                        Case POSTES.P_C38 To POSTES.P_C39
                             .Right = .Left + DIMENSIONS_ANIMATIONS.D_LONG_2_LIBELLE
                         Case Else
                     End Select
@@ -11059,7 +11059,7 @@ Public Sub VisualisationEtatsLigne()
                 '--- indicateur d'un défaut sur une cuve ---
                 NumCuve = CorrespondancePostesCuvesAPI(a)
                 If NumCuve > 0 Then
-                    If TEtatsCuves(NumCuve).UnDefautAuMoinsSignale = True Then
+                    If TEtatsCuvesAPI(NumCuve).UnDefautAuMoinsSignale = True Then
                         '--- passage en couleur rouge ---
                         If IEtatsPostes(a).Picture <> ILOutilsDivers.ListImages(RECTANGLE_ROUGE).Picture Then
                             IEtatsPostes(a).Picture = ILOutilsDivers.ListImages(RECTANGLE_ROUGE).Picture
@@ -11180,12 +11180,12 @@ Public Sub VisualisationEtatsLigne()
     '                                                CUVES GEREES PAR l'API
     '*************************************************************************************************
     '--- programmateur cyclique et températures des cuves ---
-    For a = CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION
+    For a = CUVES_API.C_C00 To DERNIERE_CUV_REGULATION
         
         '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         
         '--- mode la régulation ---
-        Select Case TEtatsCuves(a).ModeRegulation
+        Select Case TEtatsCuvesAPI(a).ModeRegulation
         
             Case MODES_REGULATION.MR_MANUEL
                 '--- mode manuel de la régulation ---
@@ -11205,29 +11205,29 @@ Public Sub VisualisationEtatsLigne()
         End Select
         
         '--- affichage ---
-        AffichageTexte LManuAutoRegulation(TEtatsCuves(a).IndexAutomate), Texte, CouleurFond, CouleurPlan
+        AffichageTexte LManuAutoRegulation(TEtatsCuvesAPI(a).IndexAutomate), Texte, CouleurFond, CouleurPlan
         
         '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         
         '--- mode de production de chaque cuve ---
-        Select Case TEtatsCuves(a).ModeProduction
+        Select Case TEtatsCuvesAPI(a).ModeProduction
         
             Case MODES_PRODUCTION.M_ARRET
                 '--- mode arrêt ---
-                If IMProgrammateurCycliqueCuves(TEtatsCuves(a).IndexAutomate).Picture <> ILProgrammateurCycliqueCuves.ListImages(CHRONOMETRE_BLANC).Picture Then
-                    Set IMProgrammateurCycliqueCuves(TEtatsCuves(a).IndexAutomate).Picture = ILProgrammateurCycliqueCuves.ListImages(CHRONOMETRE_BLANC).Picture
+                If IMProgrammateurCycliqueCuves(TEtatsCuvesAPI(a).IndexAutomate).Picture <> ILProgrammateurCycliqueCuves.ListImages(CHRONOMETRE_BLANC).Picture Then
+                    Set IMProgrammateurCycliqueCuves(TEtatsCuvesAPI(a).IndexAutomate).Picture = ILProgrammateurCycliqueCuves.ListImages(CHRONOMETRE_BLANC).Picture
                 End If
         
             Case MODES_PRODUCTION.M_VEILLE
                 '--- mode veille ---
-                If IMProgrammateurCycliqueCuves(TEtatsCuves(a).IndexAutomate).Picture <> ILProgrammateurCycliqueCuves.ListImages(CHRONOMETRE_CYAN).Picture Then
-                    Set IMProgrammateurCycliqueCuves(TEtatsCuves(a).IndexAutomate).Picture = ILProgrammateurCycliqueCuves.ListImages(CHRONOMETRE_CYAN).Picture
+                If IMProgrammateurCycliqueCuves(TEtatsCuvesAPI(a).IndexAutomate).Picture <> ILProgrammateurCycliqueCuves.ListImages(CHRONOMETRE_CYAN).Picture Then
+                    Set IMProgrammateurCycliqueCuves(TEtatsCuvesAPI(a).IndexAutomate).Picture = ILProgrammateurCycliqueCuves.ListImages(CHRONOMETRE_CYAN).Picture
                 End If
         
             Case MODES_PRODUCTION.M_PRODUCTION
                 '--- mode de production ---
-                If IMProgrammateurCycliqueCuves(TEtatsCuves(a).IndexAutomate).Picture <> ILProgrammateurCycliqueCuves.ListImages(CHRONOMETRE_ORANGE).Picture Then
-                    Set IMProgrammateurCycliqueCuves(TEtatsCuves(a).IndexAutomate).Picture = ILProgrammateurCycliqueCuves.ListImages(CHRONOMETRE_ORANGE).Picture
+                If IMProgrammateurCycliqueCuves(TEtatsCuvesAPI(a).IndexAutomate).Picture <> ILProgrammateurCycliqueCuves.ListImages(CHRONOMETRE_ORANGE).Picture Then
+                    Set IMProgrammateurCycliqueCuves(TEtatsCuvesAPI(a).IndexAutomate).Picture = ILProgrammateurCycliqueCuves.ListImages(CHRONOMETRE_ORANGE).Picture
                 End If
         
             Case Else
@@ -11236,7 +11236,7 @@ Public Sub VisualisationEtatsLigne()
         '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         '--- températures ---
-        With TEtatsCuves(a).Temperatures
+        With TEtatsCuvesAPI(a).Temperatures
             RetourControleTemperature = ControleTemperature(a)
             Select Case RetourControleTemperature
                 Case CONTROLES_TEMPERATURES.C_PAS_DE_CONTROLE: CouleurFond = COULEURS.VERT_3: CouleurPlan = COULEURS.NOIR
@@ -11255,15 +11255,15 @@ Public Sub VisualisationEtatsLigne()
                 Case CONTROLES_TEMPERATURES.C_DEFAUT_PT100: Texte = "PT100"
                 Case Else: Texte = Format(.TempActuelle, FORMAT_TEMPERATURE_COMPACTE_1_DECIMALE_UNITE)
             End Select
-            AffichageTexte OccFSynoptique.LTemperatures(TEtatsCuves(a).IndexAutomate), Texte, CouleurFond, CouleurPlan
+            AffichageTexte OccFSynoptique.LTemperatures(TEtatsCuvesAPI(a).IndexAutomate), Texte, CouleurFond, CouleurPlan
         End With
     
         '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         
         '--- niveaux ---
-        If TEtatsCuves(a).DefinitionCuve.PresenceNiveauBas = True Or TEtatsCuves(a).DefinitionCuve.PresenceNiveauHaut = True Then
+        If TEtatsCuvesAPI(a).DefinitionCuve.PresenceNiveauBas = True Or TEtatsCuvesAPI(a).DefinitionCuve.PresenceNiveauHaut = True Then
             
-            Select Case TEtatsCuves(a).EtatsNiveaux
+            Select Case TEtatsCuvesAPI(a).EtatsNiveaux
                 
                 Case ETATS_NIVEAUX.E_TRES_BAS
                     Texte = "TRES BAS"
@@ -11287,7 +11287,7 @@ Public Sub VisualisationEtatsLigne()
             End Select
             
             '--- couleurs clignotantes pour les niveaux importants ---
-            If TEtatsCuves(a).EtatsNiveaux = ETATS_NIVEAUX.E_TRES_BAS Or TEtatsCuves(a).EtatsNiveaux = ETATS_NIVEAUX.E_TRES_HAUT Then
+            If TEtatsCuvesAPI(a).EtatsNiveaux = ETATS_NIVEAUX.E_TRES_BAS Or TEtatsCuvesAPI(a).EtatsNiveaux = ETATS_NIVEAUX.E_TRES_HAUT Then
                 If ClignotantRapide = 0 Then
                     CouleurFond = COULEURS.BLANC: CouleurPlan = COULEURS.BLANC
                 Else
@@ -11298,7 +11298,7 @@ Public Sub VisualisationEtatsLigne()
             End If
             
             '--- affichage ---
-            AffichageTexte LNiveaux(TEtatsCuves(a).IndexAutomate), Texte, CouleurFond, CouleurPlan
+            AffichageTexte LNiveaux(TEtatsCuvesAPI(a).IndexAutomate), Texte, CouleurFond, CouleurPlan
         
         End If
     

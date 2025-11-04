@@ -168,7 +168,7 @@ Public Function ChargeProgCyclique() As String
 
             '--- lecture des données ---
             For a = 1 To NBR_JOURS_PROG_CYCLIQUE
-                For b = CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION
+                For b = CUVES_API.C_C00 To DERNIERE_CUV_REGULATION
                     With TProgCyclique(a, b)
                         Input #NumFic, .TypeDeJournee
                         Input #NumFic, Bidon
@@ -324,7 +324,7 @@ Public Function SauveProgCyclique() As String
 
     '--- enregistrement ---
     For a = 1 To NBR_JOURS_PROG_CYCLIQUE
-        For b = CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION
+        For b = CUVES_API.C_C00 To DERNIERE_CUV_REGULATION
             With TProgCyclique(a, b)
 
                 '--- affectation sur le libellé de la journée ---
@@ -338,11 +338,11 @@ Public Function SauveProgCyclique() As String
 
                 '--- écriture sur le disque ---
                 Write #NumFic, .TypeDeJournee
-                Write #NumFic, "Journée " & CStr(a) & LibelleJournee & ", cuve " & TEtatsCuves(b).DefinitionCuve.NomCuve & ", pompe"
+                Write #NumFic, "Journée " & CStr(a) & LibelleJournee & ", cuve " & TEtatsCuvesAPI(b).DefinitionCuve.NomCuve & ", pompe"
                 For c = 1 To NBR_TOPS_POSSIBLES
                     Write #NumFic, .TTopsDebutPompe(c), .TTopsFinPompe(c), .TCyclesPompe(c)
                 Next c
-                Write #NumFic, "Journée " & CStr(a) & LibelleJournee & ", cuve " & TEtatsCuves(b).DefinitionCuve.NomCuve & ", chauffage"
+                Write #NumFic, "Journée " & CStr(a) & LibelleJournee & ", cuve " & TEtatsCuvesAPI(b).DefinitionCuve.NomCuve & ", chauffage"
                 For c = 1 To NBR_TOPS_POSSIBLES
                     Write #NumFic, .TTopsDebutChauffage(c), .TTopsFinChauffage(c), .TModesChauffage(c)
                 Next c
@@ -548,8 +548,8 @@ Public Function ChargeRegulation() As String
             Open CheminComplet For Input Shared As #NumFic
                 
             '--- lecture des données ---
-            For a = LBound(TEtatsCuves()) To UBound(TEtatsCuves())
-                With TEtatsCuves(a).Temperatures
+            For a = LBound(TEtatsCuvesAPI()) To UBound(TEtatsCuvesAPI())
+                With TEtatsCuvesAPI(a).Temperatures
                     Input #NumFic, Bidon
                     Input #NumFic, .TempVeille, .TempProduction
                     Input #NumFic, .EcartInferieurRegul, .EcartSuperieurRegul, .EcartInferieurAlarme, .EcartSuperieurAlarme
@@ -611,9 +611,9 @@ Public Function SauveRegulation() As String
    Open RepFicAnodisation & FIC_REGULATION For Output Shared As #NumFic
             
     '--- enregistrement ---
-    For a = LBound(TEtatsCuves()) To UBound(TEtatsCuves())
-        With TEtatsCuves(a).Temperatures
-            Write #NumFic, "Régulation cuve " & TEtatsCuves(a).DefinitionCuve.NomCuve
+    For a = LBound(TEtatsCuvesAPI()) To UBound(TEtatsCuvesAPI())
+        With TEtatsCuvesAPI(a).Temperatures
+            Write #NumFic, "Régulation cuve " & TEtatsCuvesAPI(a).DefinitionCuve.NomCuve
             Write #NumFic, .TempVeille, .TempProduction,
             Write #NumFic, .EcartInferieurRegul, .EcartSuperieurRegul, .EcartInferieurAlarme, .EcartSuperieurAlarme
         End With
@@ -788,11 +788,11 @@ Public Function SauveJourneesTypes() As String
                 End Select
                 
                 '--- enregistrement ---
-                Write #NumFic, "Cuve " & TEtatsCuves(a).DefinitionCuve.NomCuve & ", journée " & LibelleJournee & ", pompe"
+                Write #NumFic, "Cuve " & TEtatsCuvesAPI(a).DefinitionCuve.NomCuve & ", journée " & LibelleJournee & ", pompe"
                 For c = 1 To NBR_TOPS_POSSIBLES
                     Write #NumFic, .TTopsDebutPompe(c), .TTopsFinPompe(c), .TCyclesPompe(c)
                 Next c
-                Write #NumFic, "Cuve " & TEtatsCuves(a).DefinitionCuve.NomCuve & ", journée " & LibelleJournee & ", chauffage"
+                Write #NumFic, "Cuve " & TEtatsCuvesAPI(a).DefinitionCuve.NomCuve & ", journée " & LibelleJournee & ", chauffage"
                 For c = 1 To NBR_TOPS_POSSIBLES
                     Write #NumFic, .TTopsDebutChauffage(c), .TTopsFinChauffage(c), .TModesChauffage(c)
                 Next c

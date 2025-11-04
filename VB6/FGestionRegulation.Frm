@@ -1977,7 +1977,7 @@ Private Function EnregistreVersAutomate() As Boolean
     TimerEtatsRegulation.Enabled = False
     
     Dim NumCuve As Integer
-    NumCuve = TEtatsCuves(CuveEnCours).IndexAutomate
+    NumCuve = TEtatsCuvesAPI(CuveEnCours).IndexAutomate
     
     '--- calculs des adresses ---
     TAdrAPI_TBRegulation(INDEX_CHAMPS.IDX_TEMP_VEILLE) = "TempVeillePCCuve" & Right("00" & NumCuve, 2)
@@ -2066,7 +2066,7 @@ Private Sub EtatsRegulation()
     On Error Resume Next
 
     '--- contrôle automatique des changements ---
-    With TEtatsCuves(CuveEnCours)
+    With TEtatsCuvesAPI(CuveEnCours)
         If .API_Changements = True Then
 
             '--- lecture de la régulation ---
@@ -2238,7 +2238,7 @@ Private Sub LectureJourneesTypes()
             
             Select Case CuveEnCours
 
-                Case CUVES_REGULATION.C_DEC, CUVES_REGULATION.C_C31, CUVES_REGULATION.C_C32 ' CUVES_REGULATION.C_SAT,
+                Case CUVES_API.C_DEC, CUVES_API.C_C31, CUVES_API.C_C32 ' CUVES_API.C_SAT,
                     '--- cuves avec pompe ---
                     For b = 1 To NBR_TOPS_POSSIBLES
                         
@@ -2491,11 +2491,11 @@ Private Sub OBNomsCuves_Click(Index As Integer)
                         .BackColor = COULEURS.BLANC
                         .ForeColor = COULEURS.NOIR
                        
-                    Case CUVES_REGULATION.C_C00 To CUVES_REGULATION.C_C07
+                    Case CUVES_API.C_C00 To CUVES_API.C_C10
                         '--- préparation ---
                         .BackColor = COULEURS.BLANC
                         .ForeColor = COULEURS.NOIR
-                    Case CUVES_REGULATION.C_C13 To CUVES_REGULATION.C_C15 ' SZP C16
+                    Case CUVES_API.C_C13 To CUVES_API.C_C15 ' SZP C16
                         '--- anodisation ---
                         .BackColor = COULEURS.VERT_5
                         .ForeColor = COULEURS.BLANC
@@ -2732,7 +2732,7 @@ Private Sub LectureRegulation()
     Dim cuve As Integer
     
     '--- affichage général ---
-    With TEtatsCuves(CuveEnCours).Temperatures
+    With TEtatsCuvesAPI(CuveEnCours).Temperatures
         AffichageNombre TBRegulation(INDEX_CHAMPS.IDX_TEMP_VEILLE), .TempVeille, FORMAT_TEMPERATURE_1_DECIMALE
         AffichageNombre TBRegulation(INDEX_CHAMPS.IDX_TEMP_PRODUCTION), .TempProduction, FORMAT_TEMPERATURE_1_DECIMALE
         AffichageNombre TBRegulation(INDEX_CHAMPS.IDX_ECART_INFERIEUR_REGUL), .EcartInferieurRegul, FORMAT_TEMPERATURE_1_DECIMALE
@@ -2752,7 +2752,7 @@ Private Sub EnregistreRegulation()
     On Error Resume Next
 
     '--- affectation général ---
-    With TEtatsCuves(CuveEnCours).Temperatures
+    With TEtatsCuvesAPI(CuveEnCours).Temperatures
         .TempVeille = ControleSiNombre(TBRegulation(INDEX_CHAMPS.IDX_TEMP_VEILLE), 0)
         .TempProduction = ControleSiNombre(TBRegulation(INDEX_CHAMPS.IDX_TEMP_PRODUCTION), 0)
         .EcartInferieurRegul = ControleSiNombre(TBRegulation(INDEX_CHAMPS.IDX_ECART_INFERIEUR_REGUL), 0)
@@ -2783,7 +2783,7 @@ Private Sub LectureValeursFenetre()
     '--- analyse de la présence de la pompe en fonction de la cuve ---
     Select Case CuveEnCours
     
-        Case CUVES_REGULATION.C_DEC, CUVES_REGULATION.C_C31, CUVES_REGULATION.C_C32  'SZP CUVES_REGULATION.C_SAT,
+        Case CUVES_API.C_DEC, CUVES_API.C_C31, CUVES_API.C_C32  'SZP CUVES_API.C_SAT,
             '--- cuves avec pompe ---
             PBTousCyclesPompe.Visible = True
             LTitreTousCyclesPompe.Visible = True
@@ -2791,7 +2791,7 @@ Private Sub LectureValeursFenetre()
                 Set PBEchelle24H(a).Picture = TImgEchelles24H(ECHELLES_24H.E_POMPE_CHAUFFAGE)
             Next a
     
-        'Case CUVES_REGULATION.C_C37
+        'Case CUVES_API.C_C37
             '--- cas de l'étuve ---
         '    PBTousCyclesPompe.Visible = False
         '    LTitreTousCyclesPompe.Visible = False
@@ -2825,7 +2825,7 @@ Private Sub LectureValeursFenetre()
     LectureJourneesTypes
 
     '--- affichage de la cuve gérée ---
-    With TEtatsCuves(CuveEnCours).DefinitionCuve
+    With TEtatsCuvesAPI(CuveEnCours).DefinitionCuve
         LRenseignementsFenetre.Caption = "Cuve " & .NomCuve & " - " & .LibelleCuve
     End With
     
@@ -2988,7 +2988,7 @@ Private Sub VSChangementCuve_Change()
     On Error Resume Next
     
     '--- changement de la cuve en cours ---
-    If VSChangementCuve.value >= CUVES_REGULATION.C_C00 And VSChangementCuve.value <= DERNIERE_CUV_REGULATION Then
+    If VSChangementCuve.value >= CUVES_API.C_C00 And VSChangementCuve.value <= DERNIERE_CUV_REGULATION Then
         InterdireEvenements = True
         CuveEnCours = VSChangementCuve.value
         OBNomsCuves(CuveEnCours).value = True
@@ -3029,7 +3029,7 @@ Public Sub InitialisationFenetre()
     '--- affichage des noms des cuves ---
     For a = OBNomsCuves.LBound To OBNomsCuves.UBound
         With OBNomsCuves(a)
-            .Caption = "Cuve " & TEtatsCuves(a).DefinitionCuve.NomCuve & " - " & TEtatsCuves(a).DefinitionCuve.LibelleCuve
+            .Caption = "Cuve " & TEtatsCuvesAPI(a).DefinitionCuve.NomCuve & " - " & TEtatsCuvesAPI(a).DefinitionCuve.LibelleCuve
         End With
     Next a
     
@@ -3041,7 +3041,7 @@ Public Sub InitialisationFenetre()
 
     '--- fixer la valeur maxi de l'ascenseur ---
     With VSChangementCuve
-        .min = CUVES_REGULATION.C_C00
+        .min = CUVES_API.C_C00
         .Max = DERNIERE_CUV_REGULATION
     End With
 

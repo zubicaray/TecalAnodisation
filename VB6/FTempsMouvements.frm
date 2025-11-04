@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form FTempsMouvements 
-   ClientHeight    =   15090
+   ClientHeight    =   14220
    ClientLeft      =   1950
    ClientTop       =   825
    ClientWidth     =   16080
@@ -8,7 +8,7 @@ Begin VB.Form FTempsMouvements
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   15090
+   ScaleHeight     =   14220
    ScaleWidth      =   16080
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBDeplacementFenetre 
@@ -3173,7 +3173,7 @@ Begin VB.Form FTempsMouvements
       ScaleWidth      =   16020
       TabIndex        =   2
       TabStop         =   0   'False
-      Top             =   13995
+      Top             =   13125
       Width           =   16080
       Begin VB.PictureBox PBOutilsDeplacementFenetre 
          BackColor       =   &H00E0E0E0&
@@ -3578,7 +3578,7 @@ Private Sub LTempsFermetureCouvercles_Click(Index As Integer)
     If LTempsFermetureCouvercles(Index).BackColor = COULEURS.BLANC Then
         Reponse = InputBox("Entrez la valeur numérique sans unité correspondant" & vbCrLf & "au temps de FERMETURE de ces COUVERCLES")
         If IsNumeric(Reponse) = True Then
-            TEtatsCuves(Index).TTempsMouvements.TempsFermetureCouvercles = CSng(Reponse)
+            TEtatsCuvesAPI(Index).TTempsMouvements.TempsFermetureCouvercles = CSng(Reponse)
         End If
     End If
 
@@ -3662,7 +3662,7 @@ Private Sub LTempsOuvertureCouvercles_Click(Index As Integer)
     If LTempsOuvertureCouvercles(Index).BackColor = COULEURS.BLANC Then
         Reponse = InputBox("Entrez la valeur numérique sans unité correspondant" & vbCrLf & "au temps d'OUVERTURE de ces COUVERCLES")
         If IsNumeric(Reponse) = True Then
-            TEtatsCuves(Index).TTempsMouvements.TempsOuvertureCouvercles = CSng(Reponse)
+            TEtatsCuvesAPI(Index).TTempsMouvements.TempsOuvertureCouvercles = CSng(Reponse)
         End If
     End If
 
@@ -3802,9 +3802,9 @@ Private Sub AnalyseChangementsEtats()
     '********************************************************************************************************************
    
     '--- pour les cuves ---
-    For a = LBound(TEtatsCuves()) To UBound(TEtatsCuves())
+    For a = LBound(TEtatsCuvesAPI()) To UBound(TEtatsCuvesAPI())
 
-        With TEtatsCuves(a)
+        With TEtatsCuvesAPI(a)
             
             '--- recherche du poste pour l'agitation de la charge et les couvercles ---
             NumPoste = CorrespondanceCuvesAPIPostes(a)
@@ -4165,9 +4165,9 @@ Private Sub AffichageElementsAyantTempsMouvements()
             NumPoste As Integer
     
     '--- affichage pour les cuves ---
-    For a = LBound(TEtatsCuves()) To UBound(TEtatsCuves())
+    For a = LBound(TEtatsCuvesAPI()) To UBound(TEtatsCuvesAPI())
 
-        With TEtatsCuves(a)
+        With TEtatsCuvesAPI(a)
 
             '--- recherche du poste pour les couvercles ---
             NumPoste = CorrespondanceCuvesAPIPostes(a)

@@ -66,7 +66,6 @@ Begin VB.MDIForm FPrincipale
          _ExtentX        =   1826
          _ExtentY        =   767
          _Version        =   393217
-         Enabled         =   -1  'True
          Appearance      =   0
          TextRTF         =   $"FPrincipale.frx":08CA
       End
@@ -1675,7 +1674,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                        With TEtatsCuves(Index)
+                        With TEtatsCuvesAPI(Index)
                             .Temperatures.TempActuelle = value(a) / 10
                         End With
                     End If
@@ -1691,7 +1690,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                       With TEtatsCuves(Index)
+                       With TEtatsCuvesAPI(Index)
 
                         '--- affectation ---
                         .API_Etats_1 = CBin(Val("&h" & CHex(value(a))))
@@ -1741,7 +1740,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                        With TEtatsCuves(Index)
+                        With TEtatsCuvesAPI(Index)
 
                             '--- affectation ---
                             .API_Etats_2 = CBin(Val("&h" & CHex(value(a))))
@@ -1783,7 +1782,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                        With TEtatsCuves(Index)
+                        With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
                             If Valeur >= MODES_PRODUCTION.M_ARRET And Valeur <= MODES_PRODUCTION.M_PRODUCTION Then
                                 .API_ModeProduction = Valeur
@@ -1804,7 +1803,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
                         
-                        With TEtatsCuves(Index)
+                        With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
                             If Valeur <> 0 Then
                                 .Temperatures.TempVeille = Valeur / 10
@@ -1823,7 +1822,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                        With TEtatsCuves(Index)
+                        With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
                             If Valeur <> 0 Then
                                 .Temperatures.TempProduction = Valeur / 10
@@ -1843,7 +1842,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                        With TEtatsCuves(Index)
+                        With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
                             If Valeur <> 0 Then
                                 .Temperatures.EcartInferieurRegul = Valeur / 10
@@ -1861,7 +1860,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                        With TEtatsCuves(Index)
+                        With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
                             If Valeur <> 0 Then
                                 .Temperatures.EcartSuperieurRegul = Valeur / 10
@@ -1879,7 +1878,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                        With TEtatsCuves(Index)
+                        With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
                             If Valeur <> 0 Then
                                 .Temperatures.EcartInferieurAlarme = Valeur / 10
@@ -1897,7 +1896,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                         With TEtatsCuves(Index)
+                         With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
                             If Valeur <> 0 Then
                                 .Temperatures.EcartSuperieurAlarme = Valeur / 10
@@ -1915,7 +1914,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                        With TEtatsCuves(Index)
+                        With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
                             If Valeur >= MODES_POMPES.M_AUTO And Valeur <= MODES_POMPES.M_FORCER_MARCHE Then
                                 .API_ModePompe = Valeur
@@ -1933,7 +1932,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                        With TEtatsCuves(Index)
+                        With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
                             If Valeur >= CYCLES_POMPES.CP_ARRET And Valeur <= CYCLES_POMPES.CP_MARCHE Then
                                 .API_CyclePompe = Valeur
@@ -1951,7 +1950,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                        With TEtatsCuves(Index)
+                        With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
                             If Valeur >= MODES_COUVERCLES.M_AUTO And Valeur <= MODES_COUVERCLES.M_FORCER_OUVERTURE Then
                                 .API_ModeCouvercles = Valeur
@@ -1969,7 +1968,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                     Index = CLng(Right(TabItemName(a), 2))
                     Index = CORRESPONDANCES_IDX_CUVES_API(Index)
                     If (Index > 0) Then
-                        With TEtatsCuves(Index)
+                        With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
                             If Valeur >= CYCLES_COUVERCLES.C_DEMANDE_FERMETURE And Valeur <= CYCLES_COUVERCLES.C_DEMANDE_OUVERTURE Then
                                 .API_CycleCouvercles = Valeur
@@ -2743,9 +2742,9 @@ Private Sub AffectationEtatsCuve(ByVal NumCuve As Integer)
     '--- déclaration ---
     Dim EtatsCouvercles As ETATS_COUVERCLES                     'états des couvercles
     
-    If NumCuve >= LBound(TEtatsCuves()) And NumCuve <= UBound(TEtatsCuves()) Then
+    If NumCuve >= LBound(TEtatsCuvesAPI()) And NumCuve <= UBound(TEtatsCuvesAPI()) Then
 
-        With TEtatsCuves(NumCuve)
+        With TEtatsCuvesAPI(NumCuve)
 
             '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     

@@ -4,7 +4,7 @@ Begin VB.Form FGestionCuves
    ClientHeight    =   13050
    ClientLeft      =   -6945
    ClientTop       =   3180
-   ClientWidth     =   13440
+   ClientWidth     =   14295
    BeginProperty Font 
       Name            =   "Marlett"
       Size            =   7.5
@@ -19,7 +19,7 @@ Begin VB.Form FGestionCuves
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
    ScaleHeight     =   13050
-   ScaleWidth      =   13440
+   ScaleWidth      =   14295
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
    Begin VB.PictureBox PBRenseignementsFenetre 
@@ -30,10 +30,10 @@ Begin VB.Form FGestionCuves
       Left            =   0
       Picture         =   "FGestionCuves.frx":014A
       ScaleHeight     =   315
-      ScaleWidth      =   13380
+      ScaleWidth      =   14235
       TabIndex        =   85
       Top             =   0
-      Width           =   13440
+      Width           =   14295
       Begin VB.Label LRenseignementsFenetre 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -65,11 +65,11 @@ Begin VB.Form FGestionCuves
       Height          =   1095
       Left            =   0
       ScaleHeight     =   1035
-      ScaleWidth      =   13380
+      ScaleWidth      =   14235
       TabIndex        =   2
       TabStop         =   0   'False
       Top             =   11955
-      Width           =   13440
+      Width           =   14295
       Begin VB.Timer TimerEtatsCuve 
          Enabled         =   0   'False
          Interval        =   500
@@ -224,10 +224,10 @@ Begin VB.Form FGestionCuves
       Index           =   0
       Left            =   0
       ScaleHeight     =   13455
-      ScaleWidth      =   13440
+      ScaleWidth      =   14295
       TabIndex        =   0
       Top             =   375
-      Width           =   13440
+      Width           =   14295
       Begin VB.PictureBox PBDeplacementFenetre 
          Height          =   12975
          Index           =   1
@@ -1228,16 +1228,38 @@ Begin VB.Form FGestionCuves
                EndProperty
                ForeColor       =   &H00FFFFFF&
                Height          =   495
+               Index           =   0
+               Left            =   360
+               Style           =   1  'Graphical
+               TabIndex        =   89
+               Top             =   10560
+               Visible         =   0   'False
+               Width           =   8115
+            End
+            Begin VB.OptionButton OBNomsCuves 
+               BackColor       =   &H00C00000&
+               Caption         =   "C37"
+               BeginProperty Font 
+                  Name            =   "Arial"
+                  Size            =   9.75
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00FFFFFF&
+               Height          =   495
                Index           =   19
                Left            =   360
                Style           =   1  'Graphical
                TabIndex        =   19
-               Top             =   10800
+               Top             =   10080
                Visible         =   0   'False
                Width           =   8115
             End
             Begin VB.VScrollBar VSChangementCuve 
-               Height          =   5160
+               Height          =   9960
                Left            =   8820
                Max             =   14
                Min             =   1
@@ -1457,7 +1479,7 @@ Begin VB.Form FGestionCuves
                Left            =   360
                Style           =   1  'Graphical
                TabIndex        =   20
-               Top             =   3300
+               Top             =   3240
                Width           =   8115
             End
             Begin VB.OptionButton OBNomsCuves 
@@ -1478,7 +1500,7 @@ Begin VB.Form FGestionCuves
                Left            =   360
                Style           =   1  'Graphical
                TabIndex        =   18
-               Top             =   2760
+               Top             =   2640
                Width           =   8115
             End
             Begin VB.OptionButton OBNomsCuves 
@@ -1499,7 +1521,7 @@ Begin VB.Form FGestionCuves
                Left            =   360
                Style           =   1  'Graphical
                TabIndex        =   17
-               Top             =   10260
+               Top             =   9600
                Visible         =   0   'False
                Width           =   8115
             End
@@ -1521,7 +1543,7 @@ Begin VB.Form FGestionCuves
                Left            =   360
                Style           =   1  'Graphical
                TabIndex        =   16
-               Top             =   9600
+               Top             =   9120
                Visible         =   0   'False
                Width           =   8115
             End
@@ -1543,7 +1565,7 @@ Begin VB.Form FGestionCuves
                Left            =   360
                Style           =   1  'Graphical
                TabIndex        =   15
-               Top             =   9060
+               Top             =   8640
                Visible         =   0   'False
                Width           =   8115
             End
@@ -1565,7 +1587,7 @@ Begin VB.Form FGestionCuves
                Left            =   360
                Style           =   1  'Graphical
                TabIndex        =   14
-               Top             =   8520
+               Top             =   8160
                Visible         =   0   'False
                Width           =   8115
             End
@@ -1587,7 +1609,7 @@ Begin VB.Form FGestionCuves
                Left            =   360
                Style           =   1  'Graphical
                TabIndex        =   13
-               Top             =   7980
+               Top             =   7680
                Visible         =   0   'False
                Width           =   8115
             End
@@ -1609,7 +1631,7 @@ Begin VB.Form FGestionCuves
                Left            =   360
                Style           =   1  'Graphical
                TabIndex        =   12
-               Top             =   7440
+               Top             =   7200
                Visible         =   0   'False
                Width           =   8115
             End
@@ -1631,7 +1653,7 @@ Begin VB.Form FGestionCuves
                Left            =   360
                Style           =   1  'Graphical
                TabIndex        =   11
-               Top             =   6900
+               Top             =   6720
                Visible         =   0   'False
                Width           =   8115
             End
@@ -2263,7 +2285,7 @@ Private Function EnregistreVersAutomate() As Boolean
     TimerEtatsCuve.Enabled = False
     
     Dim NumCuve As Integer
-    NumCuve = TEtatsCuves(CuveEnCours).IndexAutomate
+    NumCuve = TEtatsCuvesAPI(CuveEnCours).IndexAutomate
 
     '--- affectation du nom de la variable ---
     NomVariable = "ModePompePCCuve" & Right("00" & NumCuve, 2)
@@ -2305,11 +2327,11 @@ Private Sub LectureValeursFenetre()
     '--- analyse de la présence de la pompe en fonction de la cuve ---
     Select Case CuveEnCours
     
-        Case CUVES_REGULATION.C_DEC, CUVES_REGULATION.C_C31, CUVES_REGULATION.C_C32  'CUVES_REGULATION.C_SAT,
+        Case CUVES_API.C_DEC, CUVES_API.C_C31, CUVES_API.C_C32  'CUVES_API.C_SAT,
             '--- cuves avec pompe ---
             Set PBEchelle24H.Picture = TImgEchelles24H(ECHELLES_24H.E_POMPE_CHAUFFAGE)
     
-        'Case CUVES_REGULATION.C_C37 'SZP
+        'Case CUVES_API.C_C37 'SZP
             '--- cas de l'étuve ---
             'Set PBEchelle24H.Picture = TImgEchelles24H(ECHELLES_24H.E_VENTILATION_CHAUFFAGE)
             
@@ -2326,7 +2348,7 @@ Private Sub LectureValeursFenetre()
     PositionneSelecteurs
     
     '--- affichage de la cuve gérée ---
-    With TEtatsCuves(CuveEnCours).DefinitionCuve
+    With TEtatsCuvesAPI(CuveEnCours).DefinitionCuve
         LRenseignementsFenetre.Caption = "Cuve " & .NomCuve & " - " & .LibelleCuve
     End With
     
@@ -2349,7 +2371,7 @@ Private Sub EnregistreValeursfenetre()
     On Error Resume Next
     
     '--- pompe ---
-    'With TEtatsCuves(CuveEnCours)
+    'With TEtatsCuvesAPI(CuveEnCours)
     '    .ModeEnCoursPompe = MemModeEnCoursPompe
    ' End With
     
@@ -2378,7 +2400,7 @@ Private Sub PositionneIndicateur()
 '            Next a
 '
 '            '--- affichage du bon indicateur ---
-'            With TEtatsCuves(CuveEnCours)
+'            With TEtatsCuvesAPI(CuveEnCours)
 '                Select Case .ModeEnCoursPompe
 '                    Case 1 To 3: IIndicateur(.ModeEnCoursPompe).Visible = True
 '                    Case Else
@@ -2402,7 +2424,7 @@ Private Sub PositionneSelecteurs()
            NumPoste As Integer
     
     '--- positionnement en fonction de l'existence par cuve ---
-    With TEtatsCuves(CuveEnCours)
+    With TEtatsCuvesAPI(CuveEnCours)
     
         '--- recherche du n°de poste ---
         NumPoste = CorrespondanceCuvesAPIPostes(CuveEnCours)
@@ -2556,7 +2578,7 @@ Private Sub EtatsCuve()
     
     '--- contrôle automatique des changements ---
     'If IndexEtatsPompe > 0 Then
-        'With TEtatsCuves(CuveEnCours)
+        'With TEtatsCuvesAPI(CuveEnCours)
             'If .API_Changements = True Then
                 
                 '--- position de l'indicateur ---
@@ -2581,7 +2603,7 @@ Private Sub EtatsCuve()
     
     '--- cycle de travail en cours ---
     Texte = "Mode actuel = "
-    Select Case TEtatsCuves(CuveEnCours).ModeProduction
+    Select Case TEtatsCuvesAPI(CuveEnCours).ModeProduction
         Case MODES_PRODUCTION.M_ARRET: Texte = Texte & "ARRET"
         Case MODES_PRODUCTION.M_VEILLE: Texte = Texte & "VEILLE"
         Case MODES_PRODUCTION.M_PRODUCTION: Texte = Texte & "PRODUCTION"
@@ -2594,7 +2616,7 @@ Private Sub EtatsCuve()
         End If
     End With
     
-    With TEtatsCuves(CuveEnCours)
+    With TEtatsCuvesAPI(CuveEnCours)
         
         '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         
@@ -2793,9 +2815,9 @@ Private Sub EtatsCuve()
             '--- recherche du numéro de poste (car les couvercles se trouvent sur les postes) ---
             'NumPoste = 0
             'Select Case CuveEnCours
-                'Case CUVES_REGULATION.C_C13: NumPoste = POSTES.P_C13
-                'Case CUVES_REGULATION.C_C14: NumPoste = POSTES.P_C14
-                'Case CUVES_REGULATION.C_C15: NumPoste = POSTES.P_C15
+                'Case CUVES_API.C_C13: NumPoste = POSTES.P_C13
+                'Case CUVES_API.C_C14: NumPoste = POSTES.P_C14
+                'Case CUVES_API.C_C15: NumPoste = POSTES.P_C15
                 'Case Else
             'End Select
         
@@ -2814,7 +2836,7 @@ Private Sub EtatsCuve()
                     '                CouleurFond = COULEURS.ROUGE_3: CouleurPlan = COULEURS.JAUNE_3: Texte = "NON CENTRE"
                     '            End If
                     '        Case Else
-                    '            If TEtatsCuves(CuveEnCours).TNumDefauts.DisjonctionAgitationCharge = True Then
+                    '            If TEtatsCuvesAPI(CuveEnCours).TNumDefauts.DisjonctionAgitationCharge = True Then
                     '                If ClignotantDefaut = 0 Then
                     '                    CouleurFond = COULEURS.BLANC: CouleurPlan = COULEURS.NOIR: Texte = ""
                     '                Else
@@ -2959,11 +2981,11 @@ Private Sub OBNomsCuves_Click(Index As Integer)
                         '--- préparation ---
                         .BackColor = COULEURS.BLANC
                         .ForeColor = COULEURS.NOIR
-                    Case CUVES_REGULATION.C_C00 To CUVES_REGULATION.C_C07
+                    Case CUVES_API.C_C00 To CUVES_API.C_C10
                         '--- préparation ---
                         .BackColor = COULEURS.BLANC
                         .ForeColor = COULEURS.NOIR
-                    Case CUVES_REGULATION.C_C13 To CUVES_REGULATION.C_C15 ' CUVES_REGULATION.C_C16 SZP
+                    Case CUVES_API.C_C13 To CUVES_API.C_C15 ' CUVES_API.C_C16 SZP
                         '--- anodisation ---
                         .BackColor = COULEURS.VERT_5
                         .ForeColor = COULEURS.BLANC
@@ -3123,7 +3145,7 @@ Private Sub VSChangementCuve_Change()
     On Error Resume Next
     
     '--- changement de la cuve en cours ---
-    If VSChangementCuve.value >= CUVES_REGULATION.C_C00 And VSChangementCuve.value <= DERNIERE_CUV_REGULATION Then
+    If VSChangementCuve.value >= CUVES_API.C_C00 And VSChangementCuve.value <= DERNIERE_CUV_REGULATION Then
         InterdireEvenements = True
         CuveEnCours = VSChangementCuve.value
         OBNomsCuves(CuveEnCours).value = True
@@ -3162,7 +3184,7 @@ Public Sub InitialisationFenetre()
     'TMP
     For a = OBNomsCuves.LBound To OBNomsCuves.UBound
         With OBNomsCuves(a)
-            .Caption = "Cuve " & TEtatsCuves(a).DefinitionCuve.NomCuve & " - " & TEtatsCuves(a).DefinitionCuve.LibelleCuve
+            .Caption = "Cuve " & TEtatsCuvesAPI(a).DefinitionCuve.NomCuve & " - " & TEtatsCuvesAPI(a).DefinitionCuve.LibelleCuve
         End With
     Next a
     
@@ -3174,7 +3196,7 @@ Public Sub InitialisationFenetre()
     
     '--- fixer la valeur maxi de l'ascenseur ---
     With VSChangementCuve
-        .min = CUVES_REGULATION.C_C00
+        .min = CUVES_API.C_C00
         .Max = DERNIERE_CUV_REGULATION
     End With
     
@@ -3309,7 +3331,7 @@ Private Sub AffichageLibellesEtats()
     IdxChampEtatsCouvercles = 0
     IdxChampTemperature = 12
     
-    With TEtatsCuves(CuveEnCours)
+    With TEtatsCuvesAPI(CuveEnCours)
     
         '--- cannes chauffantes ---
         If .DefinitionCuve.NbrChauffages >= 1 Then

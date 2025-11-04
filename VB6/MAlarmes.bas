@@ -139,7 +139,7 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C00
     '*********************************************************************************************************************
     
-    With TEtatsCuves(CUVES_REGULATION.C_C00).TNumDefauts
+    With TEtatsCuvesAPI(CUVES_API.C_C00).TNumDefauts
 
         '--- niveau très bas ---
         .NumDefautNiveauTresBas = 300
@@ -185,8 +185,8 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C01
     '*********************************************************************************************************************
     If False Then
-          'With TEtatsCuves(CUVES_REGULATION.C_SAT).TNumDefauts
-           With TEtatsCuves(1).TNumDefauts
+          'With TEtatsCuvesAPI(CUVES_API.C_SAT).TNumDefauts
+           With TEtatsCuvesAPI(1).TNumDefauts
         
             '--- niveau très bas ---
             .NumDefautNiveauTresBas = 325
@@ -234,7 +234,7 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C02
     '*********************************************************************************************************************
     
-    With TEtatsCuves(CUVES_REGULATION.C_DEC).TNumDefauts
+    With TEtatsCuvesAPI(CUVES_API.C_DEC).TNumDefauts
 
         '--- niveau très bas ---
         .NumDefautNiveauTresBas = 350
@@ -257,8 +257,8 @@ Public Function AttributionNumDefauts() As String
     '*********************************************************************************************************************
     If False Then
         
-        'With TEtatsCuves(CUVES_REGULATION.C_C03).TNumDefauts
-        With TEtatsCuves(1).TNumDefauts
+        'With TEtatsCuvesAPI(CUVES_API.C_C03).TNumDefauts
+        With TEtatsCuvesAPI(1).TNumDefauts
          
         '--- niveau très bas ---
         .NumDefautNiveauTresBas = 375
@@ -281,8 +281,8 @@ Public Function AttributionNumDefauts() As String
         '*                                                                        CUVE C05
         '*********************************************************************************************************************
         
-        'With TEtatsCuves(CUVES_REGULATION.C_C05).TNumDefauts
-         With TEtatsCuves(1).TNumDefauts
+        'With TEtatsCuvesAPI(CUVES_API.C_C05).TNumDefauts
+         With TEtatsCuvesAPI(1).TNumDefauts
     
             '--- niveau très bas ---
             .NumDefautNiveauTresBas = 400
@@ -304,8 +304,8 @@ Public Function AttributionNumDefauts() As String
         '*                                                                        CUVE C06
         '*********************************************************************************************************************
         
-        'With TEtatsCuves(CUVES_REGULATION.C_C06).TNumDefauts
-     With TEtatsCuves(1).TNumDefauts
+        'With TEtatsCuvesAPI(CUVES_API.C_C06).TNumDefauts
+     With TEtatsCuvesAPI(1).TNumDefauts
             '--- niveau très bas ---
             .NumDefautNiveauTresBas = 425
             
@@ -328,7 +328,7 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C07
     '*********************************************************************************************************************
     
-    With TEtatsCuves(CUVES_REGULATION.C_C07).TNumDefauts
+    With TEtatsCuvesAPI(CUVES_API.C_C10).TNumDefauts
 
         '--- niveau très bas ---
         .NumDefautNiveauTresBas = 450
@@ -350,7 +350,7 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C13
     '*********************************************************************************************************************
     
-    With TEtatsCuves(CUVES_REGULATION.C_C13).TNumDefauts
+    With TEtatsCuvesAPI(CUVES_API.C_C13).TNumDefauts
 
         '--- niveau très bas ---
         .NumDefautNiveauTresBas = 475
@@ -375,7 +375,7 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C14
     '*********************************************************************************************************************
     
-    With TEtatsCuves(CUVES_REGULATION.C_C14).TNumDefauts
+    With TEtatsCuvesAPI(CUVES_API.C_C14).TNumDefauts
 
         '--- niveau très bas ---
         .NumDefautNiveauTresBas = 500
@@ -400,7 +400,7 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C15
     '*********************************************************************************************************************
     
-    With TEtatsCuves(CUVES_REGULATION.C_C15).TNumDefauts
+    With TEtatsCuvesAPI(CUVES_API.C_C15).TNumDefauts
 
         '--- niveau très bas ---
         .NumDefautNiveauTresBas = 525
@@ -425,8 +425,8 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C16
     '*********************************************************************************************************************
     If False Then
-       'With TEtatsCuves(CUVES_REGULATION.C_C16).TNumDefauts
-       With TEtatsCuves(1).TNumDefauts
+       'With TEtatsCuvesAPI(CUVES_API.C_C16).TNumDefauts
+       With TEtatsCuvesAPI(1).TNumDefauts
 
 
         '--- niveau très bas ---
@@ -454,8 +454,8 @@ Public Function AttributionNumDefauts() As String
         '*********************************************************************************************************************
         '*                                                                        CUVE C19
         '*********************************************************************************************************************
-        'With TEtatsCuves(CUVES_REGULATION.C_C19).TNumDefauts
-        With TEtatsCuves(1).TNumDefauts
+        'With TEtatsCuvesAPI(CUVES_API.C_C19).TNumDefauts
+        With TEtatsCuvesAPI(1).TNumDefauts
             '--- niveau très bas ---
             .NumDefautNiveauTresBas = 575
             
@@ -476,7 +476,7 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C22
     '*********************************************************************************************************************
     
-    With TEtatsCuves(CUVES_REGULATION.C_C22).TNumDefauts
+    With TEtatsCuvesAPI(CUVES_API.C_C22).TNumDefauts
 
         '--- niveau très bas ---
         .NumDefautNiveauTresBas = 600
@@ -498,7 +498,7 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C27
     '*********************************************************************************************************************
     
-    With TEtatsCuves(CUVES_REGULATION.C_C27).TNumDefauts
+    With TEtatsCuvesAPI(CUVES_API.C_C27).TNumDefauts
 
         '--- niveau très bas ---
         .NumDefautNiveauTresBas = 625
@@ -520,7 +520,7 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C28
     '*********************************************************************************************************************
     
-    With TEtatsCuves(CUVES_REGULATION.C_C28).TNumDefauts
+    With TEtatsCuvesAPI(CUVES_API.C_C28).TNumDefauts
 
         '--- niveau très bas ---
         .NumDefautNiveauTresBas = 650
@@ -542,7 +542,7 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C31
     '*********************************************************************************************************************
     
-    With TEtatsCuves(CUVES_REGULATION.C_C31).TNumDefauts
+    With TEtatsCuvesAPI(CUVES_API.C_C31).TNumDefauts
 
         '--- niveau très bas ---
         .NumDefautNiveauTresBas = 675
@@ -564,7 +564,7 @@ Public Function AttributionNumDefauts() As String
     '*                                                                        CUVE C32
     '*********************************************************************************************************************
     
-    With TEtatsCuves(CUVES_REGULATION.C_C32).TNumDefauts
+    With TEtatsCuvesAPI(CUVES_API.C_C32).TNumDefauts
 
         '--- niveau très bas ---
         .NumDefautNiveauTresBas = 700
@@ -586,7 +586,7 @@ Public Function AttributionNumDefauts() As String
     '*                                                                    CUVE C33 /C34
     '*********************************************************************************************************************
     
-   'With TEtatsCuves(CUVES_REGULATION.C_C33).TNumDefauts
+   'With TEtatsCuvesAPI(CUVES_API.C_C33).TNumDefauts
   '
         '--- défaut chauffage ---
    '    .NumDefautDefautChauffage = 725
@@ -1270,14 +1270,14 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     
     '--- affectation ---
-    NumCuve = CUVES_REGULATION.C_C00
+    NumCuve = CUVES_API.C_C00
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
     '--- recherche de la présence d'une charge à ce poste ---
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -1357,13 +1357,13 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     If False Then
        '--- affectation ---
-        'NumCuve = CUVES_REGULATION.C_SAT
+        'NumCuve = CUVES_API.C_SAT
         ListeNumDefautsPourUneCuve = ""
         
         '--- recherche de la présence d'une charge à ce poste ---
         NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
     
-        With TEtatsCuves(NumCuve)
+        With TEtatsCuvesAPI(NumCuve)
     
             '--- initialisation à FALSE par défaut ---
             UnDefautAuMoinsSignale = False
@@ -1447,13 +1447,13 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     
     '--- affectation ---
-    NumCuve = CUVES_REGULATION.C_DEC
+    NumCuve = CUVES_API.C_DEC
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -1535,13 +1535,13 @@ Public Sub VisualisationLigneAlarmes()
     '--- affectation ---
     If (False) Then
     
-    'NumCuve = CUVES_REGULATION.C_C03
+    'NumCuve = CUVES_API.C_C03
     ListeNumDefautsPourUneCuve = ""
 
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -1628,13 +1628,13 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     
     '--- affectation ---
-    NumCuve = CUVES_REGULATION.C_C07
+    NumCuve = CUVES_API.C_C10
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -1714,13 +1714,13 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     
     '--- affectation ---
-    NumCuve = CUVES_REGULATION.C_C13
+    NumCuve = CUVES_API.C_C13
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -1809,13 +1809,13 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     
     '--- affectation ---
-    NumCuve = CUVES_REGULATION.C_C14
+    NumCuve = CUVES_API.C_C14
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -1904,13 +1904,13 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     
     '--- affectation ---
-    NumCuve = CUVES_REGULATION.C_C15
+    NumCuve = CUVES_API.C_C15
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -1999,13 +1999,13 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     If False Then
     '--- affectation ---
-    'NumCuve = CUVES_REGULATION.C_C16
+    'NumCuve = CUVES_API.C_C16
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -2101,14 +2101,14 @@ Public Sub VisualisationLigneAlarmes()
     If (False) Then
      
     '--- affectation ---
-    'NumCuve = CUVES_REGULATION.C_C19
+    'NumCuve = CUVES_API.C_C19
     
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -2190,13 +2190,13 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     
     '--- affectation ---
-    NumCuve = CUVES_REGULATION.C_C22
+    NumCuve = CUVES_API.C_C22
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -2276,13 +2276,13 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     
     '--- affectation ---
-    NumCuve = CUVES_REGULATION.C_C27
+    NumCuve = CUVES_API.C_C27
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -2362,13 +2362,13 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     
     '--- affectation ---
-    NumCuve = CUVES_REGULATION.C_C28
+    NumCuve = CUVES_API.C_C28
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -2448,13 +2448,13 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     
     '--- affectation ---
-    NumCuve = CUVES_REGULATION.C_C31
+    NumCuve = CUVES_API.C_C31
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False
@@ -2534,13 +2534,13 @@ Public Sub VisualisationLigneAlarmes()
     '*********************************************************************************************************************
     
     '--- affectation ---
-    NumCuve = CUVES_REGULATION.C_C32
+    NumCuve = CUVES_API.C_C32
     ListeNumDefautsPourUneCuve = ""
     
     '--- recherche de la présence d'une charge à ce poste ---
     NumChargeACePoste = TEtatsPostes(CorrespondanceCuvesAPIPostes(NumCuve)).NumCharge
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
 
         '--- initialisation à FALSE par défaut ---
         UnDefautAuMoinsSignale = False

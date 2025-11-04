@@ -1621,30 +1621,31 @@ Public Function CorrespondancePostesCuvesAPI(ByVal NumPoste As Long) As Long
     
     '--- correspondance ---
     Select Case NumPoste
-        Case POSTES.P_C00: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C00
-        Case POSTES.P_DEC: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_DEC
-        'Case POSTES.P_SAT: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_SAT
-        'Case POSTES.P_C02: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C02
-        'Case POSTES.P_C03: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C03
-        'Case POSTES.P_C05: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C05
-        'Case POSTES.P_C06: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C06
-        Case POSTES.P_C07: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C07
-        Case POSTES.P_C13: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C13
-        Case POSTES.P_C14: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C14
-        Case POSTES.P_C15: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C15
-        'Case POSTES.P_C16: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C16
-        'Case POSTES.P_C19: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C19
-        Case POSTES.P_C22: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C22
-        Case POSTES.P_C27: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C27
-        Case POSTES.P_C28: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C28
-        Case POSTES.P_C31: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C31
-        Case POSTES.P_C32: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C32
-        'Case POSTES.P_C33: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C33
-        'Case POSTES.P_C34: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C34
-        'Case POSTES.P_C35: CorrespondancePostesCuvesAPI = CUVES_API.C_C35
-        'Case POSTES.P_C36: CorrespondancePostesCuvesAPI = CUVES_API.C_C36
-        'Case POSTES.P_C37: CorrespondancePostesCuvesAPI = CUVES_REGULATION.C_C37
-        'Case POSTES.P_C38: CorrespondancePostesCuvesAPI = CUVES_API.C_MAX
+        Case POSTES.P_C00: CorrespondancePostesCuvesAPI = CUVES_API.C_C00
+        Case POSTES.P_C01: CorrespondancePostesCuvesAPI = CUVES_API.C_C01
+        Case POSTES.P_DEC: CorrespondancePostesCuvesAPI = CUVES_API.C_DEC
+        Case POSTES.P_SAT: CorrespondancePostesCuvesAPI = CUVES_API.C_SAT
+        
+        Case POSTES.P_C05: CorrespondancePostesCuvesAPI = CUVES_API.C_C05
+        Case POSTES.P_C10: CorrespondancePostesCuvesAPI = CUVES_API.C_C10
+        
+        Case POSTES.P_C13: CorrespondancePostesCuvesAPI = CUVES_API.C_C13
+        Case POSTES.P_C14: CorrespondancePostesCuvesAPI = CUVES_API.C_C14
+        Case POSTES.P_C15: CorrespondancePostesCuvesAPI = CUVES_API.C_C15
+        
+        Case POSTES.P_C17: CorrespondancePostesCuvesAPI = CUVES_API.C_C17
+        Case POSTES.P_C22: CorrespondancePostesCuvesAPI = CUVES_API.C_C22
+        Case POSTES.P_C23: CorrespondancePostesCuvesAPI = CUVES_API.C_C23
+        Case POSTES.P_C25: CorrespondancePostesCuvesAPI = CUVES_API.C_C25
+        Case POSTES.P_C27: CorrespondancePostesCuvesAPI = CUVES_API.C_C27
+        Case POSTES.P_C28: CorrespondancePostesCuvesAPI = CUVES_API.C_C28
+        
+        Case POSTES.P_C31: CorrespondancePostesCuvesAPI = CUVES_API.C_C31
+        Case POSTES.P_C32: CorrespondancePostesCuvesAPI = CUVES_API.C_C32
+        Case POSTES.P_C33: CorrespondancePostesCuvesAPI = CUVES_API.C_C33
+        Case POSTES.P_C34: CorrespondancePostesCuvesAPI = CUVES_API.C_C34
+        Case POSTES.P_C35: CorrespondancePostesCuvesAPI = CUVES_API.C_C35
+        
         Case Else
     End Select
     
@@ -1666,34 +1667,35 @@ Public Function CorrespondanceCuvesAPIPostes(ByVal NumCuve As Long) As Long
     CorrespondanceCuvesAPIPostes = 0
     
     '--- correspondance ---
-    If NumCuve >= CUVES_REGULATION.C_C00 And NumCuve <= DERNIERE_CUV_REGULATION Then
+    If NumCuve >= CUVES_API.C_C00 And NumCuve <= DERNIERE_CUV_REGULATION Then
         
         Select Case NumCuve
             
-            Case CUVES_REGULATION.C_C00: CorrespondanceCuvesAPIPostes = POSTES.P_C00                 'dégraissage
-            'Case CUVES_API.C_SAT: CorrespondanceCuvesAPIPostes = POSTES.P_DEC                 'satinage S201
-            Case CUVES_REGULATION.C_DEC: CorrespondanceCuvesAPIPostes = POSTES.P_SAT                 'futur décapage
-            'Case CUVES_API.C_C02: CorrespondanceCuvesAPIPostes = POSTES.P_C02                 'Reserve
-            'Case CUVES_API.C_C03: CorrespondanceCuvesAPIPostes = POSTES.P_C03                 'rinçage soude
-            'Case CUVES_API.C_C05: CorrespondanceCuvesAPIPostes = POSTES.P_C05                 'brillantage n°1
-            'Case CUVES_API.C_C06: CorrespondanceCuvesAPIPostes = POSTES.P_C06                 'rinçage Mt brillantage
-            Case CUVES_REGULATION.C_C07: CorrespondanceCuvesAPIPostes = POSTES.P_C07                 'brillantage n°2
-            Case CUVES_REGULATION.C_C13: CorrespondanceCuvesAPIPostes = POSTES.P_C13                 'anodisation
-            Case CUVES_REGULATION.C_C14: CorrespondanceCuvesAPIPostes = POSTES.P_C14                 'anodisation
-            Case CUVES_REGULATION.C_C15: CorrespondanceCuvesAPIPostes = POSTES.P_C15                 'anodisation
-            'Case CUVES_API.C_C16: CorrespondanceCuvesAPIPostes = POSTES.P_C16                 'anodisation
-            'Case CUVES_API.C_C19: CorrespondanceCuvesAPIPostes = POSTES.P_C19                 'spectrocoloration
-            Case CUVES_REGULATION.C_C22: CorrespondanceCuvesAPIPostes = POSTES.P_C22                 'coloration or
-            Case CUVES_REGULATION.C_C27: CorrespondanceCuvesAPIPostes = POSTES.P_C27                 'imprégnation à froid
-            Case CUVES_REGULATION.C_C28: CorrespondanceCuvesAPIPostes = POSTES.P_C28                 'coloration noire
-            Case CUVES_REGULATION.C_C31: CorrespondanceCuvesAPIPostes = POSTES.P_C31                 'colmatage chaud
-            Case CUVES_REGULATION.C_C32: CorrespondanceCuvesAPIPostes = POSTES.P_C32                 'colmatage chaud
-            'Case CUVES_API.C_C33: CorrespondanceCuvesAPIPostes = POSTES.P_C33        'séchoir - poste 1
-            'Case CUVES_API.C_MAX: CorrespondanceCuvesAPIPostes = POSTES.P_C34        '
-            'Case CUVES_API.C_C35: CorrespondanceCuvesAPIPostes = POSTES.P_C35
-            'Case CUVES_API.C_C36: CorrespondanceCuvesAPIPostes = POSTES.P_C36        '
-            'Case CUVES_API.C_C37: CorrespondanceCuvesAPIPostes = POSTES.P_C37        '
-            'Case CUVES_API.C_MAX: CorrespondanceCuvesAPIPostes = POSTES.P_C38        '
+            Case CUVES_API.C_C00: CorrespondanceCuvesAPIPostes = POSTES.P_C00                 'dégraissage
+            Case CUVES_API.C_C01: CorrespondanceCuvesAPIPostes = POSTES.P_C01                 'dégraissage
+            Case CUVES_API.C_SAT: CorrespondanceCuvesAPIPostes = POSTES.P_SAT                 'satinage S201
+            Case CUVES_API.C_DEC: CorrespondanceCuvesAPIPostes = POSTES.P_DEC                 'futur décapage
+
+            Case CUVES_API.C_C05: CorrespondanceCuvesAPIPostes = POSTES.P_C05                 'brillantage n°1
+        
+            Case CUVES_API.C_C10: CorrespondanceCuvesAPIPostes = POSTES.P_C10                 'brillantage n°2
+            
+            Case CUVES_API.C_C13: CorrespondanceCuvesAPIPostes = POSTES.P_C13                 'anodisation
+            Case CUVES_API.C_C14: CorrespondanceCuvesAPIPostes = POSTES.P_C14                 'anodisation
+            Case CUVES_API.C_C15: CorrespondanceCuvesAPIPostes = POSTES.P_C15                 'anodisation
+            
+            Case CUVES_API.C_C17: CorrespondanceCuvesAPIPostes = POSTES.P_C17                 'anodisation
+            Case CUVES_API.C_C25: CorrespondanceCuvesAPIPostes = POSTES.P_C25                 'spectrocoloration
+            Case CUVES_API.C_C22: CorrespondanceCuvesAPIPostes = POSTES.P_C22                 'coloration or
+            Case CUVES_API.C_C27: CorrespondanceCuvesAPIPostes = POSTES.P_C27                 'imprégnation à froid
+            Case CUVES_API.C_C28: CorrespondanceCuvesAPIPostes = POSTES.P_C28                 'coloration noire
+            
+            Case CUVES_API.C_C31: CorrespondanceCuvesAPIPostes = POSTES.P_C31                 'colmatage chaud
+            Case CUVES_API.C_C32: CorrespondanceCuvesAPIPostes = POSTES.P_C32                 'colmatage chaud
+            Case CUVES_API.C_C33: CorrespondanceCuvesAPIPostes = POSTES.P_C33        'séchoir - poste 1
+            Case CUVES_API.C_C34: CorrespondanceCuvesAPIPostes = POSTES.P_C34        '
+            Case CUVES_API.C_C35: CorrespondanceCuvesAPIPostes = POSTES.P_C35
+   
 
 
             Case Else
@@ -1723,9 +1725,9 @@ Public Function CorrespondanceRedresseursCuvesAPI(ByVal NumRedresseur As Long) A
         
         Select Case NumRedresseur
             
-            Case REDRESSEURS.R_C13: CorrespondanceRedresseursCuvesAPI = CUVES_REGULATION.C_C13
-            Case REDRESSEURS.R_C14: CorrespondanceRedresseursCuvesAPI = CUVES_REGULATION.C_C14
-            Case REDRESSEURS.R_C15: CorrespondanceRedresseursCuvesAPI = CUVES_REGULATION.C_C15
+            Case REDRESSEURS.R_C13: CorrespondanceRedresseursCuvesAPI = CUVES_API.C_C13
+            Case REDRESSEURS.R_C14: CorrespondanceRedresseursCuvesAPI = CUVES_API.C_C14
+            Case REDRESSEURS.R_C15: CorrespondanceRedresseursCuvesAPI = CUVES_API.C_C15
             'Case REDRESSEURS.R_C16: CorrespondanceRedresseursCuvesAPI = CUVES_API.C_C16
 
             Case Else

@@ -168,130 +168,122 @@ End Enum
 Public Enum POSTES
     P_CHGT_1 = 1          'chargement 1
     P_CHGT_2 = 2          'chargement 2
-    'P_CHGT_3 = 3          'chargement 3
-    P_C02 = 4                 'r?serve
-    P_C00 = 5             'chargement 4
-    P_DEC = 6                 'd?capage
-    P_SAT = 7                 'satinage S201
-
-    P_C03 = 8                 'futur d?capage
-    P_C04 = 9                 'rin?age d?graissage
-
-    P_C05 = 10                'brillantage n?1
-    P_C06 = 11                'rin?age Mt brillantage
-    P_C07 = 12                'brillantage n?2
-    P_C08 = 13                'rin?age brillantage
-    P_C09 = 14                'rin?age brillantage
-
-    P_C10 = 15                'neutralisation
-    P_C11 = 16                'rin?age blanchiment
-    P_C12 = 17                'blanchiment
-
-    P_C13 = 18                'anodisation
-    P_C14 = 19                'anodisation
-    P_C15 = 20                'anodisation
-    P_C16 = 21                'anodisation
-    P_C17 = 22                'rin?age anodisation
-    P_C18 = 23                'rin?age anodisation
-
-    P_C19 = 24                'spectrocoloration
-    P_C20 = 25                'rin?age
-    P_C21 = 26                'rin?age
-    P_C22 = 27                'coloration or
-
-    P_C23 = 28                'RESERVE 1
-    P_C24 = 29                'RESERVE 2
-    P_C25 = 30                'RESERVE 3
-    P_C26 = 31                'RESERVE 4
-
-    P_C27 = 32                'impr?gnation ? froid
-    P_C28 = 33                'coloration noire
-    P_C29 = 34                'rin?age noir
-    P_C30 = 35                'rin?age eau dure/impr?gnation
-    P_C31 = 36                'Impr?gnation ? froid
-
-    P_C32 = 37                'colmatage chaud
-    P_C33 = 38                'colmatage chaud
-
-    P_C34 = 39                's?choir poste
-    P_C35 = 40                'RESERVE 5
-
-    P_D1 = 41                  'd?chargement 1
-    P_D2 = 42                  'd?chargement 2
-  
-    P_C37 = 43               '
-    P_C38 = 44                '
+    P_C00 = 3                  'degraissage alcalin à*
+    P_C01 = 4                  'rincage chaud à*
+    P_DEC = 5                 'décapage à* (index 3)
+    P_SAT = 6                  'satinage S201  à*
+    P_C03 = 7                  'rincage soude 1
+    P_C04 = 8                  'rinçage soude 2
+    P_C05 = 9                  'dégraissage acide à*
+    P_C06 = 10                'rinçage mort
+    P_C07 = 11                'brillantage n°2
+    P_C08 = 12                'rinçage brillantage
+    P_C09 = 13                'rinçage brillantage 2
+    P_C10 = 14                'neutralisation à*
+    P_C11 = 15                'rinçage neutralisation 1
+    P_C12 = 16                'rinçage neutralisation 2
+    P_C13 = 17                'anodisation à*
+    P_C14 = 18                'anodisation à*
+    P_C15 = 19                'anodisation à*
+    P_C16 = 20                'rinçage anodisation
+    P_C17 = 21                'blanchiment  à*
+    P_C18 = 22                'rinçage anodisation 2
+    P_C19 = 23                'spectrocoloration
+    P_C20 = 24                'rinçage 1
+    P_C21 = 25                'rinçage 2
+    P_C22 = 26                'coloration or à*
+    P_C23 = 27                'coloration orange à*(index19)
+    P_C24 = 38                'RESERVE
+    P_C25 = 29                'imprégnation froid à*
+    P_C26 = 30                'rincage impregnation
+    P_C27 = 31                'imprégnation à froid à*
+    P_C28 = 32                'coloration noire à*
+    P_C29 = 33                'rinçage noir
+    P_C30 = 34                'rinçage eau dure/imprégnation
+    P_C31 = 35                'colmatage chaud à*
+    P_C32 = 36                'colmatage chaud à*
+    P_C33 = 37                'colmatage chaud à*
+    P_C34 = 38                'passivation 1à*(index 20)
+    P_C35 = 39                'passivation 2 à*(index 21)
+    P_C36 = 40                'rincage 3
+    P_C37 = 41                'rincage 4
+    P_C38 = 42                'basculeur
+    P_C39 = 43                'etuve
+    P_D1 = 44                  'déchargement 1
+    P_D2 = 45                  'déchargement 2
     
         
 End Enum
 
-Public Const ZONE_ETUVE  As Integer = 37
+Public Const ZONE_ETUVE  As Integer = 43
 
 Public Const PREMIER_POSTE  As Integer = 1
-Public Const PREMIER_BAIN  As Integer = 4
-Public Const DERNIER_POSTE  As Integer = 44
+Public Const PREMIER_BAIN  As Integer = 3
+Public Const DERNIER_POSTE  As Integer = 45
 
 Public Const PREMIERE_CUVE  As Integer = 1
-Public Const DERNIERE_CUVE  As Integer = 40
+Public Const DERNIERE_CUVE  As Integer = 41
 
 ' cuves de la ligne d'anodisation
  Public Enum CUVES
      
     C_C00 = 1                  'd?graissage
-    C_DEC = 2                  'd?capage
-    C_SAT = 3                  'satinage
+    C_C01 = 2
+    C_DEC = 3                  'd?capage
+    C_SAT = 4                  'satinage
 
      
      
-    C_C02 = 40                  'Reserve
-    C_C03 = 4                  'rin?age soude
-    C_C04 = 5                  'rin?age d?graissage
+                    'Reserve
+    C_C03 = 5                  'rincage soude
+    C_C04 = 6                  'rincage d?graissage
      
-    C_C05 = 6                  'brillantage n?1
-    C_C06 = 7                  'rin?age Mt brillantage
-    C_C07 = 8                  'brillantage n?2
-    C_C08 = 9                  'rin?age brillantage
-    C_C09 = 10                'rin?age brillantage
-
-     
-    C_C10 = 11                'neutralisation
-    C_C11 = 12                'rin?age blanchiment
-    C_C12 = 13                'blanchiment
+    C_C05 = 7                  'brillantage n°1
+    C_C06 = 8                  'rincage Mt brillantage
+    C_C07 = 9                  'brillantage n°2
+    C_C08 = 10                  'rincage brillantage
+    C_C09 = 11                'rincage brillantage
 
      
-    C_C13 = 14                'anodisation
-    C_C14 = 15                'anodisation
-    C_C15 = 16                'anodisation
-    C_C16 = 17                'anodisation
-    C_C17 = 18                'rin?age anodisation
-    C_C18 = 19                'rin?age anodisation
-
-    C_C19 = 20                'spectrocoloration
-    C_C20 = 21                'rin?age
-    C_C21 = 22                'rin?age
-    C_C22 = 23                'coloration or
+    C_C10 = 12                'neutralisation
+    C_C11 = 13                'rincage blanchiment
+    C_C12 = 14                'blanchiment
 
      
-    C_C23 = 24                'RESERVE 1
-    C_C24 = 25                'RESERVE 2
-    C_C25 = 26                'RESERVE 3
-    C_C26 = 27                'RESERVE 4
+    C_C13 = 15                'anodisation
+    C_C14 = 16                'anodisation
+    C_C15 = 17                'anodisation
+    C_C16 = 18                'anodisation
+    C_C17 = 19                'rincage anodisation
+    C_C18 = 20                'rincage anodisation
 
-    C_C27 = 28                'impr?gnation ? froid
-    C_C28 = 29                'coloration noire
-    C_C29 = 30                'rin?age noir
-    C_C30 = 31                'rin?age eau dure/impr?gnation
-
-    C_C31 = 32                'colmatage chaud
-    C_C32 = 33                'colmatage chaud
+    C_C19 = 21                'spectrocoloration
+    C_C20 = 22                'rincage
+    C_C21 = 23                'rincage
+    C_C22 = 24                'coloration or
 
      
-    C_C33 = 34                'Colmatage froid
-    C_C34 = 35                'r?serve
-    C_C35 = 36                'r?serve
-    C_C36 = 37                'r?serve
-    C_C37 = 38                '?tuve
-    C_C38 = 39                'basculeur
+    C_C23 = 25                'RESERVE 1
+    C_C24 = 26                'RESERVE 2
+    C_C25 = 27                'RESERVE 3
+    C_C26 = 28                'RESERVE 4
+
+    C_C27 = 29                'impr?gnation ? froid
+    C_C28 = 30                'coloration noire
+    C_C29 = 31                'rincage noir
+    C_C30 = 32                'rincage eau dure/impr?gnation
+
+    C_C31 = 33               'colmatage chaud
+    C_C32 = 34                'colmatage chaud
+
+     
+    C_C33 = 35                'Colmatage froid
+    C_C34 = 36                'r?serve
+    C_C35 = 37                'r?serve
+    C_C36 = 38                'r?serve
+    C_C37 = 39                '?tuve
+    C_C38 = 40                'basculeur
+    C_C39 = 41                'basculeur
 
      
  End Enum
@@ -301,18 +293,20 @@ Public Const DERNIERE_CUV_API  As Integer = 24
 Public Enum CUVES_API
     
     C_C00 = 1                  'd?graissage
-    C_DEC = 2                  'd?capage
-    C_SAT = 3                  'satinage S201
-    C_C03 = 4                  'rin?age soude
-    C_C05 = 5                  'brillantage n?1
-    C_C06 = 6                  'rin?age Mt brillantage
-    C_C07 = 7                  'brillantage n?2
-    C_C13 = 8                  'anodisation
-    C_C14 = 9                  'anodisation
-    C_C15 = 10                'anodisation
-    C_C16 = 11                'anodisation
-    C_C19 = 12                'spectrocoloration
-    C_C22 = 13                'coloration or
+    C_C01 = 2               'R?serve
+    C_DEC = 3                  'd?capage
+    C_SAT = 4                  'satinage S201
+    C_C05 = 5                  'brillantage n°1
+    C_C10 = 6                  'rincage Mt brillantage
+    
+    C_C13 = 7                  'anodisation
+    C_C14 = 8                  'anodisation
+    C_C15 = 9                'anodisation
+    
+    C_C17 = 10                'anodisation
+    C_C22 = 11                'coloration or
+    C_C23 = 12                'coloration or
+    C_C25 = 13                'coloration or
     C_C27 = 14                'impr?gnation ? froid
     C_C28 = 15                'coloration noire
     C_C31 = 16                'colmatage chaud
@@ -320,10 +314,8 @@ Public Enum CUVES_API
     C_C33 = 18                'colmatage froid
     C_C34 = 19                'r?serve
     C_C35 = 20                'r?serve
-    C_C36 = 21                'r?serve
-    C_C37 = 22                '?tuve
-    C_C38 = 23                'basculeur
-    C_C02 = 24               'R?serve
+    
+    
    
     
 End Enum
@@ -332,50 +324,13 @@ End Enum
   
 
 
-Public Const DERNIERE_CUV_REGULATION = 11
+Public Const DERNIERE_CUV_REGULATION = 20
 
- ' cuves qui servent au formualire et au bon affichage
- Public Enum CUVES_REGULATION
-     C_C00 = 1                  'd?graissage
-    C_DEC = 2                  'satinage S201
-    C_C07 = 3                  'brillantage n?2 > 7
-
-     
-    C_C13 = 4                  'anodisation   > 8
-    C_C14 = 5                  'anodisation   > 9
-    C_C15 = 6                  'anodisation   > 10
-
-  
-    C_C22 = 7                'coloration or  >  13
-    C_C27 = 8                'impr?gnation ? froid > 14
-    C_C28 = 9                'coloration noire  >  15
-    C_C31 = 10                'colmatage chaud  > 16
-    C_C32 = 11                'colmatage chaud  > 17
- 
- End Enum
 
 '--- valeur codeur du niveau haut des ponts ---
 Public Const VALEUR_CODEUR_NIVEAU_HAUT_PONTS As Integer = 2140
 
-'--- cuves pour le déclenchement par les températures de la ventilation en mode automatique ---
-Public Enum CUVES_TEMP_VENTILATION
 
-    C_A1 = 1                    'pré-dégraissage 90°C
-    C_A2 = 2                    'dégraissage 70°C
-    C_A3 = 3                    'dégraissage électro.
-    C_A7 = 4                    'décapage HCl 50%
-    C_A8 = 5                    'décapage H2SO4 15%
-    C_C13 = 6                  'première cuve d'anodisation chimique 93°C maxi.
-    C_C14 = 7                  'deuxième cuve d'anodisation chimique 93°C maxi.
-    C_A17 = 8                  'rinçage chaud déminé 75°C
-    
-    C_B1 = 9                    'dégraissage 70°C
-    C_B4 = 10                  'activation alu. 20°C
-    C_B5 = 11                  'activation HNO3 70%
-    C_B8 = 12                  'zincate 25°C
-    C_C15 = 13                'troisième cuve d'anodisation chimique 93°C maxi.
-
-End Enum
 
 '--- numéros de charges avec mini et maxi ---
 Public Enum CHARGES

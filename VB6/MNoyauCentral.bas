@@ -168,7 +168,7 @@ Public Sub AnalyseProgrammateurCyclique()
 
         '--- décalage du programmateur cyclique ---
         For a = 2 To NBR_JOURS_PROG_CYCLIQUE
-            For b = CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION
+            For b = CUVES_API.C_C00 To DERNIERE_CUV_REGULATION
                 With TProgCyclique(Pred(a), b)
 
                     '--- transfert ---
@@ -201,7 +201,7 @@ Public Sub AnalyseProgrammateurCyclique()
 
         '--- contrôle de la validité des dates ---
         For a = 1 To NBR_JOURS_PROG_CYCLIQUE
-            For b = CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION
+            For b = CUVES_API.C_C00 To DERNIERE_CUV_REGULATION
                 With TProgCyclique(a, b)
 
                     '--- affectation ---
@@ -292,17 +292,17 @@ Public Sub AnalyseCuves()
     'If TypePC <> TYPES_PC. Then Exit Sub
 
     '--- marche automatique des pompes et des chauffages ---
-    For a = CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION
+    For a = CUVES_API.C_C00 To DERNIERE_CUV_REGULATION
         With TProgCyclique(1, a)
 
             '--- analyse pour la pompe (si cuve avec pompe) ---
-            If TEtatsCuves(a).DefinitionCuve.PresencePompe = True Then
+            If TEtatsCuvesAPI(a).DefinitionCuve.PresencePompe = True Then
             
                 For b = 1 To NBR_TOPS_POSSIBLES
                     If Maintenant >= Val(.TTopsDebutPompe(b)) And Maintenant <= Val(.TTopsFinPompe(b)) Then
                                 
                         '--- affectation et transfert vers l'automate ---
-                        TEtatsCuves(a).CyclePompe = .TCyclesPompe(b)
+                        TEtatsCuvesAPI(a).CyclePompe = .TCyclesPompe(b)
                         AutomatiquePompe a
 
                         Exit For
@@ -318,7 +318,7 @@ Public Sub AnalyseCuves()
                     
                     Select Case .TModesChauffage(b)
                         Case MODES_PRODUCTION.M_ARRET To MODES_PRODUCTION.M_PRODUCTION
-                            TEtatsCuves(a).ModeProduction = .TModesChauffage(b)
+                            TEtatsCuvesAPI(a).ModeProduction = .TModesChauffage(b)
                         Case Else
                     End Select
                     
@@ -422,9 +422,9 @@ Public Sub AnalyseTempsMouvements()
     '*                                                         GESTION POUR LES COUVERCLES
     '*********************************************************************************************************************
 
-'    For a = LBound(TEtatsCuves()) To UBound(TEtatsCuves())
+'    For a = LBound(TEtatsCuvesAPI()) To UBound(TEtatsCuvesAPI())
 '
-'        With TEtatsCuves(a)
+'        With TEtatsCuvesAPI(a)
 '
 '            '--- recherche du poste pour les couvercles ---
 '            NumPoste = CorrespondanceCuvesAPIPostes(a)
@@ -473,7 +473,7 @@ Public Sub AnalyseTempsMouvements()
 '                                    If .DateDebutMouvement <> Empty And .DateFinMouvement <> Empty Then
 '                                        TempsMouvementSecondes = DateDiff("s", .DateDebutMouvement, .DateFinMouvement)
 '                                        If TempsMouvementSecondes > 0 Then
-'                                            TEtatsCuves(a).TTempsMouvements.TempsOuvertureCouvercles = TempsMouvementSecondes
+'                                            TEtatsCuvesAPI(a).TTempsMouvements.TempsOuvertureCouvercles = TempsMouvementSecondes
 '                                            .DateDebutMouvement = Empty
 '                                            .DateFinMouvement = Empty
 '                                        End If
@@ -521,7 +521,7 @@ Public Sub AnalyseTempsMouvements()
 '                                    If .DateDebutMouvement <> Empty And .DateFinMouvement <> Empty Then
 '                                        TempsMouvementSecondes = DateDiff("s", .DateDebutMouvement, .DateFinMouvement)
 '                                        If TempsMouvementSecondes > 0 Then
-'                                            TEtatsCuves(a).TTempsMouvements.TempsFermetureCouvercles = TempsMouvementSecondes
+'                                            TEtatsCuvesAPI(a).TTempsMouvements.TempsFermetureCouvercles = TempsMouvementSecondes
 '                                            .DateDebutMouvement = Empty
 '                                            .DateFinMouvement = Empty
 '                                        End If
@@ -1098,13 +1098,13 @@ Public Sub AnalyseChargesEnLignePostes()
                     
                     '--- remplissage de la fiche de production pour la température en entrée ---
                     If .NbrPostesTraites > 0 And NumCuve > 0 Then
-                        .TDetailsFichesProduction(.NbrPostesTraites).TemperatureEnEntree = TEtatsCuves(NumCuve).Temperatures.TempActuelle
+                        .TDetailsFichesProduction(.NbrPostesTraites).TemperatureEnEntree = TEtatsCuvesAPI(NumCuve).Temperatures.TempActuelle
                     End If
                     
                     '--- remplissage de la fiche de production pour l'analyseur d'anodisation en entrée ---
                     If .NbrPostesTraites > 0 And NumCuve > 0 Then
-                        If TEtatsCuves(NumCuve).DefinitionCuve.PresenceAnalyseurAnodisation = True Then
-                            .TDetailsFichesProduction(.NbrPostesTraites).AnalyseurEnEntree = TEtatsCuves(NumCuve).TEntreesAPI.E_Analogique_Analyseur
+                        If TEtatsCuvesAPI(NumCuve).DefinitionCuve.PresenceAnalyseurAnodisation = True Then
+                            .TDetailsFichesProduction(.NbrPostesTraites).AnalyseurEnEntree = TEtatsCuvesAPI(NumCuve).TEntreesAPI.E_Analogique_Analyseur
                         End If
                     End If
                     If a >= POSTES.P_D1 And a <= POSTES.P_D2 Then
@@ -1136,7 +1136,7 @@ Public Sub AnalyseChargesEnLignePostes()
     
                         '--- remplissage de la fiche de production pour les alarmes dans le poste ---
                         If .NbrPostesTraites > 0 And NumCuve > 0 Then
-                            .TDetailsFichesProduction(.NbrPostesTraites).AlarmesPoste = TEtatsCuves(NumCuve).ListeNumDefautsSiCharge
+                            .TDetailsFichesProduction(.NbrPostesTraites).AlarmesPoste = TEtatsCuvesAPI(NumCuve).ListeNumDefautsSiCharge
                         End If
                         '--- remplissage de la fiche de production pour les valeurs du redresseur ---
 
@@ -1250,13 +1250,13 @@ Public Sub AnalyseChargesEnLignePostes()
                         
                         '--- remplissage de la fiche de production pour la température en sortie ---
                         If .NbrPostesTraites > 0 And NumCuve > 0 Then
-                            .TDetailsFichesProduction(.NbrPostesTraites).TemperatureEnSortie = TEtatsCuves(NumCuve).Temperatures.TempActuelle
+                            .TDetailsFichesProduction(.NbrPostesTraites).TemperatureEnSortie = TEtatsCuvesAPI(NumCuve).Temperatures.TempActuelle
                         End If
                     
                         '--- remplissage de la fiche de production pour l'analyseur d'anodisation en sortie ---
                         If .NbrPostesTraites > 0 And NumCuve > 0 Then
-                            If TEtatsCuves(NumCuve).DefinitionCuve.PresenceAnalyseurAnodisation = True Then
-                                .TDetailsFichesProduction(.NbrPostesTraites).AnalyseurEnSortie = TEtatsCuves(NumCuve).TEntreesAPI.E_Analogique_Analyseur
+                            If TEtatsCuvesAPI(NumCuve).DefinitionCuve.PresenceAnalyseurAnodisation = True Then
+                                .TDetailsFichesProduction(.NbrPostesTraites).AnalyseurEnSortie = TEtatsCuvesAPI(NumCuve).TEntreesAPI.E_Analogique_Analyseur
                             End If
                         End If
  
@@ -2244,7 +2244,7 @@ Public Sub AutomatiquePompe(ByVal NumCuve As Integer)
     '--- analyse en fonction du PC ---
     'If TypePC <> TYPES_PC. Then Exit Sub
 
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
          NumCuveAutomate = .IndexAutomate
         '--- cuves avec pompe ---
         If .API_CyclePompe <> .CyclePompe Or PremierPassageNoyauCentral = False Then
@@ -2288,7 +2288,7 @@ Public Sub AutomatiqueChauffage(ByVal NumCuve As Integer)
 
 
     Dim NumCuveAutomate As Integer
-    With TEtatsCuves(NumCuve)
+    With TEtatsCuvesAPI(NumCuve)
         
         
     NumCuveAutomate = .IndexAutomate
@@ -2460,7 +2460,7 @@ Public Sub EffectueTraçabiliteRedresseurs()
 
                 '--- contrôle pour la température ---
                 NumCuve = CorrespondanceRedresseursCuvesAPI(a)
-                TemperatureActuelle = TEtatsCuves(NumCuve).Temperatures.TempActuelle
+                TemperatureActuelle = TEtatsCuvesAPI(NumCuve).Temperatures.TempActuelle
                 If TemperatureActuelle >= 0 And TemperatureActuelle <= 99 Then
                     With TPointsTraçabilite(a)
                         If .Temperature <> TemperatureActuelle * 10 Then

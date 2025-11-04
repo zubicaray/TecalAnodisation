@@ -40,7 +40,7 @@ Public Function C_Nullite_Champ(ByVal Enregistrement As ADODB.Recordset, _
     Dim ValeurChamp As Variant
     
     '--- affectation ---
-    ValeurChamp = Enregistrement.Fields(NomChamp).Value
+    ValeurChamp = Enregistrement.Fields(NomChamp).value
     
     '--- contrôle ---
     If IsNull(ValeurChamp) = True Or ValeurChamp = Null Then
@@ -50,19 +50,7 @@ Public Function C_Nullite_Champ(ByVal Enregistrement As ADODB.Recordset, _
     End If
     
 End Function
-' SZ 202110
-Public Function getCuveId_OLD(ByVal IdxAutomate As Integer) As Integer
-    'Dim I As Long
-    'Call Log("------------------------------")
-    'Call Log("idx auto:" & IdxAutomate)
-    
 
-    
-    
-     'Call Log("idx cuve: -1 ")
-    
-    getCuveId_OLD = CORRESPONDANCES_IDX_CUVES_API(IdxAutomate)
-End Function
 
 '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ' Rôle      : Controle la température d'une cuve
@@ -82,33 +70,33 @@ Public Function ControleTemperature(ByVal NumCuve As Integer) As Integer
 
     '--- déclaration ---
     Dim TempComparaison As Single
-    Static TTempAtteinteUneFois(CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION) As Boolean
+    Static TTempAtteinteUneFois(CUVES_API.C_C00 To DERNIERE_CUV_REGULATION) As Boolean
 
     '--- affectation ---
     ControleTemperature = CONTROLES_TEMPERATURES.C_PAS_DE_CONTROLE
 
     '--- contrôle ---
-    With TEtatsCuves(NumCuve).Temperatures
+    With TEtatsCuvesAPI(NumCuve).Temperatures
 
         If .TempActuelle = 32767 / 10 Or .TempActuelle = -32768 / 10 Then
 
             '--- cas du défaut de la PT 100 ---
-            TEtatsCuves(NumCuve).TEntreesAPI.DefautPT100 = True
+            TEtatsCuvesAPI(NumCuve).TEntreesAPI.DefautPT100 = True
             ControleTemperature = CONTROLES_TEMPERATURES.C_DEFAUT_PT100
             Exit Function
 
         Else
 
             '--- recherche de la température en fonction du mode de production en cours ---
-            Select Case TEtatsCuves(NumCuve).ModeProduction
+            Select Case TEtatsCuvesAPI(NumCuve).ModeProduction
 
                 Case MODES_PRODUCTION.M_ARRET
                     '--- mode arrêt ---
                     TTempAtteinteUneFois(NumCuve) = False
                     
-                    TEtatsCuves(NumCuve).TEntreesAPI.TemperatureTropBasse = False
-                    TEtatsCuves(NumCuve).TEntreesAPI.TemperatureTropHaute = False
-                    TEtatsCuves(NumCuve).TEntreesAPI.DefautPT100 = False
+                    TEtatsCuvesAPI(NumCuve).TEntreesAPI.TemperatureTropBasse = False
+                    TEtatsCuvesAPI(NumCuve).TEntreesAPI.TemperatureTropHaute = False
+                    TEtatsCuvesAPI(NumCuve).TEntreesAPI.DefautPT100 = False
                     
                     Exit Function
 
@@ -116,9 +104,9 @@ Public Function ControleTemperature(ByVal NumCuve As Integer) As Integer
                     '--- mode veille ---
                     TTempAtteinteUneFois(NumCuve) = False
                     
-                    TEtatsCuves(NumCuve).TEntreesAPI.TemperatureTropBasse = False
-                    TEtatsCuves(NumCuve).TEntreesAPI.TemperatureTropHaute = False
-                    TEtatsCuves(NumCuve).TEntreesAPI.DefautPT100 = False
+                    TEtatsCuvesAPI(NumCuve).TEntreesAPI.TemperatureTropBasse = False
+                    TEtatsCuvesAPI(NumCuve).TEntreesAPI.TemperatureTropHaute = False
+                    TEtatsCuvesAPI(NumCuve).TEntreesAPI.DefautPT100 = False
                     
                     Exit Function
 
@@ -139,11 +127,11 @@ Public Function ControleTemperature(ByVal NumCuve As Integer) As Integer
             '--- comparaisons ---
             If TTempAtteinteUneFois(NumCuve) = True Then
                 If .TempActuelle < (TempComparaison - .EcartInferieurAlarme) Then
-                    TEtatsCuves(NumCuve).TEntreesAPI.TemperatureTropBasse = True
+                    TEtatsCuvesAPI(NumCuve).TEntreesAPI.TemperatureTropBasse = True
                     ControleTemperature = CONTROLES_TEMPERATURES.C_TEMPERATURE_INFERIEURE
                 End If
                 If .TempActuelle > (TempComparaison + .EcartSuperieurAlarme) Then
-                    TEtatsCuves(NumCuve).TEntreesAPI.TemperatureTropHaute = True
+                    TEtatsCuvesAPI(NumCuve).TEntreesAPI.TemperatureTropHaute = True
                     ControleTemperature = CONTROLES_TEMPERATURES.C_TEMPERATURE_SUPERIEURE
                 End If
             End If
@@ -154,9 +142,9 @@ Public Function ControleTemperature(ByVal NumCuve As Integer) As Integer
 
     '--- pas de défaut si la température est normale ---
     If ControleTemperature = CONTROLES_TEMPERATURES.C_TEMPERATURE_NORMALE Then
-        TEtatsCuves(NumCuve).TEntreesAPI.TemperatureTropBasse = False
-        TEtatsCuves(NumCuve).TEntreesAPI.TemperatureTropHaute = False
-        TEtatsCuves(NumCuve).TEntreesAPI.DefautPT100 = False
+        TEtatsCuvesAPI(NumCuve).TEntreesAPI.TemperatureTropBasse = False
+        TEtatsCuvesAPI(NumCuve).TEntreesAPI.TemperatureTropHaute = False
+        TEtatsCuvesAPI(NumCuve).TEntreesAPI.DefautPT100 = False
     End If
 
 End Function

@@ -14,8 +14,8 @@ DefVar A-Z
 
 '*** VARIABLES ***
 
-Public CORRESPONDANCES_IDX_AUTOMATE(11) As Integer
-Public CORRESPONDANCES_IDX_CUVES_API(18) As Integer
+Public CORRESPONDANCES_IDX_AUTOMATE(20) As Integer
+Public CORRESPONDANCES_IDX_CUVES_API(45) As Integer
 '--- type de PC ---
 'Public TypePC As TYPES_PC                                       'indique le type de PC première donnée du fichier de configuration
 
@@ -213,13 +213,13 @@ Public TImageAPICyclesPonts(PONTS.P_1 To PONTS.P_2, 1 To NBR_LIGNES_CYCLES_PONTS
 Public TEtatsPonts(PONTS.P_1 To PONTS.P_2) As EtatsPonts
 
 '--- caractéristiques des cuves ---
-Public TCaracteristiquesCuves(CUVES.C_C00 To CUVES.C_C02) As CaracteristiquesCuves
+Public TCaracteristiquesCuves(CUVES.C_C00 To CUVES.C_C39) As CaracteristiquesCuves
 
 '--- états de la ligne ---
 Public TEtatsLigne As EtatsLigne                          'états de la ligne
 
 '--- états des cuves ---
-Public TEtatsCuves(CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION) As EtatsCuves
+Public TEtatsCuvesAPI(CUVES_API.C_C00 To DERNIERE_CUV_REGULATION) As EtatsCuves
 
 '--- états des postes ---
 Public TEtatsPostes(POSTES.P_CHGT_1 To DERNIER_POSTE) As EtatsPostes
@@ -253,10 +253,10 @@ Public TMoteurInference As VarMoteurInference      'moteur d'inférence (contient
 
 
 '--- journées types ---
-Public TJourneesTypes(CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION, JOURNEES_TYPES.J_ARRET To JOURNEES_TYPES.J_REPRISE) As VarCycle24HJourneesTypes
+Public TJourneesTypes(CUVES_API.C_C00 To DERNIERE_CUV_REGULATION, JOURNEES_TYPES.J_ARRET To JOURNEES_TYPES.J_REPRISE) As VarCycle24HJourneesTypes
 
 '--- programmateur cyclique ---
-Public TProgCyclique(1 To NBR_JOURS_PROG_CYCLIQUE, CUVES_REGULATION.C_C00 To DERNIERE_CUV_REGULATION) As VarCycle24HProgCyclique
+Public TProgCyclique(1 To NBR_JOURS_PROG_CYCLIQUE, CUVES_API.C_C00 To DERNIERE_CUV_REGULATION) As VarCycle24HProgCyclique
 
 '--- mémorisation de divers manipulations ---
 Public VManipsGestionRegulation As ManipsGestionRegulation
