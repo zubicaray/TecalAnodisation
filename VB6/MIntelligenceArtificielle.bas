@@ -1647,6 +1647,8 @@ Public Function CorrespondancePostesCuvesAPI(ByVal NumPoste As Long) As Long
         Case POSTES.P_C35: CorrespondancePostesCuvesAPI = CUVES_API.C_C35
         
         Case Else
+            CorrespondancePostesCuvesAPI = -1
+        
     End Select
     
 End Function

@@ -66,6 +66,7 @@ Begin VB.MDIForm FPrincipale
          _ExtentX        =   1826
          _ExtentY        =   767
          _Version        =   393217
+         Enabled         =   -1  'True
          Appearance      =   0
          TextRTF         =   $"FPrincipale.frx":08CA
       End
@@ -1672,7 +1673,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
 
                     '--- affectation de l'index ---
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                         With TEtatsCuvesAPI(Index)
                             .Temperatures.TempActuelle = value(a) / 10
@@ -1688,7 +1689,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 If InStr(TabItemName(a), ".ETATS_CUVES.Etats1Cuve") > 0 Then
                     
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                        With TEtatsCuvesAPI(Index)
 
@@ -1738,7 +1739,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 If InStr(TabItemName(a), ".ETATS_CUVES.Etats2Cuve") > 0 Then
                     
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                         With TEtatsCuvesAPI(Index)
 
@@ -1780,7 +1781,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 '********************************************************************************************************
                 If InStr(TabItemName(a), ".MODES_CHAUFFAGES_CUVES.ModeChauffagePCCuve") > 0 Then
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                         With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
@@ -1800,7 +1801,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 '********************************************************************************************************
                 If InStr(TabItemName(a), ".TEMP_VEILLE_CUVES.TempVeillePCCuve") > 0 Then
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                         
                         With TEtatsCuvesAPI(Index)
@@ -1820,7 +1821,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 '********************************************************************************************************
                 If InStr(TabItemName(a), ".TEMP_PRODUCTION_CUVES.TempProductionPCCuve") > 0 Then
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                         With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
@@ -1840,7 +1841,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 '********************************************************************************************************
                 If InStr(TabItemName(a), ".ECARTS_INF_REGUL_CUVES.EcartInfRegulPCCuve") > 0 Then
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                         With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
@@ -1858,7 +1859,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 '********************************************************************************************************
                 If InStr(TabItemName(a), ".ECARTS_SUP_REGUL_CUVES.EcartSupRegulPCCuve") > 0 Then
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                         With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
@@ -1876,7 +1877,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 '********************************************************************************************************
                 If InStr(TabItemName(a), ".ECARTS_INF_ALARME_CUVES.EcartInfAlarmePCCuve") > 0 Then
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                         With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
@@ -1894,7 +1895,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 '********************************************************************************************************
                 If InStr(TabItemName(a), ".ECARTS_SUP_ALARME_CUVES.EcartSupAlarmePCCuve") > 0 Then
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                          With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
@@ -1912,7 +1913,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 '********************************************************************************************************
                 If InStr(TabItemName(a), ".MODES_POMPES_CUVES.ModePompePCCuve") > 0 Then
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                         With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
@@ -1930,7 +1931,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 '********************************************************************************************************
                 If InStr(TabItemName(a), ".CYCLES_AUTO_POMPES_CUVES.CycleAutoPompePCCuve") > 0 Then
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                         With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
@@ -1948,7 +1949,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 '********************************************************************************************************
                 If InStr(TabItemName(a), ".MODES_COUVERCLES_CUVES.ModeCouverclesPCCuve") > 0 Then
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                         With TEtatsCuvesAPI(Index)
                             Valeur = value(a)
@@ -1966,7 +1967,7 @@ Private Sub AOCFPrincipale_EventNewValue(ByVal NbItems As Long, ByVal TabItemNam
                 '********************************************************************************************************
                 If InStr(TabItemName(a), ".CYCLES_AUTO_COUVERCLES_CUVES.CycleAutoCouvercAPICuve") > 0 Then
                     Index = CLng(Right(TabItemName(a), 2))
-                    Index = CORRESPONDANCES_IDX_CUVES_API(Index)
+                    Index = CorrespondancePostesCuvesAPI(Index)
                     If (Index > 0) Then
                         With TEtatsCuvesAPI(Index)
                             Valeur = value(a)

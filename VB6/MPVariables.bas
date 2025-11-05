@@ -14,8 +14,7 @@ DefVar A-Z
 
 '*** VARIABLES ***
 
-Public CORRESPONDANCES_IDX_AUTOMATE(20) As Integer
-Public CORRESPONDANCES_IDX_CUVES_API(45) As Integer
+
 '--- type de PC ---
 'Public TypePC As TYPES_PC                                       'indique le type de PC première donnée du fichier de configuration
 
