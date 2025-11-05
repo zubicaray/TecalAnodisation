@@ -497,6 +497,27 @@ Begin VB.Form FGestionRegulation
                Top             =   660
                Width           =   9195
                Begin VB.OptionButton OBNomsCuves 
+                  BackColor       =   &H00FFFFFF&
+                  Caption         =   "Index 20"
+                  BeginProperty Font 
+                     Name            =   "Arial"
+                     Size            =   9.75
+                     Charset         =   0
+                     Weight          =   700
+                     Underline       =   0   'False
+                     Italic          =   0   'False
+                     Strikethrough   =   0   'False
+                  EndProperty
+                  ForeColor       =   &H00000000&
+                  Height          =   495
+                  Index           =   20
+                  Left            =   360
+                  Style           =   1  'Graphical
+                  TabIndex        =   81
+                  Top             =   10920
+                  Width           =   8115
+               End
+               Begin VB.OptionButton OBNomsCuves 
                   BackColor       =   &H00C00000&
                   Caption         =   "Index 18"
                   BeginProperty Font 
@@ -514,8 +535,7 @@ Begin VB.Form FGestionRegulation
                   Left            =   360
                   Style           =   1  'Graphical
                   TabIndex        =   80
-                  Top             =   10440
-                  Visible         =   0   'False
+                  Top             =   9840
                   Width           =   8115
                End
                Begin VB.OptionButton OBNomsCuves 
@@ -558,7 +578,6 @@ Begin VB.Form FGestionRegulation
                   Style           =   1  'Graphical
                   TabIndex        =   78
                   Top             =   6720
-                  Visible         =   0   'False
                   Width           =   8115
                End
                Begin VB.OptionButton OBNomsCuves 
@@ -580,7 +599,6 @@ Begin VB.Form FGestionRegulation
                   Style           =   1  'Graphical
                   TabIndex        =   77
                   Top             =   7260
-                  Visible         =   0   'False
                   Width           =   8115
                End
                Begin VB.OptionButton OBNomsCuves 
@@ -602,7 +620,6 @@ Begin VB.Form FGestionRegulation
                   Style           =   1  'Graphical
                   TabIndex        =   76
                   Top             =   7800
-                  Visible         =   0   'False
                   Width           =   8115
                End
                Begin VB.OptionButton OBNomsCuves 
@@ -624,7 +641,6 @@ Begin VB.Form FGestionRegulation
                   Style           =   1  'Graphical
                   TabIndex        =   75
                   Top             =   8340
-                  Visible         =   0   'False
                   Width           =   8115
                End
                Begin VB.OptionButton OBNomsCuves 
@@ -645,8 +661,7 @@ Begin VB.Form FGestionRegulation
                   Left            =   360
                   Style           =   1  'Graphical
                   TabIndex        =   74
-                  Top             =   9360
-                  Visible         =   0   'False
+                  Top             =   8880
                   Width           =   8115
                End
                Begin VB.OptionButton OBNomsCuves 
@@ -667,8 +682,7 @@ Begin VB.Form FGestionRegulation
                   Left            =   360
                   Style           =   1  'Graphical
                   TabIndex        =   73
-                  Top             =   9900
-                  Visible         =   0   'False
+                  Top             =   9360
                   Width           =   8115
                End
                Begin VB.OptionButton OBNomsCuves 
@@ -903,8 +917,7 @@ Begin VB.Form FGestionRegulation
                   Left            =   360
                   Style           =   1  'Graphical
                   TabIndex        =   61
-                  Top             =   10920
-                  Visible         =   0   'False
+                  Top             =   10320
                   Width           =   8115
                End
                Begin VB.VScrollBar VSChangementCuve 

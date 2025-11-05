@@ -1005,7 +1005,7 @@ Begin VB.Form FProgrammateurCyclique
                FrontTabForeColor=   0
                Caption         =   "Préparation|Anodisation|Coloration / fin de ligne"
                Align           =   0
-               CurrTab         =   2
+               CurrTab         =   0
                FirstTab        =   0
                Style           =   1
                Position        =   0
@@ -1032,7 +1032,7 @@ Begin VB.Form FProgrammateurCyclique
                Begin VB.PictureBox PBOnglets 
                   Height          =   11475
                   Index           =   0
-                  Left            =   -16410
+                  Left            =   45
                   ScaleHeight     =   11415
                   ScaleWidth      =   15405
                   TabIndex        =   39
@@ -1041,11 +1041,106 @@ Begin VB.Form FProgrammateurCyclique
                   Begin VB.PictureBox PBJourneesTypes 
                      BackColor       =   &H00C0C0C0&
                      Height          =   975
+                     Index           =   4
+                     Left            =   10200
+                     ScaleHeight     =   915
+                     ScaleWidth      =   4815
+                     TabIndex        =   199
+                     Top             =   5400
+                     Width           =   4875
+                     Begin VB.OptionButton OBTypesJourneesIdx04 
+                        BackColor       =   &H00C0E0FF&
+                        Caption         =   "ARRET"
+                        BeginProperty Font 
+                           Name            =   "Arial"
+                           Size            =   9.75
+                           Charset         =   0
+                           Weight          =   700
+                           Underline       =   0   'False
+                           Italic          =   0   'False
+                           Strikethrough   =   0   'False
+                        EndProperty
+                        Height          =   795
+                        Index           =   0
+                        Left            =   120
+                        MaskColor       =   &H00FFFFFF&
+                        Style           =   1  'Graphical
+                        TabIndex        =   203
+                        Top             =   0
+                        Width           =   1095
+                     End
+                     Begin VB.OptionButton OBTypesJourneesIdx04 
+                        BackColor       =   &H00C0E0FF&
+                        Caption         =   "TRAVAIL"
+                        BeginProperty Font 
+                           Name            =   "Arial"
+                           Size            =   9.75
+                           Charset         =   0
+                           Weight          =   700
+                           Underline       =   0   'False
+                           Italic          =   0   'False
+                           Strikethrough   =   0   'False
+                        EndProperty
+                        Height          =   795
+                        Index           =   1
+                        Left            =   3720
+                        MaskColor       =   &H00FFFFFF&
+                        Style           =   1  'Graphical
+                        TabIndex        =   202
+                        Top             =   0
+                        Width           =   1095
+                     End
+                     Begin VB.OptionButton OBTypesJourneesIdx04 
+                        BackColor       =   &H00C0E0FF&
+                        Caption         =   "VEILLE"
+                        BeginProperty Font 
+                           Name            =   "Arial"
+                           Size            =   9.75
+                           Charset         =   0
+                           Weight          =   700
+                           Underline       =   0   'False
+                           Italic          =   0   'False
+                           Strikethrough   =   0   'False
+                        EndProperty
+                        Height          =   795
+                        Index           =   2
+                        Left            =   1320
+                        MaskColor       =   &H00FFFFFF&
+                        Style           =   1  'Graphical
+                        TabIndex        =   201
+                        Top             =   0
+                        Width           =   1095
+                     End
+                     Begin VB.OptionButton OBTypesJourneesIdx04 
+                        BackColor       =   &H00C0E0FF&
+                        Caption         =   "REPRISE"
+                        BeginProperty Font 
+                           Name            =   "Arial"
+                           Size            =   9.75
+                           Charset         =   0
+                           Weight          =   700
+                           Underline       =   0   'False
+                           Italic          =   0   'False
+                           Strikethrough   =   0   'False
+                        EndProperty
+                        Height          =   795
+                        Index           =   3
+                        Left            =   2520
+                        MaskColor       =   &H00FFFFFF&
+                        Style           =   1  'Graphical
+                        TabIndex        =   200
+                        Top             =   0
+                        Width           =   1095
+                     End
+                  End
+                  Begin VB.PictureBox PBJourneesTypes 
+                     BackColor       =   &H00C0C0C0&
+                     Height          =   975
                      Index           =   6
                      Left            =   10200
                      ScaleHeight     =   915
                      ScaleWidth      =   4935
-                     TabIndex        =   208
+                     TabIndex        =   188
                      Top             =   8520
                      Width           =   4995
                      Begin VB.OptionButton OBTypesJourneesIdx06 
@@ -1061,15 +1156,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   795
-                        Index           =   19
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   212
+                        TabIndex        =   192
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx02 
+                     Begin VB.OptionButton OBTypesJourneesIdx06 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -1082,15 +1177,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   795
-                        Index           =   18
+                        Index           =   1
                         Left            =   3720
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   211
+                        TabIndex        =   191
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx02 
+                     Begin VB.OptionButton OBTypesJourneesIdx06 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -1103,15 +1198,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   795
-                        Index           =   17
+                        Index           =   2
                         Left            =   1320
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   210
+                        TabIndex        =   190
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx02 
+                     Begin VB.OptionButton OBTypesJourneesIdx06 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -1124,11 +1219,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   795
-                        Index           =   16
+                        Index           =   3
                         Left            =   2520
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   209
+                        TabIndex        =   189
                         Top             =   60
                         Width           =   1095
                      End
@@ -1140,7 +1235,7 @@ Begin VB.Form FProgrammateurCyclique
                      Left            =   10200
                      ScaleHeight     =   915
                      ScaleWidth      =   4935
-                     TabIndex        =   203
+                     TabIndex        =   183
                      Top             =   6960
                      Width           =   4995
                      Begin VB.OptionButton OBTypesJourneesIdx05 
@@ -1156,15 +1251,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   795
-                        Index           =   15
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   207
+                        TabIndex        =   187
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx02 
+                     Begin VB.OptionButton OBTypesJourneesIdx05 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -1177,15 +1272,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   795
-                        Index           =   14
+                        Index           =   1
                         Left            =   3720
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   206
+                        TabIndex        =   186
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx02 
+                     Begin VB.OptionButton OBTypesJourneesIdx05 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -1198,15 +1293,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   795
-                        Index           =   13
+                        Index           =   2
                         Left            =   1320
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   205
+                        TabIndex        =   185
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx02 
+                     Begin VB.OptionButton OBTypesJourneesIdx05 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -1219,201 +1314,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   795
-                        Index           =   12
+                        Index           =   3
                         Left            =   2520
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   204
-                        Top             =   60
-                        Width           =   1095
-                     End
-                  End
-                  Begin VB.PictureBox PBJourneesTypes 
-                     BackColor       =   &H00C0C0C0&
-                     Height          =   975
-                     Index           =   3
-                     Left            =   10200
-                     ScaleHeight     =   915
-                     ScaleWidth      =   4935
-                     TabIndex        =   193
-                     Top             =   5400
-                     Width           =   4995
-                     Begin VB.PictureBox PBJourneesTypes 
-                        BackColor       =   &H00C0C0C0&
-                        Height          =   975
-                        Index           =   4
-                        Left            =   0
-                        ScaleHeight     =   915
-                        ScaleWidth      =   4935
-                        TabIndex        =   198
-                        Top             =   0
-                        Width           =   4995
-                        Begin VB.OptionButton OBTypesJourneesIdx04 
-                           BackColor       =   &H00C0E0FF&
-                           Caption         =   "ARRET"
-                           BeginProperty Font 
-                              Name            =   "Arial"
-                              Size            =   9.75
-                              Charset         =   0
-                              Weight          =   700
-                              Underline       =   0   'False
-                              Italic          =   0   'False
-                              Strikethrough   =   0   'False
-                           EndProperty
-                           Height          =   795
-                           Index           =   11
-                           Left            =   120
-                           MaskColor       =   &H00FFFFFF&
-                           Style           =   1  'Graphical
-                           TabIndex        =   202
-                           Top             =   60
-                           Width           =   1095
-                        End
-                        Begin VB.OptionButton OBTypesJourneesIdx02 
-                           BackColor       =   &H00C0E0FF&
-                           Caption         =   "TRAVAIL"
-                           BeginProperty Font 
-                              Name            =   "Arial"
-                              Size            =   9.75
-                              Charset         =   0
-                              Weight          =   700
-                              Underline       =   0   'False
-                              Italic          =   0   'False
-                              Strikethrough   =   0   'False
-                           EndProperty
-                           Height          =   795
-                           Index           =   10
-                           Left            =   3720
-                           MaskColor       =   &H00FFFFFF&
-                           Style           =   1  'Graphical
-                           TabIndex        =   201
-                           Top             =   60
-                           Width           =   1095
-                        End
-                        Begin VB.OptionButton OBTypesJourneesIdx02 
-                           BackColor       =   &H00C0E0FF&
-                           Caption         =   "VEILLE"
-                           BeginProperty Font 
-                              Name            =   "Arial"
-                              Size            =   9.75
-                              Charset         =   0
-                              Weight          =   700
-                              Underline       =   0   'False
-                              Italic          =   0   'False
-                              Strikethrough   =   0   'False
-                           EndProperty
-                           Height          =   795
-                           Index           =   9
-                           Left            =   1320
-                           MaskColor       =   &H00FFFFFF&
-                           Style           =   1  'Graphical
-                           TabIndex        =   200
-                           Top             =   60
-                           Width           =   1095
-                        End
-                        Begin VB.OptionButton OBTypesJourneesIdx02 
-                           BackColor       =   &H00C0E0FF&
-                           Caption         =   "REPRISE"
-                           BeginProperty Font 
-                              Name            =   "Arial"
-                              Size            =   9.75
-                              Charset         =   0
-                              Weight          =   700
-                              Underline       =   0   'False
-                              Italic          =   0   'False
-                              Strikethrough   =   0   'False
-                           EndProperty
-                           Height          =   795
-                           Index           =   8
-                           Left            =   2520
-                           MaskColor       =   &H00FFFFFF&
-                           Style           =   1  'Graphical
-                           TabIndex        =   199
-                           Top             =   60
-                           Width           =   1095
-                        End
-                     End
-                     Begin VB.OptionButton OBTypesJourneesIdx02 
-                        BackColor       =   &H00C0E0FF&
-                        Caption         =   "ARRET"
-                        BeginProperty Font 
-                           Name            =   "Arial"
-                           Size            =   9.75
-                           Charset         =   0
-                           Weight          =   700
-                           Underline       =   0   'False
-                           Italic          =   0   'False
-                           Strikethrough   =   0   'False
-                        EndProperty
-                        Height          =   795
-                        Index           =   7
-                        Left            =   120
-                        MaskColor       =   &H00FFFFFF&
-                        Style           =   1  'Graphical
-                        TabIndex        =   197
-                        Top             =   60
-                        Width           =   1095
-                     End
-                     Begin VB.OptionButton OBTypesJourneesIdx02 
-                        BackColor       =   &H00C0E0FF&
-                        Caption         =   "TRAVAIL"
-                        BeginProperty Font 
-                           Name            =   "Arial"
-                           Size            =   9.75
-                           Charset         =   0
-                           Weight          =   700
-                           Underline       =   0   'False
-                           Italic          =   0   'False
-                           Strikethrough   =   0   'False
-                        EndProperty
-                        Height          =   795
-                        Index           =   6
-                        Left            =   3720
-                        MaskColor       =   &H00FFFFFF&
-                        Style           =   1  'Graphical
-                        TabIndex        =   196
-                        Top             =   60
-                        Width           =   1095
-                     End
-                     Begin VB.OptionButton OBTypesJourneesIdx02 
-                        BackColor       =   &H00C0E0FF&
-                        Caption         =   "VEILLE"
-                        BeginProperty Font 
-                           Name            =   "Arial"
-                           Size            =   9.75
-                           Charset         =   0
-                           Weight          =   700
-                           Underline       =   0   'False
-                           Italic          =   0   'False
-                           Strikethrough   =   0   'False
-                        EndProperty
-                        Height          =   795
-                        Index           =   5
-                        Left            =   1320
-                        MaskColor       =   &H00FFFFFF&
-                        Style           =   1  'Graphical
-                        TabIndex        =   195
-                        Top             =   60
-                        Width           =   1095
-                     End
-                     Begin VB.OptionButton OBTypesJourneesIdx02 
-                        BackColor       =   &H00C0E0FF&
-                        Caption         =   "REPRISE"
-                        BeginProperty Font 
-                           Name            =   "Arial"
-                           Size            =   9.75
-                           Charset         =   0
-                           Weight          =   700
-                           Underline       =   0   'False
-                           Italic          =   0   'False
-                           Strikethrough   =   0   'False
-                        EndProperty
-                        Height          =   795
-                        Index           =   4
-                        Left            =   2520
-                        MaskColor       =   &H00FFFFFF&
-                        Style           =   1  'Graphical
-                        TabIndex        =   194
+                        TabIndex        =   184
                         Top             =   60
                         Width           =   1095
                      End
@@ -1432,7 +1337,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   192
+                     TabIndex        =   182
                      TabStop         =   0   'False
                      Top             =   5400
                      Width           =   9915
@@ -1451,7 +1356,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   122
+                     TabIndex        =   117
                      TabStop         =   0   'False
                      Top             =   8520
                      Width           =   9915
@@ -1470,7 +1375,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   120
+                     TabIndex        =   115
                      TabStop         =   0   'False
                      Top             =   6960
                      Width           =   9915
@@ -1535,7 +1440,7 @@ Begin VB.Form FProgrammateurCyclique
                   Begin VB.PictureBox PBJourneesTypes 
                      BackColor       =   &H00C0C0C0&
                      Height          =   975
-                     Index           =   0
+                     Index           =   1
                      Left            =   10140
                      ScaleHeight     =   915
                      ScaleWidth      =   4935
@@ -1630,7 +1535,7 @@ Begin VB.Form FProgrammateurCyclique
                   Begin VB.PictureBox PBJourneesTypes 
                      BackColor       =   &H00C0C0C0&
                      Height          =   975
-                     Index           =   1
+                     Index           =   2
                      Left            =   10140
                      ScaleHeight     =   915
                      ScaleWidth      =   4935
@@ -1725,7 +1630,7 @@ Begin VB.Form FProgrammateurCyclique
                   Begin VB.PictureBox PBJourneesTypes 
                      BackColor       =   &H00C0C0C0&
                      Height          =   975
-                     Index           =   2
+                     Index           =   3
                      Left            =   10140
                      ScaleHeight     =   915
                      ScaleWidth      =   4935
@@ -1833,9 +1738,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   495
-                     Index           =   18
+                     Index           =   6
                      Left            =   240
-                     TabIndex        =   121
+                     TabIndex        =   116
                      Top             =   8040
                      Width           =   14895
                   End
@@ -1855,9 +1760,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   495
-                     Index           =   17
+                     Index           =   5
                      Left            =   240
-                     TabIndex        =   119
+                     TabIndex        =   114
                      Top             =   6480
                      Width           =   14895
                   End
@@ -1877,9 +1782,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   495
-                     Index           =   12
+                     Index           =   4
                      Left            =   240
-                     TabIndex        =   114
+                     TabIndex        =   113
                      Top             =   4800
                      Width           =   14895
                   End
@@ -1953,7 +1858,7 @@ Begin VB.Form FProgrammateurCyclique
                Begin VB.PictureBox PBOnglets 
                   Height          =   11475
                   Index           =   3
-                  Left            =   16200
+                  Left            =   16800
                   ScaleHeight     =   11415
                   ScaleWidth      =   15405
                   TabIndex        =   24
@@ -1963,7 +1868,7 @@ Begin VB.Form FProgrammateurCyclique
                Begin VB.PictureBox PBOnglets 
                   Height          =   11475
                   Index           =   2
-                  Left            =   45
+                  Left            =   16500
                   ScaleHeight     =   11415
                   ScaleWidth      =   15405
                   TabIndex        =   23
@@ -1983,7 +1888,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   218
+                     TabIndex        =   198
                      TabStop         =   0   'False
                      Top             =   1920
                      Width           =   9915
@@ -1995,7 +1900,7 @@ Begin VB.Form FProgrammateurCyclique
                      Left            =   10080
                      ScaleHeight     =   555
                      ScaleWidth      =   4935
-                     TabIndex        =   213
+                     TabIndex        =   193
                      Top             =   2280
                      Width           =   4995
                      Begin VB.OptionButton OBTypesJourneesIdx12 
@@ -2011,15 +1916,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   11
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   217
+                        TabIndex        =   197
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx12 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -2032,15 +1937,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   10
+                        Index           =   1
                         Left            =   3720
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   216
+                        TabIndex        =   196
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx12 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -2053,15 +1958,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   9
+                        Index           =   2
                         Left            =   1320
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   215
+                        TabIndex        =   195
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx12 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -2074,11 +1979,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   8
+                        Index           =   3
                         Left            =   2520
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   214
+                        TabIndex        =   194
                         Top             =   0
                         Width           =   1095
                      End
@@ -2097,7 +2002,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   188
+                     TabIndex        =   179
                      TabStop         =   0   'False
                      Top             =   9600
                      Width           =   9915
@@ -2109,10 +2014,10 @@ Begin VB.Form FProgrammateurCyclique
                      Left            =   10080
                      ScaleHeight     =   555
                      ScaleWidth      =   4935
-                     TabIndex        =   183
+                     TabIndex        =   174
                      Top             =   9960
                      Width           =   4995
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx20 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -2125,15 +2030,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   43
+                        Index           =   3
                         Left            =   2520
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   187
+                        TabIndex        =   178
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx20 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -2146,15 +2051,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   42
+                        Index           =   2
                         Left            =   1320
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   186
+                        TabIndex        =   177
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx20 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -2167,11 +2072,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   41
+                        Index           =   1
                         Left            =   3720
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   185
+                        TabIndex        =   176
                         Top             =   0
                         Width           =   1095
                      End
@@ -2188,11 +2093,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   19
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   184
+                        TabIndex        =   175
                         Top             =   0
                         Width           =   1095
                      End
@@ -2211,7 +2116,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   181
+                     TabIndex        =   172
                      TabStop         =   0   'False
                      Top             =   8625
                      Width           =   9915
@@ -2223,10 +2128,10 @@ Begin VB.Form FProgrammateurCyclique
                      Left            =   10080
                      ScaleHeight     =   555
                      ScaleWidth      =   4935
-                     TabIndex        =   176
+                     TabIndex        =   167
                      Top             =   8985
                      Width           =   4995
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx19 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -2239,15 +2144,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   39
+                        Index           =   3
                         Left            =   2520
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   180
+                        TabIndex        =   171
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx19 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -2260,15 +2165,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   38
+                        Index           =   2
                         Left            =   1320
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   179
+                        TabIndex        =   170
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx19 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -2281,11 +2186,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   37
+                        Index           =   1
                         Left            =   3720
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   178
+                        TabIndex        =   169
                         Top             =   0
                         Width           =   1095
                      End
@@ -2302,11 +2207,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   18
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   177
+                        TabIndex        =   168
                         Top             =   0
                         Width           =   1095
                      End
@@ -2325,7 +2230,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   174
+                     TabIndex        =   165
                      TabStop         =   0   'False
                      Top             =   7680
                      Width           =   9915
@@ -2337,10 +2242,10 @@ Begin VB.Form FProgrammateurCyclique
                      Left            =   10080
                      ScaleHeight     =   555
                      ScaleWidth      =   4935
-                     TabIndex        =   169
+                     TabIndex        =   160
                      Top             =   8040
                      Width           =   4995
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx18 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -2353,15 +2258,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   35
+                        Index           =   3
                         Left            =   2520
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   173
+                        TabIndex        =   164
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx18 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -2374,15 +2279,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   34
+                        Index           =   2
                         Left            =   1320
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   172
+                        TabIndex        =   163
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx18 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -2395,11 +2300,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   33
+                        Index           =   1
                         Left            =   3720
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   171
+                        TabIndex        =   162
                         Top             =   0
                         Width           =   1095
                      End
@@ -2420,7 +2325,7 @@ Begin VB.Form FProgrammateurCyclique
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   170
+                        TabIndex        =   161
                         Top             =   0
                         Width           =   1095
                      End
@@ -2439,7 +2344,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   167
+                     TabIndex        =   158
                      TabStop         =   0   'False
                      Top             =   6720
                      Width           =   9915
@@ -2451,10 +2356,10 @@ Begin VB.Form FProgrammateurCyclique
                      Left            =   10080
                      ScaleHeight     =   555
                      ScaleWidth      =   4935
-                     TabIndex        =   162
+                     TabIndex        =   153
                      Top             =   7080
                      Width           =   4995
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx17 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -2467,15 +2372,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   31
+                        Index           =   3
                         Left            =   2520
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   166
+                        TabIndex        =   157
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx17 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -2488,15 +2393,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   30
+                        Index           =   2
                         Left            =   1320
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   165
+                        TabIndex        =   156
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx17 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -2509,11 +2414,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   29
+                        Index           =   1
                         Left            =   3720
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   164
+                        TabIndex        =   155
                         Top             =   0
                         Width           =   1095
                      End
@@ -2530,11 +2435,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   16
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   163
+                        TabIndex        =   154
                         Top             =   0
                         Width           =   1095
                      End
@@ -2553,7 +2458,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   160
+                     TabIndex        =   151
                      TabStop         =   0   'False
                      Top             =   5760
                      Width           =   9915
@@ -2565,10 +2470,10 @@ Begin VB.Form FProgrammateurCyclique
                      Left            =   10080
                      ScaleHeight     =   555
                      ScaleWidth      =   4935
-                     TabIndex        =   155
+                     TabIndex        =   146
                      Top             =   6120
                      Width           =   4995
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx16 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -2581,15 +2486,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   27
+                        Index           =   3
                         Left            =   2520
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   159
+                        TabIndex        =   150
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx16 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -2602,15 +2507,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   26
+                        Index           =   2
                         Left            =   1320
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   158
+                        TabIndex        =   149
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx16 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -2623,11 +2528,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   25
+                        Index           =   1
                         Left            =   3720
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   157
+                        TabIndex        =   148
                         Top             =   0
                         Width           =   1095
                      End
@@ -2644,11 +2549,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   15
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   156
+                        TabIndex        =   147
                         Top             =   0
                         Width           =   1095
                      End
@@ -2667,7 +2572,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   153
+                     TabIndex        =   144
                      TabStop         =   0   'False
                      Top             =   4800
                      Width           =   9915
@@ -2679,10 +2584,10 @@ Begin VB.Form FProgrammateurCyclique
                      Left            =   10080
                      ScaleHeight     =   555
                      ScaleWidth      =   4935
-                     TabIndex        =   148
+                     TabIndex        =   139
                      Top             =   5160
                      Width           =   4995
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx15 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -2695,15 +2600,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   23
+                        Index           =   3
                         Left            =   2520
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   152
+                        TabIndex        =   143
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx15 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -2716,15 +2621,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   22
+                        Index           =   2
                         Left            =   1320
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   151
+                        TabIndex        =   142
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx15 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -2737,11 +2642,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   21
+                        Index           =   1
                         Left            =   3720
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   150
+                        TabIndex        =   141
                         Top             =   0
                         Width           =   1095
                      End
@@ -2758,11 +2663,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   14
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   149
+                        TabIndex        =   140
                         Top             =   0
                         Width           =   1095
                      End
@@ -2781,7 +2686,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   146
+                     TabIndex        =   137
                      TabStop         =   0   'False
                      Top             =   3840
                      Width           =   9915
@@ -2793,10 +2698,10 @@ Begin VB.Form FProgrammateurCyclique
                      Left            =   10080
                      ScaleHeight     =   555
                      ScaleWidth      =   4935
-                     TabIndex        =   141
+                     TabIndex        =   132
                      Top             =   4200
                      Width           =   4995
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx14 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -2809,15 +2714,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   19
+                        Index           =   3
                         Left            =   2520
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   145
+                        TabIndex        =   136
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx14 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -2830,15 +2735,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   18
+                        Index           =   2
                         Left            =   1320
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   144
+                        TabIndex        =   135
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx14 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -2851,11 +2756,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   17
+                        Index           =   1
                         Left            =   3720
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   143
+                        TabIndex        =   134
                         Top             =   0
                         Width           =   1095
                      End
@@ -2872,11 +2777,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   13
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   142
+                        TabIndex        =   133
                         Top             =   0
                         Width           =   1095
                      End
@@ -2895,7 +2800,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   139
+                     TabIndex        =   130
                      TabStop         =   0   'False
                      Top             =   2880
                      Width           =   9915
@@ -2907,10 +2812,10 @@ Begin VB.Form FProgrammateurCyclique
                      Left            =   10080
                      ScaleHeight     =   555
                      ScaleWidth      =   4935
-                     TabIndex        =   134
+                     TabIndex        =   125
                      Top             =   3240
                      Width           =   4995
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx13 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -2923,15 +2828,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   15
+                        Index           =   3
                         Left            =   2520
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   138
+                        TabIndex        =   129
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx13 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -2944,15 +2849,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   14
+                        Index           =   2
                         Left            =   1320
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   137
+                        TabIndex        =   128
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx13 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -2965,11 +2870,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   13
+                        Index           =   1
                         Left            =   3720
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   136
+                        TabIndex        =   127
                         Top             =   0
                         Width           =   1095
                      End
@@ -2986,11 +2891,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   12
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   135
+                        TabIndex        =   126
                         Top             =   0
                         Width           =   1095
                      End
@@ -3009,7 +2914,7 @@ Begin VB.Form FProgrammateurCyclique
                      ScaleHeight     =   63
                      ScaleMode       =   3  'Pixel
                      ScaleWidth      =   661
-                     TabIndex        =   131
+                     TabIndex        =   123
                      TabStop         =   0   'False
                      Top             =   960
                      Width           =   9915
@@ -3021,10 +2926,10 @@ Begin VB.Form FProgrammateurCyclique
                      Left            =   10080
                      ScaleHeight     =   555
                      ScaleWidth      =   4935
-                     TabIndex        =   126
+                     TabIndex        =   118
                      Top             =   1320
                      Width           =   4995
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx11 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -3037,15 +2942,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   7
+                        Index           =   3
                         Left            =   2520
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   130
+                        TabIndex        =   122
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx11 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -3058,15 +2963,15 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   6
+                        Index           =   2
                         Left            =   1320
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   129
+                        TabIndex        =   121
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx11 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -3079,11 +2984,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   5
+                        Index           =   1
                         Left            =   3720
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   128
+                        TabIndex        =   120
                         Top             =   0
                         Width           =   1095
                      End
@@ -3100,11 +3005,11 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   10
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
-                        TabIndex        =   127
+                        TabIndex        =   119
                         Top             =   0
                         Width           =   1095
                      End
@@ -3132,7 +3037,7 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   555
-                        Index           =   9
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
@@ -3140,7 +3045,7 @@ Begin VB.Form FProgrammateurCyclique
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx10 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -3161,7 +3066,7 @@ Begin VB.Form FProgrammateurCyclique
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx10 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -3182,7 +3087,7 @@ Begin VB.Form FProgrammateurCyclique
                         Top             =   0
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx07 
+                     Begin VB.OptionButton OBTypesJourneesIdx10 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -3239,9 +3144,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   29
+                     Index           =   12
                      Left            =   10080
-                     TabIndex        =   191
+                     TabIndex        =   181
                      Top             =   1920
                      Width           =   5055
                   End
@@ -3261,9 +3166,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   27
+                     Index           =   20
                      Left            =   10080
-                     TabIndex        =   189
+                     TabIndex        =   180
                      Top             =   9600
                      Width           =   5055
                   End
@@ -3283,9 +3188,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   26
+                     Index           =   19
                      Left            =   10080
-                     TabIndex        =   182
+                     TabIndex        =   173
                      Top             =   8625
                      Width           =   5055
                   End
@@ -3305,9 +3210,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   25
+                     Index           =   18
                      Left            =   10080
-                     TabIndex        =   175
+                     TabIndex        =   166
                      Top             =   7680
                      Width           =   5055
                   End
@@ -3327,9 +3232,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   24
+                     Index           =   17
                      Left            =   10080
-                     TabIndex        =   168
+                     TabIndex        =   159
                      Top             =   6720
                      Width           =   5055
                   End
@@ -3349,9 +3254,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   23
+                     Index           =   16
                      Left            =   10080
-                     TabIndex        =   161
+                     TabIndex        =   152
                      Top             =   5760
                      Width           =   5055
                   End
@@ -3371,9 +3276,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   22
+                     Index           =   15
                      Left            =   10080
-                     TabIndex        =   154
+                     TabIndex        =   145
                      Top             =   4800
                      Width           =   5055
                   End
@@ -3393,9 +3298,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   21
+                     Index           =   14
                      Left            =   10080
-                     TabIndex        =   147
+                     TabIndex        =   138
                      Top             =   3840
                      Width           =   5055
                   End
@@ -3415,9 +3320,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   10
+                     Index           =   13
                      Left            =   10080
-                     TabIndex        =   140
+                     TabIndex        =   131
                      Top             =   2880
                      Width           =   5055
                   End
@@ -3437,9 +3342,9 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   8
+                     Index           =   11
                      Left            =   10080
-                     TabIndex        =   132
+                     TabIndex        =   124
                      Top             =   960
                      Width           =   5055
                   End
@@ -3459,7 +3364,7 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   7
+                     Index           =   10
                      Left            =   10080
                      TabIndex        =   91
                      Top             =   0
@@ -3469,7 +3374,7 @@ Begin VB.Form FProgrammateurCyclique
                Begin VB.PictureBox PBOnglets 
                   Height          =   11475
                   Index           =   8
-                  Left            =   18000
+                  Left            =   18600
                   ScaleHeight     =   11415
                   ScaleWidth      =   15405
                   TabIndex        =   22
@@ -3479,7 +3384,7 @@ Begin VB.Form FProgrammateurCyclique
                Begin VB.PictureBox PBOnglets 
                   Height          =   11475
                   Index           =   7
-                  Left            =   17700
+                  Left            =   18300
                   ScaleHeight     =   11415
                   ScaleWidth      =   15405
                   TabIndex        =   21
@@ -3489,7 +3394,7 @@ Begin VB.Form FProgrammateurCyclique
                Begin VB.PictureBox PBOnglets 
                   Height          =   11475
                   Index           =   6
-                  Left            =   17400
+                  Left            =   18000
                   ScaleHeight     =   11415
                   ScaleWidth      =   15405
                   TabIndex        =   20
@@ -3499,7 +3404,7 @@ Begin VB.Form FProgrammateurCyclique
                Begin VB.PictureBox PBOnglets 
                   Height          =   11475
                   Index           =   5
-                  Left            =   17100
+                  Left            =   17700
                   ScaleHeight     =   11415
                   ScaleWidth      =   15405
                   TabIndex        =   19
@@ -3509,7 +3414,7 @@ Begin VB.Form FProgrammateurCyclique
                Begin VB.PictureBox PBOnglets 
                   Height          =   11475
                   Index           =   4
-                  Left            =   16500
+                  Left            =   17100
                   ScaleHeight     =   11415
                   ScaleWidth      =   15405
                   TabIndex        =   18
@@ -3519,7 +3424,7 @@ Begin VB.Form FProgrammateurCyclique
                Begin VB.PictureBox PBOnglets 
                   Height          =   11475
                   Index           =   1
-                  Left            =   -16110
+                  Left            =   16200
                   ScaleHeight     =   11415
                   ScaleWidth      =   15405
                   TabIndex        =   17
@@ -3535,7 +3440,7 @@ Begin VB.Form FProgrammateurCyclique
                      TabIndex        =   105
                      Top             =   840
                      Width           =   4995
-                     Begin VB.OptionButton OBTypesJourneesIdx06 
+                     Begin VB.OptionButton OBTypesJourneesIdx07 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "ARRET"
                         BeginProperty Font 
@@ -3548,7 +3453,7 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   795
-                        Index           =   5
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
@@ -3556,7 +3461,7 @@ Begin VB.Form FProgrammateurCyclique
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx04 
+                     Begin VB.OptionButton OBTypesJourneesIdx07 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -3577,7 +3482,7 @@ Begin VB.Form FProgrammateurCyclique
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx04 
+                     Begin VB.OptionButton OBTypesJourneesIdx07 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -3598,7 +3503,7 @@ Begin VB.Form FProgrammateurCyclique
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx04 
+                     Begin VB.OptionButton OBTypesJourneesIdx07 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -3662,7 +3567,7 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   795
-                        Index           =   8
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
@@ -3670,7 +3575,7 @@ Begin VB.Form FProgrammateurCyclique
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx06 
+                     Begin VB.OptionButton OBTypesJourneesIdx09 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -3691,7 +3596,7 @@ Begin VB.Form FProgrammateurCyclique
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx06 
+                     Begin VB.OptionButton OBTypesJourneesIdx09 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -3712,7 +3617,7 @@ Begin VB.Form FProgrammateurCyclique
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx06 
+                     Begin VB.OptionButton OBTypesJourneesIdx09 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -3763,7 +3668,7 @@ Begin VB.Form FProgrammateurCyclique
                      TabIndex        =   93
                      Top             =   2400
                      Width           =   4995
-                     Begin VB.OptionButton OBTypesJourneesIdx05 
+                     Begin VB.OptionButton OBTypesJourneesIdx08 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "TRAVAIL"
                         BeginProperty Font 
@@ -3797,7 +3702,7 @@ Begin VB.Form FProgrammateurCyclique
                            Strikethrough   =   0   'False
                         EndProperty
                         Height          =   795
-                        Index           =   7
+                        Index           =   0
                         Left            =   120
                         MaskColor       =   &H00FFFFFF&
                         Style           =   1  'Graphical
@@ -3805,7 +3710,7 @@ Begin VB.Form FProgrammateurCyclique
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx05 
+                     Begin VB.OptionButton OBTypesJourneesIdx08 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "VEILLE"
                         BeginProperty Font 
@@ -3826,7 +3731,7 @@ Begin VB.Form FProgrammateurCyclique
                         Top             =   60
                         Width           =   1095
                      End
-                     Begin VB.OptionButton OBTypesJourneesIdx05 
+                     Begin VB.OptionButton OBTypesJourneesIdx08 
                         BackColor       =   &H00C0E0FF&
                         Caption         =   "REPRISE"
                         BeginProperty Font 
@@ -3883,7 +3788,7 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   4
+                     Index           =   7
                      Left            =   240
                      TabIndex        =   112
                      Top             =   480
@@ -3905,7 +3810,7 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   5
+                     Index           =   8
                      Left            =   240
                      TabIndex        =   111
                      Top             =   2040
@@ -3927,7 +3832,7 @@ Begin VB.Form FProgrammateurCyclique
                      EndProperty
                      ForeColor       =   &H00FFFFFF&
                      Height          =   375
-                     Index           =   6
+                     Index           =   9
                      Left            =   240
                      TabIndex        =   110
                      Top             =   3600
@@ -3937,7 +3842,7 @@ Begin VB.Form FProgrammateurCyclique
                Begin VB.PictureBox PBOnglets 
                   Height          =   11475
                   Index           =   9
-                  Left            =   16800
+                  Left            =   17400
                   ScaleHeight     =   11415
                   ScaleWidth      =   15405
                   TabIndex        =   16
@@ -3991,226 +3896,6 @@ Begin VB.Form FProgrammateurCyclique
             End
          End
       End
-   End
-   Begin VB.Label LTitresCuves 
-      Alignment       =   2  'Center
-      BackColor       =   &H00FF0000&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "C17"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   12
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFFFF&
-      Height          =   375
-      Index           =   28
-      Left            =   16080
-      TabIndex        =   190
-      Top             =   11400
-      Width           =   5055
-   End
-   Begin VB.Label LTitresCuves 
-      Alignment       =   2  'Center
-      BackColor       =   &H00FF0000&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "C17"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   12
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFFFF&
-      Height          =   375
-      Index           =   9
-      Left            =   16080
-      TabIndex        =   133
-      Top             =   2880
-      Width           =   5055
-   End
-   Begin VB.Label LTitresCuves 
-      Alignment       =   2  'Center
-      BackColor       =   &H00FF0000&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "C17"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   12
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFFFF&
-      Height          =   375
-      Index           =   20
-      Left            =   0
-      TabIndex        =   125
-      Top             =   0
-      Width           =   14895
-   End
-   Begin VB.Label LTitresCuves 
-      Alignment       =   2  'Center
-      BackColor       =   &H00FF0000&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "C17"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   12
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFFFF&
-      Height          =   375
-      Index           =   11
-      Left            =   6240
-      TabIndex        =   124
-      Top             =   5280
-      Width           =   14895
-   End
-   Begin VB.Label LTitresCuves 
-      Alignment       =   2  'Center
-      BackColor       =   &H00FF0000&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "C27"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   12
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFFFF&
-      Height          =   375
-      Index           =   19
-      Left            =   0
-      TabIndex        =   123
-      Top             =   0
-      Width           =   14895
-   End
-   Begin VB.Label LTitresCuves 
-      Alignment       =   2  'Center
-      BackColor       =   &H00FF0000&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "SAT"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   12
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFFFF&
-      Height          =   495
-      Index           =   16
-      Left            =   0
-      TabIndex        =   118
-      Top             =   0
-      Width           =   14895
-   End
-   Begin VB.Label LTitresCuves 
-      Alignment       =   2  'Center
-      BackColor       =   &H00FF0000&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "SAT"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   12
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFFFF&
-      Height          =   495
-      Index           =   15
-      Left            =   0
-      TabIndex        =   117
-      Top             =   0
-      Width           =   14895
-   End
-   Begin VB.Label LTitresCuves 
-      Alignment       =   2  'Center
-      BackColor       =   &H00FF0000&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "SAT"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   12
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFFFF&
-      Height          =   495
-      Index           =   14
-      Left            =   0
-      TabIndex        =   116
-      Top             =   0
-      Width           =   14895
-   End
-   Begin VB.Label LTitresCuves 
-      Alignment       =   2  'Center
-      BackColor       =   &H00FF0000&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "C02"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   12
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFFFF&
-      Height          =   495
-      Index           =   13
-      Left            =   0
-      TabIndex        =   115
-      Top             =   0
-      Width           =   14895
-   End
-   Begin VB.Label LTitresCuves 
-      Alignment       =   2  'Center
-      BackColor       =   &H00FF0000&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "C02"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   12
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFFFF&
-      Height          =   495
-      Index           =   0
-      Left            =   0
-      TabIndex        =   113
-      Top             =   0
-      Width           =   14895
    End
 End
 Attribute VB_Name = "FProgrammateurCyclique"

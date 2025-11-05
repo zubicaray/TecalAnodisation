@@ -1,4 +1,4 @@
-USE [ANODISATION]
+USE [ANODISATION_2026]
 -- 1. Création de la table UpdatePostes
 -- J'utilise INT pour les deux colonnes car ce sont des nombres entiers.
 IF OBJECT_ID('UpdatePostes', 'U') IS NOT NULL
