@@ -278,16 +278,19 @@ Public Function RecherchePhasesClipper(ByVal NumPhaseClipper As Variant) As Stri
         Requete = "SELECT  CP.Complément as NUMGAMME,'' AS GAMOBS,G.GACLEUNIK,A.NAF,A.COCLI,A.PIECE,C.NOM AS NOMCLIENT,A.QTEAF, A.DESA+  A.DESA2 +A.DESA3  AS DESA1 " & _
                 "FROM  ((AFFAIRE  A INNER JOIN  CLIENT C   ON C.COCLI = A.COCLI ) " & _
                 "INNER JOIN GAMME G on  G.NAF=A.NAF ) " & _
+                "INNER JOIN TECH_NUMEROPOINTAGE G on  G.NAF=A.NAF ) " & _
                 "LEFT JOIN COMPLEMS  CP on  CP.Cléunik=G.GACLEUNIK   and COPAR='GACPL01'   WHERE G.GACLEUNIK='" & NumPhaseClipper & "'"
 
                 
         Requete = "SELECT  CP1.Complément as NUMGAMME, CP2.Complément as MATIERE,'' AS GAMOBS,G.GACLEUNIK,A.NAF,A.COCLI,A.PIECE,C.NOM AS NOMCLIENT,A.QTEAF, A.DESA+  A.DESA2 +A.DESA3  AS DESA1" & _
-            " FROM  (((AFFAIRE  A INNER JOIN  CLIENT C   ON C.COCLI = A.COCLI )" & _
-              " INNER JOIN GAMME G on  G.NAF=A.NAF ) " & _
+            " FROM  ((((AFFAIRE  A INNER JOIN  CLIENT C   ON C.COCLI = A.COCLI )" & _
+            " INNER JOIN GAMME G on  G.NAF=A.NAF ) " & _
+            " INNER JOIN TECH_NUMEROPOINTAGE T on  G.GACLEUNIK=T.GACLEUNIK ) " & _
             " LEFT JOIN COMPLEMS  CP1 on  CP1.Cléunik=G.GACLEUNIK and CP1.COPAR='GACPL01')" & _
             " LEFT JOIN COMPLEMS  CP2 on  CP2.Cléunik=G.GACLEUNIK and CP2.COPAR='GACPL02'" & _
-            " Where g.GaCLeUnik = '" & NumPhaseClipper & "'"
+            " Where T.IDTECH_NUMEROPOINTAGE = '" & NumPhaseClipper & "'"
                 
+         Call Log("Requete=" & Requete)
                 
                 
         .CursorLocation = adUseServer

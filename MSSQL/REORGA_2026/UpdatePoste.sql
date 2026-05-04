@@ -1,4 +1,4 @@
-USE [ANODISATION_2026]
+USE [ANODISATION]
 -- 1. Création de la table UpdatePostes
 -- J'utilise INT pour les deux colonnes car ce sont des nombres entiers.
 IF OBJECT_ID('UpdatePostes', 'U') IS NOT NULL
@@ -220,6 +220,8 @@ INNER JOIN
 
 
 
+
+
 --****************************************************
 --****************************************************
 --****************************************************
@@ -244,3 +246,33 @@ WHERE NOT EXISTS (
     WHERE Pr.NumPosteDepart = P_A.NumPoste
       AND Pr.NumPosteArrivee = P_B.NumPoste
 );
+
+select * from Zones Z;
+
+
+
+--****************************************************
+--****************************************************
+--****************************************************
+
+
+UPDATE Z
+SET 
+    Z.NumPremierPoste = U1.NewPoste,
+    Z.NumDernierPoste = U2.NewPoste
+FROM 
+    ZONES AS Z
+INNER JOIN 
+    UpdatePostes AS U1 ON U1.OldPoste = Z.NumPremierPoste
+INNER JOIN 
+    UpdatePostes AS U2 ON U2.OldPoste = Z.NumDernierPoste;
+
+
+select distinct Z.CodeZone,Z.NumZone,NumPremierPoste,P1.NumPoste,NomPremierPoste,
+    NumDernierPoste,P2.NumPoste,NomDernierPoste 
+from Zones Z 
+INNER JOIN Postes P1 
+    on Z.NomPremierPoste=P1.NomPoste
+INNER JOIN Postes P2 
+    on Z.NomDernierPoste=P2.NomPoste
+where NumPremierPoste != P1.NumPoste or NumDernierPoste !=P2.NumPoste

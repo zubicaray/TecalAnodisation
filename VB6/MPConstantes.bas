@@ -288,8 +288,7 @@ Public Const DERNIERE_CUVE  As Integer = 41
      
  End Enum
 '--- cuves de la ligne d'anodisation ---
-Public Const PREMIERE_CUVE_API   As Integer = 1
-Public Const DERNIERE_CUV_API  As Integer = 24
+
 Public Enum CUVES_API
     
     C_C00 = 1                  'd?graissage

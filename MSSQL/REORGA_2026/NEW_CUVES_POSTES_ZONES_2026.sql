@@ -1,10 +1,10 @@
-USE [ANODISATION_2026]
+USE [ANODISATION]
 GO-- Script d'insertion pour la table [dbo].[Postes]
 -- NOTE: Les valeurs '0' et '1' du CSV ont été converties en 0 et 1 pour les colonnes BIT.
 -- Les lignes 1 et 2 qui n'avaient pas de valeur pour [NumZone] (dernière colonne) reçoivent la valeur 0 pour respecter NOT NULL.
 
 
-
+truncate table [dbo].[Postes];
 INSERT INTO [dbo].[Postes] (
     [NumPoste], [NomPoste], [LibellePoste], [AvecTemps], [RespectTempsObligatoire], 
     [AvecEgouttage], [PresenceCouvercles], [PresenceRedresseur], [PresenceAgitationBain], 
@@ -60,7 +60,7 @@ VALUES
 (44,'D1','déchargement 1',1,0,0,0,0,0,64990,75,54,95,96,153,61,163,91,178,42),
 (45,'D2','déchargement 2',1,0,0,0,0,0,66700,34,13,95,55,153,20,163,50,178,42);
 GO
-
+truncate table [dbo].[Zones]
 INSERT INTO [dbo].[Zones] (
     [ClePrimaire],
     [NumZone],

@@ -771,10 +771,11 @@ Public Function EnvoiNumeroChargePoste(ByVal NumPoste As Integer, _
     
         '--- affectation du nom de la variable ---
         NomVariable = "NumChargePoste" & Right("00" & NumPoste, 2)
-                
+        LogCharge ("NomVariable=" & NomVariable & " , NumCharge:" & NumCharge)
         '--- écriture ---
         If PROGRAMME_AVEC_AUTOMATE = True Then
             ValeurRetourneeAPI = APIEcritureVariableNommee(NOM_GROUPE, NomVariable, NumCharge)
+            LogCharge ("NOM_GROUPE=" & NOM_GROUPE & " , ValeurRetourneeAPI:" & ValeurRetourneeAPI)
             If ValeurRetourneeAPI = 0 Then
                 EnvoiNumeroChargePoste = OK
             End If

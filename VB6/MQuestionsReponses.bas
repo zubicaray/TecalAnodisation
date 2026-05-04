@@ -905,9 +905,9 @@ Public Function ReponseAUneQuestion(ByVal Question As String, _
             'Case "CHGT4": TParametres(NumParametre) = POSTES.P_CHGT_2: PosteCommeParametre = True: Inc NumParametre
             
             Case "C00": TParametres(NumParametre) = POSTES.P_C00: PosteCommeParametre = True: Inc NumParametre
+            Case "C01": TParametres(NumParametre) = POSTES.P_C01: PosteCommeParametre = True: Inc NumParametre
             Case "DEC": TParametres(NumParametre) = POSTES.P_DEC: PosteCommeParametre = True: Inc NumParametre
             Case "SAT": TParametres(NumParametre) = POSTES.P_SAT: PosteCommeParametre = True: Inc NumParametre
-            Case "C01": TParametres(NumParametre) = POSTES.P_C01: PosteCommeParametre = True: Inc NumParametre
             Case "C03": TParametres(NumParametre) = POSTES.P_C03: PosteCommeParametre = True: Inc NumParametre
             Case "C04": TParametres(NumParametre) = POSTES.P_C04: PosteCommeParametre = True: Inc NumParametre
             Case "C05": TParametres(NumParametre) = POSTES.P_C05: PosteCommeParametre = True: Inc NumParametre
@@ -944,7 +944,7 @@ Public Function ReponseAUneQuestion(ByVal Question As String, _
             Case "C36": TParametres(NumParametre) = POSTES.P_C36: PosteCommeParametre = True: Inc NumParametre
             Case "C37": TParametres(NumParametre) = POSTES.P_C37: PosteCommeParametre = True: Inc NumParametre
             Case "C38": TParametres(NumParametre) = POSTES.P_C38: PosteCommeParametre = True: Inc NumParametre
-            Case "C39": TParametres(NumParametre) = POSTES.P_C38: PosteCommeParametre = True: Inc NumParametre
+            Case "C39": TParametres(NumParametre) = POSTES.P_C39: PosteCommeParametre = True: Inc NumParametre
             Case "D1": TParametres(NumParametre) = POSTES.P_D1: PosteCommeParametre = True: Inc NumParametre
             Case "D2": TParametres(NumParametre) = POSTES.P_D2: PosteCommeParametre = True: Inc NumParametre
             
