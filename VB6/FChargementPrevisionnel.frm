@@ -15,7 +15,7 @@ Begin VB.Form FChargementPrevisionnel
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   15690
+   ScaleHeight     =   14220
    ScaleWidth      =   28680
    ShowInTaskbar   =   0   'False
    WindowState     =   2  'Maximized
@@ -3272,7 +3272,7 @@ Begin VB.Form FChargementPrevisionnel
       ScaleWidth      =   28620
       TabIndex        =   0
       TabStop         =   0   'False
-      Top             =   14595
+      Top             =   13125
       Width           =   28680
       Begin MSComctlLib.ImageList ILImagesNumChoix 
          Left            =   6120
@@ -4838,7 +4838,7 @@ Private Sub MEBEditionDetailsCharges_KeyPress(KeyAscii As Integer)
 
             Case Else
                 Select Case .Col
-                    Case COLONNES_DETAILS_CHARGES.C_NUM_COMMANDE_INTERNE: FiltreToucheASCII KeyAscii, DONNEES.D_GENERALE_MAJUSCULES, 8
+                    Case COLONNES_DETAILS_CHARGES.C_NUM_COMMANDE_INTERNE: FiltreToucheASCII KeyAscii, DONNEES.D_GENERALE_MAJUSCULES, 12
                     Case COLONNES_DETAILS_CHARGES.C_NBR_REPARATIONS: FiltreToucheASCII KeyAscii, DONNEES.D_NBR_NATURELS, 1
                     Case COLONNES_DETAILS_CHARGES.C_NBR_PIECES: FiltreToucheASCII KeyAscii, DONNEES.D_NBR_NATURELS, 6
                     Case Else
@@ -4868,6 +4868,8 @@ Private Sub MEBEditionDetailsCharges_LostFocus()
             TexteSansMasque = .ClipText
         End With
       
+        Call Log("TexteComplet=" & TexteComplet)
+        
         Select Case MemNumColonne
         
             Case COLONNES_DETAILS_CHARGES.C_NUM_COMMANDE_INTERNE
@@ -5254,7 +5256,7 @@ Private Sub MEBEditionPrevisionnel_KeyPress(KeyAscii As Integer)
 
             Case Else
                 Select Case .Col
-                    Case COLONNES_PREVISIONNEL.C_NUM_COMMANDE_INTERNE: FiltreToucheASCII KeyAscii, DONNEES.D_GENERALE_MAJUSCULES, 8
+                    Case COLONNES_PREVISIONNEL.C_NUM_COMMANDE_INTERNE: FiltreToucheASCII KeyAscii, DONNEES.D_GENERALE_MAJUSCULES, 12
                     Case COLONNES_PREVISIONNEL.C_NBR_REPARATIONS: FiltreToucheASCII KeyAscii, DONNEES.D_NBR_NATURELS, 1
                     Case COLONNES_PREVISIONNEL.C_NBR_PIECES: FiltreToucheASCII KeyAscii, DONNEES.D_NBR_NATURELS, 6
                     Case COLONNES_PREVISIONNEL.C_NUM_BARRE: FiltreToucheASCII KeyAscii, DONNEES.D_NBR_NATURELS, 2
