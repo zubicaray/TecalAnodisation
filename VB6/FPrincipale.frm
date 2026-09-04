@@ -16,6 +16,31 @@ Begin VB.MDIForm FPrincipale
    Icon            =   "FPrincipale.frx":0000
    LinkTopic       =   "MDIForm1"
    WindowState     =   2  'Maximized
+   Begin VB.PictureBox Picture1 
+      Align           =   1  'Align Top
+      Height          =   735
+      Left            =   0
+      ScaleHeight     =   675
+      ScaleMode       =   0  'User
+      ScaleWidth      =   8675.671
+      TabIndex        =   13
+      Top             =   630
+      Visible         =   0   'False
+      Width           =   13395
+      Begin APPOCXCLIENTLib.AppOcxClient AOCFPrincipale 
+         Height          =   720
+         Left            =   6240
+         TabIndex        =   14
+         Top             =   240
+         Width           =   1050
+         _Version        =   65536
+         _ExtentX        =   1852
+         _ExtentY        =   1270
+         _StockProps     =   0
+         NameConfig      =   ""
+         PathConfig      =   "C:\PROGRAM FILES\COMMON FILES\APPLICOM"
+      End
+   End
    Begin VB.PictureBox PBObjetsTampons 
       Align           =   2  'Align Bottom
       Height          =   990
@@ -26,23 +51,10 @@ Begin VB.MDIForm FPrincipale
       Top             =   7950
       Visible         =   0   'False
       Width           =   13395
-      Begin APPOCXCLIENTLib.AppOcxClient AOCFPrincipale 
-         Height          =   720
-         Left            =   1680
-         TabIndex        =   8
-         Top             =   240
-         Width           =   1050
-         _Version        =   65536
-         _ExtentX        =   1852
-         _ExtentY        =   1270
-         _StockProps     =   0
-         NameConfig      =   "FPrincipale"
-         PathConfig      =   "C:\Anodisation\Base de données"
-      End
       Begin RTUPDATEMANAGERLib.RTUpdateManager RTUpdateManager1 
          Height          =   675
          Left            =   2640
-         TabIndex        =   13
+         TabIndex        =   8
          Top             =   120
          Width           =   975
          _Version        =   65536
